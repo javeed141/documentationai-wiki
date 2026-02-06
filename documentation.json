@@ -1,6 +1,7 @@
 {
   "name": "Datafiniti Docs",
   "initialRoute": "docs/introduction",
+  "template": "atlas",
   "colors": {
     "light": {
       "brand": "#3143e3"
