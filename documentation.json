@@ -9,7 +9,7 @@
       "text": "#374151"
     },
     "dark": {
-      "brand": "#9831D6",
+      "brand": "#a14dd5",
       "heading": "#f2f2f2",
       "text": "#c1c1c1"
     }
@@ -205,7 +205,7 @@
       }
     ]
   },
-  "logo-dark": "https://blob-cdn.documentation.ai/org-106f0b53-a64c-4d13-8896-0b7b7179be7b/doc-6c019e86-a563-4c8b-8133-7830bbe57f54/1770366670540-itzgy91j36-datafiniti-logo-light.png?q=85&fm=auto&auto=compress%2Cformat",
+  "logo-dark": "https://blob-cdn.documentation.ai/org-106f0b53-a64c-4d13-8896-0b7b7179be7b/doc-6c019e86-a563-4c8b-8133-7830bbe57f54/1770366978325-k8qgikr95j-datafiniti-logo-dark.png?q=85&fm=auto&auto=compress%2Cformat",
   "logo-light": "https://blob-cdn.documentation.ai/org-106f0b53-a64c-4d13-8896-0b7b7179be7b/doc-6c019e86-a563-4c8b-8133-7830bbe57f54/1770366670540-itzgy91j36-datafiniti-logo-light.png?q=85&fm=auto&auto=compress%2Cformat",
   "favicon": "https://blob-cdn.documentation.ai/org-106f0b53-a64c-4d13-8896-0b7b7179be7b/doc-6c019e86-a563-4c8b-8133-7830bbe57f54/1770366769050-hb3qlirc1e6-datafiniti-favicon.png?q=85&fm=auto&auto=compress%2Cformat",
   "navbar": {
