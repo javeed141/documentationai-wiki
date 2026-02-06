@@ -12,184 +12,191 @@
   "navigation": {
     "pages": [
       {
-        "title": "Property Data",
+        "title": "Introduction",
         "path": "docs/api-property-data",
-        "icon": "building"
+        "icon": "home"
       },
       {
-        "group": "Getting Started",
-        "icon": "rocket",
+        "group": "Property Data",
+        "icon": "building",
         "expandable": true,
         "pages": [
           {
-            "title": "Getting Started",
-            "path": "docs/getting-started-with-property-data",
-            "icon": "play"
+            "group": "Getting Started",
+            "icon": "rocket",
+            "expandable": true,
+            "pages": [
+              {
+                "title": "Getting Started",
+                "path": "docs/getting-started-with-property-data",
+                "icon": "play"
+              },
+              {
+                "title": "Postman",
+                "path": "docs/property-data-with-postman",
+                "icon": "send"
+              },
+              {
+                "title": "cURL",
+                "path": "docs/property-data-with-curl",
+                "icon": "terminal"
+              },
+              {
+                "title": "Node.js",
+                "path": "docs/property-data-with-nodejs",
+                "icon": "hexagon"
+              },
+              {
+                "title": "PHP",
+                "path": "docs/property-data-with-php",
+                "icon": "code"
+              },
+              {
+                "title": "Python",
+                "path": "docs/property-data-with-python",
+                "icon": "code"
+              },
+              {
+                "title": "WPGetAPI",
+                "path": "docs/property-data-with-wpgetapi",
+                "icon": "globe"
+              }
+            ]
           },
           {
-            "title": "Postman",
-            "path": "docs/property-data-with-postman",
-            "icon": "send"
+            "group": "Property Data Schema",
+            "icon": "database",
+            "expandable": true,
+            "pages": [
+              {
+                "title": "Schema Overview",
+                "path": "docs/property-data-schema",
+                "icon": "file-text"
+              },
+              {
+                "title": "Field Type Breakdown",
+                "path": "docs/property-field-type-breakdown",
+                "icon": "list"
+              },
+              {
+                "title": "Possible Values",
+                "path": "docs/possible-values-for-property-fields",
+                "icon": "check-square"
+              },
+              {
+                "title": "Normalized Addresses",
+                "path": "docs/normalized-address-data",
+                "icon": "map-pin"
+              },
+              {
+                "title": "How Records Are Merged",
+                "path": "docs/how-property-records-are-merged",
+                "icon": "git-merge"
+              }
+            ]
           },
           {
-            "title": "cURL",
-            "path": "docs/property-data-with-curl",
-            "icon": "terminal"
+            "group": "Views",
+            "icon": "eye",
+            "expandable": true,
+            "pages": [
+              {
+                "title": "Views Overview",
+                "path": "docs/property-data-views",
+                "icon": "layout"
+              },
+              {
+                "title": "Available Views",
+                "path": "docs/available-views-for-property-data",
+                "icon": "list"
+              },
+              {
+                "title": "Custom View On-the-Fly",
+                "path": "docs/using-a-custom-property-view",
+                "icon": "zap"
+              },
+              {
+                "title": "Create & Save Views",
+                "path": "docs/create-save-a-custom-property-view",
+                "icon": "save"
+              }
+            ]
           },
           {
-            "title": "Node.js",
-            "path": "docs/property-data-with-nodejs",
-            "icon": "hexagon"
+            "group": "Use Cases",
+            "icon": "lightbulb",
+            "expandable": true,
+            "pages": [
+              {
+                "title": "Use Cases Overview",
+                "path": "docs/use-cases-for-property-data",
+                "icon": "book-open"
+              },
+              {
+                "title": "Search MLS Data",
+                "path": "docs/search-mls-numbers-or-download-mls-markets",
+                "icon": "search"
+              },
+              {
+                "title": "Determine Home Values",
+                "path": "docs/determine-home-values",
+                "icon": "dollar-sign"
+              },
+              {
+                "title": "Search by Address",
+                "path": "docs/search-by-street-address",
+                "icon": "map-pin"
+              }
+            ]
           },
           {
-            "title": "PHP",
-            "path": "docs/property-data-with-php",
-            "icon": "code"
+            "group": "Constructing Queries",
+            "icon": "search",
+            "expandable": true,
+            "pages": [
+              {
+                "title": "Query Syntax",
+                "path": "docs/constructing-property-queries",
+                "icon": "code"
+              },
+              {
+                "title": "Advanced Queries",
+                "path": "docs/advanced-queries-of-property-postman",
+                "icon": "terminal"
+              }
+            ]
           },
           {
-            "title": "Python",
-            "path": "docs/property-data-with-python",
-            "icon": "code"
-          },
-          {
-            "title": "WPGetAPI",
-            "path": "docs/property-data-with-wpgetapi",
-            "icon": "globe"
-          }
-        ]
-      },
-      {
-        "group": "Property Data Schema",
-        "icon": "database",
-        "expandable": true,
-        "pages": [
-          {
-            "title": "Schema Overview",
-            "path": "docs/property-data-schema",
-            "icon": "file-text"
-          },
-          {
-            "title": "Field Type Breakdown",
-            "path": "docs/property-field-type-breakdown",
-            "icon": "list"
-          },
-          {
-            "title": "Possible Values",
-            "path": "docs/possible-values-for-property-fields",
-            "icon": "check-square"
-          },
-          {
-            "title": "Normalized Addresses",
-            "path": "docs/normalized-address-data",
-            "icon": "map-pin"
-          },
-          {
-            "title": "How Records Are Merged",
-            "path": "docs/how-property-records-are-merged",
-            "icon": "git-merge"
-          }
-        ]
-      },
-      {
-        "group": "Views",
-        "icon": "eye",
-        "expandable": true,
-        "pages": [
-          {
-            "title": "Views Overview",
-            "path": "docs/property-data-views",
-            "icon": "layout"
-          },
-          {
-            "title": "Available Views",
-            "path": "docs/available-views-for-property-data",
-            "icon": "list"
-          },
-          {
-            "title": "Custom View On-the-Fly",
-            "path": "docs/using-a-custom-property-view",
-            "icon": "zap"
-          },
-          {
-            "title": "Create & Save Views",
-            "path": "docs/create-save-a-custom-property-view",
-            "icon": "save"
-          }
-        ]
-      },
-      {
-        "group": "Use Cases",
-        "icon": "lightbulb",
-        "expandable": true,
-        "pages": [
-          {
-            "title": "Use Cases Overview",
-            "path": "docs/use-cases-for-property-data",
-            "icon": "book-open"
-          },
-          {
-            "title": "Search MLS Data",
-            "path": "docs/search-mls-numbers-or-download-mls-markets",
-            "icon": "search"
-          },
-          {
-            "title": "Determine Home Values",
-            "path": "docs/determine-home-values",
-            "icon": "dollar-sign"
-          },
-          {
-            "title": "Search by Address",
-            "path": "docs/search-by-street-address",
-            "icon": "map-pin"
-          }
-        ]
-      },
-      {
-        "group": "Constructing Queries",
-        "icon": "search",
-        "expandable": true,
-        "pages": [
-          {
-            "title": "Query Syntax",
-            "path": "docs/constructing-property-queries",
-            "icon": "code"
-          },
-          {
-            "title": "Advanced Queries",
-            "path": "docs/advanced-queries-of-property-postman",
-            "icon": "terminal"
-          }
-        ]
-      },
-      {
-        "group": "API Features",
-        "icon": "settings",
-        "expandable": true,
-        "pages": [
-          {
-            "title": "Features Overview",
-            "path": "docs/property-api-features",
-            "icon": "layers"
-          },
-          {
-            "title": "Autotrace",
-            "path": "docs/autotrace-property",
-            "icon": "link"
-          },
-          {
-            "title": "Count",
-            "path": "docs/count-property",
-            "icon": "hash"
-          },
-          {
-            "title": "Geolocation",
-            "path": "docs/geolocation-property",
-            "icon": "map-pin"
-          },
-          {
-            "title": "Pagination",
-            "path": "docs/pagination-property",
-            "icon": "layers"
+            "group": "API Features",
+            "icon": "settings",
+            "expandable": true,
+            "pages": [
+              {
+                "title": "Features Overview",
+                "path": "docs/property-api-features",
+                "icon": "layers"
+              },
+              {
+                "title": "Autotrace",
+                "path": "docs/autotrace-property",
+                "icon": "link"
+              },
+              {
+                "title": "Count",
+                "path": "docs/count-property",
+                "icon": "hash"
+              },
+              {
+                "title": "Geolocation",
+                "path": "docs/geolocation-property",
+                "icon": "map-pin"
+              },
+              {
+                "title": "Pagination",
+                "path": "docs/pagination-property",
+                "icon": "layers"
+              }
+            ]
           }
         ]
       }
