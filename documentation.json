@@ -1,6 +1,6 @@
 {
   "name": "Datafiniti Docs",
-  "initialRoute": "docs/api-property-data",
+  "initialRoute": "docs/introduction",
   "colors": {
     "light": {
       "brand": "#3143e3"
@@ -13,7 +13,7 @@
     "pages": [
       {
         "title": "Introduction",
-        "path": "docs/api-property-data",
+        "path": "docs/introduction",
         "icon": "home"
       },
       {
@@ -21,6 +21,11 @@
         "icon": "building",
         "expandable": true,
         "pages": [
+          {
+            "title": "Overview",
+            "path": "docs/api-property-data",
+            "icon": "info"
+          },
           {
             "group": "Getting Started",
             "icon": "rocket",
