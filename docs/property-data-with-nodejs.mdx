@@ -1,0 +1,183 @@
+---
+title: "Property Data with Node.js"
+description: "Learn how to use Datafiniti's Property Data API with Node.js to search, filter, and download property records."
+---
+
+For this guide, we'll use Node.js to access Datafiniti's property data API.
+
+**Your environment and data needs:**
+
+- You're working with Node.js
+- You want to work with CSV or JSON data
+
+<Steps>
+  <Step title="Install dependencies" icon="download" title-type="h3">
+    Install the required packages:
+
+    ```bash
+    npm install axios
+    ```
+  </Step>
+
+  <Step title="Get your API token" icon="key" title-type="h3">
+    To get your API token:
+    1. Go to the [Datafiniti Web Portal](https://portal.datafiniti.co/settings/api)
+    2. Login and copy your API token
+
+    <Callout kind="info">
+      Replace `AAAXXXXXXXXXXXX` with your actual API token in the examples below.
+    </Callout>
+  </Step>
+
+  <Step title="Run your first search" icon="search" title-type="h3">
+    Create a file called `search.js`:
+
+    ```javascript
+    const axios = require('axios');
+
+    const API_TOKEN = 'AAAXXXXXXXXXXXX';
+
+    async function searchProperties() {
+      try {
+        const response = await axios.post(
+          'https://api.datafiniti.co/v4/properties/search',
+          {
+            query: 'country:US',
+            num_records: 1,
+            format: 'JSON'
+          },
+          {
+            headers: {
+              'Authorization': `Bearer ${API_TOKEN}`,
+              'Content-Type': 'application/json'
+            }
+          }
+        );
+
+        console.log('Records found:', response.data.num_found);
+        console.log('Records:', JSON.stringify(response.data.records, null, 2));
+      } catch (error) {
+        console.error('Error:', error.message);
+      }
+    }
+
+    searchProperties();
+    ```
+
+    Run with:
+
+    ```bash
+    node search.js
+    ```
+  </Step>
+
+  <Step title="Refine your search" icon="filter" title-type="h3">
+    Update the query to narrow results:
+
+    ```javascript
+    const axios = require('axios');
+
+    const API_TOKEN = 'AAAXXXXXXXXXXXX';
+
+    async function searchProperties() {
+      try {
+        const response = await axios.post(
+          'https://api.datafiniti.co/v4/properties/search',
+          {
+            query: 'country:US AND propertyType:"Single Family Dwelling"',
+            num_records: 10,
+            format: 'JSON'
+          },
+          {
+            headers: {
+              'Authorization': `Bearer ${API_TOKEN}`,
+              'Content-Type': 'application/json'
+            }
+          }
+        );
+
+        console.log('Records found:', response.data.num_found);
+        response.data.records.forEach((record, index) => {
+          console.log(`\nRecord ${index + 1}:`);
+          console.log(`  Address: ${record.address}`);
+          console.log(`  City: ${record.city}, ${record.province}`);
+          console.log(`  Bedrooms: ${record.numBedroom}`);
+        });
+      } catch (error) {
+        console.error('Error:', error.message);
+      }
+    }
+
+    searchProperties();
+    ```
+  </Step>
+
+  <Step title="Download data" icon="download" title-type="h3">
+    Create a complete download script:
+
+    ```javascript
+    const axios = require('axios');
+    const fs = require('fs');
+    const https = require('https');
+
+    const API_TOKEN = 'AAAXXXXXXXXXXXX';
+
+    async function downloadProperties() {
+      try {
+        // Initiate download
+        const response = await axios.post(
+          'https://api.datafiniti.co/v4/properties/search',
+          {
+            query: 'country:US AND propertyType:"Single Family Dwelling"',
+            num_records: 50,
+            format: 'JSON',
+            download: true
+          },
+          {
+            headers: {
+              'Authorization': `Bearer ${API_TOKEN}`,
+              'Content-Type': 'application/json'
+            }
+          }
+        );
+
+        const downloadId = response.data.id;
+        console.log('Download initiated, ID:', downloadId);
+
+        // Poll for completion
+        let status = 'running';
+        while (status !== 'completed') {
+          await new Promise(resolve => setTimeout(resolve, 5000));
+          
+          const statusResponse = await axios.get(
+            `https://api.datafiniti.co/v4/downloads/${downloadId}`,
+            {
+              headers: { 'Authorization': `Bearer ${API_TOKEN}` }
+            }
+          );
+          
+          status = statusResponse.data.status;
+          console.log('Status:', status, '- Downloaded:', statusResponse.data.num_downloaded);
+          
+          if (status === 'completed') {
+            // Download result files
+            const results = statusResponse.data.results;
+            for (let i = 0; i < results.length; i++) {
+              const filename = `properties_${downloadId}_${i + 1}.json`;
+              const file = fs.createWriteStream(filename);
+              https.get(results[i], (response) => {
+                response.pipe(file);
+                console.log('Saved:', filename);
+              });
+            }
+          }
+        }
+      } catch (error) {
+        console.error('Error:', error.message);
+      }
+    }
+
+    downloadProperties();
+    ```
+  </Step>
+</Steps>

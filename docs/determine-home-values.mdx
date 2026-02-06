@@ -1,0 +1,106 @@
+---
+title: "Determine Home Values"
+description: "Use Datafiniti's Property Data API to analyze property values and price trends."
+---
+
+Analyze property values using historical pricing data, comparable sales, and market trends.
+
+## Get current listing prices
+
+Find properties currently for sale with their asking prices:
+
+```json
+{
+  "query": "city:Austin AND province:TX AND mostRecentStatus:\"For Sale\"",
+  "num_records": 100,
+  "view": "address,city,numBedroom,numBathroom,floorSizeValue,mostRecentPriceAmount,mostRecentPriceDate"
+}
+```
+
+## Find recently sold properties
+
+Analyze sold prices in a specific area:
+
+```json
+{
+  "query": "city:Austin AND province:TX AND statusHistory.type:Sold AND statusHistory.date:[2024-01-01 TO *]",
+  "num_records": 100,
+  "view": "address,numBedroom,numBathroom,floorSizeValue,prices"
+}
+```
+
+## Calculate price per square foot
+
+Get data to calculate price per square foot:
+
+```json
+{
+  "query": "postalCode:78701 AND floorSizeValue:[1000 TO *]",
+  "num_records": 50,
+  "view": "address,floorSizeValue,floorSizeUnit,mostRecentPriceAmount,prices.pricePerSquareFoot"
+}
+```
+
+## Compare by property characteristics
+
+Find comparable properties (comps):
+
+```json
+{
+  "query": "city:Austin AND numBedroom:3 AND numBathroom:[2 TO 3] AND floorSizeValue:[1500 TO 2000] AND yearBuilt:[2000 TO *]",
+  "num_records": 25,
+  "view": "address,numBedroom,numBathroom,floorSizeValue,yearBuilt,mostRecentPriceAmount,mostRecentStatus"
+}
+```
+
+## Track price history
+
+Get full price history for analysis:
+
+```json
+{
+  "query": "address:\"123 Main St\" AND city:Austin",
+  "num_records": 1,
+  "view": "address,prices"
+}
+```
+
+Example response showing price history:
+
+```json
+{
+  "prices": [
+    {
+      "amountMin": 450000,
+      "dateSeen": ["2024-06-01"],
+      "type": "Sale List"
+    },
+    {
+      "amountMin": 425000,
+      "dateSeen": ["2024-03-15"],
+      "type": "Sale List"
+    },
+    {
+      "amountMin": 380000,
+      "dateSeen": ["2022-08-10"],
+      "type": "Sold"
+    }
+  ]
+}
+```
+
+## Analyze assessed values
+
+Compare market prices to tax assessments:
+
+```json
+{
+  "query": "city:Austin AND assessedValues.year:2024",
+  "num_records": 100,
+  "view": "address,mostRecentPriceAmount,assessedValues"
+}
+```
+
+<Callout kind="tip">
+  Combine multiple criteria to find the most relevant comparable properties for accurate valuations.
+</Callout>

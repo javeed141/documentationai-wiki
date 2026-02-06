@@ -1,0 +1,156 @@
+---
+title: "Advanced Queries of Property Data in Postman"
+description: "Build complex property data queries using Postman with advanced techniques."
+---
+
+This guide covers advanced query techniques for the Datafiniti Property Data API using Postman.
+
+## Setting up Postman
+
+1. Import the Datafiniti API collection
+2. Set your API token in the Authorization header
+3. Navigate to **Search Property Data** endpoint
+
+## Complex boolean queries
+
+### Combining multiple conditions
+
+```json
+{
+  "query": "province:TX AND city:(Austin OR Dallas OR Houston) AND propertyType:\"Single Family Dwelling\" AND numBedroom:[3 TO 5] AND mostRecentStatus:\"For Sale\"",
+  "num_records": 50
+}
+```
+
+### Using NOT to exclude
+
+```json
+{
+  "query": "province:CA AND propertyType:\"Single Family Dwelling\" AND NOT city:(Los Angeles OR San Francisco) AND prices.amountMin:[500000 TO 1000000]",
+  "num_records": 50
+}
+```
+
+## Nested field queries
+
+### Query broker information
+
+```json
+{
+  "query": "brokers.company:\"Keller Williams\" AND province:TX",
+  "num_records": 25
+}
+```
+
+### Query price history
+
+```json
+{
+  "query": "prices.type:Sold AND prices.dateSeen:[2024-01-01 TO *] AND city:Austin",
+  "num_records": 100
+}
+```
+
+### Query status history
+
+```json
+{
+  "query": "statusHistory.type:\"For Sale\" AND statusHistory.date:[2024-06-01 TO *] AND province:FL",
+  "num_records": 50
+}
+```
+
+## Date-based queries
+
+### Properties added recently
+
+```json
+{
+  "query": "dateAdded:[2024-01-01 TO *] AND province:TX",
+  "num_records": 100
+}
+```
+
+### Properties updated in last 30 days
+
+```json
+{
+  "query": "dateUpdated:[now-30d TO *] AND city:Austin",
+  "num_records": 50
+}
+```
+
+## Geolocation queries
+
+### Search within a bounding box
+
+```json
+{
+  "query": "latitude:[30.2 TO 30.4] AND longitude:[-97.8 TO -97.6]",
+  "num_records": 100
+}
+```
+
+## Combining with views
+
+### Optimized query with custom view
+
+```json
+{
+  "query": "province:TX AND propertyType:\"Single Family Dwelling\" AND mostRecentStatus:\"For Sale\" AND numBedroom:[3 TO *]",
+  "num_records": 100,
+  "view": "address,city,postalCode,numBedroom,numBathroom,floorSizeValue,mostRecentPriceAmount,mostRecentBrokerAgent,mostRecentBrokerPhones",
+  "format": "CSV"
+}
+```
+
+## Pagination for large results
+
+### First page
+
+```json
+{
+  "query": "province:TX AND mostRecentStatus:\"For Sale\"",
+  "num_records": 100
+}
+```
+
+### Subsequent pages
+
+Use the scroll token from the response:
+
+```json
+{
+  "query": "province:TX AND mostRecentStatus:\"For Sale\"",
+  "num_records": 100,
+  "scroll_token": "DnF1ZXJ5VGhlbkZldGNo..."
+}
+```
+
+## Download large datasets
+
+```json
+{
+  "query": "province:TX AND propertyType:\"Single Family Dwelling\"",
+  "format": "CSV",
+  "download": true,
+  "num_records": 10000
+}
+```
+
+<Callout kind="alert">
+  Large downloads may take several minutes. Monitor the download status using the Get Download endpoint.
+</Callout>
+
+## Debugging queries
+
+### Check record count first
+
+```json
+{
+  "query": "your complex query here",
+  "num_records": 0
+}
+```
+
+This returns `num_found` without downloading any records, helping you estimate the dataset size.

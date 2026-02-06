@@ -1,0 +1,177 @@
+---
+title: "Property Data with PHP"
+description: "Learn how to use Datafiniti's Property Data API with PHP to search, filter, and download property records."
+---
+
+For this guide, we'll use PHP to access Datafiniti's property data API.
+
+**Your environment and data needs:**
+
+- You're working with PHP
+- You want to work with CSV or JSON data
+
+<Steps>
+  <Step title="Get your API token" icon="key" title-type="h3">
+    To get your API token:
+    1. Go to the [Datafiniti Web Portal](https://portal.datafiniti.co/settings/api)
+    2. Login and copy your API token
+
+    <Callout kind="info">
+      Replace `AAAXXXXXXXXXXXX` with your actual API token in the examples below.
+    </Callout>
+  </Step>
+
+  <Step title="Run your first search" icon="search" title-type="h3">
+    Create a file called `search.php`:
+
+    ```php
+    <?php
+
+    $apiToken = 'AAAXXXXXXXXXXXX';
+
+    $data = [
+        'query' => 'country:US',
+        'num_records' => 1,
+        'format' => 'JSON'
+    ];
+
+    $ch = curl_init('https://api.datafiniti.co/v4/properties/search');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Authorization: Bearer ' . $apiToken,
+        'Content-Type: application/json'
+    ]);
+
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if ($httpCode === 200) {
+        $result = json_decode($response, true);
+        echo "Records found: " . $result['num_found'] . "\n";
+        print_r($result['records']);
+    } else {
+        echo "Request failed with code: " . $httpCode . "\n";
+    }
+
+    ?>
+    ```
+
+    Run with:
+
+    ```bash
+    php search.php
+    ```
+  </Step>
+
+  <Step title="Refine your search" icon="filter" title-type="h3">
+    Update the query to narrow results:
+
+    ```php
+    <?php
+
+    $apiToken = 'AAAXXXXXXXXXXXX';
+
+    $data = [
+        'query' => 'country:US AND propertyType:"Single Family Dwelling"',
+        'num_records' => 10,
+        'format' => 'JSON'
+    ];
+
+    $ch = curl_init('https://api.datafiniti.co/v4/properties/search');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Authorization: Bearer ' . $apiToken,
+        'Content-Type: application/json'
+    ]);
+
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if ($httpCode === 200) {
+        $result = json_decode($response, true);
+        echo "Records found: " . $result['num_found'] . "\n\n";
+        
+        foreach ($result['records'] as $index => $record) {
+            echo "Record " . ($index + 1) . ":\n";
+            echo "  Address: " . ($record['address'] ?? 'N/A') . "\n";
+            echo "  City: " . ($record['city'] ?? 'N/A') . ", " . ($record['province'] ?? 'N/A') . "\n";
+            echo "  Bedrooms: " . ($record['numBedroom'] ?? 'N/A') . "\n\n";
+        }
+    } else {
+        echo "Request failed\n";
+    }
+
+    ?>
+    ```
+  </Step>
+
+  <Step title="Download data" icon="download" title-type="h3">
+    Create a complete download script:
+
+    ```php
+    <?php
+
+    $apiToken = 'AAAXXXXXXXXXXXX';
+
+    // Initiate download
+    $data = [
+        'query' => 'country:US AND propertyType:"Single Family Dwelling"',
+        'num_records' => 50,
+        'format' => 'JSON',
+        'download' => true
+    ];
+
+    $ch = curl_init('https://api.datafiniti.co/v4/properties/search');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Authorization: Bearer ' . $apiToken,
+        'Content-Type: application/json'
+    ]);
+
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    $result = json_decode($response, true);
+    $downloadId = $result['id'];
+    echo "Download initiated, ID: " . $downloadId . "\n";
+
+    // Poll for completion
+    $status = 'running';
+    while ($status !== 'completed') {
+        sleep(5);
+        
+        $ch = curl_init('https://api.datafiniti.co/v4/downloads/' . $downloadId);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Authorization: Bearer ' . $apiToken
+        ]);
+        
+        $statusResponse = curl_exec($ch);
+        curl_close($ch);
+        
+        $statusResult = json_decode($statusResponse, true);
+        $status = $statusResult['status'];
+        echo "Status: " . $status . " - Downloaded: " . $statusResult['num_downloaded'] . "\n";
+        
+        if ($status === 'completed') {
+            // Download result files
+            foreach ($statusResult['results'] as $index => $url) {
+                $filename = "properties_{$downloadId}_" . ($index + 1) . ".json";
+                file_put_contents($filename, file_get_contents($url));
+                echo "Saved: " . $filename . "\n";
+            }
+        }
+    }
+
+    ?>
+    ```
+  </Step>
+</Steps>

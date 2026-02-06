@@ -1,0 +1,114 @@
+---
+title: "Pagination"
+description: "Navigate through large result sets efficiently using pagination in the Datafiniti Property Data API."
+---
+
+Pagination allows you to retrieve large datasets in manageable chunks.
+
+## How pagination works
+
+When you make a search request, the API returns:
+- A batch of records (up to your `num_records` limit)
+- A `scroll_token` for retrieving the next batch
+
+## Basic pagination
+
+### First request
+
+```json
+{
+  "query": "province:TX AND mostRecentStatus:\"For Sale\"",
+  "num_records": 100
+}
+```
+
+### Response
+
+```json
+{
+  "num_found": 125432,
+  "total_cost": 100,
+  "scroll_token": "DnF1ZXJ5VGhlbkZldGNoAwAAAA...",
+  "records": [
+    // 100 records
+  ]
+}
+```
+
+### Subsequent requests
+
+Use the `scroll_token` from the previous response:
+
+```json
+{
+  "query": "province:TX AND mostRecentStatus:\"For Sale\"",
+  "num_records": 100,
+  "scroll_token": "DnF1ZXJ5VGhlbkZldGNoAwAAAA..."
+}
+```
+
+## Python pagination example
+
+```python
+import requests
+
+API_TOKEN = 'AAAXXXXXXXXXXXX'
+BASE_URL = 'https://api.datafiniti.co/v4/properties/search'
+
+headers = {
+    'Authorization': f'Bearer {API_TOKEN}',
+    'Content-Type': 'application/json'
+}
+
+all_records = []
+scroll_token = None
+
+while True:
+    request_data = {
+        'query': 'province:TX AND mostRecentStatus:"For Sale"',
+        'num_records': 100
+    }
+    
+    if scroll_token:
+        request_data['scroll_token'] = scroll_token
+    
+    response = requests.post(BASE_URL, json=request_data, headers=headers)
+    data = response.json()
+    
+    all_records.extend(data['records'])
+    print(f"Retrieved {len(all_records)} of {data['num_found']} records")
+    
+    # Check if we have more records
+    if len(data['records']) < 100 or len(all_records) >= data['num_found']:
+        break
+    
+    scroll_token = data.get('scroll_token')
+    if not scroll_token:
+        break
+
+print(f"Total records retrieved: {len(all_records)}")
+```
+
+## Pagination vs download
+
+| Method | Best for | Credits |
+|--------|----------|---------|
+| Pagination | Real-time processing, smaller datasets | Per record |
+| Download | Large datasets, batch processing | Per record |
+
+<Callout kind="tip">
+  For datasets over 10,000 records, consider using the download feature instead of pagination for better performance.
+</Callout>
+
+## Scroll token expiration
+
+- Scroll tokens expire after a period of inactivity
+- If a token expires, start a new search from the beginning
+- Process records promptly to avoid token expiration
+
+## Best practices
+
+1. **Set appropriate batch sizes** - 100-1000 records per request
+2. **Process records as you go** - Don't wait until all records are retrieved
+3. **Handle token expiration** - Implement retry logic for expired tokens
+4. **Use downloads for large datasets** - More efficient for 10,000+ records

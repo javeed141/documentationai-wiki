@@ -1,0 +1,96 @@
+---
+title: "Available Views for Property Data"
+description: "Pre-built views available for Datafiniti Property Data API responses."
+---
+
+Datafiniti provides several pre-built views optimized for common use cases.
+
+## Default view
+
+The default view returns all available fields for each property record. Use this when you need comprehensive data.
+
+```json
+{
+  "query": "country:US",
+  "num_records": 10
+}
+```
+
+## Property basic view
+
+Returns core property information:
+
+```json
+{
+  "query": "country:US",
+  "num_records": 10,
+  "view": "property_basic"
+}
+```
+
+**Included fields:**
+- `id`, `address`, `city`, `province`, `postalCode`, `country`
+- `propertyType`, `numBedroom`, `numBathroom`
+- `floorSizeValue`, `floorSizeUnit`
+- `yearBuilt`
+
+## Property with prices view
+
+Includes pricing information:
+
+```json
+{
+  "query": "country:US",
+  "num_records": 10,
+  "view": "property_prices"
+}
+```
+
+**Included fields:**
+- All basic fields
+- `prices`, `mostRecentPriceAmount`, `mostRecentPriceDate`
+- `mostRecentStatus`, `mostRecentStatusDate`
+
+## Property with brokers view
+
+Includes broker/agent information:
+
+```json
+{
+  "query": "country:US",
+  "num_records": 10,
+  "view": "property_brokers"
+}
+```
+
+**Included fields:**
+- All basic fields
+- `brokers`, `mostRecentBrokerAgent`, `mostRecentBrokerCompany`
+- `mostRecentBrokerPhones`, `mostRecentBrokerEmails`
+
+## Flattened views
+
+Flattened views convert nested arrays into individual columns, useful for CSV exports:
+
+```json
+{
+  "query": "country:US",
+  "num_records": 10,
+  "format": "CSV",
+  "view": "property_flat"
+}
+```
+
+<Callout kind="info">
+  Flattened views are particularly useful when exporting to CSV format for analysis in spreadsheet applications.
+</Callout>
+
+## Comparing views
+
+| View | Fields | Best for |
+|------|--------|----------|
+| Default | All | Comprehensive analysis |
+| Basic | Core property info | Quick lookups |
+| Prices | Property + pricing | Market analysis |
+| Brokers | Property + agents | Lead generation |
+| Flat | Flattened arrays | CSV exports |

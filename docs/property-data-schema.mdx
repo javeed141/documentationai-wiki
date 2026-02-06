@@ -1,0 +1,139 @@
+---
+title: "Property Data Schema"
+description: "Complete reference of all available fields in Datafiniti property records including addresses, prices, brokers, and transactions."
+---
+
+The property data schema below lists all available fields in a property record. Note that actual property records may not have every field present.
+
+<Callout kind="info">
+  Each property record will have multiple fields associated with it. The API response will show all fields that have a value and won't show any fields that don't have a value.
+</Callout>
+
+## Core property fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | string | Unique identifier for the property record |
+| `address` | text | Physical street address for this property |
+| `city` | text | City where the property is located |
+| `province` | text | Province or state for this property |
+| `postalCode` | keyword | Postal or zip code of the property |
+| `country` | text | Country where the property is located |
+| `latitude` | float | Geographic latitude coordinate |
+| `longitude` | float | Geographic longitude coordinate |
+
+## Property details
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `propertyType` | text | Classification for the property type (e.g., Single Family Dwelling, Condo) |
+| `numBedroom` | integer | Number of bedrooms in this property |
+| `numBathroom` | float | Number of bathrooms (can be whole or decimal, e.g., 1.25) |
+| `numFloor` | integer | Number of floors or stories |
+| `numRoom` | integer | Number of rooms in this property |
+| `numUnit` | integer | Number of units available |
+| `floorSizeValue` | float | Floor size value |
+| `floorSizeUnit` | text | Unit of measurement for floor size |
+| `lotSizeValue` | float | Lot size value |
+| `lotSizeUnit` | text | Unit of measurement for lot size |
+| `yearBuilt` | integer | Year the property was built |
+
+## Pricing information
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `prices` | nested | List of prices for this property |
+| `prices.amountMin` | float | Minimum price value listed |
+| `prices.amountMax` | float | Maximum price value listed |
+| `prices.currency` | text | Currency for the price (e.g., USD) |
+| `prices.dateSeen` | date | Dates when this price was seen |
+| `prices.status` | string | Property status (For Sale, Sold, etc.) |
+| `prices.pricePerSquareFoot` | float | Price divided by square footage |
+| `mostRecentPriceAmount` | float | Most recent price amount |
+| `mostRecentPriceDomain` | text | Domain source of most recent price |
+| `mostRecentPriceDate` | date | Date of most recent price |
+
+## Broker information
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `brokers` | nested | List of brokers that have represented this property |
+| `brokers.agent` | text | Name of the real estate agent |
+| `brokers.company` | text | Company the agent works for |
+| `brokers.emails` | keyword | Email addresses associated with the agent |
+| `brokers.phones` | keyword | Phone numbers associated with the agent |
+| `brokers.licenseNumber` | text | License number of the agent |
+| `brokers.dateSeen` | date | Date this agent was seen representing the property |
+| `brokers.people_key` | text | Key linking to Datafiniti's people data record |
+
+## Owner information
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `owners` | nested | List of property owners |
+| `owners.firstName` | text | First name of the owner |
+| `owners.lastName` | text | Last name of the owner |
+| `owners.transactionDate` | date | Date the owner purchased this property |
+| `owners.peopleKey` | keyword | Key matched to Datafiniti's people database |
+| `ownerOccupied` | boolean | Whether owner occupies the property |
+
+## Transaction data
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `transactions` | nested | List of transactional data after a sale |
+| `transactions.saleDate` | date | Date when transaction occurred |
+| `transactions.price` | double | Price of the property for this transaction |
+| `transactions.buyerFirstName` | string | First name of the buyer |
+| `transactions.buyerLastName` | string | Last name of the buyer |
+| `transactions.sellerFirstName` | string | First name of the seller |
+| `transactions.sellerLastName` | string | Last name of the seller |
+| `transactions.lenderName` | string | Name of the lender |
+| `transactions.loanType` | string | Type of loan for this transaction |
+| `transactions.loanAmount` | double | Loan amount |
+
+## Status information
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `statusHistory` | nested | List of historical statuses for this property |
+| `statusHistory.type` | keyword | Status type (For Sale, Sold, Off Market, etc.) |
+| `statusHistory.date` | date | Date the status occurred |
+| `statusHistory.dateSeen` | date | Dates when this status was seen |
+| `statusHistory.sourceURLs` | url | Source URL of the status |
+| `mostRecentStatus` | string | Most recent property status |
+| `mostRecentStatusDate` | date | Date of most recent status |
+
+## Tax and assessment data
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `propertyTaxes` | nested | List of property taxes |
+| `propertyTaxes.amount` | float | Tax amount |
+| `propertyTaxes.currency` | text | Currency of the tax amount |
+| `propertyTaxes.year` | integer | Year of taxable amount |
+| `assessedValues` | nested | Assessed values of the property |
+| `assessedValues.totalAmount` | float | Total assessed value |
+| `assessedValues.landAmount` | float | Assessed value for land |
+| `assessedValues.improvementsAmount` | float | Assessed value for improvements |
+| `assessedValues.year` | integer | Year of assessment |
+| `taxID` | keyword | Tax ID for the property |
+
+## Additional fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `mlsNumber` | text | MLS listing number |
+| `features` | nested | Property features (key-value pairs) |
+| `appliances` | text | Appliances included with the property |
+| `parking` | text | Parking details |
+| `parkingTypes` | text | Types of parking available |
+| `numParkingSpaces` | integer | Number of parking spots |
+| `roofing` | text | Roof materials |
+| `hvacTypes` | text | HVAC system types |
+| `petPolicy` | text | Pet policy for the property |
+| `reviews` | nested | Reviews for this property |
+
+<Callout kind="tip">
+  For a complete breakdown of field types and possible values, see the [Field Type Breakdown](/docs/property-field-type-breakdown) and [Possible Values](/docs/possible-values-for-property-fields) pages.
+</Callout>

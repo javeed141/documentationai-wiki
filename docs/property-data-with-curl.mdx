@@ -1,0 +1,110 @@
+---
+title: "Property Data with cURL"
+description: "Learn how to use Datafiniti's Property Data API with cURL to search, filter, and download property records from the command line."
+---
+
+For this guide, we'll use cURL to access Datafiniti's property data API directly from the command line.
+
+**Your environment and data needs:**
+
+- You're working with cURL (command line)
+- You want to work with CSV or JSON data
+
+<Steps>
+  <Step title="Get your API token" icon="key" title-type="h3">
+    To get your API token:
+    1. Go to the [Datafiniti Web Portal](https://portal.datafiniti.co/settings/api)
+    2. Login and copy your API token
+
+    <Callout kind="info">
+      For the examples below, replace `AAAXXXXXXXXXXXX` with your actual API token.
+    </Callout>
+  </Step>
+
+  <Step title="Run your first search" icon="search" title-type="h3">
+    Execute this cURL command to search for US properties:
+
+    ```bash
+    curl -X POST 'https://api.datafiniti.co/v4/properties/search' \
+      -H 'Authorization: Bearer AAAXXXXXXXXXXXX' \
+      -H 'Content-Type: application/json' \
+      -d '{
+        "query": "country:US",
+        "num_records": 1,
+        "format": "JSON"
+      }'
+    ```
+
+    You'll receive a response with matching property records:
+
+    ```json
+    {
+      "num_found": 7983205,
+      "total_cost": 1,
+      "records": [
+        {
+          "address": "711 Kent Ave",
+          "city": "Catonsville",
+          "country": "US",
+          "numBathroom": 2,
+          "numBedroom": 4,
+          "propertyType": "Single Family Dwelling",
+          "province": "MD"
+        }
+      ]
+    }
+    ```
+  </Step>
+
+  <Step title="Refine your search" icon="filter" title-type="h3">
+    Narrow your search to specific property types:
+
+    ```bash
+    curl -X POST 'https://api.datafiniti.co/v4/properties/search' \
+      -H 'Authorization: Bearer AAAXXXXXXXXXXXX' \
+      -H 'Content-Type: application/json' \
+      -d '{
+        "query": "country:US AND propertyType:\"Single Family Dwelling\"",
+        "num_records": 10,
+        "format": "JSON"
+      }'
+    ```
+  </Step>
+
+  <Step title="Initiate a download" icon="download" title-type="h3">
+    To download a larger dataset, add `"download": true`:
+
+    ```bash
+    curl -X POST 'https://api.datafiniti.co/v4/properties/search' \
+      -H 'Authorization: Bearer AAAXXXXXXXXXXXX' \
+      -H 'Content-Type: application/json' \
+      -d '{
+        "query": "country:US AND propertyType:\"Single Family Dwelling\"",
+        "num_records": 50,
+        "format": "CSV",
+        "download": true
+      }'
+    ```
+
+    This returns a download ID that you can use to check status.
+  </Step>
+
+  <Step title="Check download status" icon="clock" title-type="h3">
+    Replace `{download_id}` with the ID from the previous response:
+
+    ```bash
+    curl -X GET 'https://api.datafiniti.co/v4/downloads/{download_id}' \
+      -H 'Authorization: Bearer AAAXXXXXXXXXXXX'
+    ```
+
+    When `status` is `completed`, the `results` array will contain download URLs.
+  </Step>
+
+  <Step title="Download result files" icon="file-down" title-type="h3">
+    Use the URLs from the `results` array to download your data:
+
+    ```bash
+    curl -o property_data.csv 'https://datafiniti-downloads.s3.amazonaws.com/...'
+    ```
+  </Step>
+</Steps>

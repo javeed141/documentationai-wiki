@@ -1,0 +1,103 @@
+---
+title: "Autotrace"
+description: "Track the source URLs for each data field in Datafiniti property records."
+---
+
+Autotrace allows you to see the source URLs where each piece of data was collected from.
+
+## What is autotrace?
+
+Autotrace provides transparency into data sourcing by returning the URLs where each field's data was found. This is useful for:
+
+- **Data verification** - Confirm data accuracy by checking sources
+- **Compliance** - Document data provenance for regulatory requirements
+- **Debugging** - Understand where specific data points originated
+
+## Using autotrace
+
+Add `autotrace: true` to your request:
+
+```json
+{
+  "query": "address:\"711 Kent Ave\" AND city:Catonsville",
+  "num_records": 1,
+  "autotrace": true
+}
+```
+
+## Response with autotrace
+
+The response includes a `sourceURLsPerField` array:
+
+```json
+{
+  "records": [
+    {
+      "address": "711 Kent Ave",
+      "city": "Catonsville",
+      "numBedroom": 4,
+      "sourceURLsPerField": [
+        {
+          "field": "address",
+          "sourceURLs": ["https://www.redfin.com/MD/Catonsville/711-Kent-Ave-21228"]
+        },
+        {
+          "field": "numBedroom",
+          "sourceURLs": ["https://www.zillow.com/homedetails/711-Kent-Ave-Catonsville-MD-21228"]
+        },
+        {
+          "field": "prices",
+          "sourceURLs": [
+            "https://www.redfin.com/MD/Catonsville/711-Kent-Ave-21228",
+            "https://www.realtor.com/realestateandhomes-detail/711-Kent-Ave_Catonsville_MD_21228"
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+## Understanding source URLs
+
+| Field | Description |
+|-------|-------------|
+| `field` | The property data field name |
+| `sourceURLs` | Array of URLs where this data was found |
+
+<Callout kind="info">
+  A field may have multiple source URLs if the same data was found on multiple websites.
+</Callout>
+
+## Use cases
+
+### Data verification
+
+Verify that property details match the original listing:
+
+```json
+{
+  "query": "mlsNumber:BC9677283",
+  "num_records": 1,
+  "autotrace": true,
+  "view": "address,numBedroom,numBathroom,prices,sourceURLsPerField"
+}
+```
+
+### Compliance documentation
+
+Export source information for audit trails:
+
+```json
+{
+  "query": "province:TX AND mostRecentStatus:Sold",
+  "num_records": 100,
+  "autotrace": true,
+  "format": "JSON",
+  "download": true
+}
+```
+
+<Callout kind="alert">
+  Autotrace increases response size. Only enable it when you need source tracking.
+</Callout>

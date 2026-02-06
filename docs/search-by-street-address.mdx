@@ -1,0 +1,99 @@
+---
+title: "Search by Street Address"
+description: "Find properties using street addresses with Datafiniti's Property Data API."
+---
+
+Search for properties using full or partial street addresses.
+
+## Exact address search
+
+Find a specific property by its full address:
+
+```json
+{
+  "query": "address:\"711 Kent Ave\" AND city:Catonsville AND province:MD",
+  "num_records": 1
+}
+```
+
+## Partial address search
+
+Search for properties on a specific street:
+
+```json
+{
+  "query": "address:\"Main St\" AND city:Austin AND province:TX",
+  "num_records": 50
+}
+```
+
+## Search by street number range
+
+Find properties within a range of street numbers:
+
+```json
+{
+  "query": "address:(100 OR 102 OR 104 OR 106) AND address:\"Oak Ave\" AND city:Austin",
+  "num_records": 10
+}
+```
+
+## Combine with other criteria
+
+Add property characteristics to your address search:
+
+```json
+{
+  "query": "address:\"Elm St\" AND city:Austin AND numBedroom:[3 TO *] AND mostRecentStatus:\"For Sale\"",
+  "num_records": 25
+}
+```
+
+## Search by postal code
+
+Find all properties in a ZIP code:
+
+```json
+{
+  "query": "postalCode:78701",
+  "num_records": 100
+}
+```
+
+## Search multiple postal codes
+
+```json
+{
+  "query": "postalCode:(78701 OR 78702 OR 78703)",
+  "num_records": 200
+}
+```
+
+## Tips for address searches
+
+<Callout kind="tip">
+  - Use quotation marks around multi-word addresses
+  - Addresses are normalized (St, Ave, Blvd, etc.)
+  - Combine address with city/state for accuracy
+  - Use postal codes for broader area searches
+</Callout>
+
+## Example response
+
+```json
+{
+  "num_found": 1,
+  "records": [
+    {
+      "address": "711 Kent Ave",
+      "city": "Catonsville",
+      "province": "MD",
+      "postalCode": "21228",
+      "country": "US",
+      "numBedroom": 4,
+      "numBathroom": 2,
+      "propertyType": "Single Family Dwelling"
+    }
+  ]
+}
+```

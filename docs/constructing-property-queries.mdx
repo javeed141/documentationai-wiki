@@ -1,0 +1,149 @@
+---
+title: "Constructing Property Queries"
+description: "Learn how to build powerful boolean queries to find exactly the properties you need."
+---
+
+Datafiniti uses a powerful query syntax that allows you to construct precise searches across property data.
+
+## Basic query syntax
+
+### Simple field search
+
+```
+field:value
+```
+
+Example:
+```
+city:Austin
+```
+
+### Exact phrase search
+
+Use quotes for exact matches:
+```
+propertyType:"Single Family Dwelling"
+```
+
+### Multiple values (OR)
+
+```
+province:(TX OR CA OR FL)
+```
+
+## Boolean operators
+
+### AND operator
+
+Both conditions must be true:
+```
+city:Austin AND province:TX
+```
+
+### OR operator
+
+Either condition can be true:
+```
+propertyType:"Single Family Dwelling" OR propertyType:Condo
+```
+
+### NOT operator
+
+Exclude results:
+```
+province:TX AND NOT city:Houston
+```
+
+## Range queries
+
+### Numeric ranges
+
+```
+numBedroom:[3 TO 5]
+prices.amountMin:[200000 TO 500000]
+```
+
+### Open-ended ranges
+
+```
+yearBuilt:[2000 TO *]
+numBathroom:[* TO 2]
+```
+
+### Date ranges
+
+```
+dateAdded:[2024-01-01 TO 2024-12-31]
+statusHistory.date:[2024-01-01 TO *]
+```
+
+## Nested field queries
+
+Access nested fields with dot notation:
+
+```
+brokers.agent:"John Smith"
+prices.amountMin:[100000 TO 500000]
+statusHistory.type:"For Sale"
+```
+
+## Wildcard searches
+
+### Single character wildcard
+
+```
+address:"12? Main St"
+```
+
+### Multiple character wildcard
+
+```
+city:Aus*
+```
+
+<Callout kind="alert">
+  Wildcards at the beginning of terms (e.g., `*ville`) are not supported and will impact performance.
+</Callout>
+
+## Complex query examples
+
+### Find luxury homes for sale
+
+```
+province:CA AND 
+propertyType:"Single Family Dwelling" AND 
+numBedroom:[4 TO *] AND 
+prices.amountMin:[1000000 TO *] AND 
+mostRecentStatus:"For Sale"
+```
+
+### Find recently sold condos
+
+```
+city:Miami AND 
+propertyType:Condo AND 
+statusHistory.type:Sold AND 
+statusHistory.date:[2024-01-01 TO *]
+```
+
+### Find investment properties
+
+```
+province:TX AND 
+propertyType:"Multi-Family Dwelling" AND 
+numUnit:[2 TO *] AND 
+mostRecentStatus:"For Sale"
+```
+
+## Query best practices
+
+<Callout kind="tip">
+  - Use quotes around phrases with spaces
+  - Combine specific criteria to narrow results
+  - Test queries with `num_records: 1` first
+  - Use ranges instead of multiple OR conditions when possible
+</Callout>
+
+## Advanced querying
+
+For more complex queries, see [Advanced Queries in Postman](/docs/advanced-queries-of-property-postman).

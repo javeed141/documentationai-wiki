@@ -1,0 +1,92 @@
+---
+title: "How Property Records Are Merged"
+description: "Understanding how Datafiniti merges property data from multiple sources into unified records."
+---
+
+Datafiniti collects property data from multiple sources and merges them into comprehensive, unified records.
+
+## Merging process
+
+When the same property appears in multiple sources, Datafiniti:
+
+1. **Identifies matching properties** using address, coordinates, and other identifiers
+2. **Combines data** from all sources into a single record
+3. **Preserves history** by maintaining arrays of historical values
+4. **Tracks sources** with `dateSeen` and `sourceURLs` fields
+
+## Matching criteria
+
+Properties are matched based on:
+
+- **Address normalization** - Standardized address matching
+- **Geographic coordinates** - Latitude/longitude proximity
+- **Parcel numbers** - Tax parcel identifiers
+- **MLS numbers** - Multiple Listing Service IDs
+
+## Data precedence
+
+When conflicting data exists:
+
+| Scenario | Resolution |
+|----------|------------|
+| Different prices | All prices stored in `prices` array with dates |
+| Different statuses | All statuses stored in `statusHistory` array |
+| Different brokers | All brokers stored in `brokers` array |
+| Core fields (address, beds, baths) | Most recent value used |
+
+## Historical data preservation
+
+Arrays preserve the complete history:
+
+```json
+{
+  "prices": [
+    {
+      "amountMin": 450000,
+      "dateSeen": ["2024-06-01"],
+      "type": "Sale List"
+    },
+    {
+      "amountMin": 425000,
+      "dateSeen": ["2024-03-15"],
+      "type": "Sale List"
+    }
+  ],
+  "statusHistory": [
+    {
+      "type": "For Sale",
+      "date": "2024-06-01"
+    },
+    {
+      "type": "Off Market",
+      "date": "2024-01-15"
+    }
+  ]
+}
+```
+
+## Source tracking
+
+Each data point includes source information:
+
+| Field | Description |
+|-------|-------------|
+| `dateSeen` | When the data was observed |
+| `firstDateSeen` | Earliest observation date |
+| `lastDateSeen` | Most recent observation date |
+| `sourceURLs` | URLs where data was found |
+| `domain` | Domain of the source |
+
+## Most recent fields
+
+For convenience, "most recent" fields provide quick access to current values:
+
+- `mostRecentPriceAmount`
+- `mostRecentPriceDate`
+- `mostRecentStatus`
+- `mostRecentStatusDate`
+- `mostRecentBrokerAgent`
+
+<Callout kind="tip">
+  Use the `mostRecent*` fields for current data, and the array fields (`prices`, `statusHistory`, etc.) for historical analysis.
+</Callout>

@@ -1,0 +1,96 @@
+---
+title: "Search for MLS Numbers or Download MLS Markets"
+description: "Learn how to search for specific MLS numbers or download property data for entire MLS markets."
+---
+
+The Multiple Listing Service (MLS) is a database used by real estate professionals to share property listings. Datafiniti captures MLS data that you can search and download.
+
+## Search by MLS number
+
+Find a specific property by its MLS number:
+
+```json
+{
+  "query": "mlsNumber:BC9677283",
+  "num_records": 1
+}
+```
+
+## Search multiple MLS numbers
+
+Search for several MLS numbers at once:
+
+```json
+{
+  "query": "mlsNumber:(BC9677283 OR TX12345678 OR CA98765432)",
+  "num_records": 10
+}
+```
+
+## Download an entire MLS market
+
+Download all properties from a specific MLS:
+
+```json
+{
+  "query": "mlsName:\"Austin Board of REALTORS\"",
+  "format": "CSV",
+  "download": true
+}
+```
+
+Or by MLS ID:
+
+```json
+{
+  "query": "mlsID:6655150",
+  "format": "JSON",
+  "download": true
+}
+```
+
+## Filter MLS data by status
+
+Get only active listings from an MLS:
+
+```json
+{
+  "query": "mlsName:\"Austin Board of REALTORS\" AND mostRecentStatus:\"For Sale\"",
+  "num_records": 100
+}
+```
+
+## Filter by property type
+
+Get single-family homes from an MLS:
+
+```json
+{
+  "query": "mlsName:\"Austin Board of REALTORS\" AND propertyType:\"Single Family Dwelling\"",
+  "num_records": 100
+}
+```
+
+## Example response
+
+```json
+{
+  "num_found": 15234,
+  "records": [
+    {
+      "mlsNumber": "BC9677283",
+      "mlsName": "Austin Board of REALTORS",
+      "mlsID": "6655150",
+      "address": "123 Main St",
+      "city": "Austin",
+      "province": "TX",
+      "mostRecentStatus": "For Sale",
+      "mostRecentPriceAmount": 450000
+    }
+  ]
+}
+```
+
+<Callout kind="tip">
+  Use the `mlsName` field for human-readable MLS names, or `mlsID` for the numeric identifier.
+</Callout>

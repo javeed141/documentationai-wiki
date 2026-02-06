@@ -1,0 +1,94 @@
+---
+title: "Property Field Type Breakdown"
+description: "Detailed breakdown of field types used in Datafiniti property data records."
+---
+
+Understanding field types helps you construct effective queries and parse API responses correctly.
+
+## Field types overview
+
+| Type | Description | Example |
+|------|-------------|---------|
+| `text` | Free-form text, searchable | `"711 Kent Ave"` |
+| `keyword` | Exact match strings | `"21228"` |
+| `integer` | Whole numbers | `4` |
+| `float` | Decimal numbers | `2.5` |
+| `double` | High-precision decimals | `199900.00` |
+| `boolean` | True/false values | `true` |
+| `date` | ISO 8601 timestamps | `"2024-01-15T10:30:00Z"` |
+| `nested` | Complex objects with sub-fields | `{ "agent": "...", "company": "..." }` |
+
+## Text vs keyword fields
+
+<Columns cols="2">
+  <div>
+    ### Text fields
+    - Full-text searchable
+    - Case-insensitive matching
+    - Supports partial matches
+    - Examples: `address`, `city`, `propertyType`
+  </div>
+  <div>
+    ### Keyword fields
+    - Exact match only
+    - Case-sensitive
+    - Used for IDs and codes
+    - Examples: `postalCode`, `taxID`, `mlsNumber`
+  </div>
+</Columns>
+
+## Nested field structure
+
+Nested fields contain arrays of objects with their own sub-fields:
+
+```json
+{
+  "brokers": [
+    {
+      "agent": "John Smith",
+      "company": "ABC Realty",
+      "phones": ["555-1234"],
+      "dateSeen": "2024-01-15T10:30:00Z"
+    }
+  ]
+}
+```
+
+### Querying nested fields
+
+Use dot notation to query nested fields:
+
+```
+brokers.agent:"John Smith"
+brokers.company:"ABC Realty"
+prices.amountMin:[100000 TO 500000]
+```
+
+## Date field formats
+
+All dates use ISO 8601 format:
+
+```
+YYYY-MM-DDTHH:MM:SSZ
+```
+
+Example queries:
+
+```
+dateAdded:[2024-01-01 TO 2024-12-31]
+prices.dateSeen:[2024-01-01 TO *]
+```
+
+## Numeric ranges
+
+Query numeric fields using range syntax:
+
+```
+numBedroom:[3 TO 5]
+prices.amountMin:[100000 TO 500000]
+yearBuilt:[2000 TO *]
+```
+
+<Callout kind="tip">
+  Use `*` as a wildcard for open-ended ranges.
+</Callout>

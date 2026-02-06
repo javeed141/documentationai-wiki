@@ -1,0 +1,120 @@
+---
+title: "Create & Save a Custom Property View"
+description: "Save custom views for reuse across multiple Datafiniti API requests."
+---
+
+Save frequently used field combinations as named views for easy reuse.
+
+## Creating a saved view
+
+Use the Views API endpoint to create a saved view:
+
+<Request show-lines="true" tabs="cURL,Python">
+```bash
+curl -X POST 'https://api.datafiniti.co/v4/views' \
+  -H 'Authorization: Bearer AAAXXXXXXXXXXXX' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "my_property_view",
+    "data_type": "property",
+    "fields": [
+      "address",
+      "city",
+      "province",
+      "postalCode",
+      "numBedroom",
+      "numBathroom",
+      "mostRecentPriceAmount",
+      "mostRecentStatus"
+    ]
+  }'
+```
+
+```python
+import requests
+
+API_TOKEN = 'AAAXXXXXXXXXXXX'
+
+response = requests.post(
+    'https://api.datafiniti.co/v4/views',
+    headers={
+        'Authorization': f'Bearer {API_TOKEN}',
+        'Content-Type': 'application/json'
+    },
+    json={
+        'name': 'my_property_view',
+        'data_type': 'property',
+        'fields': [
+            'address',
+            'city',
+            'province',
+            'postalCode',
+            'numBedroom',
+            'numBathroom',
+            'mostRecentPriceAmount',
+            'mostRecentStatus'
+        ]
+    }
+)
+
+print(response.json())
+```
+</Request>
+
+## Using a saved view
+
+Reference your saved view by name:
+
+```json
+{
+  "query": "country:US",
+  "num_records": 100,
+  "view": "my_property_view"
+}
+```
+
+## Listing your views
+
+Get all your saved views:
+
+```bash
+curl -X GET 'https://api.datafiniti.co/v4/views' \
+  -H 'Authorization: Bearer AAAXXXXXXXXXXXX'
+```
+
+## Updating a view
+
+Update an existing view:
+
+```bash
+curl -X PUT 'https://api.datafiniti.co/v4/views/my_property_view' \
+  -H 'Authorization: Bearer AAAXXXXXXXXXXXX' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "fields": [
+      "address",
+      "city",
+      "province",
+      "numBedroom",
+      "mostRecentPriceAmount"
+    ]
+  }'
+```
+
+## Deleting a view
+
+Remove a saved view:
+
+```bash
+curl -X DELETE 'https://api.datafiniti.co/v4/views/my_property_view' \
+  -H 'Authorization: Bearer AAAXXXXXXXXXXXX'
+```
+
+## Best practices
+
+<Callout kind="tip">
+  - Use descriptive names for your views
+  - Create separate views for different use cases
+  - Include only the fields you actually need
+  - Test views with small queries before large downloads
+</Callout>

@@ -1,0 +1,103 @@
+---
+title: "Geolocation"
+description: "Search for properties by geographic coordinates using the Datafiniti Property Data API."
+---
+
+The geolocation feature allows you to search for properties based on their geographic coordinates.
+
+## Search by coordinates
+
+### Bounding box search
+
+Search within a rectangular area defined by latitude and longitude ranges:
+
+```json
+{
+  "query": "latitude:[30.2 TO 30.4] AND longitude:[-97.8 TO -97.6]",
+  "num_records": 100
+}
+```
+
+### Using geoLocation field
+
+Search using the combined geoLocation field:
+
+```json
+{
+  "query": "geoLocation:[30.2,-97.8 TO 30.4,-97.6]",
+  "num_records": 100
+}
+```
+
+## Radius search
+
+To search within a radius of a point, calculate the bounding box coordinates:
+
+```python
+import math
+
+def get_bounding_box(lat, lon, radius_miles):
+    """Calculate bounding box for a radius search."""
+    lat_change = radius_miles / 69.0
+    lon_change = radius_miles / (69.0 * math.cos(math.radians(lat)))
+    
+    return {
+        'min_lat': lat - lat_change,
+        'max_lat': lat + lat_change,
+        'min_lon': lon - lon_change,
+        'max_lon': lon + lon_change
+    }
+
+# Example: 5-mile radius around Austin, TX (30.2672, -97.7431)
+bbox = get_bounding_box(30.2672, -97.7431, 5)
+print(f"latitude:[{bbox['min_lat']} TO {bbox['max_lat']}] AND longitude:[{bbox['min_lon']} TO {bbox['max_lon']}]")
+```
+
+## Combine with other filters
+
+### Properties for sale near a location
+
+```json
+{
+  "query": "latitude:[30.2 TO 30.4] AND longitude:[-97.8 TO -97.6] AND mostRecentStatus:\"For Sale\" AND propertyType:\"Single Family Dwelling\"",
+  "num_records": 50
+}
+```
+
+### High-value properties in an area
+
+```json
+{
+  "query": "latitude:[30.2 TO 30.4] AND longitude:[-97.8 TO -97.6] AND prices.amountMin:[500000 TO *]",
+  "num_records": 50
+}
+```
+
+## Response with coordinates
+
+Each property record includes latitude and longitude:
+
+```json
+{
+  "records": [
+    {
+      "address": "123 Main St",
+      "city": "Austin",
+      "latitude": "30.2672",
+      "longitude": "-97.7431",
+      "geoLocation": "POINT (-97.7431 30.2672)"
+    }
+  ]
+}
+```
+
+## Use cases
+
+- **Market analysis** - Analyze properties in specific geographic areas
+- **Competitor research** - Find properties near competitor locations
+- **Site selection** - Identify properties near points of interest
+- **Mapping** - Build property maps for visualization
+
+<Callout kind="tip">
+  For more precise radius searches, consider post-processing results to calculate exact distances from your target point.
+</Callout>

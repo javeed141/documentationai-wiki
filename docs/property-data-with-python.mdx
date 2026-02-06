@@ -1,0 +1,350 @@
+---
+title: "Property Data with Python"
+description: "Learn how to use Datafiniti's Property Data API with Python to search, filter, and download property records."
+---
+
+For this guide, we're going to assume you're interested in using Datafiniti's property data to do some marketing analysis on homes in the US. Let's say you're a data scientist that's been tasked with the following:
+
+1. Collect data on homes
+2. Sort the data by state
+3. Find which states have the most expensive homes
+
+**Your environment and data needs:**
+
+- You're working with Python
+- You want to work with CSV or JSON data
+
+<Callout kind="alert">
+  We are using Python 3.x for the examples below. Python 3.9 or higher is preferred.
+</Callout>
+
+<Steps>
+  <Step title="Install the requests module" icon="download" title-type="h3">
+    In your terminal, run the following to install the `requests` module for Python:
+
+    ```bash
+    pip3 install requests
+    ```
+  </Step>
+
+  <Step title="Get your API token" icon="key" title-type="h3">
+    The API token lets you authenticate with Datafiniti API and tells it who you are, what you have access to, and so on.
+
+    To get your API token:
+    1. Go to the [Datafiniti Web Portal](https://portal.datafiniti.co/settings/api)
+    2. Login and click "Copy Token"
+    3. Store it somewhere you can easily reference
+
+    <Callout kind="alert">
+      For security reasons, your API token will be automatically changed whenever you change your password.
+    </Callout>
+
+    <Callout kind="info">
+      For the rest of this document, we'll use `AAAXXXXXXXXXXXX` as a substitute example for your actual API token.
+    </Callout>
+  </Step>
+
+  <Step title="Run your first search" icon="search" title-type="h3">
+    Let's do a test search to see what data is available. Since we want homes in the US, let's try a simple search for US-based properties.
+
+    <Tabs>
+      <Tab title="CSV Format" icon="file-text">
+        ```python
+        import requests
+        import json
+
+        # Set your API parameters here
+        API_token = 'AAAXXXXXXXXXXXX'
+        format = 'CSV'
+        query = 'country:US'
+        num_records = 1
+        download = False
+
+        request_headers = {
+            'Authorization': 'Bearer ' + API_token,
+            'Content-Type': 'application/json',
+        }
+
+        request_data = {
+            'query': query,
+            'format': format,
+            'num_records': num_records,
+            'download': download
+        }
+
+        # Make the API call
+        r = requests.post(
+            'https://api.datafiniti.co/v4/properties/search',
+            json=request_data,
+            headers=request_headers
+        )
+
+        # Handle the response
+        if r.status_code == 200:
+            print(r.content)
+        else:
+            print('Request failed')
+        ```
+      </Tab>
+
+      <Tab title="JSON Format" icon="braces">
+        ```python
+        import requests
+        import json
+
+        # Set your API parameters here
+        API_token = 'AAAXXXXXXXXXXXX'
+        format = 'JSON'
+        query = 'country:US'
+        num_records = 1
+        download = False
+
+        request_headers = {
+            'Authorization': 'Bearer ' + API_token,
+            'Content-Type': 'application/json',
+        }
+
+        request_data = {
+            'query': query,
+            'format': format,
+            'num_records': num_records,
+            'download': download
+        }
+
+        # Make the API call
+        r = requests.post(
+            'https://api.datafiniti.co/v4/properties/search',
+            json=request_data,
+            headers=request_headers
+        )
+
+        # Handle the response
+        if r.status_code == 200:
+            print(r.content)
+        else:
+            print('Request failed')
+        ```
+      </Tab>
+    </Tabs>
+
+    You should get a response similar to this:
+
+    ```json
+    {
+      "num_found": 7983205,
+      "total_cost": 1,
+      "records": [
+        {
+          "address": "711 Kent Ave",
+          "city": "Catonsville",
+          "country": "US",
+          "numBathroom": 2,
+          "numBedroom": 4,
+          "propertyType": "Single Family Dwelling",
+          "province": "MD",
+          "id": "AV9WzHyO_RWkykBuv11F"
+        }
+      ]
+    }
+    ```
+
+    ### Request parameters
+
+    | Parameter | Description |
+    |-----------|-------------|
+    | `query` | Tells the API what you want to search. Any property in the US will be returned. |
+    | `num_records` | How many records to return (1 in this case). |
+    | `format` | Output format: `CSV` or `JSON`. |
+
+    ### Response fields
+
+    | Field | Description |
+    |-------|-------------|
+    | `num_found` | Total matching records in the database. |
+    | `total_cost` | Credits used (1 credit per property record). |
+    | `records` | The matching property records. |
+  </Step>
+
+  <Step title="Refine your search" icon="filter" title-type="h3">
+    Let's narrow our search to only homes for sale:
+
+    ```python
+    import requests
+    import json
+
+    # Set your API parameters here
+    API_token = 'AAAXXXXXXXXXXXX'
+    format = 'JSON'  # Can be CSV or JSON
+    query = 'country:US AND propertyType:"Single Family Dwelling"'
+    num_records = 10
+    download = False
+
+    request_headers = {
+        'Authorization': 'Bearer ' + API_token,
+        'Content-Type': 'application/json',
+    }
+
+    request_data = {
+        'query': query,
+        'format': format,
+        'num_records': num_records,
+        'download': download
+    }
+
+    # Make the API call
+    r = requests.post(
+        'https://api.datafiniti.co/v4/properties/search',
+        json=request_data,
+        headers=request_headers
+    )
+
+    if r.status_code == 200:
+        print(r.content)
+    else:
+        print('Request failed')
+    ```
+
+    This code:
+    - Adds `AND propertyType:"Single Family Dwelling"` to narrow results
+    - Changes `num_records` to `10` for more samples
+
+    <Callout kind="tip">
+      Datafiniti supports refined boolean queries with OR operations, negation, and more. Use quotation marks for exact matches.
+    </Callout>
+  </Step>
+
+  <Step title="Initiate a download" icon="download" title-type="h3">
+    Once you're satisfied with the sample matches, download a larger dataset:
+
+    ```python
+    import requests
+    import urllib.request
+    import json
+    import time
+
+    # Set your API parameters here
+    API_token = 'AAAXXXXXXXXXXXX'
+    format = 'JSON'
+    query = 'country:US AND propertyType:"Single Family Dwelling"'
+    num_records = 50
+    download = True
+
+    request_headers = {
+        'Authorization': 'Bearer ' + API_token,
+        'Content-Type': 'application/json',
+    }
+
+    request_data = {
+        'query': query,
+        'format': format,
+        'num_records': num_records,
+        'download': download
+    }
+
+    # Make the API call
+    r = requests.post(
+        'https://api.datafiniti.co/v4/properties/search',
+        json=request_data,
+        headers=request_headers
+    )
+
+    if r.status_code == 200:
+        request_response = r.json()
+        print(request_response)
+
+        # Monitor download status
+        download_id = request_response['id']
+        download_status = request_response['status']
+
+        while download_status != 'completed':
+            time.sleep(5)
+            download_r = requests.get(
+                f'https://api.datafiniti.co/v4/downloads/{download_id}',
+                headers=request_headers
+            )
+            download_response = download_r.json()
+            download_status = download_response['status']
+            print(f"Records downloaded: {download_response['num_downloaded']}")
+
+        # Download result files
+        if download_status == 'completed':
+            result_list = download_response['results']
+            for i, result in enumerate(result_list, 1):
+                filename = f"{download_id}_{i}.{format.lower()}"
+                urllib.request.urlretrieve(result, filename)
+                print(f"File {i}/{len(result_list)} saved: {filename}")
+    else:
+        print('Request failed')
+        print(r)
+    ```
+
+    <Callout kind="alert">
+      If `num_records` is not specified, ALL matching records will be downloaded.
+    </Callout>
+  </Step>
+
+  <Step title="Parse the data" icon="code" title-type="h3">
+    ### Parse JSON data
+
+    <Callout kind="info">
+      JSON data is formatted as NDJSON (Newline Delimited JSON) where each line is a separate JSON object.
+    </Callout>
+
+    ```python
+    import json
+
+    # Set the location of your file
+    filename = 'xxxx_x.txt'
+
+    records = []
+
+    with open(filename) as myFile:
+        for line in myFile:
+            records.append(json.loads(line))
+
+    for record in records:
+        # Process each record as needed
+        print(json.dumps(record, indent=4, sort_keys=True))
+    ```
+
+    ### Extract specific fields
+
+    ```python
+    import requests
+    import json
+
+    API_token = 'AAAXXXXXXXXXXXX'
+
+    request_headers = {
+        'Authorization': 'Bearer ' + API_token,
+        'Content-Type': 'application/json',
+    }
+
+    request_data = {
+        'query': 'country:US',
+        'format': 'JSON',
+        'num_records': 1,
+        'download': False
+    }
+
+    r = requests.post(
+        'https://api.datafiniti.co/v4/properties/search',
+        json=request_data,
+        headers=request_headers
+    )
+
+    if r.status_code == 200:
+        parsed = json.loads(r.content)
+        record = parsed["records"][0]
+
+        # Extract specific fields
+        address = record.get("address", "N/A")
+        price = record.get("mostRecentPriceAmount", "N/A")
+        bedrooms = record.get("numBedroom", "N/A")
+
+        print(f"Address: {address}")
+        print(f"Price: ${price}")
+        print(f"Bedrooms: {bedrooms}")
+    ```
+  </Step>
+</Steps>

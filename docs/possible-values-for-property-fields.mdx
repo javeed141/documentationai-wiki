@@ -1,0 +1,81 @@
+---
+title: "Possible Values for Property Fields"
+description: "Reference of possible values for key property data fields including property types, statuses, and more."
+---
+
+This page lists the possible values for key fields in property data records.
+
+## Property types
+
+The `propertyType` field can contain the following values:
+
+| Value | Description |
+|-------|-------------|
+| `Single Family Dwelling` | Standalone residential home |
+| `Condo` | Condominium unit |
+| `Townhouse` | Multi-story attached home |
+| `Multi-Family Dwelling` | Property with multiple units |
+| `Apartment` | Rental apartment unit |
+| `Mobile Home` | Manufactured/mobile home |
+| `Land` | Vacant land/lot |
+| `Commercial` | Commercial property |
+| `Industrial` | Industrial property |
+| `Farm` | Agricultural property |
+
+## Status types
+
+The `statusHistory.type` and `mostRecentStatus` fields can contain:
+
+| Value | Description |
+|-------|-------------|
+| `For Sale` | Property is listed for sale |
+| `Sold` | Property has been sold |
+| `Pending` | Sale is pending/under contract |
+| `Off Market` | Property is not currently listed |
+| `For Rent` | Property is available for rent |
+| `Rental` | Property is a rental listing |
+| `Short Term Rental` | Property is listed as short-term rental (e.g., Airbnb) |
+
+## Price types
+
+The `prices.type` field can contain:
+
+| Value | Description |
+|-------|-------------|
+| `Sale List` | Listed sale price |
+| `Sold` | Final sold price |
+| `Rental List` | Listed rental price |
+
+## Owner types
+
+The `transactions.ownerType` field can contain:
+
+| Value | Description |
+|-------|-------------|
+| `Individual` | Individual person |
+| `Company` | Business entity |
+| `Trust` | Trust ownership |
+
+## Loan types
+
+The `transactions.loanType` field can contain:
+
+| Value | Description |
+|-------|-------------|
+| `Conventional` | Conventional mortgage |
+| `FHA` | FHA-backed loan |
+| `VA` | VA-backed loan |
+| `Cash` | Cash purchase |
+
+## Example queries using these values
+
+```
+propertyType:"Single Family Dwelling"
+statusHistory.type:"For Sale"
+prices.type:"Sold"
+transactions.loanType:"Conventional"
+```
+
+<Callout kind="tip">
+  Use quotation marks around values with spaces for exact matching.
+</Callout>
