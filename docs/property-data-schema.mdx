@@ -11,7 +11,7 @@ The owner of a property who does not reside in or otherwise occupy that property
 - `firstDateSeen`: Earliest date seen of the absentee owner. (date)
 - `lastDateSeen`: Latest date seen of the absentee owner. (date)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "absenteeOwner": [
@@ -23,23 +23,25 @@ The owner of a property who does not reside in or otherwise occupy that property
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="address" show-location="false" param-type="string" required="false" deprecated="false">
 The physical street address for this property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "address": "7206 Walling Ln"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="appliances" show-location="false" param-type="string" required="false" deprecated="false">
 The appliances included with the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "appliances": [
@@ -52,12 +54,13 @@ The appliances included with the property.
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="architecturalStyles" show-location="false" param-type="string" required="false" deprecated="false">
 The architectural style of the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "architecturalStyles": [
@@ -66,6 +69,7 @@ The architectural style of the property.
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="assessedValues" show-location="false" param-type="object" required="false" deprecated="false">
@@ -76,7 +80,7 @@ The assessed value of the property. Each assessed value may contain:
 - `totalAmount`: amount value the property is currently assessed for. (float)
 - `year`: year value when the property was assessed. (integer)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "assessedValues": [
@@ -89,17 +93,19 @@ The assessed value of the property. Each assessed value may contain:
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="brandTenant" show-location="false" param-type="string" required="false" deprecated="false">
 The branded tenant that is currently associated with the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "brandTenant": "Bob Evans Restaurants, LLC"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="brokers" show-location="false" param-type="object" required="false" deprecated="false">
@@ -116,71 +122,77 @@ A list of brokers that have represented this property over time. Each broker may
 - `websites`: A list of websites associated with the agent or company. (keyword)
 - `workEmail`: Email address specifically associated with the business the broker works for currently. (keyword)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 "brokers": { "emails": ["tomatterson@realtracs.com"], "licenseNumber": "1059280", ... }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="brokerCoop" show-location="false" param-type="boolean" required="false" deprecated="false">
 True / False whether or not the property is a broker's CoOp.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "brokerCoop": true
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="buildingClass" show-location="false" param-type="string" required="false" deprecated="false">
 The building class as defined the classification relative to local commercial real estate markets.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "buildingClass": "A"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="buildingName" show-location="false" param-type="string" required="false" deprecated="false">
 The name of the building where this property is located. This field is specific to apartments, condos, and similar property types.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "buildingName": "Castle Beach Club"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="capRate" show-location="false" param-type="float" required="false" deprecated="false">
 The capitalization rate of the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "capRate": 8
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="capRateSourceURL" show-location="false" param-type="string" required="false" deprecated="false">
 The source url of the capRate.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "capRateSourceURL": "https://www.loopnet.com/..."
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="categories" show-location="false" param-type="string" required="false" deprecated="false">
 A list of category keywords used for this property across multiple sources.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "categories": [
@@ -189,92 +201,101 @@ A list of category keywords used for this property across multiple sources.
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="cbsaCode" show-location="false" param-type="string" required="false" deprecated="false">
 The 5 digit cbsa code of the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 "cbsaCode": 02312
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="cbsaName" show-location="false" param-type="string" required="false" deprecated="false">
 The cbsa name associated with the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "cbsaName": "OXNARD-THOUSAND OAKS-VENTURA, CA METROPOLITAN"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="censusBlock" show-location="false" param-type="string" required="false" deprecated="false">
 The census block the property is associate to.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "censusBlock": 1012
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="censusBlockGroup" show-location="false" param-type="string" required="false" deprecated="false">
 The census group the property is associated to.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "censusBlockGroup": 4
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="censusTract" show-location="false" param-type="string" required="false" deprecated="false">
 The census tract the property is associated to.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "censusTract": 5102
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="city" show-location="false" param-type="string" required="false" deprecated="false">
 The city where the property is located.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "city": "Dallas"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="civilDivisionCode" show-location="false" param-type="string" required="false" deprecated="false">
 The civil division code for the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "civilDivisionCode": 4
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="civilDivisionName" show-location="false" param-type="string" required="false" deprecated="false">
 The civil division name of the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "civilDivisionName": "SUMMERSVILLE"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="companies" show-location="false" param-type="object" required="false" deprecated="false">
@@ -289,98 +310,107 @@ A list of companies that have been seen for this property. Each company can cont
 - `phone`: the phone number of the company. (string)
 - `title`: title of company in regards of the property. (string)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 "companies": [ { ... } ]
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="congressionalDistrictHouse" show-location="false" param-type="string" required="false" deprecated="false">
 District of the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "congressionalDistrictHouse": "4"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="country" show-location="false" param-type="string" required="false" deprecated="false">
 The two-letter country code for the property location's country.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "country": "US"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="county" show-location="false" param-type="string" required="false" deprecated="false">
 The county of the property record.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "county": "Hillsborough"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="countyFIPS" show-location="false" param-type="integer" required="false" deprecated="false">
 County FIPS # of the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "countyFIPS": 12057
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="currentOwnerType" show-location="false" param-type="string" required="false" deprecated="false">
 Current owner type of the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "currentOwnerType": "Company"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="dateAdded" show-location="false" param-type="string" required="false" deprecated="false">
 The date this property was first added to the property database.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "dateAdded": "2017-01-08T19:12:13Z"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="dateUpdated" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent date this property was updated or seen by our system.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "dateUpdated": "2017-01-08T19:12:13Z"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="daysOnMarket" show-location="false" param-type="integer" required="false" deprecated="false">
 The number of days the property has been on market.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "daysOnMarket": 3
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="deposits" show-location="false" param-type="object" required="false" deprecated="false">
@@ -390,7 +420,7 @@ A list of deposit fees that have been seen for this property. Each deposit conta
 - `currency`: The currency for the amount. (keyword)
 - `dateSeen`: A list of dates this deposit fee was seen. (date)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "deposits": [
@@ -404,6 +434,7 @@ A list of deposit fees that have been seen for this property. Each deposit conta
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="descriptions" show-location="false" param-type="object" required="false" deprecated="false">
@@ -412,7 +443,7 @@ A list of descriptions for this property from various sources. Each description 
 - `dateSeen`: The date when this description has been seen for this property. (date)
 - `value`: A unique description for this property. (text)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "descriptions": [
@@ -423,12 +454,13 @@ A list of descriptions for this property from various sources. Each description 
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="domains" show-location="false" param-type="string" required="false" deprecated="false">
 A list of each unique domain found in the sourceURLs field.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "domains": [
@@ -436,17 +468,19 @@ A list of each unique domain found in the sourceURLs field.
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="effectiveGrossIncome" show-location="false" param-type="integer" required="false" deprecated="false">
 The effective gross income of the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "effectiveGrossIncome": 275352
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="estimatedPrices" show-location="false" param-type="object" required="false" deprecated="false">
@@ -458,16 +492,17 @@ A list of price estimates for the property.
 - `dateSeen`: The date when this estimatedPrice was seen for this property. (date)
 - `pricePerSquareFoot`: The price divide by the square footage. (float)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 "estimatedPrices": [ { "amountMax": 295000, "amountMin": 295000, "currency": "USD", ... } ]
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="exteriorConstruction" show-location="false" param-type="string" required="false" deprecated="false">
 A list of all the exterior construction of the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "exteriorConstruction": [
@@ -476,12 +511,13 @@ A list of all the exterior construction of the property.
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="exteriorFeatures" show-location="false" param-type="string" required="false" deprecated="false">
 The exterior features the property offers.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "exteriorFeatures": [
@@ -491,6 +527,7 @@ The exterior features the property offers.
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="features" show-location="false" param-type="object" required="false" deprecated="false">
@@ -500,7 +537,7 @@ A list of features associated with this property. The feature list can be collec
 - `replace`: Flag indicating value field is replaced versus appended. (boolean)
 - `value`: A list of possible values for this feature. (text)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "features": [
@@ -514,6 +551,7 @@ A list of features associated with this property. The feature list can be collec
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="fees" show-location="false" param-type="string" required="false" deprecated="false">
@@ -525,10 +563,11 @@ A list of various fees that have been seen for this property. Each fee will cont
 - `dateSeen`: A list of dates when this fee was seen. (date)
 - `type`: A classification value for the fee. (text)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 "fees": [ { "amountMax": 11, "amountMin": 11, "currency": "USD", ... } ]
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="floorPlans" show-location="false" param-type="object" required="false" deprecated="false">
@@ -540,7 +579,7 @@ A list of floorplans associated with the property.
 - `numBedrooms`: The number of bedrooms in the floor plan. (integer)
 - `type`: the type of floor plan classified by the property. (text)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "floorPlans": [
@@ -554,78 +593,85 @@ A list of floorplans associated with the property.
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="floorSizeValue" show-location="false" param-type="float" required="false" deprecated="false">
 The size of the walkable area of the property. For apartments and condos, this is the size of the property. For homes and buildings, this is the combined size of each floor and does not include lot size.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "floorSizeValue": 947
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="floorSizeUnit" show-location="false" param-type="string" required="false" deprecated="false">
 The units of measurement for `floorSize`.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "floorSizeUnit": "Sq. ft"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="geoLocation" show-location="false" param-type="string" required="false" deprecated="false">
 A location value that stores the latitude and longitude in a format that allows geospatial querying. The value is stored as Well-Known Text format, which resembles an (x, y) value, i.e. (longitude latitude).
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "geoLocation": "POINT (-119.5094 37.229366)"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="geoQuality" show-location="false" param-type="integer" required="false" deprecated="false">
 The quality of the geoLocation data of the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "geoQuality": 0
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="grossRentalIncome" show-location="false" param-type="float" required="false" deprecated="false">
 The gross rental income of the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "grossRentalIncome": 66000
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="groundLease" show-location="false" param-type="boolean" required="false" deprecated="false">
 True/False if the property includes a ground lease for the land.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "groundLease": false
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="hvacTypes" show-location="false" param-type="string" required="false" deprecated="false">
 The type / components of the HVAC system.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "hvacTypes": [
@@ -635,12 +681,13 @@ The type / components of the HVAC system.
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="imageURLs" show-location="false" param-type="string" required="false" deprecated="false">
 A list of image URLs for this property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "imageURLs": [
@@ -648,37 +695,41 @@ A list of image URLs for this property.
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="instrumentNumber" show-location="false" param-type="string" required="false" deprecated="false">
 Instrument # of the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 "instrumentNumber": 3312-0576
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="investmentType" show-location="false" param-type="string" required="false" deprecated="false">
 The investment type relating to the investment strategy or risk level.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "investmentType": "Stabilized"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="investmentTypeSourceURL" show-location="false" param-type="string" required="false" deprecated="false">
 The source URL of the investmentType.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "investmentTypeSourceURL": "https://www.crexi.com/properties/16266"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="involuntaryLienJudgement" show-location="false" param-type="object" required="false" deprecated="false">
@@ -689,27 +740,29 @@ involuntaryLienJudgement shows if a lien is set against your wishes and is the r
 - `lien`: If a lien is current owed on the property (boolean)
 - `lastDateSeen`: last date seen on the lien of the property. (date)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 "involuntaryLienJudgement": [ { "judgement": true, "lien": true, ... } ]
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="isUnit" show-location="false" param-type="boolean" required="false" deprecated="false">
 If the property is a unit number of a complex / building.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "isUnit": true
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="keys" show-location="false" param-type="string" required="false" deprecated="false">
 A list of internal Datafiniti identifiers for this property. The `keys` field is used to merge raw data from individual sources into the master Datafiniti record. [How Property Records Are Merged](https://docs.datafiniti.co/docs/how-property-records-are-merged)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "keys": [
@@ -717,12 +770,13 @@ A list of internal Datafiniti identifiers for this property. The `keys` field is
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="languagesSpoken" show-location="false" param-type="string" required="false" deprecated="false">
 A list of the languages spoken at this property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "languagesSpoken": [
@@ -731,17 +785,19 @@ A list of the languages spoken at this property.
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="latitude" show-location="false" param-type="string" required="false" deprecated="false">
 The latitude coordinates for this property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "latitude": "32.860858"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="leasingTerms" show-location="false" param-type="object" required="false" deprecated="false">
@@ -750,7 +806,7 @@ A list of leasing terms that have been associated with this property. Each leasi
 - `dateSeen`: The date when this term was seen. (date)
 - `value`: The leasing term description. (text)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "leasingTerms": [
@@ -761,112 +817,123 @@ A list of leasing terms that have been associated with this property. Each leasi
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="leaseType" show-location="false" param-type="string" required="false" deprecated="false">
 The type of lease.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "leaseType": "Triple Net"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="legalDescription" show-location="false" param-type="string" required="false" deprecated="false">
 The legal description of the property record.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "legalDescription": "LOT 279 OXFORD OAKS PHASE TWO PB 16 PGS 17-17D"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="legalRange" show-location="false" param-type="string" required="false" deprecated="false">
 Legal range of the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 legalRange: 08E
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="listingName" show-location="false" param-type="string" required="false" deprecated="false">
 The name of the property listing. This isn't the name of the building. It's a descriptive name supplied for the listing itself.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "listingName": "Antico Appartamento"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="longitude" show-location="false" param-type="string" required="false" deprecated="false">
 The longitude coordinates for this property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "longitude": "-96.735808"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="lotDepthValue" show-location="false" param-type="float" required="false" deprecated="false">
 The depth dimension of a property's lot.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "lotDepthValue": 150
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="lotDepthUnit" show-location="false" param-type="string" required="false" deprecated="false">
 The depth dimension unit of a property's lot.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "lotDepthUnit": "ft"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="lotSizeValue" show-location="false" param-type="integer" required="false" deprecated="false">
 The lot size for the property. This is the ground area covered by the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "lotSizeValue": 2219
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="lotSizeUnit" show-location="false" param-type="string" required="false" deprecated="false">
 The units of measurement for `lotSize`.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "lotSizeUnit": "Sq. ft"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="majorTenants" show-location="false" param-type="string" required="false" deprecated="false">
 The major tenants associated with the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 "majorTenants": [ "Traffic Planning & Design Inc", ... ]
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="managedBy" show-location="false" param-type="object" required="false" deprecated="false">
@@ -875,7 +942,7 @@ A list of companies or people that have managed this property. Each managedBy ob
 - `dateSeen`: A list of dates when this information was seen. (date)
 - `value`: The name of the company or person. (text)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "managedBy": [
@@ -888,89 +955,97 @@ A list of companies or people that have managed this property. Each managedBy ob
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mlsName" show-location="false" param-type="string" required="false" deprecated="false">
 The mls name of the listing company/realtor.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mlsName": "sovereign realty group"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mlsNumber" show-location="false" param-type="string" required="false" deprecated="false">
 The MLS number for the property. [Learn more about MLS numbers](https://en.wikipedia.org/wiki/Multiple_listing_service).
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mlsNumber": "16177277"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentAbsenteeOwner" show-location="false" param-type="boolean" required="false" deprecated="false">
 The most recent boolean value for the absentee owner.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentAbsenteeOwner": false
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentAbsenteeOwnerFirstDateSeen" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent first date seen of the absentee owner.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentAbsenteeOwnerFirstDateSeen": "2024-04-11T16:57:22.605Z"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentBrokerAgent" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent broker agent added to the brokers field.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentBrokerAgent": "Rackel Atkins"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentBrokerCompany" show-location="false" param-type="string" required="false" deprecated="false">
 The company of the most recent broker added to the broker's field.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentBrokerCompany": "Compass Recom"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentBrokerDateSeen" show-location="false" param-type="string" required="false" deprecated="false">
 The date seen of the most recent broker added to the brokers field.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentBrokerDateSeen": "2023-10-23T19:20:50.418Z"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentBrokerEmails" show-location="false" param-type="string" required="false" deprecated="false">
 The email(s) of the most recent broker agent.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentBrokerEmails": [
@@ -978,12 +1053,13 @@ The email(s) of the most recent broker agent.
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentBrokerPhones" show-location="false" param-type="string" required="false" deprecated="false">
 The phone number(s) of the most recent broker agent.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentBrokerPhones": [
@@ -991,417 +1067,455 @@ The phone number(s) of the most recent broker agent.
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentEstimatedPriceAmount" show-location="false" param-type="integer" required="false" deprecated="false">
 The most recent estimated price amount.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentEstimatedPriceAmount": 95267
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentEstimatedPriceDate" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent estimate price date.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentEstimatedPriceDate": "2024-09-11T00:00:00.000Z"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentEstimatedPriceDomain" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent source domain of the estimate price.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentEstimatedPriceDomain": "www.redfin.com"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentEstimatedPriceSourceURL" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent sourceURL used for obtaining the price estimate.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentEstimatedPriceSourceURL": "www.redfin.com/093757"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentInvoluntaryJudgement" show-location="false" param-type="boolean" required="false" deprecated="false">
 The most recent Involuntary Lien Judgement value.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentInvoluntaryJudgement": true
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentInvoluntaryLien" show-location="false" param-type="boolean" required="false" deprecated="false">
 The most recent Involuntary Lien on the property value.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentInvoluntaryLien": false
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentInvoluntaryLienJudgementFirstDateSeen" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent first date seen of the Involuntary Lien.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentInvoluntaryLienJudgementFirstDateSeen": "2024-04-11T18:19:19.342Z"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentOwnerFirstName" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent first name from the owners top level field.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentOwnerFirstName": "Jeff"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentOwnerLastName" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent last name from the owners top level field.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentOwnerLastName": "Allback"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentOwnerPeopleKey" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent people key of the owners top level field. This can be matched to the people database.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentOwnerPeopleKey": "jeff/allback/us/al/85255/3114epatrickst"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentPriceAmount" show-location="false" param-type="float" required="false" deprecated="false">
 The property's most recent price amount from our prices field. **This does not include rent prices**
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentPriceAmount": 85
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentRentalListPriceAmount" show-location="false" param-type="float" required="false" deprecated="false">
 The most recent rental listing price from our prices field.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentRentalListPriceAmount": 429000
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentRentalListPriceDate" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent rental listing date from our prices field.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentRentalListPriceDate": "2025-09-11T00:00:00.000Z"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentRentalPriceAmount" show-location="false" param-type="float" required="false" deprecated="true">
 The property's most recent rent price amount from our prices field. Depreciated on Jan 31st, 2026.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentRentalPriceAmount": 1436
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentRentalPriceDate" show-location="false" param-type="string" required="false" deprecated="true">
 The most recent rental price date. Depreciated on Jan 31st, 2026.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentRentalPriceDate": "2024-09-11T00:00:00.000Z"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentRentalPriceDomain" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent domain used for obtaining the rental price.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentRentalPriceDomain": "www.remax.com"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentRentalPriceFirstDateSeen" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent rental prices first seen by Datafiniti.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentRentalPriceFirstDateSeen": "2024-09-11T00:00:00.000Z"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentRentalPricePeriod" show-location="false" param-type="string" required="false" deprecated="false">
 The period term of the most recent rental price. Either `Per Month` or `Per Year`.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentRentalPricePeriod": "Per Month"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentRentalPriceSourceURL" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent source Url used for obtaining the rental price.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentRentalPriceSourceURL": "www.remax.com/usdfusj/19278"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentSaleListPriceAmount" show-location="false" param-type="float" required="false" deprecated="false">
 The most recent "sale list" price from our prices field.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentSaleListPriceAmount": 456990
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentSaleListPriceDate" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent "sale list" price date from our prices field.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentSaleListPriceDate": "2025-10-23T00:00:00.000Z"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentSoldPriceAmount" show-location="false" param-type="float" required="false" deprecated="false">
 The most recent "sale" price from our prices field.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentSoldPriceAmount": 480000
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentSoldPriceDate" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent "sale" price date from our prices field.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentSoldPriceDate": "2025-10-21T00:00:00.000Z"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentRentalStatus" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent value for `rentalStatuses.type` for this property. See possible values [here](https://docs.datafiniti.co/docs/possible-values-for-property-fields).
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentStatus": "Rental"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentRentalStatusDate" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent rental status date listed by the source.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentRentalStatusDate": "2025-08-23T00:00:00.000Z"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentRentalStatusFirstDateSeen" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent rental status first seen by Datafiniti.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 mostRecentRentalStatusFirstDateSeen: "2024-09-11T00:00:00.000Z"
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentPriceCurrency" show-location="false" param-type="string" required="false" deprecated="false">
 The currency listed for mostRecentPriceAmount.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentPriceCurrency": "USD"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentPriceDomain" show-location="false" param-type="string" required="false" deprecated="false">
 The domain of the most recent price scraped by Datafiniti.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentPriceDomain": "www.nordstrom.com"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentPriceDate" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent price date of the property record.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentPriceDate": "2022-03-29T19:26:49.157Z"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentStatus" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent value for `statuses.type` for this property. See possible values [here](https://docs.datafiniti.co/docs/possible-values-for-property-fields).
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentStatus": "For Sale"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentStatusDate" show-location="false" param-type="string" required="false" deprecated="false">
 The date of change that corresponds to the `mostRecentStatus` for this property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentStatusDate": "2017-01-10T20:12:16Z"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentStatusFirstDateSeen" show-location="false" param-type="string" required="false" deprecated="false">
 This date corresponds to the most recent date seen of the most recent status data source.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentStatusFirstDateSeen": "2021-09-09T00:00:00.000"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentVacancy" show-location="false" param-type="boolean" required="false" deprecated="false">
 The most recent vacancy value of the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentVacancy": false
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="mostRecentVacancyFirstDateSeen" show-location="false" param-type="string" required="false" deprecated="false">
 This date corresponds to the first date seen from the source of the property listing.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "mostRecentVacancyFirstDateSeen": "2024-04-11T16:57:22.603Z"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="msaCode" show-location="false" param-type="string" required="false" deprecated="false">
 The msa code of the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "msaCode": 212312
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="msaName" show-location="false" param-type="string" required="false" deprecated="false">
 The msa name of the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "msaName": "OXNARD-THOUSAND OAKS-VENTURA, CA METROPOLITAN"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="municipality" show-location="false" param-type="string" required="false" deprecated="false">
 The property municipality in regards the county/city.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "municipality": "READING TWP"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="neighborhoods" show-location="false" param-type="string" required="false" deprecated="false">
 A list of neighborhoods where this property is located. Sometimes an area can belong to multiple neighborhoods, which is why this field is a list.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "neighborhoods": [
@@ -1409,182 +1523,199 @@ A list of neighborhoods where this property is located. Sometimes an area can be
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="netOperatingIncome" show-location="false" param-type="float" required="false" deprecated="false">
 The total revenue a property generates from all sources, such as rent and other fees, minus all operating expenses.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "netOperatingIncome": 49050
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="netOperatingIncomeSourceURL" show-location="false" param-type="string" required="false" deprecated="false">
 The source URL of the net operating income in regards to the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "netOperatingIncomeSourceURL": "https://..."
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="netRentable" show-location="false" param-type="float" required="false" deprecated="false">
 The net rentable amount of the commercial property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "netRentable": 34513
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="numBathroom" show-location="false" param-type="float" required="false" deprecated="false">
 The number of bathrooms in this property. Can be a whole number (e.g. "1") or a float (e.g., 1.25).
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "numBathroom": 1.25
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="numBedroom" show-location="false" param-type="integer" required="false" deprecated="false">
 The number of bedrooms in this property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "numBedroom": 3
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="numFloor" show-location="false" param-type="integer" required="false" deprecated="false">
 The number of floors or stories in this property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "numFloor": 2
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="numParkingSpaces" show-location="false" param-type="integer" required="false" deprecated="false">
 The number of parking spots on the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "numParkingSpaces": 0
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="numPeople" show-location="false" param-type="integer" required="false" deprecated="false">
 The number of people that can occupy this property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "numPeople": 6
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="numProperties" show-location="false" param-type="integer" required="false" deprecated="false">
 The number of commercially available property within the address.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "numProperties": 2
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="numRoom" show-location="false" param-type="integer" required="false" deprecated="false">
 The number of rooms in this property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "numRoom": 2
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="numTenants" show-location="false" param-type="integer" required="false" deprecated="false">
 The number of active tenants for a commercial property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "numTenants": 2
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="numUnit" show-location="false" param-type="integer" required="false" deprecated="false">
 The number of units available in this property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "numUnit": 1
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="occupancy" show-location="false" param-type="string" required="false" deprecated="false">
 The current status of the commercial occupancy of the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "occupancy": "Vacant"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="operatingExpenses" show-location="false" param-type="string" required="false" deprecated="false">
 The operating expense description of the commercial property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "operatingExpenses": "Fee - Property Management"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="otherIncome" show-location="false" param-type="float" required="false" deprecated="false">
 Other income revenue value of the commercial property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "otherIncome": 14400
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="ownership" show-location="false" param-type="string" required="false" deprecated="false">
 The ownership clause / stake of a property for the buyer.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "ownership": "Fee Simple"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="owners" show-location="false" param-type="object" required="false" deprecated="false">
@@ -1597,21 +1728,23 @@ A list of owners associated with this property.
 - `peopleKey`: people key matched to Datafiniti's people database. (keyword)
 - `transactionDate`: date the owner purchased this property. (date)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 "owners": [ { "transactionDate": "2025-05-27T00:00:00.000Z", "firstName": "Jeffrey", ... } ]
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="ownerOccupied" show-location="false" param-type="boolean" required="false" deprecated="false">
 The true/false value of whether owner occupies the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "ownerOccupied": true
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="ownerOccupiedStatus" show-location="false" param-type="object" required="false" deprecated="false">
@@ -1622,16 +1755,17 @@ The owner occupied status of the property.
 - `startDate`: the lease start date seen by the leasing agency. (date)
 - `status`: The true/false value of whether owner occupies the property. (boolean)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 { "status": true, "firstDateSeen": "2023-12-01T13:35:16.399Z", ... }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="parking" show-location="false" param-type="string" required="false" deprecated="false">
 A list of details regarding parking at this property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "parking": [
@@ -1639,12 +1773,13 @@ A list of details regarding parking at this property.
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="parkingTypes" show-location="false" param-type="string" required="false" deprecated="false">
 A list of parking types that pertains to the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "parkingTypes": [
@@ -1653,6 +1788,7 @@ A list of parking types that pertains to the property.
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="parcelNumbers" show-location="false" param-type="object" required="false" deprecated="false">
@@ -1662,7 +1798,7 @@ The parcel number associated to the property.
 - `number`: Legal parcel number of the property. (string)
 - `year`: Recorded year of the parcel number. (integer)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "parcelNumbers": [
@@ -1674,12 +1810,13 @@ The parcel number associated to the property.
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="paymentTypes" show-location="false" param-type="string" required="false" deprecated="false">
 A list of payment options accepted by the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "paymentTypes": [
@@ -1687,6 +1824,7 @@ A list of payment options accepted by the property.
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="people" show-location="false" param-type="object" required="false" deprecated="false">
@@ -1704,38 +1842,41 @@ A list of known people associated with or employed by this property. Each person
 - `phone`: The person's phone number. (text)
 - `title`: The person's title. (text)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 "people": [ { "equity": 1065556, "equityPercent": 100, "name": "Luci Weinsein", ... } ]
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="permits" show-location="false" param-type="boolean" required="false" deprecated="false">
 If there is a permit or permitting process adhere to this property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "permits": "true"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="petPolicy" show-location="false" param-type="string" required="false" deprecated="false">
 The pet policy for the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "petPolicy": "Pets are not allowed."
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="phones" show-location="false" param-type="string" required="false" deprecated="false">
 A list of phone numbers for the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "phones": [
@@ -1743,17 +1884,19 @@ A list of phone numbers for the property.
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="postalCode" show-location="false" param-type="string" required="false" deprecated="false">
 The postal or zip code of the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "postalCode": "75231"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="prices" show-location="false" param-type="object" required="false" deprecated="false">
@@ -1777,21 +1920,23 @@ A list of prices for this property. Price objects may contain:
 - `status`: The property status of the prices (string)
 - `type`: the type of price at which the property was listed for sale, sold, or rent. (Sale List, Sold, or Rental List) (string)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 "prices": [ { "amountMax": 289000, "amountMin": 289000, ... } ]
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="proFormaNOI" show-location="false" param-type="float" required="false" deprecated="false">
 The pro Forma net operating income of the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "proFormaNOI": 122400
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="propertyTaxes" show-location="false" param-type="object" required="false" deprecated="false">
@@ -1802,43 +1947,47 @@ A list of property taxes that have been seen for this property. Each property ta
 - `dateSeen`: A list of dates when this tax has been seen for this property. (date)
 - `year`: The year of taxable amount of the property. (integer)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 "propertyTaxes": [ { "amount": 1582, "currency": "USD", ... } ]
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="propertyType" show-location="false" param-type="string" required="false" deprecated="false">
 A classification for the property type. See possible values [here](https://docs.datafiniti.co/docs/possible-values-for-property-fields).
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "propertyType": "Condo"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="province" show-location="false" param-type="string" required="false" deprecated="false">
 The province or state for this property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "province": "TX"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="rentableSquareFeet" show-location="false" param-type="float" required="false" deprecated="false">
 The rentable square footage of space for the rental property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "rentableSquareFeet": 35000
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="rentalStatuses" show-location="false" param-type="object" required="false" deprecated="false">
@@ -1851,21 +2000,23 @@ A list of historical rental statuses. This field is used to indicate when the pr
 - `lastDateSeen`: the latest date seen of the rental status was seen by Datafiniti. (date)
 - `sourceURLs`: the source URL of the rental property listing. (string)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 "rentalStatuses": [ { "date": "2025-08-14T21:53:01.982Z", ... } ]
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="rentBumps" show-location="false" param-type="string" required="false" deprecated="false">
 The terms of a rentable property on when a rent increase will occur.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "rentBumps": "10% Increase Every 5 Years in Term and In Each Option"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="reviews" show-location="false" param-type="object" required="false" deprecated="false">
@@ -1881,7 +2032,7 @@ A list of reviews for this property. Review objects may contain:
 - `username`: The reviewer's username. (text)
 - `userProvince`: The reviewer's province or state. (text)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "reviews": [
@@ -1893,12 +2044,13 @@ A list of reviews for this property. Review objects may contain:
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="roofing" show-location="false" param-type="string" required="false" deprecated="false">
 A list of materials the roof of the property is made from.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "roofing": [
@@ -1907,12 +2059,13 @@ A list of materials the roof of the property is made from.
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="roomTypes" show-location="false" param-type="string" required="false" deprecated="false">
 The types of rooms the property has.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "roomTypes": [
@@ -1922,12 +2075,13 @@ The types of rooms the property has.
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="rules" show-location="false" param-type="string" required="false" deprecated="false">
 A list of rules for living or staying at this property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "rules": [
@@ -1935,34 +2089,37 @@ A list of rules for living or staying at this property.
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="saleCondition" show-location="false" param-type="string" required="false" deprecated="false">
 The sale condition of a property as per the seller.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "saleCondition": "1031 Exchange"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="saleType" show-location="false" param-type="string" required="false" deprecated="false">
 The type of commercial sale of a property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "saleType": "Standard"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="sewerType" show-location="false" param-type="string" required="false" deprecated="false">
 The type of sewer access of the property. (public, private, and/or septic)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "sewerType": [
@@ -1970,6 +2127,7 @@ The type of sewer access of the property. (public, private, and/or septic)
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="sourceURLsPerField" show-location="false" param-type="object" required="false" deprecated="false">
@@ -1978,10 +2136,11 @@ The latest sourceURL for each field that Datafiniti provides in the property dat
 - `Field`: the property data top level field the sourceURL pertains to. (text)
 - `SourceURLs`: the source URL of the field. (text)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 "sourceURLsPerField": [{ "field": "country", "sourceURLs": [ "https://..." ] }, ...]
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="statuses" show-location="false" param-type="object" required="false" deprecated="true">
@@ -1994,10 +2153,11 @@ The latest sourceURL for each field that Datafiniti provides in the property dat
 - `isUnderContract`: A true/false value to indicate if this status is under contract. (boolean)
 - `type`: The status. See possible values [here](https://docs.datafiniti.co/docs/possible-values-for-property-fields). (keyword)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 "statuses": [ { "date": "2023-03-10T00:00:00.000Z", ... } ]
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="statusHistory" show-location="false" param-type="object" required="false" deprecated="false">
@@ -2010,16 +2170,17 @@ A list of Historical statuses for this property. This field is used to indicate 
 - `sourceURLs`: The sourceURL of the status. (url)
 - `type`: The status. See possible values [here](https://docs.datafiniti.co/docs/possible-values-for-property-fields). (keyword)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 "statusHistory": [ { "dateSeen": [...], "type": "Off Market", ... } ]
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="subtype" show-location="false" param-type="string" required="false" deprecated="false">
 The subtype of the propertyType field.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "subtype": [
@@ -2027,21 +2188,23 @@ The subtype of the propertyType field.
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="subdivision" show-location="false" param-type="string" required="false" deprecated="false">
 Subdivision / neighborhood of the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 subdivision: "Crescent Heights Sub"
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="taxExemptions" show-location="false" param-type="string" required="false" deprecated="false">
 A list of tax exemptions for the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "taxExemptions": [
@@ -2051,72 +2214,79 @@ A list of tax exemptions for the property.
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="taxID" show-location="false" param-type="string" required="false" deprecated="false">
 The tax ID for the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "taxID": "30-9011-019-0029758"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="tenancy" show-location="false" param-type="string" required="false" deprecated="false">
 The type of tenants the property allows.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "tenancy": "Single"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="tenantCredit" show-location="false" param-type="string" required="false" deprecated="false">
 The credit approve for tenants wanting to rent the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "tenantCredit": "Corporate Guarantee"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="title" show-location="false" param-type="string" required="false" deprecated="false">
 The title text of the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "title": "Single Family Residence, A-Frame - Snellville, GA"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="topographyCode" show-location="false" param-type="integer" required="false" deprecated="false">
 The topography code in relationship to the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "topographyCode": 150
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="totalExpenses" show-location="false" param-type="float" required="false" deprecated="false">
 The total expense cost of the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "totalExpenses": 24984
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="transactions" show-location="false" param-type="object" required="false" deprecated="false">
@@ -2145,21 +2315,23 @@ A list of transactional data for this property after a sale is completed. This f
 - `transactionID`: the ID value of the transaction. (string)
 - `type`: the type of transaction in relation to the saleDate. (string)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 "transactions": [ { saleDate: ..., price: 112900.00, ... } ]
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="trustDescription" show-location="false" param-type="string" required="false" deprecated="false">
 The description of the trust information in relation to the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "trustDescription": "Not a trust"
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="vacancy" show-location="false" param-type="object" required="false" deprecated="false">
@@ -2169,38 +2341,41 @@ The status of the vacancy of the property:
 - `lastDateSeen`: Latest date seen from the source of the vacancy by Datafiniti. (date)
 - `vacant`: If the property is currently vacant (boolean)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 "vacancy": [ { "vacant": false, "lastDateSeen": "2024-04-11T16:57:22.603Z", ... } ]
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="vacancyLoss" show-location="false" param-type="float" required="false" deprecated="false">
 The vacancy amount loss from the previous tenant(s).
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "vacancyLoss": 132000
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="virtualTour" show-location="false" param-type="string" required="false" deprecated="false">
 The virtual tour URL for the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "virtualTour": "https://..."
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="waterType" show-location="false" param-type="string" required="false" deprecated="false">
 The type of water access of the property. (public, private, and/or well)
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "waterType": [
@@ -2208,12 +2383,13 @@ The type of water access of the property. (public, private, and/or well)
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="websiteIDs" show-location="false" param-type="string" required="false" deprecated="false">
 A list of website IDs for this property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "websiteIDs": [
@@ -2221,37 +2397,41 @@ A list of website IDs for this property.
   ]
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="yearBuilt" show-location="false" param-type="integer" required="false" deprecated="false">
 The year the property was built.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "yearBuilt": 1985
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="yearRenovated" show-location="false" param-type="integer" required="false" deprecated="false">
 The year the property was last renovated.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "yearRenovated": 2010
 }
 ```
+</CodeGroup>
 </ParamField>
 
 <ParamField path="zoning" show-location="false" param-type="string" required="false" deprecated="false">
 The zoning classification for the property.
 
-**Example:**
+<CodeGroup tabs="Example">
 ```json
 {
   "zoning": "R-1"
 }
 ```
+</CodeGroup>
 </ParamField>
