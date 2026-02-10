@@ -4,10 +4,6 @@ title: "Autotrace"
 
 Autotrace with the Property Data API allows you to connect people and property data. This API call uses the regular property search endpoint with minor differences, notably the `auto_trace` parameter and a specific [view](https://docs.datafiniti.co/docs/property-data-views) for property records. This will allow you to directly pull property records, along with owner contact information, with just one API call.
 
-# Endpoint
-
-POST
-
 ## Input
 
 Users can run Autotrace searches without extra query modifications. It's recommended to test different search parameters before running Autotrace as it will only return property data for records with `people.title:owner`.
@@ -15,11 +11,13 @@ Users can run Autotrace searches without extra query modifications. It's recomme
 ### Request Parameters
 
 <ParamField body="query" param-type="string" required="true">
-  This selects which records should be matched. It's the same format as our search endpoint.
+  This selects which records should be matched. It's the same format as our
+  search endpoint.
 </ParamField>
 
 <ParamField body="num_records" param-type="integer">
-  The number of records matching the query you want to be updated. If this parameter is not specified, all matching records will be updated.
+  The number of records matching the query you want to be updated. If this
+  parameter is not specified, all matching records will be updated.
 </ParamField>
 
 <ParamField body="download" param-type="boolean">
@@ -31,15 +29,19 @@ Users can run Autotrace searches without extra query modifications. It's recomme
 </ParamField>
 
 <ParamField body="auto_trace" param-type="boolean" required="true">
-  Set this to `true` or `false` for whether or not to autotrace the property records matched by your `query`.
+  Set this to `true` or `false` for whether or not to autotrace the property
+  records matched by your `query`.
 </ParamField>
 
 <ParamField body="only_traceable" param-type="boolean">
-  Boolean `true` or `false` for whether the records returned must have people data in the dataset.
+  Boolean `true` or `false` for whether the records returned must have people
+  data in the dataset.
 </ParamField>
 
 <ParamField body="view" param-type="array">
-  An array of field objects to customize which fields are returned. Each object requires a `name` and optionally supports `flatten` and `sub_fields`. For more information, see [Views](https://docs.datafiniti.co/docs/property-data-views).
+  An array of field objects to customize which fields are returned. Each object
+  requires a `name` and optionally supports `flatten` and `sub_fields`. For more
+  information, see [Views](https://docs.datafiniti.co/docs/property-data-views).
 </ParamField>
 
 <Callout kind="info">
@@ -178,11 +180,13 @@ Console.WriteLine("{0}", response.Content);
 </ResponseField>
 
 <ResponseField name="total_cost" field-type="integer">
-  The number of credits this request has cost you. Autotrace charges 1 property data credit and 1 people data credit per record.
+  The number of credits this request has cost you. Autotrace charges 1 property
+  data credit and 1 people data credit per record.
 </ResponseField>
 
 <ResponseField name="records" field-type="array">
-  The matching property records with appended people data. Each record contains the property fields and any traced owner contact information.
+  The matching property records with appended people data. Each record contains
+  the property fields and any traced owner contact information.
 </ResponseField>
 
 ## Custom views with autotrace
