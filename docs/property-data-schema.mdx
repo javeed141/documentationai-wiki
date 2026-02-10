@@ -4,7 +4,7 @@ title: "Property Data Schema"
 
 The property data schema below lists all available fields in a property record. Note that actual property records (actually, most of them) may not have every field present.
 
-<ParamField path="absenteeOwner" param-type="object" required="false" deprecated="false">
+<ParamField path="absenteeOwner" show-location="false" param-type="object" required="false" deprecated="false">
 The owner of a property who does not reside in or otherwise occupy that property.
 
 - `absent`: Is currently an absentee owner (boolean)
@@ -15,28 +15,28 @@ The owner of a property who does not reside in or otherwise occupy that property
 `"absenteeOwner": [ { "absent": false, "firstDateSeen": "2024-04-11T17:17:53.270Z", "lastDateSeen": "2024-04-11T17:17:53.270Z" } ]`
 </ParamField>
 
-<ParamField path="address" param-type="string" required="false" deprecated="false">
+<ParamField path="address" show-location="false" param-type="string" required="false" deprecated="false">
 The physical street address for this property.
 
 **Example:**
 `"address": "7206 Walling Ln"`
 </ParamField>
 
-<ParamField path="appliances" param-type="string" required="false" deprecated="false">
+<ParamField path="appliances" show-location="false" param-type="string" required="false" deprecated="false">
 The appliances included with the property.
 
 **Example:**
 `"appliances": ["Cooktop","Dryer","Dishwasher","Microwave","Refrigerator","Washer"]`
 </ParamField>
 
-<ParamField path="architecturalStyles" param-type="string" required="false" deprecated="false">
+<ParamField path="architecturalStyles" show-location="false" param-type="string" required="false" deprecated="false">
 The architectural style of the property.
 
 **Example:**
 `"architecturalStyles": ["Ranch","Bungalow"]`
 </ParamField>
 
-<ParamField path="assessedValues" param-type="object" required="false" deprecated="false">
+<ParamField path="assessedValues" show-location="false" param-type="object" required="false" deprecated="false">
 The assessed value of the property. Each assessed value may contain:
 
 - `improvementsAmount`: assessed value for improvements made to the property. (float)
@@ -48,14 +48,14 @@ The assessed value of the property. Each assessed value may contain:
 `"assessedValues": [ { "totalAmount": 1745400.0, "improvementsAmount": 1745400.0, "landAmount": 1745400.0, "year": 1985 } ]`
 </ParamField>
 
-<ParamField path="brandTenant" param-type="string" required="false" deprecated="false">
+<ParamField path="brandTenant" show-location="false" param-type="string" required="false" deprecated="false">
 The branded tenant that is currently associated with the property.
 
 **Example:**
 `"brandTenant": "Bob Evans Restaurants, LLC"`
 </ParamField>
 
-<ParamField path="brokers" param-type="object" required="false" deprecated="false">
+<ParamField path="brokers" show-location="false" param-type="object" required="false" deprecated="false">
 A list of brokers that have represented this property over time. Each broker may contain:
 
 - `agent`: The name of the real estate agent representing this property. (text)
@@ -73,105 +73,105 @@ A list of brokers that have represented this property over time. Each broker may
 `"brokers": { "emails": ["tomatterson@realtracs.com"], "licenseNumber": "1059280", ... }`
 </ParamField>
 
-<ParamField path="brokerCoop" param-type="boolean" required="false" deprecated="false">
+<ParamField path="brokerCoop" show-location="false" param-type="boolean" required="false" deprecated="false">
 True / False whether or not the property is a broker's CoOp.
 
 **Example:**
 `"brokerCoop": true`
 </ParamField>
 
-<ParamField path="buildingClass" param-type="string" required="false" deprecated="false">
+<ParamField path="buildingClass" show-location="false" param-type="string" required="false" deprecated="false">
 The building class as defined the classification relative to local commercial real estate markets.
 
 **Example:**
 `"buildingClass": "A"`
 </ParamField>
 
-<ParamField path="buildingName" param-type="string" required="false" deprecated="false">
+<ParamField path="buildingName" show-location="false" param-type="string" required="false" deprecated="false">
 The name of the building where this property is located. This field is specific to apartments, condos, and similar property types.
 
 **Example:**
 `"buildingName":"Castle Beach Club"`
 </ParamField>
 
-<ParamField path="capRate" param-type="float" required="false" deprecated="false">
+<ParamField path="capRate" show-location="false" param-type="float" required="false" deprecated="false">
 The capitalization rate of the property.
 
 **Example:**
 `"capRate": 8`
 </ParamField>
 
-<ParamField path="capRateSourceURL" param-type="string" required="false" deprecated="false">
+<ParamField path="capRateSourceURL" show-location="false" param-type="string" required="false" deprecated="false">
 The source url of the capRate.
 
 **Example:**
 `"capRateSourceURL": "https://www.loopnet.com/..."`
 </ParamField>
 
-<ParamField path="categories" param-type="string" required="false" deprecated="false">
+<ParamField path="categories" show-location="false" param-type="string" required="false" deprecated="false">
 A list of category keywords used for this property across multiple sources.
 
 **Example:**
 `"categories": ["Single family residence", "farming"]`
 </ParamField>
 
-<ParamField path="cbsaCode" param-type="string" required="false" deprecated="false">
+<ParamField path="cbsaCode" show-location="false" param-type="string" required="false" deprecated="false">
 The 5 digit cbsa code of the property.
 
 **Example:**
 `"cbsaCode": 02312`
 </ParamField>
 
-<ParamField path="cbsaName" param-type="string" required="false" deprecated="false">
+<ParamField path="cbsaName" show-location="false" param-type="string" required="false" deprecated="false">
 The cbsa name associated with the property.
 
 **Example:**
 `"cbsaName": "OXNARD-THOUSAND OAKS-VENTURA, CA METROPOLITAN"`
 </ParamField>
 
-<ParamField path="censusBlock" param-type="string" required="false" deprecated="false">
+<ParamField path="censusBlock" show-location="false" param-type="string" required="false" deprecated="false">
 The census block the property is associate to.
 
 **Example:**
 `"censusBlock": 1012`
 </ParamField>
 
-<ParamField path="censusBlockGroup" param-type="string" required="false" deprecated="false">
+<ParamField path="censusBlockGroup" show-location="false" param-type="string" required="false" deprecated="false">
 The census group the property is associated to.
 
 **Example:**
 `"censusBlockGroup": 4`
 </ParamField>
 
-<ParamField path="censusTract" param-type="string" required="false" deprecated="false">
+<ParamField path="censusTract" show-location="false" param-type="string" required="false" deprecated="false">
 The census tract the property is associated to.
 
 **Example:**
 `"censusTract": 5102`
 </ParamField>
 
-<ParamField path="city" param-type="string" required="false" deprecated="false">
+<ParamField path="city" show-location="false" param-type="string" required="false" deprecated="false">
 The city where the property is located.
 
 **Example:**
 `"city": "Dallas"`
 </ParamField>
 
-<ParamField path="civilDivisionCode" param-type="string" required="false" deprecated="false">
+<ParamField path="civilDivisionCode" show-location="false" param-type="string" required="false" deprecated="false">
 The civil division code for the property.
 
 **Example:**
 `"civilDivisionCode": 4`
 </ParamField>
 
-<ParamField path="civilDivisionName" param-type="string" required="false" deprecated="false">
+<ParamField path="civilDivisionName" show-location="false" param-type="string" required="false" deprecated="false">
 The civil division name of the property.
 
 **Example:**
 `"civilDivisionName": "SUMMERSVILLE"`
 </ParamField>
 
-<ParamField path="companies" param-type="object" required="false" deprecated="false">
+<ParamField path="companies" show-location="false" param-type="object" required="false" deprecated="false">
 A list of companies that have been seen for this property. Each company can contain:
 
 - `dateSeen`: Date when Datafiniti seen the company's data. (date)
@@ -187,63 +187,63 @@ A list of companies that have been seen for this property. Each company can cont
 `"companies": [ { ... } ]`
 </ParamField>
 
-<ParamField path="congressionalDistrictHouse" param-type="string" required="false" deprecated="false">
+<ParamField path="congressionalDistrictHouse" show-location="false" param-type="string" required="false" deprecated="false">
 District of the property.
 
 **Example:**
 `"congressionalDistrictHouse":"4"`
 </ParamField>
 
-<ParamField path="country" param-type="string" required="false" deprecated="false">
+<ParamField path="country" show-location="false" param-type="string" required="false" deprecated="false">
 The two-letter country code for the property location's country.
 
 **Example:**
 `"country": "US"`
 </ParamField>
 
-<ParamField path="county" param-type="string" required="false" deprecated="false">
+<ParamField path="county" show-location="false" param-type="string" required="false" deprecated="false">
 The county of the property record.
 
 **Example:**
 `"county": "Hillsborough"`
 </ParamField>
 
-<ParamField path="countyFIPS" param-type="integer" required="false" deprecated="false">
+<ParamField path="countyFIPS" show-location="false" param-type="integer" required="false" deprecated="false">
 County FIPS # of the property.
 
 **Example:**
 `"countyFIPS": 12057`
 </ParamField>
 
-<ParamField path="currentOwnerType" param-type="string" required="false" deprecated="false">
+<ParamField path="currentOwnerType" show-location="false" param-type="string" required="false" deprecated="false">
 Current owner type of the property.
 
 **Example:**
 `"currentOwnerType": "Company"`
 </ParamField>
 
-<ParamField path="dateAdded" param-type="string" required="false" deprecated="false">
+<ParamField path="dateAdded" show-location="false" param-type="string" required="false" deprecated="false">
 The date this property was first added to the property database.
 
 **Example:**
 `"dateAdded": "2017-01-08T19:12:13Z"`
 </ParamField>
 
-<ParamField path="dateUpdated" param-type="string" required="false" deprecated="false">
+<ParamField path="dateUpdated" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent date this property was updated or seen by our system.
 
 **Example:**
 `"dateUpdated": "2017-01-08T19:12:13Z"`
 </ParamField>
 
-<ParamField path="daysOnMarket" param-type="integer" required="false" deprecated="false">
+<ParamField path="daysOnMarket" show-location="false" param-type="integer" required="false" deprecated="false">
 The number of days the property has been on market.
 
 **Example:**
 `"daysOnMarket": 3`
 </ParamField>
 
-<ParamField path="deposits" param-type="object" required="false" deprecated="false">
+<ParamField path="deposits" show-location="false" param-type="object" required="false" deprecated="false">
 A list of deposit fees that have been seen for this property. Each deposit contains:
 
 - `amount`: The fee amount. (float)
@@ -254,7 +254,7 @@ A list of deposit fees that have been seen for this property. Each deposit conta
 `"deposits": [ { "amount": 104, "currency": "USD", "dateSeen": [ "2016-08-07T18:07:05Z" ] } ]`
 </ParamField>
 
-<ParamField path="descriptions" param-type="object" required="false" deprecated="false">
+<ParamField path="descriptions" show-location="false" param-type="object" required="false" deprecated="false">
 A list of descriptions for this property from various sources. Each description contains:
 
 - `dateSeen`: The date when this description has been seen for this property. (date)
@@ -264,21 +264,21 @@ A list of descriptions for this property from various sources. Each description 
 `"descriptions": [ { "dateSeen": "2016-08-07T18:07:05Z", "value": "charming starter home..." } ]`
 </ParamField>
 
-<ParamField path="domains" param-type="string" required="false" deprecated="false">
+<ParamField path="domains" show-location="false" param-type="string" required="false" deprecated="false">
 A list of each unique domain found in the sourceURLs field.
 
 **Example:**
 `"domains": [ "www.airbnb.com" ]`
 </ParamField>
 
-<ParamField path="effectiveGrossIncome" param-type="integer" required="false" deprecated="false">
+<ParamField path="effectiveGrossIncome" show-location="false" param-type="integer" required="false" deprecated="false">
 The effective gross income of the property.
 
 **Example:**
 `"effectiveGrossIncome": 275352`
 </ParamField>
 
-<ParamField path="estimatedPrices" param-type="object" required="false" deprecated="false">
+<ParamField path="estimatedPrices" show-location="false" param-type="object" required="false" deprecated="false">
 A list of price estimates for the property.
 
 - `amountMax`: The maximum price estimate value listed. (integer)
@@ -291,21 +291,21 @@ A list of price estimates for the property.
 `"estimatedPrices": [ { "amountMax": 295000, "amountMin": 295000, "currency": "USD", ... } ]`
 </ParamField>
 
-<ParamField path="exteriorConstruction" param-type="string" required="false" deprecated="false">
+<ParamField path="exteriorConstruction" show-location="false" param-type="string" required="false" deprecated="false">
 A list of all the exterior construction of the property.
 
 **Example:**
 `"exteriorConstruction": ["brick","wood paneling"]`
 </ParamField>
 
-<ParamField path="exteriorFeatures" param-type="string" required="false" deprecated="false">
+<ParamField path="exteriorFeatures" show-location="false" param-type="string" required="false" deprecated="false">
 The exterior features the property offers.
 
 **Example:**
 `"exteriorFeatures": ["Storm Shutters","Breezeway","Pool"]`
 </ParamField>
 
-<ParamField path="features" param-type="object" required="false" deprecated="false">
+<ParamField path="features" show-location="false" param-type="object" required="false" deprecated="false">
 A list of features associated with this property. The feature list can be collected from specific feature sections available on listings for this property. It can also serve as a catch-all field for miscellaneous characteristics of this property that don't make sense to include as top-level fields. Each feature contains:
 
 - `key`: A label for this feature. (text)
@@ -316,7 +316,7 @@ A list of features associated with this property. The feature list can be collec
 `"features": [ { "key": "Community District", "replace": "true", "value": [ "318" ] } ]`
 </ParamField>
 
-<ParamField path="fees" param-type="string" required="false" deprecated="false">
+<ParamField path="fees" show-location="false" param-type="string" required="false" deprecated="false">
 A list of various fees that have been seen for this property. Each fee will contain:
 
 - `amountMax`: The maximum fee value listed. (float)
@@ -329,7 +329,7 @@ A list of various fees that have been seen for this property. Each fee will cont
 `"fees": [ { "amountMax": 11, "amountMin": 11, "currency": "USD", ... } ]`
 </ParamField>
 
-<ParamField path="floorPlans" param-type="object" required="false" deprecated="false">
+<ParamField path="floorPlans" show-location="false" param-type="object" required="false" deprecated="false">
 A list of floorplans associated with the property.
 
 - `floorSize`: The floor size of the floor plan being referenced. (text)
@@ -342,84 +342,84 @@ A list of floorplans associated with the property.
 `"floorPlans": [ { "name": "2x2", "type": "2 beds", "numBedrooms": 2, "numBathrooms": 2, "floorSize": "960 sqft" } ]`
 </ParamField>
 
-<ParamField path="floorSizeValue" param-type="float" required="false" deprecated="false">
+<ParamField path="floorSizeValue" show-location="false" param-type="float" required="false" deprecated="false">
 The size of the walkable area of the property. For apartments and condos, this is the size of the property. For homes and buildings, this is the combined size of each floor and does not include lot size.
 
 **Example:**
 `"floorSizeValue": 947`
 </ParamField>
 
-<ParamField path="floorSizeUnit" param-type="string" required="false" deprecated="false">
+<ParamField path="floorSizeUnit" show-location="false" param-type="string" required="false" deprecated="false">
 The units of measurement for `floorSize`.
 
 **Example:**
 `"floorSizeUnit": "Sq. ft"`
 </ParamField>
 
-<ParamField path="geoLocation" param-type="string" required="false" deprecated="false">
+<ParamField path="geoLocation" show-location="false" param-type="string" required="false" deprecated="false">
 A location value that stores the latitude and longitude in a format that allows geospatial querying. The value is stored as Well-Known Text format, which resembles an (x, y) value, i.e. (longitude latitude).
 
 **Example:**
 `"geoLocation": "POINT (-119.5094 37.229366)"`
 </ParamField>
 
-<ParamField path="geoQuality" param-type="integer" required="false" deprecated="false">
+<ParamField path="geoQuality" show-location="false" param-type="integer" required="false" deprecated="false">
 The quality of the geoLocation data of the property.
 
 **Example:**
 `"geoQuality": 0`
 </ParamField>
 
-<ParamField path="grossRentalIncome" param-type="float" required="false" deprecated="false">
+<ParamField path="grossRentalIncome" show-location="false" param-type="float" required="false" deprecated="false">
 The gross rental income of the property.
 
 **Example:**
 `"grossRentalIncome": 66000`
 </ParamField>
 
-<ParamField path="groundLease" param-type="boolean" required="false" deprecated="false">
+<ParamField path="groundLease" show-location="false" param-type="boolean" required="false" deprecated="false">
 True/False if the property includes a ground lease for the land.
 
 **Example:**
 `"groundLease": false`
 </ParamField>
 
-<ParamField path="hvacTypes" param-type="string" required="false" deprecated="false">
+<ParamField path="hvacTypes" show-location="false" param-type="string" required="false" deprecated="false">
 The type / components of the HVAC system.
 
 **Example:**
 `"hvacTypes": ["Cental Air","Electric","Fans"]`
 </ParamField>
 
-<ParamField path="imageURLs" param-type="string" required="false" deprecated="false">
+<ParamField path="imageURLs" show-location="false" param-type="string" required="false" deprecated="false">
 A list of image URLs for this property.
 
 **Example:**
 `"imageURLs": [ "http://image.rent.com/imgr/..." ]`
 </ParamField>
 
-<ParamField path="instrumentNumber" param-type="string" required="false" deprecated="false">
+<ParamField path="instrumentNumber" show-location="false" param-type="string" required="false" deprecated="false">
 Instrument # of the property.
 
 **Example:**
 `"instrumentNumber": 3312-0576`
 </ParamField>
 
-<ParamField path="investmentType" param-type="string" required="false" deprecated="false">
+<ParamField path="investmentType" show-location="false" param-type="string" required="false" deprecated="false">
 The investment type relating to the investment strategy or risk level.
 
 **Example:**
 `"investmentType": "Stabilized"`
 </ParamField>
 
-<ParamField path="investmentTypeSourceURL" param-type="string" required="false" deprecated="false">
+<ParamField path="investmentTypeSourceURL" show-location="false" param-type="string" required="false" deprecated="false">
 The source URL of the investmentType.
 
 **Example:**
 `"investmentTypeSourceURL":"https://www.crexi.com/properties/16266"`
 </ParamField>
 
-<ParamField path="involuntaryLienJudgement" param-type="object" required="false" deprecated="false">
+<ParamField path="involuntaryLienJudgement" show-location="false" param-type="object" required="false" deprecated="false">
 involuntaryLienJudgement shows if a lien is set against your wishes and is the result of not fulfilling your financial obligations.
 
 - `firstDateSeen`: first date seen on the lien of the property. (date)
@@ -431,35 +431,35 @@ involuntaryLienJudgement shows if a lien is set against your wishes and is the r
 `"involuntaryLienJudgement": [ { "judgement": true, "lien": true, ... } ]`
 </ParamField>
 
-<ParamField path="isUnit" param-type="boolean" required="false" deprecated="false">
+<ParamField path="isUnit" show-location="false" param-type="boolean" required="false" deprecated="false">
 If the property is a unit number of a complex / building.
 
 **Example:**
 `"isUnit": true`
 </ParamField>
 
-<ParamField path="keys" param-type="string" required="false" deprecated="false">
+<ParamField path="keys" show-location="false" param-type="string" required="false" deprecated="false">
 A list of internal Datafiniti identifiers for this property. The `keys` field is used to merge raw data from individual sources into the master Datafiniti record. [How Property Records Are Merged](https://docs.datafiniti.co/docs/how-property-records-are-merged)
 
 **Example:**
 `"keys": [ "us/ca/nhills/9411brightwoodct" ]`
 </ParamField>
 
-<ParamField path="languagesSpoken" param-type="string" required="false" deprecated="false">
+<ParamField path="languagesSpoken" show-location="false" param-type="string" required="false" deprecated="false">
 A list of the languages spoken at this property.
 
 **Example:**
 `"languagesSpoken": [ "French", "English" ]`
 </ParamField>
 
-<ParamField path="latitude" param-type="string" required="false" deprecated="false">
+<ParamField path="latitude" show-location="false" param-type="string" required="false" deprecated="false">
 The latitude coordinates for this property.
 
 **Example:**
 `"latitude": "32.860858"`
 </ParamField>
 
-<ParamField path="leasingTerms" param-type="object" required="false" deprecated="false">
+<ParamField path="leasingTerms" show-location="false" param-type="object" required="false" deprecated="false">
 A list of leasing terms that have been associated with this property. Each leasing term will contain:
 
 - `dateSeen`: The date when this term was seen. (date)
@@ -469,77 +469,77 @@ A list of leasing terms that have been associated with this property. Each leasi
 `"leasingTerms": [ { "dateSeen": "2016-07-30T20:41:01Z", "value": "12 Months" } ]`
 </ParamField>
 
-<ParamField path="leaseType" param-type="string" required="false" deprecated="false">
+<ParamField path="leaseType" show-location="false" param-type="string" required="false" deprecated="false">
 The type of lease.
 
 **Example:**
 `"leaseType": "Triple Net"`
 </ParamField>
 
-<ParamField path="legalDescription" param-type="string" required="false" deprecated="false">
+<ParamField path="legalDescription" show-location="false" param-type="string" required="false" deprecated="false">
 The legal description of the property record.
 
 **Example:**
 `"legalDescription": "LOT 279 OXFORD OAKS PHASE TWO PB 16 PGS 17-17D"`
 </ParamField>
 
-<ParamField path="legalRange" param-type="string" required="false" deprecated="false">
+<ParamField path="legalRange" show-location="false" param-type="string" required="false" deprecated="false">
 Legal range of the property.
 
 **Example:**
 `legalRange: 08E`
 </ParamField>
 
-<ParamField path="listingName" param-type="string" required="false" deprecated="false">
+<ParamField path="listingName" show-location="false" param-type="string" required="false" deprecated="false">
 The name of the property listing. This isn't the name of the building. It's a descriptive name supplied for the listing itself.
 
 **Example:**
 `"listingName": "Antico Appartamento"`
 </ParamField>
 
-<ParamField path="longitude" param-type="string" required="false" deprecated="false">
+<ParamField path="longitude" show-location="false" param-type="string" required="false" deprecated="false">
 The longitude coordinates for this property.
 
 **Example:**
 `"longitude": "-96.735808"`
 </ParamField>
 
-<ParamField path="lotDepthValue" param-type="float" required="false" deprecated="false">
+<ParamField path="lotDepthValue" show-location="false" param-type="float" required="false" deprecated="false">
 The depth dimension of a property's lot.
 
 **Example:**
 `"lotDepthValue": 150`
 </ParamField>
 
-<ParamField path="lotDepthUnit" param-type="string" required="false" deprecated="false">
+<ParamField path="lotDepthUnit" show-location="false" param-type="string" required="false" deprecated="false">
 The depth dimension unit of a property's lot.
 
 **Example:**
 `"lotDepthUnit": "ft"`
 </ParamField>
 
-<ParamField path="lotSizeValue" param-type="integer" required="false" deprecated="false">
+<ParamField path="lotSizeValue" show-location="false" param-type="integer" required="false" deprecated="false">
 The lot size for the property. This is the ground area covered by the property.
 
 **Example:**
 `"lotSizeValue": 2219`
 </ParamField>
 
-<ParamField path="lotSizeUnit" param-type="string" required="false" deprecated="false">
+<ParamField path="lotSizeUnit" show-location="false" param-type="string" required="false" deprecated="false">
 The units of measurement for `lotSize`.
 
 **Example:**
 `"lotSizeUnit": "Sq. ft"`
 </ParamField>
 
-<ParamField path="majorTenants" param-type="string" required="false" deprecated="false">
+<ParamField path="majorTenants" show-location="false" param-type="string" required="false" deprecated="false">
 The major tenants associated with the property.
 
 **Example:**
 `"majorTenants": [ "Traffic Planning & Design Inc", ... ]`
 </ParamField>
 
-<ParamField path="managedBy" param-type="object" required="false" deprecated="false">
+<ParamField path="managedBy" show-location="false" param-type="object" required="false" deprecated="false">
 A list of companies or people that have managed this property. Each managedBy object will contain:
 
 - `dateSeen`: A list of dates when this information was seen. (date)
@@ -549,448 +549,448 @@ A list of companies or people that have managed this property. Each managedBy ob
 `"managedBy": [ { "dateSeen": [ "2016-03-03T15:02:13Z" ], "value": "ROM Investments" } ]`
 </ParamField>
 
-<ParamField path="mlsName" param-type="string" required="false" deprecated="false">
+<ParamField path="mlsName" show-location="false" param-type="string" required="false" deprecated="false">
 The mls name of the listing company/realtor.
 
 **Example:**
 `"mlsName":"sovereign realty group"`
 </ParamField>
 
-<ParamField path="mlsNumber" param-type="string" required="false" deprecated="false">
+<ParamField path="mlsNumber" show-location="false" param-type="string" required="false" deprecated="false">
 The MLS number for the property. [Learn more about MLS numbers](https://en.wikipedia.org/wiki/Multiple_listing_service).
 
 **Example:**
 `"mlsNumber": "16177277"`
 </ParamField>
 
-<ParamField path="mostRecentAbsenteeOwner" param-type="boolean" required="false" deprecated="false">
+<ParamField path="mostRecentAbsenteeOwner" show-location="false" param-type="boolean" required="false" deprecated="false">
 The most recent boolean value for the absentee owner.
 
 **Example:**
 `"mostRecentAbsenteeOwner": false`
 </ParamField>
 
-<ParamField path="mostRecentAbsenteeOwnerFirstDateSeen" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentAbsenteeOwnerFirstDateSeen" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent first date seen of the absentee owner.
 
 **Example:**
 `"mostRecentAbsenteeOwnerFirstDateSeen": "2024-04-11T16:57:22.605Z"`
 </ParamField>
 
-<ParamField path="mostRecentBrokerAgent" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentBrokerAgent" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent broker agent added to the brokers field.
 
 **Example:**
 `"mostRecentBrokerAgent": "Rackel Atkins"`
 </ParamField>
 
-<ParamField path="mostRecentBrokerCompany" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentBrokerCompany" show-location="false" param-type="string" required="false" deprecated="false">
 The company of the most recent broker added to the broker's field.
 
 **Example:**
 `"mostRecentBrokerCompany": "Compass Recom"`
 </ParamField>
 
-<ParamField path="mostRecentBrokerDateSeen" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentBrokerDateSeen" show-location="false" param-type="string" required="false" deprecated="false">
 The date seen of the most recent broker added to the brokers field.
 
 **Example:**
 `"mostRecentBrokerDateSeen": "2023-10-23T19:20:50.418Z"`
 </ParamField>
 
-<ParamField path="mostRecentBrokerEmails" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentBrokerEmails" show-location="false" param-type="string" required="false" deprecated="false">
 The email(s) of the most recent broker agent.
 
 **Example:**
 `"mostRecentBrokerEmails": [ "email@example.com" ]`
 </ParamField>
 
-<ParamField path="mostRecentBrokerPhones" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentBrokerPhones" show-location="false" param-type="string" required="false" deprecated="false">
 The phone number(s) of the most recent broker agent.
 
 **Example:**
 `"mostRecentBrokerPhones": [ "(713) 948-6666" ]`
 </ParamField>
 
-<ParamField path="mostRecentEstimatedPriceAmount" param-type="integer" required="false" deprecated="false">
+<ParamField path="mostRecentEstimatedPriceAmount" show-location="false" param-type="integer" required="false" deprecated="false">
 The most recent estimated price amount.
 
 **Example:**
 `"mostRecentEstimatedPriceAmount": 95267`
 </ParamField>
 
-<ParamField path="mostRecentEstimatedPriceDate" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentEstimatedPriceDate" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent estimate price date.
 
 **Example:**
 `"mostRecentEstimatedPriceDate": "2024-09-11T00:00:00.000Z"`
 </ParamField>
 
-<ParamField path="mostRecentEstimatedPriceDomain" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentEstimatedPriceDomain" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent source domain of the estimate price.
 
 **Example:**
 `"mostRecentEstimatedPriceDomain":"www.redfin.com"`
 </ParamField>
 
-<ParamField path="mostRecentEstimatedPriceSourceURL" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentEstimatedPriceSourceURL" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent sourceURL used for obtaining the price estimate.
 
 **Example:**
 `"mostRecentEstimatedPriceSourceURL":"www.redfin.com/093757"`
 </ParamField>
 
-<ParamField path="mostRecentInvoluntaryJudgement" param-type="boolean" required="false" deprecated="false">
+<ParamField path="mostRecentInvoluntaryJudgement" show-location="false" param-type="boolean" required="false" deprecated="false">
 The most recent Involuntary Lien Judgement value.
 
 **Example:**
 `"mostRecentInvoluntaryJudgement": true`
 </ParamField>
 
-<ParamField path="mostRecentInvoluntaryLien" param-type="boolean" required="false" deprecated="false">
+<ParamField path="mostRecentInvoluntaryLien" show-location="false" param-type="boolean" required="false" deprecated="false">
 The most recent Involuntary Lien on the property value.
 
 **Example:**
 `"mostRecentInvoluntaryLien": false`
 </ParamField>
 
-<ParamField path="mostRecentInvoluntaryLienJudgementFirstDateSeen" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentInvoluntaryLienJudgementFirstDateSeen" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent first date seen of the Involuntary Lien.
 
 **Example:**
 `"mostRecentInvoluntaryLienJudgementFirstDateSeen": "2024-04-11T18:19:19.342Z"`
 </ParamField>
 
-<ParamField path="mostRecentOwnerFirstName" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentOwnerFirstName" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent first name from the owners top level field.
 
 **Example:**
 `"mostRecentOwnerFirstName": "Jeff"`
 </ParamField>
 
-<ParamField path="mostRecentOwnerLastName" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentOwnerLastName" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent last name from the owners top level field.
 
 **Example:**
 `"mostRecentOwnerLastName": "Allback"`
 </ParamField>
 
-<ParamField path="mostRecentOwnerPeopleKey" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentOwnerPeopleKey" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent people key of the owners top level field. This can be matched to the people database.
 
 **Example:**
 `"mostRecentOwnerPeopleKey": "jeff/allback/us/al/85255/3114epatrickst"`
 </ParamField>
 
-<ParamField path="mostRecentPriceAmount" param-type="float" required="false" deprecated="false">
+<ParamField path="mostRecentPriceAmount" show-location="false" param-type="float" required="false" deprecated="false">
 The property's most recent price amount from our prices field. **This does not include rent prices**
 
 **Example:**
 `"mostRecentPriceAmount": 85`
 </ParamField>
 
-<ParamField path="mostRecentRentalListPriceAmount" param-type="float" required="false" deprecated="false">
+<ParamField path="mostRecentRentalListPriceAmount" show-location="false" param-type="float" required="false" deprecated="false">
 The most recent rental listing price from our prices field.
 
 **Example:**
 `"mostRecentRentalListPriceAmount":429000`
 </ParamField>
 
-<ParamField path="mostRecentRentalListPriceDate" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentRentalListPriceDate" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent rental listing date from our prices field.
 
 **Example:**
 `"mostRecentRentalListPriceDate":"2025-09-11T00:00:00.000Z"`
 </ParamField>
 
-<ParamField path="mostRecentRentalPriceAmount" param-type="float" required="false" deprecated="true">
+<ParamField path="mostRecentRentalPriceAmount" show-location="false" param-type="float" required="false" deprecated="true">
 The property's most recent rent price amount from our prices field. Depreciated on Jan 31st, 2026.
 
 **Example:**
 `"mostRecentRentalPriceAmount": 1436`
 </ParamField>
 
-<ParamField path="mostRecentRentalPriceDate" param-type="string" required="false" deprecated="true">
+<ParamField path="mostRecentRentalPriceDate" show-location="false" param-type="string" required="false" deprecated="true">
 The most recent rental price date. Depreciated on Jan 31st, 2026.
 
 **Example:**
 `"mostRecentRentalPriceDate": "2024-09-11T00:00:00.000Z"`
 </ParamField>
 
-<ParamField path="mostRecentRentalPriceDomain" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentRentalPriceDomain" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent domain used for obtaining the rental price.
 
 **Example:**
 `"mostRecentRentalPriceDomain": "www.remax.com"`
 </ParamField>
 
-<ParamField path="mostRecentRentalPriceFirstDateSeen" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentRentalPriceFirstDateSeen" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent rental prices first seen by Datafiniti.
 
 **Example:**
 `"mostRecentRentalPriceFirstDateSeen": "2024-09-11T00:00:00.000Z"`
 </ParamField>
 
-<ParamField path="mostRecentRentalPricePeriod" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentRentalPricePeriod" show-location="false" param-type="string" required="false" deprecated="false">
 The period term of the most recent rental price. Either `Per Month` or `Per Year`.
 
 **Example:**
 `"mostRecentRentalPricePeriod": "Per Month"`
 </ParamField>
 
-<ParamField path="mostRecentRentalPriceSourceURL" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentRentalPriceSourceURL" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent source Url used for obtaining the rental price.
 
 **Example:**
 `"mostRecentRentalPriceSourceURL":"www.remax.com/usdfusj/19278"`
 </ParamField>
 
-<ParamField path="mostRecentSaleListPriceAmount" param-type="float" required="false" deprecated="false">
+<ParamField path="mostRecentSaleListPriceAmount" show-location="false" param-type="float" required="false" deprecated="false">
 The most recent "sale list" price from our prices field.
 
 **Example:**
 `"mostRecentSaleListPriceAmount":456990`
 </ParamField>
 
-<ParamField path="mostRecentSaleListPriceDate" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentSaleListPriceDate" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent "sale list" price date from our prices field.
 
 **Example:**
 `"mostRecentSaleListPriceDate": "2025-10-23T00:00:00.000Z"`
 </ParamField>
 
-<ParamField path="mostRecentSoldPriceAmount" param-type="float" required="false" deprecated="false">
+<ParamField path="mostRecentSoldPriceAmount" show-location="false" param-type="float" required="false" deprecated="false">
 The most recent "sale" price from our prices field.
 
 **Example:**
 `"mostRecentSoldPriceAmount":480000`
 </ParamField>
 
-<ParamField path="mostRecentSoldPriceDate" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentSoldPriceDate" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent "sale" price date from our prices field.
 
 **Example:**
 `"mostRecentSoldPriceDate":"2025-10-21T00:00:00.000Z"`
 </ParamField>
 
-<ParamField path="mostRecentRentalStatus" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentRentalStatus" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent value for `rentalStatuses.type` for this property. See possible values [here](https://docs.datafiniti.co/docs/possible-values-for-property-fields).
 
 **Example:**
 `"mostRecentStatus": "Rental"`
 </ParamField>
 
-<ParamField path="mostRecentRentalStatusDate" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentRentalStatusDate" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent rental status date listed by the source.
 
 **Example:**
 `"mostRecentRentalStatusDate": "2025-08-23T00:00:00.000Z"`
 </ParamField>
 
-<ParamField path="mostRecentRentalStatusFirstDateSeen" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentRentalStatusFirstDateSeen" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent rental status first seen by Datafiniti.
 
 **Example:**
 `mostRecentRentalStatusFirstDateSeen: "2024-09-11T00:00:00.000Z"`
 </ParamField>
 
-<ParamField path="mostRecentPriceCurrency" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentPriceCurrency" show-location="false" param-type="string" required="false" deprecated="false">
 The currency listed for mostRecentPriceAmount.
 
 **Example:**
 `"mostRecentPriceCurrency": "USD"`
 </ParamField>
 
-<ParamField path="mostRecentPriceDomain" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentPriceDomain" show-location="false" param-type="string" required="false" deprecated="false">
 The domain of the most recent price scraped by Datafiniti.
 
 **Example:**
 `"mostRecentPriceDomain": "www.nordstrom.com"`
 </ParamField>
 
-<ParamField path="mostRecentPriceDate" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentPriceDate" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent price date of the property record.
 
 **Example:**
 `"mostRecentPriceDate": "2022-03-29T19:26:49.157Z"`
 </ParamField>
 
-<ParamField path="mostRecentStatus" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentStatus" show-location="false" param-type="string" required="false" deprecated="false">
 The most recent value for `statuses.type` for this property. See possible values [here](https://docs.datafiniti.co/docs/possible-values-for-property-fields).
 
 **Example:**
 `"mostRecentStatus": "For Sale"`
 </ParamField>
 
-<ParamField path="mostRecentStatusDate" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentStatusDate" show-location="false" param-type="string" required="false" deprecated="false">
 The date of change that corresponds to the `mostRecentStatus` for this property.
 
 **Example:**
 `"mostRecentStatusDate": "2017-01-10T20:12:16Z"`
 </ParamField>
 
-<ParamField path="mostRecentStatusFirstDateSeen" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentStatusFirstDateSeen" show-location="false" param-type="string" required="false" deprecated="false">
 This date corresponds to the most recent date seen of the most recent status data source.
 
 **Example:**
 `"mostRecentStatusFirstDateSeen": "2021-09-09T00:00:00.000"`
 </ParamField>
 
-<ParamField path="mostRecentVacancy" param-type="boolean" required="false" deprecated="false">
+<ParamField path="mostRecentVacancy" show-location="false" param-type="boolean" required="false" deprecated="false">
 The most recent vacancy value of the property.
 
 **Example:**
 `"mostRecentVacancy": false`
 </ParamField>
 
-<ParamField path="mostRecentVacancyFirstDateSeen" param-type="string" required="false" deprecated="false">
+<ParamField path="mostRecentVacancyFirstDateSeen" show-location="false" param-type="string" required="false" deprecated="false">
 This date corresponds to the first date seen from the source of the property listing.
 
 **Example:**
 `"mostRecentVacancyFirstDateSeen": "2024-04-11T16:57:22.603Z"`
 </ParamField>
 
-<ParamField path="msaCode" param-type="string" required="false" deprecated="false">
+<ParamField path="msaCode" show-location="false" param-type="string" required="false" deprecated="false">
 The msa code of the property.
 
 **Example:**
 `"msaCode": 212312`
 </ParamField>
 
-<ParamField path="msaName" param-type="string" required="false" deprecated="false">
+<ParamField path="msaName" show-location="false" param-type="string" required="false" deprecated="false">
 The msa name of the property.
 
 **Example:**
 `"msaName": "OXNARD-THOUSAND OAKS-VENTURA, CA METROPOLITAN"`
 </ParamField>
 
-<ParamField path="municipality" param-type="string" required="false" deprecated="false">
+<ParamField path="municipality" show-location="false" param-type="string" required="false" deprecated="false">
 The property municipality in regards the county/city.
 
 **Example:**
 `"municipality": "READING TWP"`
 </ParamField>
 
-<ParamField path="neighborhoods" param-type="string" required="false" deprecated="false">
+<ParamField path="neighborhoods" show-location="false" param-type="string" required="false" deprecated="false">
 A list of neighborhoods where this property is located. Sometimes an area can belong to multiple neighborhoods, which is why this field is a list.
 
 **Example:**
 `"neighborhoods": [ "Canarsie" ]`
 </ParamField>
 
-<ParamField path="netOperatingIncome" param-type="float" required="false" deprecated="false">
+<ParamField path="netOperatingIncome" show-location="false" param-type="float" required="false" deprecated="false">
 The total revenue a property generates from all sources, such as rent and other fees, minus all operating expenses.
 
 **Example:**
 `"netOperatingIncome": 49050`
 </ParamField>
 
-<ParamField path="netOperatingIncomeSourceURL" param-type="string" required="false" deprecated="false">
+<ParamField path="netOperatingIncomeSourceURL" show-location="false" param-type="string" required="false" deprecated="false">
 The source URL of the net operating income in regards to the property.
 
 **Example:**
 `"netOperatingIncomeSourceURL": "https://..."`
 </ParamField>
 
-<ParamField path="netRentable" param-type="float" required="false" deprecated="false">
+<ParamField path="netRentable" show-location="false" param-type="float" required="false" deprecated="false">
 The net rentable amount of the commercial property.
 
 **Example:**
 `"netRentable": 34513`
 </ParamField>
 
-<ParamField path="numBathroom" param-type="float" required="false" deprecated="false">
+<ParamField path="numBathroom" show-location="false" param-type="float" required="false" deprecated="false">
 The number of bathrooms in this property. Can be a whole number (e.g. "1") or a float (e.g., 1.25).
 
 **Example:**
 `"numBathroom": 1.25`
 </ParamField>
 
-<ParamField path="numBedroom" param-type="integer" required="false" deprecated="false">
+<ParamField path="numBedroom" show-location="false" param-type="integer" required="false" deprecated="false">
 The number of bedrooms in this property.
 
 **Example:**
 `"numBedroom": 3`
 </ParamField>
 
-<ParamField path="numFloor" param-type="integer" required="false" deprecated="false">
+<ParamField path="numFloor" show-location="false" param-type="integer" required="false" deprecated="false">
 The number of floors or stories in this property.
 
 **Example:**
 `"numFloor": 2`
 </ParamField>
 
-<ParamField path="numParkingSpaces" param-type="integer" required="false" deprecated="false">
+<ParamField path="numParkingSpaces" show-location="false" param-type="integer" required="false" deprecated="false">
 The number of parking spots on the property.
 
 **Example:**
 `"numParkingSpaces": 0`
 </ParamField>
 
-<ParamField path="numPeople" param-type="integer" required="false" deprecated="false">
+<ParamField path="numPeople" show-location="false" param-type="integer" required="false" deprecated="false">
 The number of people that can occupy this property.
 
 **Example:**
 `"numPeople": 6`
 </ParamField>
 
-<ParamField path="numProperties" param-type="integer" required="false" deprecated="false">
+<ParamField path="numProperties" show-location="false" param-type="integer" required="false" deprecated="false">
 The number of commercially available property within the address.
 
 **Example:**
 `"numProperties": 2`
 </ParamField>
 
-<ParamField path="numRoom" param-type="integer" required="false" deprecated="false">
+<ParamField path="numRoom" show-location="false" param-type="integer" required="false" deprecated="false">
 The number of rooms in this property.
 
 **Example:**
 `"numRoom": 2`
 </ParamField>
 
-<ParamField path="numTenants" param-type="integer" required="false" deprecated="false">
+<ParamField path="numTenants" show-location="false" param-type="integer" required="false" deprecated="false">
 The number of active tenants for a commercial property.
 
 **Example:**
 `"numTenants": 2`
 </ParamField>
 
-<ParamField path="numUnit" param-type="integer" required="false" deprecated="false">
+<ParamField path="numUnit" show-location="false" param-type="integer" required="false" deprecated="false">
 The number of units available in this property.
 
 **Example:**
 `"numUnit": 1`
 </ParamField>
 
-<ParamField path="occupancy" param-type="string" required="false" deprecated="false">
+<ParamField path="occupancy" show-location="false" param-type="string" required="false" deprecated="false">
 The current status of the commercial occupancy of the property.
 
 **Example:**
 `"occupancy": "Vacant"`
 </ParamField>
 
-<ParamField path="operatingExpenses" param-type="string" required="false" deprecated="false">
+<ParamField path="operatingExpenses" show-location="false" param-type="string" required="false" deprecated="false">
 The operating expense description of the commercial property.
 
 **Example:**
 `"operatingExpenses": "Fee - Property Management"`
 </ParamField>
 
-<ParamField path="otherIncome" param-type="float" required="false" deprecated="false">
+<ParamField path="otherIncome" show-location="false" param-type="float" required="false" deprecated="false">
 Other income revenue value of the commercial property.
 
 **Example:**
 `"otherIncome": 14400`
 </ParamField>
 
-<ParamField path="ownership" param-type="string" required="false" deprecated="false">
+<ParamField path="ownership" show-location="false" param-type="string" required="false" deprecated="false">
 The ownership clause / stake of a property for the buyer.
 
 **Example:**
 `"ownership": "Fee Simple"`
 </ParamField>
 
-<ParamField path="owners" param-type="object" required="false" deprecated="false">
+<ParamField path="owners" show-location="false" param-type="object" required="false" deprecated="false">
 A list of owners associated with this property.
 
 - `firstDateSeen`: the first time the owner was seen by Datafiniti. (date)
@@ -1004,14 +1004,14 @@ A list of owners associated with this property.
 `"owners": [ { "transactionDate": "2025-05-27T00:00:00.000Z", "firstName": "Jeffrey", ... } ]`
 </ParamField>
 
-<ParamField path="ownerOccupied" param-type="boolean" required="false" deprecated="false">
+<ParamField path="ownerOccupied" show-location="false" param-type="boolean" required="false" deprecated="false">
 The true/false value of whether owner occupies the property.
 
 **Example:**
 `"ownerOccupied": true`
 </ParamField>
 
-<ParamField path="ownerOccupiedStatus" param-type="object" required="false" deprecated="false">
+<ParamField path="ownerOccupiedStatus" show-location="false" param-type="object" required="false" deprecated="false">
 The owner occupied status of the property.
 
 - `firstDateSeen`: the first date seen by Datafiniti of owner occupancy being true (date)
@@ -1023,21 +1023,21 @@ The owner occupied status of the property.
 `{ "status": true, "firstDateSeen": "2023-12-01T13:35:16.399Z", ... }`
 </ParamField>
 
-<ParamField path="parking" param-type="string" required="false" deprecated="false">
+<ParamField path="parking" show-location="false" param-type="string" required="false" deprecated="false">
 A list of details regarding parking at this property.
 
 **Example:**
 `"parking": [ "Garage" ]`
 </ParamField>
 
-<ParamField path="parkingTypes" param-type="string" required="false" deprecated="false">
+<ParamField path="parkingTypes" show-location="false" param-type="string" required="false" deprecated="false">
 A list of parking types that pertains to the property.
 
 **Example:**
 `"parkingTypes": [ "Street", "Attached Garage" ]`
 </ParamField>
 
-<ParamField path="parcelNumbers" param-type="object" required="false" deprecated="false">
+<ParamField path="parcelNumbers" show-location="false" param-type="object" required="false" deprecated="false">
 The parcel number associated to the property.
 
 - `account`: Account number of parcel. (string)
@@ -1048,14 +1048,14 @@ The parcel number associated to the property.
 `"parcelNumbers": [ { "number": "29-29-22-12-0015", "account": "394308", "year": 1985 } ]`
 </ParamField>
 
-<ParamField path="paymentTypes" param-type="string" required="false" deprecated="false">
+<ParamField path="paymentTypes" show-location="false" param-type="string" required="false" deprecated="false">
 A list of payment options accepted by the property.
 
 **Example:**
 `"paymentTypes": [ "Visa" ]`
 </ParamField>
 
-<ParamField path="people" param-type="object" required="false" deprecated="false">
+<ParamField path="people" show-location="false" param-type="object" required="false" deprecated="false">
 A list of known people associated with or employed by this property. Each person may contain:
 
 - `dateSeen`: The date when this person was seen. (date)
@@ -1074,35 +1074,35 @@ A list of known people associated with or employed by this property. Each person
 `"people": [ { "equity": 1065556, "equityPercent": 100, "name": "Luci Weinsein", ... } ]`
 </ParamField>
 
-<ParamField path="permits" param-type="boolean" required="false" deprecated="false">
+<ParamField path="permits" show-location="false" param-type="boolean" required="false" deprecated="false">
 If there is a permit or permitting process adhere to this property.
 
 **Example:**
 `"permits": "true"`
 </ParamField>
 
-<ParamField path="petPolicy" param-type="string" required="false" deprecated="false">
+<ParamField path="petPolicy" show-location="false" param-type="string" required="false" deprecated="false">
 The pet policy for the property.
 
 **Example:**
 `"petPolicy": "Pets are not allowed."`
 </ParamField>
 
-<ParamField path="phones" param-type="string" required="false" deprecated="false">
+<ParamField path="phones" show-location="false" param-type="string" required="false" deprecated="false">
 A list of phone numbers for the property.
 
 **Example:**
 `"phones": [ "5058982700" ]`
 </ParamField>
 
-<ParamField path="postalCode" param-type="string" required="false" deprecated="false">
+<ParamField path="postalCode" show-location="false" param-type="string" required="false" deprecated="false">
 The postal or zip code of the property.
 
 **Example:**
 `"postalCode": "75231"`
 </ParamField>
 
-<ParamField path="prices" param-type="object" required="false" deprecated="false">
+<ParamField path="prices" show-location="false" param-type="object" required="false" deprecated="false">
 A list of prices for this property. Price objects may contain:
 
 - `amountMin`: The minimum price value listed. (float)
@@ -1127,14 +1127,14 @@ A list of prices for this property. Price objects may contain:
 `"prices": [ { "amountMax": 289000, "amountMin": 289000, ... } ]`
 </ParamField>
 
-<ParamField path="proFormaNOI" param-type="float" required="false" deprecated="false">
+<ParamField path="proFormaNOI" show-location="false" param-type="float" required="false" deprecated="false">
 The pro Forma net operating income of the property.
 
 **Example:**
 `"proFormaNOI": 122400`
 </ParamField>
 
-<ParamField path="propertyTaxes" param-type="object" required="false" deprecated="false">
+<ParamField path="propertyTaxes" show-location="false" param-type="object" required="false" deprecated="false">
 A list of property taxes that have been seen for this property. Each property tax will include:
 
 - `amount`: The tax amount. (float)
@@ -1146,28 +1146,28 @@ A list of property taxes that have been seen for this property. Each property ta
 `"propertyTaxes": [ { "amount": 1582, "currency": "USD", ... } ]`
 </ParamField>
 
-<ParamField path="propertyType" param-type="string" required="false" deprecated="false">
+<ParamField path="propertyType" show-location="false" param-type="string" required="false" deprecated="false">
 A classification for the property type. See possible values [here](https://docs.datafiniti.co/docs/possible-values-for-property-fields).
 
 **Example:**
 `"propertyType": "Condo"`
 </ParamField>
 
-<ParamField path="province" param-type="string" required="false" deprecated="false">
+<ParamField path="province" show-location="false" param-type="string" required="false" deprecated="false">
 The province or state for this property.
 
 **Example:**
 `"province": "TX"`
 </ParamField>
 
-<ParamField path="rentableSquareFeet" param-type="float" required="false" deprecated="false">
+<ParamField path="rentableSquareFeet" show-location="false" param-type="float" required="false" deprecated="false">
 The rentable square footage of space for the rental property.
 
 **Example:**
 `"rentableSquareFeet": 35000`
 </ParamField>
 
-<ParamField path="rentalStatuses" param-type="object" required="false" deprecated="false">
+<ParamField path="rentalStatuses" show-location="false" param-type="object" required="false" deprecated="false">
 A list of historical rental statuses. This field is used to indicate when the property is status `For Rent` or `Short-term Rental`. `rentalStatuses` objects may contain:
 
 - `date`: the date the rental status was posted by the source. (date)
@@ -1181,14 +1181,14 @@ A list of historical rental statuses. This field is used to indicate when the pr
 `"rentalStatuses": [ { "date": "2025-08-14T21:53:01.982Z", ... } ]`
 </ParamField>
 
-<ParamField path="rentBumps" param-type="string" required="false" deprecated="false">
+<ParamField path="rentBumps" show-location="false" param-type="string" required="false" deprecated="false">
 The terms of a rentable property on when a rent increase will occur.
 
 **Example:**
 `"rentBumps": "10% Increase Every 5 Years in Term and In Each Option"`
 </ParamField>
 
-<ParamField path="reviews" param-type="object" required="false" deprecated="false">
+<ParamField path="reviews" show-location="false" param-type="object" required="false" deprecated="false">
 A list of reviews for this property. Review objects may contain:
 
 - `date`: The date the review was posted. (date)
@@ -1205,49 +1205,49 @@ A list of reviews for this property. Review objects may contain:
 `"reviews": [ { "dateSeen": "2016-08-17T00:00:00Z", "text": "We love this place a lot!", "username": "Yuwei" } ]`
 </ParamField>
 
-<ParamField path="roofing" param-type="string" required="false" deprecated="false">
+<ParamField path="roofing" show-location="false" param-type="string" required="false" deprecated="false">
 A list of materials the roof of the property is made from.
 
 **Example:**
 `"roofing": ["Asphalt", "Fiberglass"]`
 </ParamField>
 
-<ParamField path="roomTypes" param-type="string" required="false" deprecated="false">
+<ParamField path="roomTypes" show-location="false" param-type="string" required="false" deprecated="false">
 The types of rooms the property has.
 
 **Example:**
 `"roomTypes": ["Laundry","Great","Game"]`
 </ParamField>
 
-<ParamField path="rules" param-type="string" required="false" deprecated="false">
+<ParamField path="rules" show-location="false" param-type="string" required="false" deprecated="false">
 A list of rules for living or staying at this property.
 
 **Example:**
 `"rules": [ "No smoking" ]`
 </ParamField>
 
-<ParamField path="saleCondition" param-type="string" required="false" deprecated="false">
+<ParamField path="saleCondition" show-location="false" param-type="string" required="false" deprecated="false">
 The sale condition of a property as per the seller.
 
 **Example:**
 `"saleCondition": "1031 Exchange"`
 </ParamField>
 
-<ParamField path="saleType" param-type="string" required="false" deprecated="false">
+<ParamField path="saleType" show-location="false" param-type="string" required="false" deprecated="false">
 The type of commercial sale of a property.
 
 **Example:**
 `"saleType": "Standard"`
 </ParamField>
 
-<ParamField path="sewerType" param-type="string" required="false" deprecated="false">
+<ParamField path="sewerType" show-location="false" param-type="string" required="false" deprecated="false">
 The type of sewer access of the property. (public, private, and/or septic)
 
 **Example:**
 `"sewerType": [ "Private" ]`
 </ParamField>
 
-<ParamField path="sourceURLsPerField" param-type="object" required="false" deprecated="false">
+<ParamField path="sourceURLsPerField" show-location="false" param-type="object" required="false" deprecated="false">
 The latest sourceURL for each field that Datafiniti provides in the property data schema.
 
 - `Field`: the property data top level field the sourceURL pertains to. (text)
@@ -1257,7 +1257,7 @@ The latest sourceURL for each field that Datafiniti provides in the property dat
 `"sourceURLsPerField": [{ "field": "country", "sourceURLs": [ "https://..." ] }, ...]`
 </ParamField>
 
-<ParamField path="statuses" param-type="object" required="false" deprecated="true">
+<ParamField path="statuses" show-location="false" param-type="object" required="false" deprecated="true">
 **Depreciated** A list of statuses for this property. This field is used to indicate when the property is for sale, etc. Each status includes:
 
 - `date`: Date the status occurred (date)
@@ -1271,7 +1271,7 @@ The latest sourceURL for each field that Datafiniti provides in the property dat
 `"statuses": [ { "date": "2023-03-10T00:00:00.000Z", ... } ]`
 </ParamField>
 
-<ParamField path="statusHistory" param-type="object" required="false" deprecated="false">
+<ParamField path="statusHistory" show-location="false" param-type="object" required="false" deprecated="false">
 A list of Historical statuses for this property. This field is used to indicate when the property is for sale, etc. No rental statuses are found here. Each status includes:
 
 - `date`: Date the status occurred (date)
@@ -1285,70 +1285,70 @@ A list of Historical statuses for this property. This field is used to indicate 
 `"statusHistory": [ { "dateSeen": [...], "type": "Off Market", ... } ]`
 </ParamField>
 
-<ParamField path="subtype" param-type="string" required="false" deprecated="false">
+<ParamField path="subtype" show-location="false" param-type="string" required="false" deprecated="false">
 The subtype of the propertyType field.
 
 **Example:**
 `"subtype": [ "Medical Office, Traditional Office" ]`
 </ParamField>
 
-<ParamField path="subdivision" param-type="string" required="false" deprecated="false">
+<ParamField path="subdivision" show-location="false" param-type="string" required="false" deprecated="false">
 Subdivision / neighborhood of the property.
 
 **Example:**
 `subdivision: "Crescent Heights Sub"`
 </ParamField>
 
-<ParamField path="taxExemptions" param-type="string" required="false" deprecated="false">
+<ParamField path="taxExemptions" show-location="false" param-type="string" required="false" deprecated="false">
 A list of tax exemptions for the property.
 
 **Example:**
 `"taxExemptions": ["Homeowner", "Disabled", "Senior"]`
 </ParamField>
 
-<ParamField path="taxID" param-type="string" required="false" deprecated="false">
+<ParamField path="taxID" show-location="false" param-type="string" required="false" deprecated="false">
 The tax ID for the property.
 
 **Example:**
 `"taxID": "30-9011-019-0029758"`
 </ParamField>
 
-<ParamField path="tenancy" param-type="string" required="false" deprecated="false">
+<ParamField path="tenancy" show-location="false" param-type="string" required="false" deprecated="false">
 The type of tenants the property allows.
 
 **Example:**
 `"tenancy": "Single"`
 </ParamField>
 
-<ParamField path="tenantCredit" param-type="string" required="false" deprecated="false">
+<ParamField path="tenantCredit" show-location="false" param-type="string" required="false" deprecated="false">
 The credit approve for tenants wanting to rent the property.
 
 **Example:**
 `"tenantCredit": "Corporate Guarantee"`
 </ParamField>
 
-<ParamField path="title" param-type="string" required="false" deprecated="false">
+<ParamField path="title" show-location="false" param-type="string" required="false" deprecated="false">
 The title text of the property.
 
 **Example:**
 `"title": "Single Family Residence, A-Frame - Snellville, GA"`
 </ParamField>
 
-<ParamField path="topographyCode" param-type="integer" required="false" deprecated="false">
+<ParamField path="topographyCode" show-location="false" param-type="integer" required="false" deprecated="false">
 The topography code in relationship to the property.
 
 **Example:**
 `"topographyCode": 150`
 </ParamField>
 
-<ParamField path="totalExpenses" param-type="float" required="false" deprecated="false">
+<ParamField path="totalExpenses" show-location="false" param-type="float" required="false" deprecated="false">
 The total expense cost of the property.
 
 **Example:**
 `"totalExpenses": 24984`
 </ParamField>
 
-<ParamField path="transactions" param-type="object" required="false" deprecated="false">
+<ParamField path="transactions" show-location="false" param-type="object" required="false" deprecated="false">
 A list of transactional data for this property after a sale is completed. This field is used to indicate when the property was purchased and by who. Each transaction includes:
 
 - `buyerFirstName`: First name of the buyer. (string)
@@ -1378,14 +1378,14 @@ A list of transactional data for this property after a sale is completed. This f
 `"transactions": [ { saleDate: ..., price: 112900.00, ... } ]`
 </ParamField>
 
-<ParamField path="trustDescription" param-type="string" required="false" deprecated="false">
+<ParamField path="trustDescription" show-location="false" param-type="string" required="false" deprecated="false">
 The description of the trust information in relation to the property.
 
 **Example:**
 `"trustDescription": "Not a trust"`
 </ParamField>
 
-<ParamField path="vacancy" param-type="object" required="false" deprecated="false">
+<ParamField path="vacancy" show-location="false" param-type="object" required="false" deprecated="false">
 The status of the vacancy of the property:
 
 - `firstDateSeen`: Earliest date seen from the source of the vacancy by Datafiniti. (date)
@@ -1396,49 +1396,49 @@ The status of the vacancy of the property:
 `"vacancy": [ { "vacant": false, "lastDateSeen": "2024-04-11T16:57:22.603Z", ... } ]`
 </ParamField>
 
-<ParamField path="vacancyLoss" param-type="float" required="false" deprecated="false">
+<ParamField path="vacancyLoss" show-location="false" param-type="float" required="false" deprecated="false">
 The vacancy amount loss from the previous tenant(s).
 
 **Example:**
 `"vacancyLoss": 132000`
 </ParamField>
 
-<ParamField path="virtualTour" param-type="string" required="false" deprecated="false">
+<ParamField path="virtualTour" show-location="false" param-type="string" required="false" deprecated="false">
 The virtual tour URL for the property.
 
 **Example:**
 `"virtualTour": "https://..."`
 </ParamField>
 
-<ParamField path="waterType" param-type="string" required="false" deprecated="false">
+<ParamField path="waterType" show-location="false" param-type="string" required="false" deprecated="false">
 The type of water access of the property. (public, private, and/or well)
 
 **Example:**
 `"waterType": [ "Public" ]`
 </ParamField>
 
-<ParamField path="websiteIDs" param-type="string" required="false" deprecated="false">
+<ParamField path="websiteIDs" show-location="false" param-type="string" required="false" deprecated="false">
 A list of website IDs for this property.
 
 **Example:**
 `"websiteIDs": [ "12345" ]`
 </ParamField>
 
-<ParamField path="yearBuilt" param-type="integer" required="false" deprecated="false">
+<ParamField path="yearBuilt" show-location="false" param-type="integer" required="false" deprecated="false">
 The year the property was built.
 
 **Example:**
 `"yearBuilt": 1985`
 </ParamField>
 
-<ParamField path="yearRenovated" param-type="integer" required="false" deprecated="false">
+<ParamField path="yearRenovated" show-location="false" param-type="integer" required="false" deprecated="false">
 The year the property was last renovated.
 
 **Example:**
 `"yearRenovated": 2010`
 </ParamField>
 
-<ParamField path="zoning" param-type="string" required="false" deprecated="false">
+<ParamField path="zoning" show-location="false" param-type="string" required="false" deprecated="false">
 The zoning classification for the property.
 
 **Example:**
