@@ -4,185 +4,1443 @@ title: "Property Data Schema"
 
 The property data schema below lists all available fields in a property record. Note that actual property records (actually, most of them) may not have every field present.
 
-| Field Name | Example Value (in JSON) | Description |
-| :--- | :--- | :--- |
-| `absenteeOwner` | `"absenteeOwner": [ { "absent": false, "firstDateSeen": "2024-04-11T17:17:53.270Z", "lastDateSeen": "2024-04-11T17:17:53.270Z" } ]` | The owner of a property who does not reside in or otherwise occupy that property. `absent`: Is currently an absentee owner Field type: boolean `firstDateSeen`: Earliest date seen of the absentee owner. Field type: date `lastDateSeen`: Latest date seen of the absentee owner. Field type: date |
-| `address` | `"address": "7206 Walling Ln"` | The physical street address for this property. Field type: text |
-| `appliances` | `"appliances": ["Cooktop","Dryer","Dishwasher","Microwave","Refrigerator","Washer"]` | The appliances included with the property. Field Type: text |
-| `architecturalStyles` | `"architecturalStyles": ["Ranch","Bungalow"]` | The architectural style of the property. Field type: text |
-| `assessedValues` | `"assessedValues": [ { "totalAmount": 1745400.0, "improvementsAmount": 1745400.0, "landAmount": 1745400.0, "year": 1985 } ]` | The assessed value of the property. Each assessed value may contain: Field Type: nested `improvementsAmount`: assessed value for improvements made to the property. Field type: float `landAmount`: assessed value for the land/lot of the property. Field type: float `totalAmount`:amount value the property is currently assessed for. Field type: float `year`: year value when the property was assessed. Field Type: integer |
-| `brandTenant` | `"brandTenant": "Bob Evans Restaurants, LLC"` | The branded tenant that is currently associated with the property. Field Type: string |
-| `brokers` | `"brokers": { "emails": ["tomatterson@realtracs.com"], "licenseNumber": "1059280", ... }` | A list of brokers that have represented this property over time. Each broker may contain: Field type: nested `agent`: The name of the real estate agent representing this property. Field type: text `company`: The company this agent works for (or the company representing this property). Field type: text `dateSeen`: The date this agent/company was seen representing the property. Field type: date `emails`: A list of email addresses associated with the agent or company. Field type: keyword `licenseNumber`: The license number of the agent representing the property. Field type: text `licenseType`: The license Type of the agent representing the property. Field type: text `people_key`: The corresponding key that link to Datafiniti's people data record. (contact, demographics, & more) Field type: text `phones`: A phone number associated with the agent or company. Field type: keyword `websites`: A list of websites associated with the agent or company. Field type: keyword `workEmail`: Email address specifically associated with the business the broker works for currently. Field type: keyword |
-| `brokerCoop` | `"brokerCoop": true` | True / False whether or not the property is a broker's CoOp. Field Type: boolean |
-| `buildingClass` | `"buildingClass": "A"` | The building class as defined the classification relative to local commercial real estate markets. Field type: string |
-| `buildingName` | `"buildingName":"Castle Beach Club"` | The name of the building where this property is located. This field is specific to apartments, condos, and similar property types. Field type: text |
-| `capRate` | `"capRate": 8` | The capitalization rate of the property. Field type: float |
-| `capRateSourceURL` | `"capRateSourceURL": "https://www.loopnet.com/..."` | The source url of the capRate. Field type: text |
-| `categories` | `"categories": ["Single family residence", "farming"]` | A list of category keywords used for this property across multiple sources. Field type: text |
-| `cbsaCode` | `"cbsaCode": 02312` | The 5 digit cbsa code of the property. Field type: string |
-| `cbsaName` | `"cbsaName": "OXNARD-THOUSAND OAKS-VENTURA, CA METROPOLITAN"` | The cbsa name associated with the property. Field type: text |
-| `censusBlock` | `"censusBlock": 1012` | The census block the property is associate to. Field type: string |
-| `censusBlockGroup` | `"censusBlockGroup": 4` | The census group the property is associated to. Field type: string |
-| `censusTract` | `"censusTract": 5102` | The census tract the property is associated to. Field type: string |
-| `city` | `"city": "Dallas"` | The city where the property is located. Field type: text |
-| `civilDivisionCode` | `"civilDivisionCode": 4` | The civil division code for the property. Field type: text |
-| `civilDivisionName` | `"civilDivisionName": "SUMMERSVILLE"` | The civil division name of the property. Field type: string |
-| `companies` | `"companies": [ { ... } ]` | A list of companies that have been seen for this property. Each company can contain: Field type: nested `dateSeen`: Date when Datafiniti seen the company's data. Field type: date `email`: Email of the company. Field type: string `equity`: Sum total of equity of the company Field type: integer `equityPercent`: the percent of equity of the company Field type: bigDecimal `landline`: True or False if a landline is found. Field type: Boolean `name`: The name of company Field type: string `phone`: the phone number of the company. Field type: string `title`: title of company in regards of the property. Field type: string |
-| `congressionalDistrictHouse` | `"congressionalDistrictHouse":"4"` | `congressionalDistrictHouse`: District of the property. Field type: string |
-| `country` | `"country": "US"` | The two-letter country code for the property location's country. Field type: text |
-| `county` | `"county": "Hillsborough"` | The county of the property record. Field type: text |
-| `countyFIPS` | `"countyFIPS": 12057` | County FIPS # of the property. Field type: integer |
-| `currentOwnerType` | `"currentOwnerType": "Company"` | `currentOwnerType`: Current owner type of the property. Field type: string |
-| `dateAdded` | `"dateAdded": "2017-01-08T19:12:13Z"` | The date this property was first added to the property database. Field type: date |
-| `dateUpdated` | `"dateUpdated": "2017-01-08T19:12:13Z"` | The most recent date this property was updated or seen by our system. Field type: date |
-| `daysOnMarket` | `"daysOnMarket": 3` | The number of days the property has been on market. Field type: integer |
-| `deposits` | `"deposits": [ { "amount": 104, "currency": "USD", "dateSeen": [ "2016-08-07T18:07:05Z" ] } ]` | A list of deposit fees that have been seen for this property. Each deposit contains: Field type: nested `amount`: The fee amount. Field type: float `currency`: The currency for the amount. Field type: keyword `dateSeen`: A list of dates this deposit fee was seen. Field type: date |
-| `descriptions` | `"descriptions": [ { "dateSeen": "2016-08-07T18:07:05Z", "value": "charming starter home..." } ]` | A list of descriptions for this property from various sources. Each description contains: Field type: nested `dateSeen`: The date when this description has been seen for this property. Field type: date `value`: A unique description for this property. Field type: text |
-| `domains` | `"domains": [ "www.airbnb.com" ]` | A list of each unique domain found in the sourceURLs field. Field type: domain |
-| `effectiveGrossIncome` | `"effectiveGrossIncome": 275352` | The effective gross income of the property. Field type: integer |
-| `estimatedPrices` | `"estimatedPrices": [ { "amountMax": 295000, "amountMin": 295000, "currency": "USD", ... } ]` | A list of price estimates for the property. Field type: nested `amountMax`: The maximum price estimate value listed. Field type: integer `amountMin`: The minimum price estimate value listed. Field type: integer `currency`: The currency listed for amountMin and amountMax Field type: string `dateSeen`: The date when this estimatedPrice was seen for this property. Field type: date `pricePerSquareFoot`: The price divide by the square footage. Field type: float |
-| `exteriorConstruction` | `"exteriorConstruction": ["brick","wood paneling"]` | A list of all the exterior construction of the property. Field type: text |
-| `exteriorFeatures` | `"exteriorFeatures": ["Storm Shutters","Breezeway","Pool"]` | The exterior features the property offers. Field type: text |
-| `features` | `"features": [ { "key": "Community District", "replace": "true", "value": [ "318" ] } ]` | A list of features associated with this property. The feature list can be collected from specific feature sections available on listings for this property. It can also serve as a catch-all field for miscellaneous characteristics of this property that don't make sense to include as top-level fields. Field type: nested Each feature contains: `key`: A label for this feature. Field type: text `replace`: Flag indicating value field is replaced versus appended. Field type: boolean `value`: A list of possible values for this feature. Field type: text |
-| `fees` | `"fees": [ { "amountMax": 11, "amountMin": 11, "currency": "USD", ... } ]` | A list of various fees that have been seen for this property. Each fee will contain: Field type: text `amountMax`: The maximum fee value listed. Field type: float `amountMin`: The minimum fee value listed. Field type: float `currency`: The currency listed for amountMin and amountMax Field type: keyword `dateSeen`: A list of dates when this fee was seen. Field type: date `type`: A classification value for the fee. Field type: text |
-| `floorPlans` | `"floorPlans": [ { "name": "2x2", "type": "2 beds", "numBedrooms": 2, "numBathrooms": 2, "floorSize": "960 sqft" } ]` | A list of floorplans associated with the property Field type: nested `floorSize`: The floor size of the floor plan being referenced. Field type: text `name`: The name of the floor plan being referenced. Field type: text `numBathrooms`: The number of bathrooms in the floor plan. Field type: integer `numBedrooms`: The number of bedrooms in the floor plan. Field type: integer `type`: the type of floor plan classified by the property. Field type: text |
-| `floorSizeValue` | `"floorSizeValue": 947` | The size of the walkable area of the property. For apartments and condos, this is the size of the property. For homes and buildings, this is the combined size of each floor and does not include lot size. Field type: float |
-| `floorSizeUnit` | `"floorSizeUnit": "Sq. ft"` | The units of measurement for `floorSize`. Field type: keyword |
-| `geoLocation` | `"geoLocation": "POINT (-119.5094 37.229366)"` | A location value that stores the latitude and longitude in a format that allows geospatial querying. Field type: geo_shape The value is stored as Well-Known Text format, which resembles an (x, y) value, i.e. (longitude latitude). |
-| `geoQuality` | `"geoQuality": 0` | The quality of the geoLocation data of the property. Field type: integer |
-| `grossRentalIncome` | `"grossRentalIncome": 66000` | The gross rental income of the property. Field type: float |
-| `groundLease` | `"groundLease": false` | True/False if the property includes a ground lease for the land. Field type: boolean |
-| `hvacTypes` | `"hvacTypes": ["Cental Air","Electric","Fans"]` | The type / components of the HVAC system. Field type: text |
-| `imageURLs` | `"imageURLs": [ "http://image.rent.com/imgr/..." ]` | A list of image URLs for this property. Field type: keyword |
-| `instrumentNumber` | `"instrumentNumber": 3312-0576` | `instrumentNumber`: Instrument # of the property. Field type: string |
-| `investmentType` | `"investmentType": "Stabilized"` | The investment type relating to the investment strategy or risk level. Field text: text |
-| `investmentTypeSourceURL` | `"investmentTypeSourceURL":"https://www.crexi.com/properties/16266"` | The source URL of the investmentType. Field type: text |
-| `involuntaryLienJudgement` | `"involuntaryLienJudgement": [ { "judgement": true, "lien": true, ... } ]` | involuntaryLienJudgement shows if a lien is set against your wishes and is the result of not fulfilling your financial obligations `firstDateSeen`: first date seen on the lien of the property. Field type: date `judgement`: if a lien was set on this property. Field type: Boolean `lien`: If a lien is current owed on the property Field type: boolean `lastDateSeen`: last date seen on the lien of the property. Field type: date |
-| `isUnit` | `"isUnit": true` | `isUnit:` If the property is a unit number of a complex / building Field type: boolean |
-| `keys` | `"keys": [ "us/ca/nhills/9411brightwoodct" ]` | A list of internal Datafiniti identifiers for this property. The `keys` field is used to merge raw data from individual sources into the master Datafiniti record. [How Property Records Are Merged](https://docs.datafiniti.co/docs/how-property-records-are-merged) Field type: keyword |
-| `languagesSpoken` | `"languagesSpoken": [ "French", "English" ]` | A list of the languages spoken at this property. Field type: text |
-| `latitude` | `"latitude": "32.860858"` | The latitude coordinates for this property. Field type: text |
-| `leasingTerms` | `"leasingTerms": [ { "dateSeen": "2016-07-30T20:41:01Z", "value": "12 Months" } ]` | A list of leasing terms that have been associated with this property. Each leasing term will contain: Field type: nested `dateSeen`: The date when this term was seen. Field type: date `value`: The leasing term description. Field type: text |
-| `leaseType` | `"leaseType": "Triple Net"` | The type of lease |
-| `legalDescription` | `"legalDescription": "LOT 279 OXFORD OAKS PHASE TWO PB 16 PGS 17-17D"` | The legal description of the property record. Field type: text |
-| `legalRange` | `legalRange: 08E` | `legalRange`: Legal range of the property. Field type: string |
-| `listingName` | `"listingName": "Antico Appartamento"` | The name of the property listing. This isn't the name of the building. It's a descriptive name supplied for the listing itself. Field type: text |
-| `longitude` | `"longitude": "-96.735808"` | The longitude coordinates for this property. Field type: text |
-| `lotDepthValue` | `"lotDepthValue": 150` | The depth dimension of a property's lot. Field type: float |
-| `lotDepthUnit` | `"lotDepthUnit": "ft"` | The depth dimension unit of a property's lot. Field type: text |
-| `lotSizeValue` | `"lotSizeValue": 2219` | The lot size for the property. This is the ground area covered by the property. Field type: integer |
-| `lotSizeUnit` | `"lotSizeUnit": "Sq. ft"` | The units of measurement for `lotSize`. Field type: keyword |
-| `majorTenants` | `"majorTenants": [ "Traffic Planning & Design Inc", ... ]` | The major tenants associated with the property. Field type: string |
-| `managedBy` | `"managedBy": [ { "dateSeen": [ "2016-03-03T15:02:13Z" ], "value": "ROM Investments" } ]` | A list of companies or people that have managed this property. Each managedBy object will contain: Field type: nested `dateSeen`: A list of dates when this information was seen. Field type: date `value`: The name of the company or person. Field type: text |
-| `mlsName` | `"mlsName":"sovereign realty group"` | The mls name of the listing company/realtor Field type: text |
-| `mlsNumber` | `"mlsNumber": "16177277"` | The MLS number for the property. [Learn more about MLS numbers](https://en.wikipedia.org/wiki/Multiple_listing_service). Field type: keyword |
-| `mostRecentAbsenteeOwner` | `"mostRecentAbsenteeOwner": false` | The most recent boolean value for the absentee owner. Field type: boolean |
-| `mostRecentAbsenteeOwnerFirstDateSeen` | `"mostRecentAbsenteeOwnerFirstDateSeen": "2024-04-11T16:57:22.605Z"` | The most recent first date seen of the absentee owner. Field type: date |
-| `mostRecentBrokerAgent` | `"mostRecentBrokerAgent": "Rackel Atkins"` | The most recent broker agent added to the brokers field. Field type: text |
-| `mostRecentBrokerCompany` | `"mostRecentBrokerCompany": "Compass Recom"` | The company of the most recent broker added to the broker's field. Field type: text |
-| `mostRecentBrokerDateSeen` | `"mostRecentBrokerDateSeen": "2023-10-23T19:20:50.418Z"` | The date seen of the most recent broker added to the brokers field. Field type: text |
-| `mostRecentBrokerEmails` | `"mostRecentBrokerEmails": [ "email@example.com" ]` | The email(s) of the most recent broker agent. Field type: text |
-| `mostRecentBrokerPhones` | `"mostRecentBrokerPhones": [ "(713) 948-6666" ]` | The phone number(s) of the most recent broker agent. Field type: text |
-| `mostRecentEstimatedPriceAmount` | `"mostRecentEstimatedPriceAmount": 95267` | The most recent estimated price amount Field type: integer |
-| `mostRecentEstimatedPriceDate` | `"mostRecentEstimatedPriceDate": "2024-09-11T00:00:00.000Z"` | The most recent estimate price date Field type: date |
-| `mostRecentEstimatedPriceDomain` | `"mostRecentEstimatedPriceDomain":"www.redfin.com"` | The most recent source domain of the estimate price Field type: text |
-| `mostRecentEstimatedPriceSourceURL` | `"mostRecentEstimatedPriceSourceURL":"www.redfin.com/093757"` | The most recent sourceURL used for obtaining the price estimate Field type: text |
-| `mostRecentInvoluntaryJudgement` | `"mostRecentInvoluntaryJudgement": true` | The most recent Involuntary Lien Judgement value Field type: boolean |
-| `mostRecentInvoluntaryLien` | `"mostRecentInvoluntaryLien": false` | The most recent Involuntary Lien on the property value Field type: boolean |
-| `mostRecentInvoluntaryLienJudgementFirstDateSeen` | `"mostRecentInvoluntaryLienJudgementFirstDateSeen": "2024-04-11T18:19:19.342Z"` | The most recent first date seen of the Involuntary Lien. Field type: date |
-| `mostRecentOwnerFirstName` | `"mostRecentOwnerFirstName": "Jeff"` | The most recent first name from the owners top level field. Field type: text |
-| `mostRecentOwnerLastName` | `"mostRecentOwnerLastName": "Allback"` | The most recent last name from the owners top level field. Field type: text |
-| `mostRecentOwnerPeopleKey` | `"mostRecentOwnerPeopleKey": "jeff/allback/us/al/85255/3114epatrickst"` | The most recent people key of the owners top level field. This can be matched to the people database Field type: keyword |
-| `mostRecentPriceAmount` | `"mostRecentPriceAmount": 85` | The property's most recent price amount from our prices field. **This does not include rent prices** Field type: BigDecimal |
-| `mostRecentRentalListPriceAmount` | `"mostRecentRentalListPriceAmount":429000` | The most recent rental listing price from our prices field. Field type: float |
-| `mostRecentRentalListPriceDate` | `"mostRecentRentalListPriceDate":"2025-09-11T00:00:00.000Z"` | The most recent rental listing date from our prices field. Field type: date |
-| `mostRecentRentalPriceAmount` - Depreciated | `"mostRecentRentalPriceAmount": 1436` | The property's most recent rent price amount from our prices field. Field type: BigDecimal Depreciated on Jan 31st, 2026 |
-| `mostRecentRentalPriceDate` - Depreciated | `"mostRecentRentalPriceDate": "2024-09-11T00:00:00.000Z"` | The most recent rental price date Field type: date Depreciated on Jan 31st, 2026 |
-| `mostRecentRentalPriceDomain` | `"mostRecentRentalPriceDomain": "www.remax.com"` | The most recent domain used for obtaining the rental price. Field type: text |
-| `mostRecentRentalPriceFirstDateSeen` | `"mostRecentRentalPriceFirstDateSeen": "2024-09-11T00:00:00.000Z"` | The most recent rental prices first seen by Datafiniti Field type: date |
-| `mostRecentRentalPricePeriod` | `"mostRecentRentalPricePeriod": "Per Month"` | The period term of the most recent rental price. Either `Per Month` or `Per Year` Field type: keyword |
-| `mostRecentRentalPriceSourceURL` | `"mostRecentRentalPriceSourceURL":"www.remax.com/usdfusj/19278"` | The most recent source Url used for obtaining the rental price. Field type: text |
-| `mostRecentSaleListPriceAmount` | `"mostRecentSaleListPriceAmount":456990` | The most recent "sale list" price from our prices field. Field type: float |
-| `mostRecentSaleListPriceDate` | `"mostRecentSaleListPriceDate": "2025-10-23T00:00:00.000Z"` | The most recent "sale list" price date from our prices field. Field type: date |
-| `mostRecentSoldPriceAmount` | `"mostRecentSoldPriceAmount":480000` | The most recent "sale" price from our prices field. Field type: float |
-| `mostRecentSoldPriceDate` | `"mostRecentSoldPriceDate":"2025-10-21T00:00:00.000Z"` | The most recent "sale" price date from our prices field. Field type: date |
-| `mostRecentRentalStatus` | `"mostRecentStatus": "Rental"` | The most recent value for `rentalStatuses.type` for this property. See possible values [here](https://docs.datafiniti.co/docs/possible-values-for-property-fields). Field type: keyword |
-| `mostRecentRentalStatusDate` | `"mostRecentRentalStatusDate": "2025-08-23T00:00:00.000Z"` | The most recent rental status date listed by the source. Field type: date |
-| `mostRecentRentalStatusFirstDateSeen` | `mostRecentRentalStatusFirstDateSeen: "2024-09-11T00:00:00.000Z"` | The most recent rental status first seen by Datafiniti Field type: date |
-| `mostRecentPriceCurrency` | `"mostRecentPriceCurrency": "USD"` | The currency listed for mostRecentPriceAmount. Field type: text |
-| `mostRecentPriceDomain` | `"mostRecentPriceDomain": "www.nordstrom.com"` | The domain of the most recent price scraped by Datafiniti Field type: domain |
-| `mostRecentPriceDate` | `"mostRecentPriceDate": "2022-03-29T19:26:49.157Z"` | The most recent price date of the property record. Field type: date |
-| `mostRecentStatus` | `"mostRecentStatus": "For Sale"` | The most recent value for `statuses.type` for this property. See possible values [here](https://docs.datafiniti.co/docs/possible-values-for-property-fields). Field type: keyword |
-| `mostRecentStatusDate` | `"mostRecentStatusDate": "2017-01-10T20:12:16Z"` | The date of change that corresponds to the `mostRecentStatus` for this property. Field type: date |
-| `mostRecentStatusFirstDateSeen` | `"mostRecentStatusFirstDateSeen": "2021-09-09T00:00:00.000"` | This date corresponds to the most recent date seen of the most recent status data source. Field type: date |
-| `mostRecentVacancy` | `"mostRecentVacancy": false` | The most recent vacancy value of the property. Field type: boolean |
-| `mostRecentVacancyFirstDateSeen` | `"mostRecentVacancyFirstDateSeen": "2024-04-11T16:57:22.603Z"` | This date corresponds to the first date seen from the source of the property listing. Field type: date |
-| `msaCode` | `"msaCode": 212312` | The msa code of the property. Field type: string |
-| `msaName` | `"msaName": "OXNARD-THOUSAND OAKS-VENTURA, CA METROPOLITAN"` | The msa name of the property. Field type: text |
-| `municipality` | `"municipality": "READING TWP"` | The property municipality in regards the county/city. Field type: text |
-| `neighborhoods` | `"neighborhoods": [ "Canarsie" ]` | A list of neighborhoods where this property is located. Sometimes an area can belong to multiple neighborhoods, which is why this field is a list. Field type: text |
-| `netOperatingIncome` | `"netOperatingIncome": 49050` | The total revenue a property generates from all sources, such as rent and other fees, minus all operating expenses Field type: float |
-| `netOperatingIncomeSourceURL` | `"netOperatingIncomeSourceURL": "https://..."` | The source URL of the net operating income in regards to the property. Field type: text |
-| `netRentable` | `"netRentable": 34513` | The net rentable amount of the commercial property. Field type: float |
-| `numBathroom` | `"numBathroom": 1.25` | The number of bathrooms in this property. Can be a whole number (e.g. "1") or a float (e.g., 1.25). Field type: float |
-| `numBedroom` | `"numBedroom": 3` | The number of bedrooms in this property. Field type: integer |
-| `numFloor` | `"numFloor": 2` | The number of floors or stories in this property. Field type: integer |
-| `numParkingSpaces` | `"numParkingSpaces": 0` | The number of parking spots on the property. Field type: integer |
-| `numPeople` | `"numPeople": 6` | The number of people that can occupy this property. Field type: integer |
-| `numProperties` | `"numProperties": 2` | The number of commercially available property within the address. Field type: integer |
-| `numRoom` | `"numRoom": 2` | The number of rooms in this property. Field type: integer |
-| `numTenants` | `"numTenants": 2` | The number of active tenants for a commercial property. Field type: integer |
-| `numUnit` | `"numUnit": 1` | The number of units available in this property. Field type: integer |
-| `occupancy` | `"occupancy": "Vacant"` | The current status of the commercial occupancy of the property. Field type: string |
-| `operatingExpenses` | `"operatingExpenses": "Fee - Property Management"` | The operating expense description of the commercial property. Field type: string |
-| `otherIncome` | `"otherIncome": 14400` | Other income revenue value of the commercial property. Field type: float |
-| `ownership` | `"ownership": "Fee Simple"` | The ownership clause / stake of a property for the buyer. Field type: string |
-| `owners` | `"owners": [ { "transactionDate": "2025-05-27T00:00:00.000Z", "firstName": "Jeffrey", ... } ]` | `firstDateSeen`: the first time the owner was seen by Datafiniti. Field type: date `firstName`: first name of the owner. Field type: text `lastDateSeen`: the last time the owner was seen by Datafiniti. Field type: date `lastName`: last name of the owner. Field type: text `peopleKey`: people key matched to Datafiniti's people database. Field type: keyword `transactionDate`: date the owner purchased this property. Field type: date |
-| `ownerOccupied` | `"ownerOccupied": true` | The true/false value of whether owner occupies the property. Field type: boolean |
-| `ownerOccupiedStatus` | `{ "status": true, "firstDateSeen": "2023-12-01T13:35:16.399Z", ... }` | `firstDateSeen`: the first date seen by Datafiniti of owner occupancy being true Field type: date `lastDateSeen`: the last date seen by Datafiniti of owner occupancy being true Field type: date `startDate`: the lease start date seen by the leasing agency. Field type: date `status`: The true/false value of whether owner occupies the property. Field type: boolean |
-| `parking` | `"parking": [ "Garage" ]` | A list of details regarding parking at this property. Field type: text |
-| `parkingTypes` | `"parkingTypes": [ "Street", "Attached Garage" ]` | A list of parking types that pertains to the property. Field Type: text |
-| `parcelNumbers` | `"parcelNumbers": [ { "number": "29-29-22-12-0015", "account": "394308", "year": 1985 } ]` | The parcel number associated to the property. Field type: nested `account`: Account number of parcel. Field type: string `number`: Legal parcel number of the property. Field type: string `year`: Recorded year of the parcel number. Field type: integer |
-| `paymentTypes` | `"paymentTypes": [ "Visa" ]` | A list of payment options accepted by the property. Field type: text |
-| `people` | `"people": [ { "equity": 1065556, "equityPercent": 100, "name": "Luci Weinsein", ... } ]` | A list of known people associated with or employed by this property. Field type: nested Each person may contain: `dateSeen`: The date when this person was seen. Field type: date `email`: The person's email. Field type: text `equity`: Sum total of equity of properties Field type: Float `equityPercent`: Percent estimated equity percentage (100 minus LTV) Field type: Float `firstName`: first name of the person Field type: text `lastName`: last name of the person Field type: text `landline`: Does the person have a landline. Field type: Boolean `name`: The person's name. Field type: text `people_key`: the corresponding key that link to Datafiniti's people data record. (contact, demographics, & more) Field type: keyword `phone`: The person's phone number. Field type: text `title`: The person's title. Field type: text |
-| `permits` | `"permits": "true"` | `permits`: if there is a permit or permitting process adhere to this property. Field type: boolean |
-| `petPolicy` | `"petPolicy": "Pets are not allowed."` | The pet policy for the property. Field type: text |
-| `phones` | `"phones": [ "5058982700" ]` | A list of phone numbers for the property. Field type: keyword |
-| `postalCode` | `"postalCode": "75231"` | The postal or zip code of the property. Field type: keyword |
-| `prices` | `"prices": [ { "amountMax": 289000, "amountMin": 289000, ... } ]` | A list of prices for this property. Field type: nested Price objects may contain: `amountMin`: The minimum price value listed. Field type: float `amountMax`: The maximum price value listed. This is typically the same as amountMin, except in cases where a price range is listed. Field type: float `availability`: The property's availability at this price. Field type: keyword `comment`: A note related to this price. Field type: text `currency`: The currency listed for amountMin and amountMax. Field type: text `date`: A list of date when the property was set to this price. Field type: date `dateSeen`: A list of dates when this price was seen. Field type: date `dateValidStart`: The date when this price becomes valid. Field type: date `dateValidEnd`: The date when this price is no longer valid. Field type: date `domain`: The domain of the source of the price. Field type: text `isSale`: A true/false for whether or not this is a sale price. - depreciated Field type: boolean `isSold`: A true/false for whether or not this is the sold price. - depreciated Field type: boolean `minStay`: The minimum length of stay required for this price. Field type: text `period`: The calendar period for which this price is valid. Field type: text `pricePerSquareFoot`: The price divide by the square footage. Field type: float `status`: The property status of the prices Field type; string `type`: the type of price at which the property was listed for sale, sold, or rent. (Sale List, Sold, or Rental List) Field type: string |
-| `proFormaNOI` | `"proFormaNOI": 122400` | The pro Forma net operating income of the property. Field type: float |
-| `propertyTaxes` | `"propertyTaxes": [ { "amount": 1582, "currency": "USD", ... } ]` | A list of property taxes that have been seen for this property. Each property tax will include: Field type: nested `amount`: The tax amount. Field type: float `currency`: The amount's currency. Field type: text `dateSeen`: A list of dates when this tax has been seen for this property. Field type: date `year`: The year of taxable amount of the property. Field Type: integer |
-| `propertyType` | `"propertyType": "Condo"` | A classification for the property type. See possible values [here](https://docs.datafiniti.co/docs/possible-values-for-property-fields). Field type: text |
-| `province` | `"province": "TX"` | The province or state for this property. Field type: text |
-| `rentableSquareFeet` | `"rentableSquareFeet": 35000` | The rentable square footage of space for the rental property. Field type: float |
-| `rentalStatuses` | `"rentalStatuses": [ { "date": "2025-08-14T21:53:01.982Z", ... } ]` | A list of historical rental statuses. This field is used to indicate when the property is status `For Rent` or `Short-term Rental`. Field type: nested `rentalStatuses` objects may contain: `date`: the date the rental status was posted by the source. Field type: date `dateSeen`: the date when the rental status was seen by Datafiniti. Field type: date `type`: the type of rental being listed `For Rent` or `Short-term Rental` Field type: string `firstDateSeen`: the first date seen of the rental status was seen by Datafiniti. Field type: date `lastDateSeen`: the latest date seen of the rental status was seen by Datafiniti. Field type: date `sourceURLs`: the source URL of the rental property listing. Field type: string |
-| `rentBumps` | `"rentBumps": "10% Increase Every 5 Years in Term and In Each Option"` | The terms of a rentable property on when a rent increase will occur. Field type: string |
-| `reviews` | `"reviews": [ { "dateSeen": "2016-08-17T00:00:00Z", "text": "We love this place a lot!", "username": "Yuwei" } ]` | A list of reviews for this property. Field type: nested Review objects may contain: `date`: The date the review was posted. Field type: date `dateSeen`: The date when the review was seen by Datafiniti. Field type: date `doRecommend`: A true/false for whether or not the reviewer recommends the property. Field type: boolean `rating`: A 1 to 5 star value for the review. Field type: float `text`: The full (or available) text of the review. Field type: text `title`: The review's title. Field type: text `userCity`: The reviewer's city. Field type: text `username`: The reviewer's username. Field type: text `userProvince`: The reviewer's province or state. Field type: text |
-| `roofing` | `"roofing": ["Asphalt", "Fiberglass"]` | A list of materials the roof of the property is made from. Field type: text |
-| `roomTypes` | `"roomTypes": ["Laundry","Great","Game"]` | The types of rooms the property has. Field type: text |
-| `rules` | `"rules": [ "No smoking" ]` | A list of rules for living or staying at this property. Field type: text |
-| `saleCondition` | `"saleCondition": "1031 Exchange"` | The sale condition of a property as per the seller. Field type: text |
-| `saleType` | `"saleType": "Standard"` | The type of commercial sale of a property. Field type: text |
-| `sewerType` | `"sewerType": [ "Private" ]` | The type of sewer access of the property. (public, private, and/or septic) Field type: text |
-| `sourceURLsPerField` | `"sourceURLsPerField": [{ "field": "country", "sourceURLs": [ "https://..." ] }, ...]` | The latest sourceURL for each field that Datafiniti provides in the property data schema. Field type: Sub Object `Field`: the property data top level field the sourceURL pertains to. Field type: Text `SourceURLs`: the source URL of the field. Field type: text |
-| `statuses` - Depreciated | `"statuses": [ { "date": "2023-03-10T00:00:00.000Z", ... } ]` | **Depreciated** A list of statuses for this property. This field is used to indicate when the property is for sale, etc. Field type: nested Each status includes: `date`: Date the status occurred Field type: date `dateSeen`: A list of dates when this status was seen by Datafiniti. Field type: date `firstDateSeen`: the first date seen of this status was seen by Datafiniti. Field type: date `lastDateSeen`: the latest date seen of this status was seen by Datafiniti. Field type: date `isUnderContract`: A true/false value to indicate if this status is under contract. Field type: boolean `type`: The status. See possible values [here](https://docs.datafiniti.co/docs/possible-values-for-property-fields). Field type: keyword |
-| `statusHistory` | `"statusHistory": [ { "dateSeen": [...], "type": "Off Market", ... } ]` | A list of Historical statuses for this property. This field is used to indicate when the property is for sale, etc. No rental statuses are found here. Field type: nested Each status includes: `date`: Date the status occurred Field type: date `dateSeen`: A list of dates when this status was seen by Datafiniti. Field type: date `firstDateSeen`: the first date seen of this status was seen by Datafiniti. Field type: date `lastDateSeen`: the latest date seen of this status was seen by Datafiniti. Field type: date `sourceURLs`: The sourceURL of the status. Field type: url `type`: The status. See possible values [here](https://docs.datafiniti.co/docs/possible-values-for-property-fields). Field type: keyword |
-| `subtype` | `"subtype": [ "Medical Office, Traditional Office" ]` | The subtype of the propertyType field. Field type: text |
-| `subdivision` | `subdivision: "Crescent Heights Sub"` | `subdivision`: Subdivision / neighborhood of the property. Field type: string |
-| `taxExemptions` | `"taxExemptions": ["Homeowner", "Disabled", "Senior"]` | A list of tax exemptions for the property. Field type: text |
-| `taxID` | `"taxID": "30-9011-019-0029758"` | The tax ID for the property. Field type: keyword |
-| `tenancy` | `"tenancy": "Single"` | The type of tenants the property allows. Field type: text |
-| `tenantCredit` | `"tenantCredit": "Corporate Guarantee"` | The credit approve for tenants wanting to rent the property. Field type: text |
-| `title` | `"title": "Single Family Residence, A-Frame - Snellville, GA"` | The title text of the property. Field type: text |
-| `topographyCode` | `"topographyCode": 150` | The topography code in relationship to the property. Field type: integer |
-| `totalExpenses` | `"totalExpenses": 24984` | The total expense cost of the property. Field type: float |
-| `transactions` | `"transactions": [ { saleDate: ..., price: 112900.00, ... } ]` | A list of transactional data for this property after a sale is completed. This field is used to indicate when the property was purchased and by who. Field type: nested Each transaction includes: `buyerFirstName`: First name of the buyer. Field type: string `buyerMiddleName`: Middle name of the buyer. Field type: string `buyerLastName`: Last name of the buyer. Field type: string `contactOwnerMailAddressFull`: Mailing address provided by the buyer at the time of the transaction. Field type: string `documentNumber`: the document number of the transaction. Field type: string `documentType`: Contains all documents attached in this transaction. Field type: string `firstDateSeen`: Earliest date seen from the source of the property listing by Datafiniti. Field type: date `interestType`: interest rate by the lender. Field type: string `lastDateSeen`: Latest date seen from the source of the property listing by Datafiniti. Field type: date `lenderName`: Name of the lender. Field type: string `loanType`: Type of loan for this transaction. Field type: string `loanAmount`: Loan amount by lending company. Field type: double `mortgageTerm`: Length in months of the loan. Field type: integer `ownerType`: Type of owner for transaction. Field type: string `parcelNumber`: Number parcel was created. Field type: string `price`: Price of the property for this transaction. Field type: double `saleDate`: Date the when transaction occurred Field type: date `sellerFirstName`: First name of the seller. Field type: string `sellerMiddleName`: Middle name of the seller. Field type: string `sellerLastName`: Last name of the seller. Field type: string `transactionID`: the ID value of the transaction. Field type: string `type`: the type of transaction in relation to the saleDate. Field type: string |
-| `trustDescription` | `"trustDescription": "Not a trust"` | The description of the trust information in relation to the property. Field type: string |
-| `vacancy` | `"vacancy": [ { "vacant": false, "lastDateSeen": "2024-04-11T16:57:22.603Z", ... } ]` | The status of the vacancy of the property: `firstDateSeen`: Earliest date seen from the source of the vacancy by Datafiniti. Field type: date `lastDateSeen`: Latest date seen from the source of the vacancy by Datafiniti. Field type: date `vacant`: If the property is currently vacant Field type: boolean |
-| `vacancyLoss` | `"vacancyLoss": 132000` | The vacancy amount loss from the previous tenant(s). Field type: float |
-| `virtualTour` | `"virtualTour": "https://..."` | The virtual tour URL for the property. Field type: text |
-| `waterType` | `"waterType": [ "Public" ]` | The type of water access of the property. (public, private, and/or well) Field type: text |
-| `websiteIDs` | `"websiteIDs": [ "12345" ]` | A list of website IDs for this property. Field type: keyword |
-| `yearBuilt` | `"yearBuilt": 1985` | The year the property was built. Field type: integer |
-| `yearRenovated` | `"yearRenovated": 2010` | The year the property was last renovated. Field type: integer |
-| `zoning` | `"zoning": "R-1"` | The zoning classification for the property. Field type: text |
+<ParamField path="absenteeOwner" param-type="object" required="false" deprecated="false">
+The owner of a property who does not reside in or otherwise occupy that property.
+
+- `absent`: Is currently an absentee owner (boolean)
+- `firstDateSeen`: Earliest date seen of the absentee owner. (date)
+- `lastDateSeen`: Latest date seen of the absentee owner. (date)
+
+**Example:**
+`"absenteeOwner": [ { "absent": false, "firstDateSeen": "2024-04-11T17:17:53.270Z", "lastDateSeen": "2024-04-11T17:17:53.270Z" } ]`
+</ParamField>
+
+<ParamField path="address" param-type="string" required="false" deprecated="false">
+The physical street address for this property.
+
+**Example:**
+`"address": "7206 Walling Ln"`
+</ParamField>
+
+<ParamField path="appliances" param-type="string" required="false" deprecated="false">
+The appliances included with the property.
+
+**Example:**
+`"appliances": ["Cooktop","Dryer","Dishwasher","Microwave","Refrigerator","Washer"]`
+</ParamField>
+
+<ParamField path="architecturalStyles" param-type="string" required="false" deprecated="false">
+The architectural style of the property.
+
+**Example:**
+`"architecturalStyles": ["Ranch","Bungalow"]`
+</ParamField>
+
+<ParamField path="assessedValues" param-type="object" required="false" deprecated="false">
+The assessed value of the property. Each assessed value may contain:
+
+- `improvementsAmount`: assessed value for improvements made to the property. (float)
+- `landAmount`: assessed value for the land/lot of the property. (float)
+- `totalAmount`: amount value the property is currently assessed for. (float)
+- `year`: year value when the property was assessed. (integer)
+
+**Example:**
+`"assessedValues": [ { "totalAmount": 1745400.0, "improvementsAmount": 1745400.0, "landAmount": 1745400.0, "year": 1985 } ]`
+</ParamField>
+
+<ParamField path="brandTenant" param-type="string" required="false" deprecated="false">
+The branded tenant that is currently associated with the property.
+
+**Example:**
+`"brandTenant": "Bob Evans Restaurants, LLC"`
+</ParamField>
+
+<ParamField path="brokers" param-type="object" required="false" deprecated="false">
+A list of brokers that have represented this property over time. Each broker may contain:
+
+- `agent`: The name of the real estate agent representing this property. (text)
+- `company`: The company this agent works for (or the company representing this property). (text)
+- `dateSeen`: The date this agent/company was seen representing the property. (date)
+- `emails`: A list of email addresses associated with the agent or company. (keyword)
+- `licenseNumber`: The license number of the agent representing the property. (text)
+- `licenseType`: The license Type of the agent representing the property. (text)
+- `people_key`: The corresponding key that link to Datafiniti's people data record. (contact, demographics, & more) (text)
+- `phones`: A phone number associated with the agent or company. (keyword)
+- `websites`: A list of websites associated with the agent or company. (keyword)
+- `workEmail`: Email address specifically associated with the business the broker works for currently. (keyword)
+
+**Example:**
+`"brokers": { "emails": ["tomatterson@realtracs.com"], "licenseNumber": "1059280", ... }`
+</ParamField>
+
+<ParamField path="brokerCoop" param-type="boolean" required="false" deprecated="false">
+True / False whether or not the property is a broker's CoOp.
+
+**Example:**
+`"brokerCoop": true`
+</ParamField>
+
+<ParamField path="buildingClass" param-type="string" required="false" deprecated="false">
+The building class as defined the classification relative to local commercial real estate markets.
+
+**Example:**
+`"buildingClass": "A"`
+</ParamField>
+
+<ParamField path="buildingName" param-type="string" required="false" deprecated="false">
+The name of the building where this property is located. This field is specific to apartments, condos, and similar property types.
+
+**Example:**
+`"buildingName":"Castle Beach Club"`
+</ParamField>
+
+<ParamField path="capRate" param-type="float" required="false" deprecated="false">
+The capitalization rate of the property.
+
+**Example:**
+`"capRate": 8`
+</ParamField>
+
+<ParamField path="capRateSourceURL" param-type="string" required="false" deprecated="false">
+The source url of the capRate.
+
+**Example:**
+`"capRateSourceURL": "https://www.loopnet.com/..."`
+</ParamField>
+
+<ParamField path="categories" param-type="string" required="false" deprecated="false">
+A list of category keywords used for this property across multiple sources.
+
+**Example:**
+`"categories": ["Single family residence", "farming"]`
+</ParamField>
+
+<ParamField path="cbsaCode" param-type="string" required="false" deprecated="false">
+The 5 digit cbsa code of the property.
+
+**Example:**
+`"cbsaCode": 02312`
+</ParamField>
+
+<ParamField path="cbsaName" param-type="string" required="false" deprecated="false">
+The cbsa name associated with the property.
+
+**Example:**
+`"cbsaName": "OXNARD-THOUSAND OAKS-VENTURA, CA METROPOLITAN"`
+</ParamField>
+
+<ParamField path="censusBlock" param-type="string" required="false" deprecated="false">
+The census block the property is associate to.
+
+**Example:**
+`"censusBlock": 1012`
+</ParamField>
+
+<ParamField path="censusBlockGroup" param-type="string" required="false" deprecated="false">
+The census group the property is associated to.
+
+**Example:**
+`"censusBlockGroup": 4`
+</ParamField>
+
+<ParamField path="censusTract" param-type="string" required="false" deprecated="false">
+The census tract the property is associated to.
+
+**Example:**
+`"censusTract": 5102`
+</ParamField>
+
+<ParamField path="city" param-type="string" required="false" deprecated="false">
+The city where the property is located.
+
+**Example:**
+`"city": "Dallas"`
+</ParamField>
+
+<ParamField path="civilDivisionCode" param-type="string" required="false" deprecated="false">
+The civil division code for the property.
+
+**Example:**
+`"civilDivisionCode": 4`
+</ParamField>
+
+<ParamField path="civilDivisionName" param-type="string" required="false" deprecated="false">
+The civil division name of the property.
+
+**Example:**
+`"civilDivisionName": "SUMMERSVILLE"`
+</ParamField>
+
+<ParamField path="companies" param-type="object" required="false" deprecated="false">
+A list of companies that have been seen for this property. Each company can contain:
+
+- `dateSeen`: Date when Datafiniti seen the company's data. (date)
+- `email`: Email of the company. (string)
+- `equity`: Sum total of equity of the company (integer)
+- `equityPercent`: the percent of equity of the company (float)
+- `landline`: True or False if a landline is found. (boolean)
+- `name`: The name of company (string)
+- `phone`: the phone number of the company. (string)
+- `title`: title of company in regards of the property. (string)
+
+**Example:**
+`"companies": [ { ... } ]`
+</ParamField>
+
+<ParamField path="congressionalDistrictHouse" param-type="string" required="false" deprecated="false">
+District of the property.
+
+**Example:**
+`"congressionalDistrictHouse":"4"`
+</ParamField>
+
+<ParamField path="country" param-type="string" required="false" deprecated="false">
+The two-letter country code for the property location's country.
+
+**Example:**
+`"country": "US"`
+</ParamField>
+
+<ParamField path="county" param-type="string" required="false" deprecated="false">
+The county of the property record.
+
+**Example:**
+`"county": "Hillsborough"`
+</ParamField>
+
+<ParamField path="countyFIPS" param-type="integer" required="false" deprecated="false">
+County FIPS # of the property.
+
+**Example:**
+`"countyFIPS": 12057`
+</ParamField>
+
+<ParamField path="currentOwnerType" param-type="string" required="false" deprecated="false">
+Current owner type of the property.
+
+**Example:**
+`"currentOwnerType": "Company"`
+</ParamField>
+
+<ParamField path="dateAdded" param-type="string" required="false" deprecated="false">
+The date this property was first added to the property database.
+
+**Example:**
+`"dateAdded": "2017-01-08T19:12:13Z"`
+</ParamField>
+
+<ParamField path="dateUpdated" param-type="string" required="false" deprecated="false">
+The most recent date this property was updated or seen by our system.
+
+**Example:**
+`"dateUpdated": "2017-01-08T19:12:13Z"`
+</ParamField>
+
+<ParamField path="daysOnMarket" param-type="integer" required="false" deprecated="false">
+The number of days the property has been on market.
+
+**Example:**
+`"daysOnMarket": 3`
+</ParamField>
+
+<ParamField path="deposits" param-type="object" required="false" deprecated="false">
+A list of deposit fees that have been seen for this property. Each deposit contains:
+
+- `amount`: The fee amount. (float)
+- `currency`: The currency for the amount. (keyword)
+- `dateSeen`: A list of dates this deposit fee was seen. (date)
+
+**Example:**
+`"deposits": [ { "amount": 104, "currency": "USD", "dateSeen": [ "2016-08-07T18:07:05Z" ] } ]`
+</ParamField>
+
+<ParamField path="descriptions" param-type="object" required="false" deprecated="false">
+A list of descriptions for this property from various sources. Each description contains:
+
+- `dateSeen`: The date when this description has been seen for this property. (date)
+- `value`: A unique description for this property. (text)
+
+**Example:**
+`"descriptions": [ { "dateSeen": "2016-08-07T18:07:05Z", "value": "charming starter home..." } ]`
+</ParamField>
+
+<ParamField path="domains" param-type="string" required="false" deprecated="false">
+A list of each unique domain found in the sourceURLs field.
+
+**Example:**
+`"domains": [ "www.airbnb.com" ]`
+</ParamField>
+
+<ParamField path="effectiveGrossIncome" param-type="integer" required="false" deprecated="false">
+The effective gross income of the property.
+
+**Example:**
+`"effectiveGrossIncome": 275352`
+</ParamField>
+
+<ParamField path="estimatedPrices" param-type="object" required="false" deprecated="false">
+A list of price estimates for the property.
+
+- `amountMax`: The maximum price estimate value listed. (integer)
+- `amountMin`: The minimum price estimate value listed. (integer)
+- `currency`: The currency listed for amountMin and amountMax (string)
+- `dateSeen`: The date when this estimatedPrice was seen for this property. (date)
+- `pricePerSquareFoot`: The price divide by the square footage. (float)
+
+**Example:**
+`"estimatedPrices": [ { "amountMax": 295000, "amountMin": 295000, "currency": "USD", ... } ]`
+</ParamField>
+
+<ParamField path="exteriorConstruction" param-type="string" required="false" deprecated="false">
+A list of all the exterior construction of the property.
+
+**Example:**
+`"exteriorConstruction": ["brick","wood paneling"]`
+</ParamField>
+
+<ParamField path="exteriorFeatures" param-type="string" required="false" deprecated="false">
+The exterior features the property offers.
+
+**Example:**
+`"exteriorFeatures": ["Storm Shutters","Breezeway","Pool"]`
+</ParamField>
+
+<ParamField path="features" param-type="object" required="false" deprecated="false">
+A list of features associated with this property. The feature list can be collected from specific feature sections available on listings for this property. It can also serve as a catch-all field for miscellaneous characteristics of this property that don't make sense to include as top-level fields. Each feature contains:
+
+- `key`: A label for this feature. (text)
+- `replace`: Flag indicating value field is replaced versus appended. (boolean)
+- `value`: A list of possible values for this feature. (text)
+
+**Example:**
+`"features": [ { "key": "Community District", "replace": "true", "value": [ "318" ] } ]`
+</ParamField>
+
+<ParamField path="fees" param-type="string" required="false" deprecated="false">
+A list of various fees that have been seen for this property. Each fee will contain:
+
+- `amountMax`: The maximum fee value listed. (float)
+- `amountMin`: The minimum fee value listed. (float)
+- `currency`: The currency listed for amountMin and amountMax (keyword)
+- `dateSeen`: A list of dates when this fee was seen. (date)
+- `type`: A classification value for the fee. (text)
+
+**Example:**
+`"fees": [ { "amountMax": 11, "amountMin": 11, "currency": "USD", ... } ]`
+</ParamField>
+
+<ParamField path="floorPlans" param-type="object" required="false" deprecated="false">
+A list of floorplans associated with the property.
+
+- `floorSize`: The floor size of the floor plan being referenced. (text)
+- `name`: The name of the floor plan being referenced. (text)
+- `numBathrooms`: The number of bathrooms in the floor plan. (integer)
+- `numBedrooms`: The number of bedrooms in the floor plan. (integer)
+- `type`: the type of floor plan classified by the property. (text)
+
+**Example:**
+`"floorPlans": [ { "name": "2x2", "type": "2 beds", "numBedrooms": 2, "numBathrooms": 2, "floorSize": "960 sqft" } ]`
+</ParamField>
+
+<ParamField path="floorSizeValue" param-type="float" required="false" deprecated="false">
+The size of the walkable area of the property. For apartments and condos, this is the size of the property. For homes and buildings, this is the combined size of each floor and does not include lot size.
+
+**Example:**
+`"floorSizeValue": 947`
+</ParamField>
+
+<ParamField path="floorSizeUnit" param-type="string" required="false" deprecated="false">
+The units of measurement for `floorSize`.
+
+**Example:**
+`"floorSizeUnit": "Sq. ft"`
+</ParamField>
+
+<ParamField path="geoLocation" param-type="string" required="false" deprecated="false">
+A location value that stores the latitude and longitude in a format that allows geospatial querying. The value is stored as Well-Known Text format, which resembles an (x, y) value, i.e. (longitude latitude).
+
+**Example:**
+`"geoLocation": "POINT (-119.5094 37.229366)"`
+</ParamField>
+
+<ParamField path="geoQuality" param-type="integer" required="false" deprecated="false">
+The quality of the geoLocation data of the property.
+
+**Example:**
+`"geoQuality": 0`
+</ParamField>
+
+<ParamField path="grossRentalIncome" param-type="float" required="false" deprecated="false">
+The gross rental income of the property.
+
+**Example:**
+`"grossRentalIncome": 66000`
+</ParamField>
+
+<ParamField path="groundLease" param-type="boolean" required="false" deprecated="false">
+True/False if the property includes a ground lease for the land.
+
+**Example:**
+`"groundLease": false`
+</ParamField>
+
+<ParamField path="hvacTypes" param-type="string" required="false" deprecated="false">
+The type / components of the HVAC system.
+
+**Example:**
+`"hvacTypes": ["Cental Air","Electric","Fans"]`
+</ParamField>
+
+<ParamField path="imageURLs" param-type="string" required="false" deprecated="false">
+A list of image URLs for this property.
+
+**Example:**
+`"imageURLs": [ "http://image.rent.com/imgr/..." ]`
+</ParamField>
+
+<ParamField path="instrumentNumber" param-type="string" required="false" deprecated="false">
+Instrument # of the property.
+
+**Example:**
+`"instrumentNumber": 3312-0576`
+</ParamField>
+
+<ParamField path="investmentType" param-type="string" required="false" deprecated="false">
+The investment type relating to the investment strategy or risk level.
+
+**Example:**
+`"investmentType": "Stabilized"`
+</ParamField>
+
+<ParamField path="investmentTypeSourceURL" param-type="string" required="false" deprecated="false">
+The source URL of the investmentType.
+
+**Example:**
+`"investmentTypeSourceURL":"https://www.crexi.com/properties/16266"`
+</ParamField>
+
+<ParamField path="involuntaryLienJudgement" param-type="object" required="false" deprecated="false">
+involuntaryLienJudgement shows if a lien is set against your wishes and is the result of not fulfilling your financial obligations.
+
+- `firstDateSeen`: first date seen on the lien of the property. (date)
+- `judgement`: if a lien was set on this property. (boolean)
+- `lien`: If a lien is current owed on the property (boolean)
+- `lastDateSeen`: last date seen on the lien of the property. (date)
+
+**Example:**
+`"involuntaryLienJudgement": [ { "judgement": true, "lien": true, ... } ]`
+</ParamField>
+
+<ParamField path="isUnit" param-type="boolean" required="false" deprecated="false">
+If the property is a unit number of a complex / building.
+
+**Example:**
+`"isUnit": true`
+</ParamField>
+
+<ParamField path="keys" param-type="string" required="false" deprecated="false">
+A list of internal Datafiniti identifiers for this property. The `keys` field is used to merge raw data from individual sources into the master Datafiniti record. [How Property Records Are Merged](https://docs.datafiniti.co/docs/how-property-records-are-merged)
+
+**Example:**
+`"keys": [ "us/ca/nhills/9411brightwoodct" ]`
+</ParamField>
+
+<ParamField path="languagesSpoken" param-type="string" required="false" deprecated="false">
+A list of the languages spoken at this property.
+
+**Example:**
+`"languagesSpoken": [ "French", "English" ]`
+</ParamField>
+
+<ParamField path="latitude" param-type="string" required="false" deprecated="false">
+The latitude coordinates for this property.
+
+**Example:**
+`"latitude": "32.860858"`
+</ParamField>
+
+<ParamField path="leasingTerms" param-type="object" required="false" deprecated="false">
+A list of leasing terms that have been associated with this property. Each leasing term will contain:
+
+- `dateSeen`: The date when this term was seen. (date)
+- `value`: The leasing term description. (text)
+
+**Example:**
+`"leasingTerms": [ { "dateSeen": "2016-07-30T20:41:01Z", "value": "12 Months" } ]`
+</ParamField>
+
+<ParamField path="leaseType" param-type="string" required="false" deprecated="false">
+The type of lease.
+
+**Example:**
+`"leaseType": "Triple Net"`
+</ParamField>
+
+<ParamField path="legalDescription" param-type="string" required="false" deprecated="false">
+The legal description of the property record.
+
+**Example:**
+`"legalDescription": "LOT 279 OXFORD OAKS PHASE TWO PB 16 PGS 17-17D"`
+</ParamField>
+
+<ParamField path="legalRange" param-type="string" required="false" deprecated="false">
+Legal range of the property.
+
+**Example:**
+`legalRange: 08E`
+</ParamField>
+
+<ParamField path="listingName" param-type="string" required="false" deprecated="false">
+The name of the property listing. This isn't the name of the building. It's a descriptive name supplied for the listing itself.
+
+**Example:**
+`"listingName": "Antico Appartamento"`
+</ParamField>
+
+<ParamField path="longitude" param-type="string" required="false" deprecated="false">
+The longitude coordinates for this property.
+
+**Example:**
+`"longitude": "-96.735808"`
+</ParamField>
+
+<ParamField path="lotDepthValue" param-type="float" required="false" deprecated="false">
+The depth dimension of a property's lot.
+
+**Example:**
+`"lotDepthValue": 150`
+</ParamField>
+
+<ParamField path="lotDepthUnit" param-type="string" required="false" deprecated="false">
+The depth dimension unit of a property's lot.
+
+**Example:**
+`"lotDepthUnit": "ft"`
+</ParamField>
+
+<ParamField path="lotSizeValue" param-type="integer" required="false" deprecated="false">
+The lot size for the property. This is the ground area covered by the property.
+
+**Example:**
+`"lotSizeValue": 2219`
+</ParamField>
+
+<ParamField path="lotSizeUnit" param-type="string" required="false" deprecated="false">
+The units of measurement for `lotSize`.
+
+**Example:**
+`"lotSizeUnit": "Sq. ft"`
+</ParamField>
+
+<ParamField path="majorTenants" param-type="string" required="false" deprecated="false">
+The major tenants associated with the property.
+
+**Example:**
+`"majorTenants": [ "Traffic Planning & Design Inc", ... ]`
+</ParamField>
+
+<ParamField path="managedBy" param-type="object" required="false" deprecated="false">
+A list of companies or people that have managed this property. Each managedBy object will contain:
+
+- `dateSeen`: A list of dates when this information was seen. (date)
+- `value`: The name of the company or person. (text)
+
+**Example:**
+`"managedBy": [ { "dateSeen": [ "2016-03-03T15:02:13Z" ], "value": "ROM Investments" } ]`
+</ParamField>
+
+<ParamField path="mlsName" param-type="string" required="false" deprecated="false">
+The mls name of the listing company/realtor.
+
+**Example:**
+`"mlsName":"sovereign realty group"`
+</ParamField>
+
+<ParamField path="mlsNumber" param-type="string" required="false" deprecated="false">
+The MLS number for the property. [Learn more about MLS numbers](https://en.wikipedia.org/wiki/Multiple_listing_service).
+
+**Example:**
+`"mlsNumber": "16177277"`
+</ParamField>
+
+<ParamField path="mostRecentAbsenteeOwner" param-type="boolean" required="false" deprecated="false">
+The most recent boolean value for the absentee owner.
+
+**Example:**
+`"mostRecentAbsenteeOwner": false`
+</ParamField>
+
+<ParamField path="mostRecentAbsenteeOwnerFirstDateSeen" param-type="string" required="false" deprecated="false">
+The most recent first date seen of the absentee owner.
+
+**Example:**
+`"mostRecentAbsenteeOwnerFirstDateSeen": "2024-04-11T16:57:22.605Z"`
+</ParamField>
+
+<ParamField path="mostRecentBrokerAgent" param-type="string" required="false" deprecated="false">
+The most recent broker agent added to the brokers field.
+
+**Example:**
+`"mostRecentBrokerAgent": "Rackel Atkins"`
+</ParamField>
+
+<ParamField path="mostRecentBrokerCompany" param-type="string" required="false" deprecated="false">
+The company of the most recent broker added to the broker's field.
+
+**Example:**
+`"mostRecentBrokerCompany": "Compass Recom"`
+</ParamField>
+
+<ParamField path="mostRecentBrokerDateSeen" param-type="string" required="false" deprecated="false">
+The date seen of the most recent broker added to the brokers field.
+
+**Example:**
+`"mostRecentBrokerDateSeen": "2023-10-23T19:20:50.418Z"`
+</ParamField>
+
+<ParamField path="mostRecentBrokerEmails" param-type="string" required="false" deprecated="false">
+The email(s) of the most recent broker agent.
+
+**Example:**
+`"mostRecentBrokerEmails": [ "email@example.com" ]`
+</ParamField>
+
+<ParamField path="mostRecentBrokerPhones" param-type="string" required="false" deprecated="false">
+The phone number(s) of the most recent broker agent.
+
+**Example:**
+`"mostRecentBrokerPhones": [ "(713) 948-6666" ]`
+</ParamField>
+
+<ParamField path="mostRecentEstimatedPriceAmount" param-type="integer" required="false" deprecated="false">
+The most recent estimated price amount.
+
+**Example:**
+`"mostRecentEstimatedPriceAmount": 95267`
+</ParamField>
+
+<ParamField path="mostRecentEstimatedPriceDate" param-type="string" required="false" deprecated="false">
+The most recent estimate price date.
+
+**Example:**
+`"mostRecentEstimatedPriceDate": "2024-09-11T00:00:00.000Z"`
+</ParamField>
+
+<ParamField path="mostRecentEstimatedPriceDomain" param-type="string" required="false" deprecated="false">
+The most recent source domain of the estimate price.
+
+**Example:**
+`"mostRecentEstimatedPriceDomain":"www.redfin.com"`
+</ParamField>
+
+<ParamField path="mostRecentEstimatedPriceSourceURL" param-type="string" required="false" deprecated="false">
+The most recent sourceURL used for obtaining the price estimate.
+
+**Example:**
+`"mostRecentEstimatedPriceSourceURL":"www.redfin.com/093757"`
+</ParamField>
+
+<ParamField path="mostRecentInvoluntaryJudgement" param-type="boolean" required="false" deprecated="false">
+The most recent Involuntary Lien Judgement value.
+
+**Example:**
+`"mostRecentInvoluntaryJudgement": true`
+</ParamField>
+
+<ParamField path="mostRecentInvoluntaryLien" param-type="boolean" required="false" deprecated="false">
+The most recent Involuntary Lien on the property value.
+
+**Example:**
+`"mostRecentInvoluntaryLien": false`
+</ParamField>
+
+<ParamField path="mostRecentInvoluntaryLienJudgementFirstDateSeen" param-type="string" required="false" deprecated="false">
+The most recent first date seen of the Involuntary Lien.
+
+**Example:**
+`"mostRecentInvoluntaryLienJudgementFirstDateSeen": "2024-04-11T18:19:19.342Z"`
+</ParamField>
+
+<ParamField path="mostRecentOwnerFirstName" param-type="string" required="false" deprecated="false">
+The most recent first name from the owners top level field.
+
+**Example:**
+`"mostRecentOwnerFirstName": "Jeff"`
+</ParamField>
+
+<ParamField path="mostRecentOwnerLastName" param-type="string" required="false" deprecated="false">
+The most recent last name from the owners top level field.
+
+**Example:**
+`"mostRecentOwnerLastName": "Allback"`
+</ParamField>
+
+<ParamField path="mostRecentOwnerPeopleKey" param-type="string" required="false" deprecated="false">
+The most recent people key of the owners top level field. This can be matched to the people database.
+
+**Example:**
+`"mostRecentOwnerPeopleKey": "jeff/allback/us/al/85255/3114epatrickst"`
+</ParamField>
+
+<ParamField path="mostRecentPriceAmount" param-type="float" required="false" deprecated="false">
+The property's most recent price amount from our prices field. **This does not include rent prices**
+
+**Example:**
+`"mostRecentPriceAmount": 85`
+</ParamField>
+
+<ParamField path="mostRecentRentalListPriceAmount" param-type="float" required="false" deprecated="false">
+The most recent rental listing price from our prices field.
+
+**Example:**
+`"mostRecentRentalListPriceAmount":429000`
+</ParamField>
+
+<ParamField path="mostRecentRentalListPriceDate" param-type="string" required="false" deprecated="false">
+The most recent rental listing date from our prices field.
+
+**Example:**
+`"mostRecentRentalListPriceDate":"2025-09-11T00:00:00.000Z"`
+</ParamField>
+
+<ParamField path="mostRecentRentalPriceAmount" param-type="float" required="false" deprecated="true">
+The property's most recent rent price amount from our prices field. Depreciated on Jan 31st, 2026.
+
+**Example:**
+`"mostRecentRentalPriceAmount": 1436`
+</ParamField>
+
+<ParamField path="mostRecentRentalPriceDate" param-type="string" required="false" deprecated="true">
+The most recent rental price date. Depreciated on Jan 31st, 2026.
+
+**Example:**
+`"mostRecentRentalPriceDate": "2024-09-11T00:00:00.000Z"`
+</ParamField>
+
+<ParamField path="mostRecentRentalPriceDomain" param-type="string" required="false" deprecated="false">
+The most recent domain used for obtaining the rental price.
+
+**Example:**
+`"mostRecentRentalPriceDomain": "www.remax.com"`
+</ParamField>
+
+<ParamField path="mostRecentRentalPriceFirstDateSeen" param-type="string" required="false" deprecated="false">
+The most recent rental prices first seen by Datafiniti.
+
+**Example:**
+`"mostRecentRentalPriceFirstDateSeen": "2024-09-11T00:00:00.000Z"`
+</ParamField>
+
+<ParamField path="mostRecentRentalPricePeriod" param-type="string" required="false" deprecated="false">
+The period term of the most recent rental price. Either `Per Month` or `Per Year`.
+
+**Example:**
+`"mostRecentRentalPricePeriod": "Per Month"`
+</ParamField>
+
+<ParamField path="mostRecentRentalPriceSourceURL" param-type="string" required="false" deprecated="false">
+The most recent source Url used for obtaining the rental price.
+
+**Example:**
+`"mostRecentRentalPriceSourceURL":"www.remax.com/usdfusj/19278"`
+</ParamField>
+
+<ParamField path="mostRecentSaleListPriceAmount" param-type="float" required="false" deprecated="false">
+The most recent "sale list" price from our prices field.
+
+**Example:**
+`"mostRecentSaleListPriceAmount":456990`
+</ParamField>
+
+<ParamField path="mostRecentSaleListPriceDate" param-type="string" required="false" deprecated="false">
+The most recent "sale list" price date from our prices field.
+
+**Example:**
+`"mostRecentSaleListPriceDate": "2025-10-23T00:00:00.000Z"`
+</ParamField>
+
+<ParamField path="mostRecentSoldPriceAmount" param-type="float" required="false" deprecated="false">
+The most recent "sale" price from our prices field.
+
+**Example:**
+`"mostRecentSoldPriceAmount":480000`
+</ParamField>
+
+<ParamField path="mostRecentSoldPriceDate" param-type="string" required="false" deprecated="false">
+The most recent "sale" price date from our prices field.
+
+**Example:**
+`"mostRecentSoldPriceDate":"2025-10-21T00:00:00.000Z"`
+</ParamField>
+
+<ParamField path="mostRecentRentalStatus" param-type="string" required="false" deprecated="false">
+The most recent value for `rentalStatuses.type` for this property. See possible values [here](https://docs.datafiniti.co/docs/possible-values-for-property-fields).
+
+**Example:**
+`"mostRecentStatus": "Rental"`
+</ParamField>
+
+<ParamField path="mostRecentRentalStatusDate" param-type="string" required="false" deprecated="false">
+The most recent rental status date listed by the source.
+
+**Example:**
+`"mostRecentRentalStatusDate": "2025-08-23T00:00:00.000Z"`
+</ParamField>
+
+<ParamField path="mostRecentRentalStatusFirstDateSeen" param-type="string" required="false" deprecated="false">
+The most recent rental status first seen by Datafiniti.
+
+**Example:**
+`mostRecentRentalStatusFirstDateSeen: "2024-09-11T00:00:00.000Z"`
+</ParamField>
+
+<ParamField path="mostRecentPriceCurrency" param-type="string" required="false" deprecated="false">
+The currency listed for mostRecentPriceAmount.
+
+**Example:**
+`"mostRecentPriceCurrency": "USD"`
+</ParamField>
+
+<ParamField path="mostRecentPriceDomain" param-type="string" required="false" deprecated="false">
+The domain of the most recent price scraped by Datafiniti.
+
+**Example:**
+`"mostRecentPriceDomain": "www.nordstrom.com"`
+</ParamField>
+
+<ParamField path="mostRecentPriceDate" param-type="string" required="false" deprecated="false">
+The most recent price date of the property record.
+
+**Example:**
+`"mostRecentPriceDate": "2022-03-29T19:26:49.157Z"`
+</ParamField>
+
+<ParamField path="mostRecentStatus" param-type="string" required="false" deprecated="false">
+The most recent value for `statuses.type` for this property. See possible values [here](https://docs.datafiniti.co/docs/possible-values-for-property-fields).
+
+**Example:**
+`"mostRecentStatus": "For Sale"`
+</ParamField>
+
+<ParamField path="mostRecentStatusDate" param-type="string" required="false" deprecated="false">
+The date of change that corresponds to the `mostRecentStatus` for this property.
+
+**Example:**
+`"mostRecentStatusDate": "2017-01-10T20:12:16Z"`
+</ParamField>
+
+<ParamField path="mostRecentStatusFirstDateSeen" param-type="string" required="false" deprecated="false">
+This date corresponds to the most recent date seen of the most recent status data source.
+
+**Example:**
+`"mostRecentStatusFirstDateSeen": "2021-09-09T00:00:00.000"`
+</ParamField>
+
+<ParamField path="mostRecentVacancy" param-type="boolean" required="false" deprecated="false">
+The most recent vacancy value of the property.
+
+**Example:**
+`"mostRecentVacancy": false`
+</ParamField>
+
+<ParamField path="mostRecentVacancyFirstDateSeen" param-type="string" required="false" deprecated="false">
+This date corresponds to the first date seen from the source of the property listing.
+
+**Example:**
+`"mostRecentVacancyFirstDateSeen": "2024-04-11T16:57:22.603Z"`
+</ParamField>
+
+<ParamField path="msaCode" param-type="string" required="false" deprecated="false">
+The msa code of the property.
+
+**Example:**
+`"msaCode": 212312`
+</ParamField>
+
+<ParamField path="msaName" param-type="string" required="false" deprecated="false">
+The msa name of the property.
+
+**Example:**
+`"msaName": "OXNARD-THOUSAND OAKS-VENTURA, CA METROPOLITAN"`
+</ParamField>
+
+<ParamField path="municipality" param-type="string" required="false" deprecated="false">
+The property municipality in regards the county/city.
+
+**Example:**
+`"municipality": "READING TWP"`
+</ParamField>
+
+<ParamField path="neighborhoods" param-type="string" required="false" deprecated="false">
+A list of neighborhoods where this property is located. Sometimes an area can belong to multiple neighborhoods, which is why this field is a list.
+
+**Example:**
+`"neighborhoods": [ "Canarsie" ]`
+</ParamField>
+
+<ParamField path="netOperatingIncome" param-type="float" required="false" deprecated="false">
+The total revenue a property generates from all sources, such as rent and other fees, minus all operating expenses.
+
+**Example:**
+`"netOperatingIncome": 49050`
+</ParamField>
+
+<ParamField path="netOperatingIncomeSourceURL" param-type="string" required="false" deprecated="false">
+The source URL of the net operating income in regards to the property.
+
+**Example:**
+`"netOperatingIncomeSourceURL": "https://..."`
+</ParamField>
+
+<ParamField path="netRentable" param-type="float" required="false" deprecated="false">
+The net rentable amount of the commercial property.
+
+**Example:**
+`"netRentable": 34513`
+</ParamField>
+
+<ParamField path="numBathroom" param-type="float" required="false" deprecated="false">
+The number of bathrooms in this property. Can be a whole number (e.g. "1") or a float (e.g., 1.25).
+
+**Example:**
+`"numBathroom": 1.25`
+</ParamField>
+
+<ParamField path="numBedroom" param-type="integer" required="false" deprecated="false">
+The number of bedrooms in this property.
+
+**Example:**
+`"numBedroom": 3`
+</ParamField>
+
+<ParamField path="numFloor" param-type="integer" required="false" deprecated="false">
+The number of floors or stories in this property.
+
+**Example:**
+`"numFloor": 2`
+</ParamField>
+
+<ParamField path="numParkingSpaces" param-type="integer" required="false" deprecated="false">
+The number of parking spots on the property.
+
+**Example:**
+`"numParkingSpaces": 0`
+</ParamField>
+
+<ParamField path="numPeople" param-type="integer" required="false" deprecated="false">
+The number of people that can occupy this property.
+
+**Example:**
+`"numPeople": 6`
+</ParamField>
+
+<ParamField path="numProperties" param-type="integer" required="false" deprecated="false">
+The number of commercially available property within the address.
+
+**Example:**
+`"numProperties": 2`
+</ParamField>
+
+<ParamField path="numRoom" param-type="integer" required="false" deprecated="false">
+The number of rooms in this property.
+
+**Example:**
+`"numRoom": 2`
+</ParamField>
+
+<ParamField path="numTenants" param-type="integer" required="false" deprecated="false">
+The number of active tenants for a commercial property.
+
+**Example:**
+`"numTenants": 2`
+</ParamField>
+
+<ParamField path="numUnit" param-type="integer" required="false" deprecated="false">
+The number of units available in this property.
+
+**Example:**
+`"numUnit": 1`
+</ParamField>
+
+<ParamField path="occupancy" param-type="string" required="false" deprecated="false">
+The current status of the commercial occupancy of the property.
+
+**Example:**
+`"occupancy": "Vacant"`
+</ParamField>
+
+<ParamField path="operatingExpenses" param-type="string" required="false" deprecated="false">
+The operating expense description of the commercial property.
+
+**Example:**
+`"operatingExpenses": "Fee - Property Management"`
+</ParamField>
+
+<ParamField path="otherIncome" param-type="float" required="false" deprecated="false">
+Other income revenue value of the commercial property.
+
+**Example:**
+`"otherIncome": 14400`
+</ParamField>
+
+<ParamField path="ownership" param-type="string" required="false" deprecated="false">
+The ownership clause / stake of a property for the buyer.
+
+**Example:**
+`"ownership": "Fee Simple"`
+</ParamField>
+
+<ParamField path="owners" param-type="object" required="false" deprecated="false">
+A list of owners associated with this property.
+
+- `firstDateSeen`: the first time the owner was seen by Datafiniti. (date)
+- `firstName`: first name of the owner. (text)
+- `lastDateSeen`: the last time the owner was seen by Datafiniti. (date)
+- `lastName`: last name of the owner. (text)
+- `peopleKey`: people key matched to Datafiniti's people database. (keyword)
+- `transactionDate`: date the owner purchased this property. (date)
+
+**Example:**
+`"owners": [ { "transactionDate": "2025-05-27T00:00:00.000Z", "firstName": "Jeffrey", ... } ]`
+</ParamField>
+
+<ParamField path="ownerOccupied" param-type="boolean" required="false" deprecated="false">
+The true/false value of whether owner occupies the property.
+
+**Example:**
+`"ownerOccupied": true`
+</ParamField>
+
+<ParamField path="ownerOccupiedStatus" param-type="object" required="false" deprecated="false">
+The owner occupied status of the property.
+
+- `firstDateSeen`: the first date seen by Datafiniti of owner occupancy being true (date)
+- `lastDateSeen`: the last date seen by Datafiniti of owner occupancy being true (date)
+- `startDate`: the lease start date seen by the leasing agency. (date)
+- `status`: The true/false value of whether owner occupies the property. (boolean)
+
+**Example:**
+`{ "status": true, "firstDateSeen": "2023-12-01T13:35:16.399Z", ... }`
+</ParamField>
+
+<ParamField path="parking" param-type="string" required="false" deprecated="false">
+A list of details regarding parking at this property.
+
+**Example:**
+`"parking": [ "Garage" ]`
+</ParamField>
+
+<ParamField path="parkingTypes" param-type="string" required="false" deprecated="false">
+A list of parking types that pertains to the property.
+
+**Example:**
+`"parkingTypes": [ "Street", "Attached Garage" ]`
+</ParamField>
+
+<ParamField path="parcelNumbers" param-type="object" required="false" deprecated="false">
+The parcel number associated to the property.
+
+- `account`: Account number of parcel. (string)
+- `number`: Legal parcel number of the property. (string)
+- `year`: Recorded year of the parcel number. (integer)
+
+**Example:**
+`"parcelNumbers": [ { "number": "29-29-22-12-0015", "account": "394308", "year": 1985 } ]`
+</ParamField>
+
+<ParamField path="paymentTypes" param-type="string" required="false" deprecated="false">
+A list of payment options accepted by the property.
+
+**Example:**
+`"paymentTypes": [ "Visa" ]`
+</ParamField>
+
+<ParamField path="people" param-type="object" required="false" deprecated="false">
+A list of known people associated with or employed by this property. Each person may contain:
+
+- `dateSeen`: The date when this person was seen. (date)
+- `email`: The person's email. (text)
+- `equity`: Sum total of equity of properties (float)
+- `equityPercent`: Percent estimated equity percentage (100 minus LTV) (float)
+- `firstName`: first name of the person (text)
+- `lastName`: last name of the person (text)
+- `landline`: Does the person have a landline. (boolean)
+- `name`: The person's name. (text)
+- `people_key`: the corresponding key that link to Datafiniti's people data record. (contact, demographics, & more) (keyword)
+- `phone`: The person's phone number. (text)
+- `title`: The person's title. (text)
+
+**Example:**
+`"people": [ { "equity": 1065556, "equityPercent": 100, "name": "Luci Weinsein", ... } ]`
+</ParamField>
+
+<ParamField path="permits" param-type="boolean" required="false" deprecated="false">
+If there is a permit or permitting process adhere to this property.
+
+**Example:**
+`"permits": "true"`
+</ParamField>
+
+<ParamField path="petPolicy" param-type="string" required="false" deprecated="false">
+The pet policy for the property.
+
+**Example:**
+`"petPolicy": "Pets are not allowed."`
+</ParamField>
+
+<ParamField path="phones" param-type="string" required="false" deprecated="false">
+A list of phone numbers for the property.
+
+**Example:**
+`"phones": [ "5058982700" ]`
+</ParamField>
+
+<ParamField path="postalCode" param-type="string" required="false" deprecated="false">
+The postal or zip code of the property.
+
+**Example:**
+`"postalCode": "75231"`
+</ParamField>
+
+<ParamField path="prices" param-type="object" required="false" deprecated="false">
+A list of prices for this property. Price objects may contain:
+
+- `amountMin`: The minimum price value listed. (float)
+- `amountMax`: The maximum price value listed. This is typically the same as amountMin, except in cases where a price range is listed. (float)
+- `availability`: The property's availability at this price. (keyword)
+- `comment`: A note related to this price. (text)
+- `currency`: The currency listed for amountMin and amountMax. (text)
+- `date`: A list of date when the property was set to this price. (date)
+- `dateSeen`: A list of dates when this price was seen. (date)
+- `dateValidStart`: The date when this price becomes valid. (date)
+- `dateValidEnd`: The date when this price is no longer valid. (date)
+- `domain`: The domain of the source of the price. (text)
+- `isSale`: A true/false for whether or not this is a sale price. - depreciated (boolean)
+- `isSold`: A true/false for whether or not this is the sold price. - depreciated (boolean)
+- `minStay`: The minimum length of stay required for this price. (text)
+- `period`: The calendar period for which this price is valid. (text)
+- `pricePerSquareFoot`: The price divide by the square footage. (float)
+- `status`: The property status of the prices (string)
+- `type`: the type of price at which the property was listed for sale, sold, or rent. (Sale List, Sold, or Rental List) (string)
+
+**Example:**
+`"prices": [ { "amountMax": 289000, "amountMin": 289000, ... } ]`
+</ParamField>
+
+<ParamField path="proFormaNOI" param-type="float" required="false" deprecated="false">
+The pro Forma net operating income of the property.
+
+**Example:**
+`"proFormaNOI": 122400`
+</ParamField>
+
+<ParamField path="propertyTaxes" param-type="object" required="false" deprecated="false">
+A list of property taxes that have been seen for this property. Each property tax will include:
+
+- `amount`: The tax amount. (float)
+- `currency`: The amount's currency. (text)
+- `dateSeen`: A list of dates when this tax has been seen for this property. (date)
+- `year`: The year of taxable amount of the property. (integer)
+
+**Example:**
+`"propertyTaxes": [ { "amount": 1582, "currency": "USD", ... } ]`
+</ParamField>
+
+<ParamField path="propertyType" param-type="string" required="false" deprecated="false">
+A classification for the property type. See possible values [here](https://docs.datafiniti.co/docs/possible-values-for-property-fields).
+
+**Example:**
+`"propertyType": "Condo"`
+</ParamField>
+
+<ParamField path="province" param-type="string" required="false" deprecated="false">
+The province or state for this property.
+
+**Example:**
+`"province": "TX"`
+</ParamField>
+
+<ParamField path="rentableSquareFeet" param-type="float" required="false" deprecated="false">
+The rentable square footage of space for the rental property.
+
+**Example:**
+`"rentableSquareFeet": 35000`
+</ParamField>
+
+<ParamField path="rentalStatuses" param-type="object" required="false" deprecated="false">
+A list of historical rental statuses. This field is used to indicate when the property is status `For Rent` or `Short-term Rental`. `rentalStatuses` objects may contain:
+
+- `date`: the date the rental status was posted by the source. (date)
+- `dateSeen`: the date when the rental status was seen by Datafiniti. (date)
+- `type`: the type of rental being listed `For Rent` or `Short-term Rental` (string)
+- `firstDateSeen`: the first date seen of the rental status was seen by Datafiniti. (date)
+- `lastDateSeen`: the latest date seen of the rental status was seen by Datafiniti. (date)
+- `sourceURLs`: the source URL of the rental property listing. (string)
+
+**Example:**
+`"rentalStatuses": [ { "date": "2025-08-14T21:53:01.982Z", ... } ]`
+</ParamField>
+
+<ParamField path="rentBumps" param-type="string" required="false" deprecated="false">
+The terms of a rentable property on when a rent increase will occur.
+
+**Example:**
+`"rentBumps": "10% Increase Every 5 Years in Term and In Each Option"`
+</ParamField>
+
+<ParamField path="reviews" param-type="object" required="false" deprecated="false">
+A list of reviews for this property. Review objects may contain:
+
+- `date`: The date the review was posted. (date)
+- `dateSeen`: The date when the review was seen by Datafiniti. (date)
+- `doRecommend`: A true/false for whether or not the reviewer recommends the property. (boolean)
+- `rating`: A 1 to 5 star value for the review. (float)
+- `text`: The full (or available) text of the review. (text)
+- `title`: The review's title. (text)
+- `userCity`: The reviewer's city. (text)
+- `username`: The reviewer's username. (text)
+- `userProvince`: The reviewer's province or state. (text)
+
+**Example:**
+`"reviews": [ { "dateSeen": "2016-08-17T00:00:00Z", "text": "We love this place a lot!", "username": "Yuwei" } ]`
+</ParamField>
+
+<ParamField path="roofing" param-type="string" required="false" deprecated="false">
+A list of materials the roof of the property is made from.
+
+**Example:**
+`"roofing": ["Asphalt", "Fiberglass"]`
+</ParamField>
+
+<ParamField path="roomTypes" param-type="string" required="false" deprecated="false">
+The types of rooms the property has.
+
+**Example:**
+`"roomTypes": ["Laundry","Great","Game"]`
+</ParamField>
+
+<ParamField path="rules" param-type="string" required="false" deprecated="false">
+A list of rules for living or staying at this property.
+
+**Example:**
+`"rules": [ "No smoking" ]`
+</ParamField>
+
+<ParamField path="saleCondition" param-type="string" required="false" deprecated="false">
+The sale condition of a property as per the seller.
+
+**Example:**
+`"saleCondition": "1031 Exchange"`
+</ParamField>
+
+<ParamField path="saleType" param-type="string" required="false" deprecated="false">
+The type of commercial sale of a property.
+
+**Example:**
+`"saleType": "Standard"`
+</ParamField>
+
+<ParamField path="sewerType" param-type="string" required="false" deprecated="false">
+The type of sewer access of the property. (public, private, and/or septic)
+
+**Example:**
+`"sewerType": [ "Private" ]`
+</ParamField>
+
+<ParamField path="sourceURLsPerField" param-type="object" required="false" deprecated="false">
+The latest sourceURL for each field that Datafiniti provides in the property data schema.
+
+- `Field`: the property data top level field the sourceURL pertains to. (text)
+- `SourceURLs`: the source URL of the field. (text)
+
+**Example:**
+`"sourceURLsPerField": [{ "field": "country", "sourceURLs": [ "https://..." ] }, ...]`
+</ParamField>
+
+<ParamField path="statuses" param-type="object" required="false" deprecated="true">
+**Depreciated** A list of statuses for this property. This field is used to indicate when the property is for sale, etc. Each status includes:
+
+- `date`: Date the status occurred (date)
+- `dateSeen`: A list of dates when this status was seen by Datafiniti. (date)
+- `firstDateSeen`: the first date seen of this status was seen by Datafiniti. (date)
+- `lastDateSeen`: the latest date seen of this status was seen by Datafiniti. (date)
+- `isUnderContract`: A true/false value to indicate if this status is under contract. (boolean)
+- `type`: The status. See possible values [here](https://docs.datafiniti.co/docs/possible-values-for-property-fields). (keyword)
+
+**Example:**
+`"statuses": [ { "date": "2023-03-10T00:00:00.000Z", ... } ]`
+</ParamField>
+
+<ParamField path="statusHistory" param-type="object" required="false" deprecated="false">
+A list of Historical statuses for this property. This field is used to indicate when the property is for sale, etc. No rental statuses are found here. Each status includes:
+
+- `date`: Date the status occurred (date)
+- `dateSeen`: A list of dates when this status was seen by Datafiniti. (date)
+- `firstDateSeen`: the first date seen of this status was seen by Datafiniti. (date)
+- `lastDateSeen`: the latest date seen of this status was seen by Datafiniti. (date)
+- `sourceURLs`: The sourceURL of the status. (url)
+- `type`: The status. See possible values [here](https://docs.datafiniti.co/docs/possible-values-for-property-fields). (keyword)
+
+**Example:**
+`"statusHistory": [ { "dateSeen": [...], "type": "Off Market", ... } ]`
+</ParamField>
+
+<ParamField path="subtype" param-type="string" required="false" deprecated="false">
+The subtype of the propertyType field.
+
+**Example:**
+`"subtype": [ "Medical Office, Traditional Office" ]`
+</ParamField>
+
+<ParamField path="subdivision" param-type="string" required="false" deprecated="false">
+Subdivision / neighborhood of the property.
+
+**Example:**
+`subdivision: "Crescent Heights Sub"`
+</ParamField>
+
+<ParamField path="taxExemptions" param-type="string" required="false" deprecated="false">
+A list of tax exemptions for the property.
+
+**Example:**
+`"taxExemptions": ["Homeowner", "Disabled", "Senior"]`
+</ParamField>
+
+<ParamField path="taxID" param-type="string" required="false" deprecated="false">
+The tax ID for the property.
+
+**Example:**
+`"taxID": "30-9011-019-0029758"`
+</ParamField>
+
+<ParamField path="tenancy" param-type="string" required="false" deprecated="false">
+The type of tenants the property allows.
+
+**Example:**
+`"tenancy": "Single"`
+</ParamField>
+
+<ParamField path="tenantCredit" param-type="string" required="false" deprecated="false">
+The credit approve for tenants wanting to rent the property.
+
+**Example:**
+`"tenantCredit": "Corporate Guarantee"`
+</ParamField>
+
+<ParamField path="title" param-type="string" required="false" deprecated="false">
+The title text of the property.
+
+**Example:**
+`"title": "Single Family Residence, A-Frame - Snellville, GA"`
+</ParamField>
+
+<ParamField path="topographyCode" param-type="integer" required="false" deprecated="false">
+The topography code in relationship to the property.
+
+**Example:**
+`"topographyCode": 150`
+</ParamField>
+
+<ParamField path="totalExpenses" param-type="float" required="false" deprecated="false">
+The total expense cost of the property.
+
+**Example:**
+`"totalExpenses": 24984`
+</ParamField>
+
+<ParamField path="transactions" param-type="object" required="false" deprecated="false">
+A list of transactional data for this property after a sale is completed. This field is used to indicate when the property was purchased and by who. Each transaction includes:
+
+- `buyerFirstName`: First name of the buyer. (string)
+- `buyerMiddleName`: Middle name of the buyer. (string)
+- `buyerLastName`: Last name of the buyer. (string)
+- `contactOwnerMailAddressFull`: Mailing address provided by the buyer at the time of the transaction. (string)
+- `documentNumber`: the document number of the transaction. (string)
+- `documentType`: Contains all documents attached in this transaction. (string)
+- `firstDateSeen`: Earliest date seen from the source of the property listing by Datafiniti. (date)
+- `interestType`: interest rate by the lender. (string)
+- `lastDateSeen`: Latest date seen from the source of the property listing by Datafiniti. (date)
+- `lenderName`: Name of the lender. (string)
+- `loanType`: Type of loan for this transaction. (string)
+- `loanAmount`: Loan amount by lending company. (float)
+- `mortgageTerm`: Length in months of the loan. (integer)
+- `ownerType`: Type of owner for transaction. (string)
+- `parcelNumber`: Number parcel was created. (string)
+- `price`: Price of the property for this transaction. (float)
+- `saleDate`: Date the when transaction occurred (date)
+- `sellerFirstName`: First name of the seller. (string)
+- `sellerMiddleName`: Middle name of the seller. (string)
+- `sellerLastName`: Last name of the seller. (string)
+- `transactionID`: the ID value of the transaction. (string)
+- `type`: the type of transaction in relation to the saleDate. (string)
+
+**Example:**
+`"transactions": [ { saleDate: ..., price: 112900.00, ... } ]`
+</ParamField>
+
+<ParamField path="trustDescription" param-type="string" required="false" deprecated="false">
+The description of the trust information in relation to the property.
+
+**Example:**
+`"trustDescription": "Not a trust"`
+</ParamField>
+
+<ParamField path="vacancy" param-type="object" required="false" deprecated="false">
+The status of the vacancy of the property:
+
+- `firstDateSeen`: Earliest date seen from the source of the vacancy by Datafiniti. (date)
+- `lastDateSeen`: Latest date seen from the source of the vacancy by Datafiniti. (date)
+- `vacant`: If the property is currently vacant (boolean)
+
+**Example:**
+`"vacancy": [ { "vacant": false, "lastDateSeen": "2024-04-11T16:57:22.603Z", ... } ]`
+</ParamField>
+
+<ParamField path="vacancyLoss" param-type="float" required="false" deprecated="false">
+The vacancy amount loss from the previous tenant(s).
+
+**Example:**
+`"vacancyLoss": 132000`
+</ParamField>
+
+<ParamField path="virtualTour" param-type="string" required="false" deprecated="false">
+The virtual tour URL for the property.
+
+**Example:**
+`"virtualTour": "https://..."`
+</ParamField>
+
+<ParamField path="waterType" param-type="string" required="false" deprecated="false">
+The type of water access of the property. (public, private, and/or well)
+
+**Example:**
+`"waterType": [ "Public" ]`
+</ParamField>
+
+<ParamField path="websiteIDs" param-type="string" required="false" deprecated="false">
+A list of website IDs for this property.
+
+**Example:**
+`"websiteIDs": [ "12345" ]`
+</ParamField>
+
+<ParamField path="yearBuilt" param-type="integer" required="false" deprecated="false">
+The year the property was built.
+
+**Example:**
+`"yearBuilt": 1985`
+</ParamField>
+
+<ParamField path="yearRenovated" param-type="integer" required="false" deprecated="false">
+The year the property was last renovated.
+
+**Example:**
+`"yearRenovated": 2010`
+</ParamField>
+
+<ParamField path="zoning" param-type="string" required="false" deprecated="false">
+The zoning classification for the property.
+
+**Example:**
+`"zoning": "R-1"`
+</ParamField>

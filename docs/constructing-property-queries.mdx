@@ -10,7 +10,7 @@ The simplest query you can do is querying a single field. Here's an example:
 
 ```json
 {
- "query": "city:Austin"
+  "query": "city:Austin"
 }
 ```
 
@@ -20,7 +20,7 @@ You can do similar queries on any of the fields in the [property schema](https:/
 
 ```json
 {
- "query": "country:US"
+  "query": "country:US"
 }
 ```
 
@@ -32,7 +32,7 @@ You can run more complicated queries by combining fields with various boolean op
 
 ```json
 {
- "query": "city:Austin AND numBathroom:2"
+  "query": "city:Austin AND numBathroom:2"
 }
 ```
 
@@ -42,7 +42,7 @@ You can use the `OR` operator to run broader queries. For example:
 
 ```json
 {
- "query": "city:Austin OR city:Houston"
+  "query": "city:Austin OR city:Houston"
 }
 ```
 
@@ -50,7 +50,7 @@ That's not all though. We can group fields and operators with parentheses to do 
 
 ```json
 {
- "query": "(categories:Austin OR city:Houston) AND numBathroom:2"
+  "query": "(categories:Austin OR city:Houston) AND numBathroom:2"
 }
 ```
 
@@ -60,7 +60,7 @@ If you want to query multiple values within the same field, there is a simple wa
 
 ```json
 {
- "query": "city:(Austin OR Houston OR Dallas)"
+  "query": "city:(Austin OR Houston OR Dallas)"
 }
 ```
 
@@ -68,7 +68,7 @@ This returns any properties in any of the above cities. This is much simpler tha
 
 ```json
 {
- "query": "city:Austin OR city:Houston OR city:Dallas"
+  "query": "city:Austin OR city:Houston OR city:Dallas"
 }
 ```
 
@@ -78,7 +78,7 @@ You can use " quotes to match the exact string you are searching for
 
 ```json
 {
- "query":"dateUpdated:[2022-01-01 TO *] AND mostRecentStatus:(Rental OR \"For Sale\")"
+  "query":"dateUpdated:[2022-01-01 TO *] AND mostRecentStatus:(Rental OR \"For Sale\")"
 }
 ```
 
@@ -86,7 +86,8 @@ You can use an exact search to search for specific addresses
 
 ```json
 {
- "query":"address:\"3900 Eventide Ave\" AND city:(\"Sacramento\") AND postalCode:95835 AND province:(\"CA\") AND country:\"US\"" }
+  "query":"address:\"3900 Eventide Ave\" AND city:(\"Sacramento\") AND postalCode:95835 AND province:(\"CA\") AND country:\"US\""
+}
 ```
 
 &nbsp;
@@ -99,7 +100,7 @@ You can use `*` to query a field for any value, like this:
 
 ```json
 {
- "query": "prices:*"
+  "query": "prices:*"
 }
 ```
 
@@ -109,7 +110,7 @@ Wildcards can do more though. You can also append `*` to the value we're searchi
 
 ```json
 {
- "query": "buildingName:Tower*"
+  "query": "buildingName:Tower*"
 }
 ```
 
@@ -121,7 +122,7 @@ Several fields in our schema have sub-fields. For example, `reviews` has sub-fie
 
 ```json
 {
- "query": "reviews.rating:3"
+  "query": "reviews.rating:3"
 }
 ```
 
@@ -153,8 +154,8 @@ Along with querying individual sub-fields, you can also query for sub-objects th
 
 ```json
 {
- "query":"{ brokers.emails:* AND brokers.phones:* }",
- "num_records":10
+  "query":"{ brokers.emails:* AND brokers.phones:* }",
+  "num_records":10
 }
 ```
 
@@ -166,7 +167,7 @@ Any fields that are dates, integers, or doubles will let you search them based o
 
 ```json
 {
- "query": "dateAdded:[2017-01-01 TO 2017-02-01]"
+  "query": "dateAdded:[2017-01-01 TO 2017-02-01]"
 }
 ```
 
@@ -176,7 +177,7 @@ You can do unbounded range queries as well, like:
 
 ```json
 {
- "query": "dateAdded:[2017-01-01 TO *]"
+  "query": "dateAdded:[2017-01-01 TO *]"
 }
 ```
 
@@ -186,7 +187,7 @@ You can also use comparison operators like `>`, `>=`, `<=`, and `<`. These are h
 
 ```json
 {
- "query": "reviews.rating:>3"
+  "query": "reviews.rating:>3"
 }
 ```
 
@@ -198,7 +199,7 @@ For some searches, you'll want to exclude certain values from returning. For exa
 
 ```json
 {
- "query": "-country:US"
+  "query": "-country:US"
 }
 ```
 
@@ -208,7 +209,7 @@ You can use the API to search via the `address` field. For example, if you would
 
 ```json
 {
- "query":"address:\"2815 Manor Rd\" AND postalCode:78722"
+  "query":"address:\"2815 Manor Rd\" AND postalCode:78722"
 }
 ```
 
@@ -220,7 +221,7 @@ You can also use the API to do queries based around latitude and longitude value
 
 ```json
 {
- "query":"geoLocation:[-97.7430600,30.2671500,10,mi]"
+  "query":"geoLocation:[-97.7430600,30.2671500,10,mi]"
 }
 ```
 
@@ -243,14 +244,13 @@ As an alternative or used for testing purposes you can set your num\_records to 
 
 ```json
 {
- "query": "country:US",
- "num_records":0
+  "query": "country:US",
+  "num_records":0
 }
 ```
 
 <Callout kind="info">
 **Count Feature**
-
 Please note that this is feature is only for paid accounts. So please check your account plan or contact
 </Callout>
 

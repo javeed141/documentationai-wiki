@@ -21,9 +21,7 @@ Users can run Autotrace searches without extra query modifications. It's recomme
 
 <Callout kind="info">
 **autotrace credits**
-
 Please note that autotrace API requests will require available property data credits and people data credits. Using an autotrace enabled search will charge 1 property data credit and 1 people data credit per `num_found` or set by `num_records`.
-
 </Callout>
 
 Your json and csv output will mimic the same response as a property data search API call, with one exception. Any data found in the property record's `people` field will be appended with the matching people record from the people database.
@@ -74,16 +72,12 @@ Example API with view:
 
 <Callout kind="info">
 **custom views**
-
 You can customize your view with as many or as little subfield as you would like. For more information you can read more about [Views](https://docs.datafiniti.co/docs/property-data-views).
-
 </Callout>
 
 <Callout kind="danger">
 **People data & views**
-
 Please note that you can NOT flatten `people` data sub-fields. People data that is appended via autotrace is already flattened for your convenience. If the `people.keys` is NOT found within a custom view, you will receive an error.
-
 </Callout>
 
 ## Output
@@ -386,18 +380,15 @@ Example output - simplified view of people
 
 <Callout kind="info">
 **Autotrace matches**
-
 Depending on your property search query, you may receive less autotrace values back than the `num_found`. This is expected, as not all property owners are found on an autotrace search. We estimate anywhere from 50%-80% of property records will have matching people records.
 
 In these cases, your `num_records` will act as an upper limit on how many records autotrace will match.
-
 </Callout>
 
 ## Common Errors
 
 <Callout kind="danger">
 **Autotrace with Views**
-
 Please note that there a mandatory fields that must be called when using a custom view.
 
 - people.keys
@@ -415,7 +406,6 @@ Common error messages include:
   "auto_trace view must contain transactions.saleDate"
 ]
 ```
-
 </Callout>
 
 ## Example use cases

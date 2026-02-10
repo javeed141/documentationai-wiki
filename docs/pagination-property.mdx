@@ -19,16 +19,14 @@ The pagination endpoint uses the following parameters:
 
 <Callout kind="alert">
 **Credit limit with pagination**
-
 Please note that with pagination you can query more records at once, so be careful that your parameters don't result in using up all of your available record credits.
-
 </Callout>
 
 The query structure remains the same. Here's an example:
 
 ```json
 {
- "query": "numBedroom:[3 TO *] AND numBathroom:[2 TO *] AND propertyType:(\"Single Family Dwelling\" OR \"Multi-Family Dwelling\") AND mostRecentStatus:\"For Sale\" AND mostRecentPriceAmount:[1 TO *] AND mostRecentPriceCurrency:\"USD\" AND country:\"US\" AND city:\"Denton\" AND province:\"TX\"""
+  "query": "numBedroom:[3 TO *] AND numBathroom:[2 TO *] AND propertyType:(\"Single Family Dwelling\" OR \"Multi-Family Dwelling\") AND mostRecentStatus:\"For Sale\" AND mostRecentPriceAmount:[1 TO *] AND mostRecentPriceCurrency:\"USD\" AND country:\"US\" AND city:\"Denton\" AND province:\"TX\"""
 }
 ```
 

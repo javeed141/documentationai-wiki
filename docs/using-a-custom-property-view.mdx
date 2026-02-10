@@ -12,8 +12,8 @@ Whenever you set up your property search API body you can create a view by decla
 
 ```json
 {
- "query":"country:US AND province:TX AND city:\"el paso\" AND address:* AND transactions:*",
- "num_records":20
+  "query":"country:US AND province:TX AND city:\"el paso\" AND address:* AND transactions:*",
+  "num_records":20
 }
 ```
 
@@ -29,20 +29,20 @@ Now let's add the view to the body that allows only the following fields:
 
 ```json
 {
- "query": "country:US AND province:TX AND city:\"el paso\" AND address:* AND transactions:*",
- "view": [
- {"name": "address"},
- {"name": "city"},
- {"name": "province"},
- {"name": "postalCode"},
- {"name": "transactions","flatten": true, "sub_fields": [
- {"name": "saleDate"},
- {"name": "buyerFirstName"},
- {"name": "buyerLastName"}
- ]
- }
- ],
- "num_records":20
+  "query": "country:US AND province:TX AND city:\"el paso\" AND address:* AND transactions:*",
+  "view": [
+    {"name": "address"},
+    {"name": "city"},
+    {"name": "province"},
+    {"name": "postalCode"},
+    {"name": "transactions","flatten": true, "sub_fields": [
+        {"name": "saleDate"},
+        {"name": "buyerFirstName"},
+        {"name": "buyerLastName"}
+      ]
+    }
+  ],
+  "num_records":20
 }
 ```
 
@@ -56,31 +56,29 @@ This method will create a permanent view that you can declare by name in the vie
 
 ```json
 {
- "name": "custom_transaction_view",
- "data_type": "property",
- "fields": [
- {"name": "address"},
- {"name": "city"},
- {"name": "province"},
- {"name": "postalCode"},
- {"name": "transactions","flatten": true, "sub_fields": [
- {"name": "saleDate"},
- {"name": "buyerFirstName"},
- {"name": "buyerLastName"}
- ]
- }
- ]
+  "name": "custom_transaction_view",
+  "data_type": "property",
+  "fields": [
+    {"name": "address"},
+    {"name": "city"},
+    {"name": "province"},
+    {"name": "postalCode"},
+    {"name": "transactions","flatten": true, "sub_fields": [
+        {"name": "saleDate"},
+        {"name": "buyerFirstName"},
+        {"name": "buyerLastName"}
+      ]
+    }
+  ]
 }
 ```
 
 <Callout kind="info">
 **Name**
-
 Please note you can name the view any string value not currently used. To check your current view you can use:
 </Callout>
 
 <Callout kind="alert">
 **dataType**
-
 Be sure that you declare the correct dataType to the dataType you wish to search. As we need to match the API to the dataType's schema. Learn more about [Property Data Schema](https://docs.datafiniti.co/docs/property-data-schema).
 </Callout>

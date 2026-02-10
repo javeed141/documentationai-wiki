@@ -17,7 +17,6 @@ Here are the steps we'll take:
 
 <Callout kind="alert">
 **Python Version**
-
 Note that we are using Python 3.x for the examples below. Preferred Python 3.9
 </Callout>
 
@@ -37,7 +36,6 @@ To get your API token, go the [Datafiniti Web Portal (https://portal.datafiniti.
 
 <Callout kind="alert">
 **API token reset**
-
 For security reasons, your API token will be automatically changed whenever you change your password.
 </Callout>
 
@@ -45,7 +43,6 @@ For security reasons, your API token will be automatically changed whenever you 
 
 <Callout kind="info">
 **Token Reference**
-
 For the rest of this document, we'll use `AAAXXXXXXXXXXXX` as a substitute example for your actual API token when showing example API calls.
 </Callout>
 
@@ -146,89 +143,89 @@ You should get a response similar to this:
 
 ```json
 {
- "num_found": 7983205,
- "total_cost": 1,
- "records": [
- {
- "address": "711 Kent Ave",
- "brokers": [
- {
- "agent": "Raj Singh",
- "company": "YOUR REALTY INC.",
- "dateSeen": [
- "2016-06-06T18:09:28Z"
- ],
- }
- ],
- "city": "Catonsville",
- "country": "US",
- "dateAdded": "2016-06-06T18:09:28Z",
- "features": [
- {
- "key": "Air Conditioning",
- "value": [
- "Heat Pumps"
- ]
- },
- {
- "key": "Sewer Type",
- "value": [
- "Public"
- ]
- }
- ],
- "latitude": "39.284462",
- "listingName": "711 Kent Ave, Catonsville, Md 21228",
- "longitude": "-76.734069",
- "lotSizeValue": 0.16,
- "lotSizeUnit": "Acres",
- "mlsNumber": "BC9677283",
- "numBathroom": 2,
- "numBedroom": 4,
- "postalCode": "21228",
- "prices": [
- {
- "amountMax": 199900,
- "amountMin": 199900,
- "currency": "USD",
- "dateSeen": [
- "2016-08-08T00:00:00Z",
- "2016-08-03T00:00:00Z"
- ],
- "type": "sale list",
- },
- {
- "amountMax": 212000,
- "amountMin": 212000,
- "currency": "USD",
- "dateSeen": [
- "2016-06-06T00:00:00Z"
- ],
- }
- ],
- "propertyTaxes": [
- {
- "amount": 3195,
- "currency": "USD",
- "dateSeen": [
- "2016-06-06T18:09:28Z"
- ],
- }
- ],
- "propertyType": "Single Family Dwelling",
- "province": "MD",
- "statuses": [
- {
- "dateSeen": [
- "2016-08-09T09:16:10Z"
- ],
- "isUnderContract": "false",
- "type": "For Sale"
- }
- ],
- "id": "AV9WzHyO_RWkykBuv11F"
- }
- ]
+  "num_found": 7983205,
+  "total_cost": 1,
+  "records": [
+    {
+      "address": "711 Kent Ave",
+      "brokers": [
+        {
+          "agent": "Raj Singh",
+          "company": "YOUR REALTY INC.",
+          "dateSeen": [
+            "2016-06-06T18:09:28Z"
+          ],
+        }
+      ],
+      "city": "Catonsville",
+      "country": "US",
+      "dateAdded": "2016-06-06T18:09:28Z",
+      "features": [
+        {
+          "key": "Air Conditioning",
+          "value": [
+            "Heat Pumps"
+          ]
+        },
+        {
+          "key": "Sewer Type",
+          "value": [
+            "Public"
+          ]
+        }
+      ],
+      "latitude": "39.284462",
+      "listingName": "711 Kent Ave, Catonsville, Md 21228",
+      "longitude": "-76.734069",
+      "lotSizeValue": 0.16,
+      "lotSizeUnit": "Acres",
+      "mlsNumber": "BC9677283",
+      "numBathroom": 2,
+      "numBedroom": 4,
+      "postalCode": "21228",
+      "prices": [
+        {
+          "amountMax": 199900,
+          "amountMin": 199900,
+          "currency": "USD",
+          "dateSeen": [
+            "2016-08-08T00:00:00Z",
+            "2016-08-03T00:00:00Z"
+          ],
+          "type": "sale list",
+        },
+        {
+          "amountMax": 212000,
+          "amountMin": 212000,
+          "currency": "USD",
+          "dateSeen": [
+            "2016-06-06T00:00:00Z"
+          ],
+        }
+      ],
+      "propertyTaxes": [
+        {
+          "amount": 3195,
+          "currency": "USD",
+          "dateSeen": [
+            "2016-06-06T18:09:28Z"
+          ],
+        }
+      ],
+      "propertyType": "Single Family Dwelling",
+      "province": "MD",
+      "statuses": [
+        {
+          "dateSeen": [
+            "2016-08-09T09:16:10Z"
+          ],
+          "isUnderContract": "false",
+          "type": "For Sale"
+        }
+      ],
+      "id": "AV9WzHyO_RWkykBuv11F"
+    }
+  ]
 ]
 ```
 
@@ -297,7 +294,6 @@ This API call is different in a couple ways:
 
 <Callout kind="info">
 **Format**
-
 Note that you have the commented line to change between CSV and JSON format. You may change this by comment out the format you do not want.
 </Callout>
 
@@ -350,7 +346,6 @@ Here's what we changed:
 
 <Callout kind="alert">
 **Num_records**
-
 If num\_records is not specified, ALL of the records matching the query will be downloaded.
 </Callout>
 
@@ -358,17 +353,17 @@ When you make this API call, you'll see a response similar to:
 
 ```json
 {
- "id": 7,
- "results": [],
- "user_id": 15,
- "status": "running",
- "date_started": "2017-11-16 17:46:06.0",
- "num_downloaded": 0,
- "data_type": "property",
- "query": "country:US AND propertyType:\"Single Family Dwelling\"",
- "format": "JSON",
- "num_records": 50,
- "total_cost": 50
+  "id": 7,
+  "results": [],
+  "user_id": 15,
+  "status": "running",
+  "date_started": "2017-11-16 17:46:06.0",
+  "num_downloaded": 0,
+  "data_type": "property",
+  "query": "country:US AND propertyType:\"Single Family Dwelling\"",
+  "format": "JSON",
+  "num_records": 50,
+  "total_cost": 50
 }
 ```
 
@@ -404,20 +399,20 @@ You'll want to replace `XXXX` with the `ID` value for your request. If you keep 
 
 ```json
 {
- "id": 7,
- "results": [
- "https://datafiniti-downloads.s3.amazonaws.com/15/7_1.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20171116T174607Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIAJYCTIF46QVBTXWYA%2F2017xxxx%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=ecf13f1bb4b7adfdde1a99143541afd1d12347292eb9ec3f6ed1316c64d4eekf"
- ],
- "user_id": 15,
- "status": "completed",
- "date_started": "2017-11-16 17:46:06.0",
- "date_updated": "2017-11-16 17:46:07.0",
- "num_downloaded": 1,
- "data_type": "property",
- "query": "country:US AND propertyType:\"Single Family Dwelling\"",
- "format": "JSON",
- "num_records": 50,
- "total_cost": 50
+  "id": 7,
+  "results": [
+    "https://datafiniti-downloads.s3.amazonaws.com/15/7_1.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20171116T174607Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIAJYCTIF46QVBTXWYA%2F2017xxxx%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=ecf13f1bb4b7adfdde1a99143541afd1d12347292eb9ec3f6ed1316c64d4eekf"
+  ],
+  "user_id": 15,
+  "status": "completed",
+  "date_started": "2017-11-16 17:46:06.0",
+  "date_updated": "2017-11-16 17:46:07.0",
+  "num_downloaded": 1,
+  "data_type": "property",
+  "query": "country:US AND propertyType:\"Single Family Dwelling\"",
+  "format": "JSON",
+  "num_records": 50,
+  "total_cost": 50
 }
 ```
 
@@ -450,7 +445,6 @@ Navigate to the results file URL or you download page [here](https://portal.data
 
 <Callout kind="info">
 **Json format**
-
 The JSON data will actually be a text file, instead of a single JSON object. Each line in the text file is a JSON object. We format the data this way because most programming languages won't handle parsing the entire data set as a JSON object with their standard system calls very well. Commonly known as NDJSON.
 </Callout>
 
@@ -472,7 +466,6 @@ The download code will save one or more result files to your project folder.
 
 <Callout kind="info">
 **JSON format download**
-
 The JSON data will actually be a text file, instead of a single JSON object. Each line in the text file is a JSON object. We format the data this way because most programming languages won't handle parsing the entire data set as a JSON object with their standard system calls very well. Commonly know as NDJSON
 </Callout>
 

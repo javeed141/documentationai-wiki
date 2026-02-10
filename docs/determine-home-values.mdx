@@ -14,8 +14,8 @@ We will use this query for finding the Home's Estimated Value:
 
 ```json
 {
- "query": "numBedroom:2 AND numBathroom:3 AND propertyType:\"Single Family Dwelling\" AND yearBuilt:>=2018 AND yearBuilt:<=2022 AND postalCode:78722 AND estimatedPrices:*",
- "num_records": 10
+  "query": "numBedroom:2 AND numBathroom:3 AND propertyType:\"Single Family Dwelling\" AND yearBuilt:>=2018 AND yearBuilt:<=2022 AND postalCode:78722 AND estimatedPrices:*",
+  "num_records": 10
 }
 ```
 
@@ -23,49 +23,49 @@ Response Example:
 
 ```json
 {
- "address": "6845 Avenue N Dr",
- "city": "Houston",
- "estimatedPrices": [
- {
- "pricePerSquareFoot": 235.36,
- "dateSeen": [
- "2024-03-16T09:13:42.446Z"
- ],
- "sourceURLs": [
- "https://www.movoto.com/houston-tx/6845-avenue-n-houston-tx-77011-403_60001740/"
- ],
- "domain": "www.movoto.com",
- "firstDateSeen": "2024-03-16T09:13:42.446Z",
- "lastDateSeen": "2024-03-16T09:13:42.446Z",
- "currency": "USD",
- "amountMin": 287136,
- "amountMax": 287136
- },
- {
- "pricePerSquareFoot": 251.08,
- "dateSeen": [
- "2024-01-04T10:20:32.539Z"
- ],
- "sourceURLs": [
- "https://www.movoto.com/houston-tx/6845-avenue-n-houston-tx-77011-403_60001740/"
- ],
- "domain": "www.movoto.com",
- "firstDateSeen": "2024-01-04T10:20:32.539Z",
- "lastDateSeen": "2024-01-04T10:20:32.539Z",
- "currency": "USD",
- "amountMin": 306316,
- "amountMax": 306316
- }
- ],
- "mostRecentStatus": "For Sale",
- "mostRecentSaleListPriceAmount": 319000,
- "province": "TX",
- "postalCode": "77011",
- "propertyType": "Single Family Dwelling",
- "sourceURLs": [
- ],
- "id": "SD2GrooB5p3ULnC0Gr8O"
- }
+  "address": "6845 Avenue N Dr",
+  "city": "Houston",
+  "estimatedPrices": [
+    {
+      "pricePerSquareFoot": 235.36,
+      "dateSeen": [
+        "2024-03-16T09:13:42.446Z"
+      ],
+      "sourceURLs": [
+        "https://www.movoto.com/houston-tx/6845-avenue-n-houston-tx-77011-403_60001740/"
+      ],
+      "domain": "www.movoto.com",
+      "firstDateSeen": "2024-03-16T09:13:42.446Z",
+      "lastDateSeen": "2024-03-16T09:13:42.446Z",
+      "currency": "USD",
+      "amountMin": 287136,
+      "amountMax": 287136
+    },
+    {
+      "pricePerSquareFoot": 251.08,
+      "dateSeen": [
+        "2024-01-04T10:20:32.539Z"
+      ],
+      "sourceURLs": [
+        "https://www.movoto.com/houston-tx/6845-avenue-n-houston-tx-77011-403_60001740/"
+      ],
+      "domain": "www.movoto.com",
+      "firstDateSeen": "2024-01-04T10:20:32.539Z",
+      "lastDateSeen": "2024-01-04T10:20:32.539Z",
+      "currency": "USD",
+      "amountMin": 306316,
+      "amountMax": 306316
+    }
+  ],
+  "mostRecentStatus": "For Sale",
+  "mostRecentSaleListPriceAmount": 319000,
+  "province": "TX",
+  "postalCode": "77011",
+  "propertyType": "Single Family Dwelling",
+  "sourceURLs": [
+  ],
+  "id": "SD2GrooB5p3ULnC0Gr8O"
+}
 ```
 
 Now you can use the most recent estimated price for comparison of the estimated value to recent sales person. This will allow you to calculate the following:
@@ -82,11 +82,11 @@ You can also download data for all the homes in a given area. Let's start with s
 
 ```json
 {
- "query": "numBedroom:2 AND numBathroom:3 AND propertyType:\"Single Family Dwelling\" AND yearBuilt:>=2018 AND yearBuilt:<=2022 AND postalCode:78722 AND estimatedPrices:*",
- ,
- "num_records": 10,
- "format": "JSON",
- "download": true
+  "query": "numBedroom:2 AND numBathroom:3 AND propertyType:\"Single Family Dwelling\" AND yearBuilt:>=2018 AND yearBuilt:<=2022 AND postalCode:78722 AND estimatedPrices:*",
+  ,
+  "num_records": 10,
+  "format": "JSON",
+  "download": true
 }
 ```
 
@@ -94,7 +94,6 @@ This query will match every single family home in the 78722 zip code that has be
 
 <Callout kind="info">
 **Using credits**
-
 Your "num\_records" sets your limit on how many credit to use. If your query is under the limit, Datafiniti will only charge property for the lower value. For more info on how to spend credits, you can read [How Credits Work](https://docs.datafiniti.co/docs/how-credits-work-api)
 </Callout>
 
@@ -102,7 +101,7 @@ Let's say we don't want to do a zip code-based search. We want to do a search ar
 
 ```json
 {
- "query": "numBedroom:2 AND numBathroom:3 AND propertyType:\"Single Family Dwelling\" AND yearBuilt:>=2018 AND yearBuilt:<=2022 AND postalCode:78722 AND estimatedPrices:* AND geoLocation:[-97.7430600,30.2671500,10,mi] AND dateUpdated:[2023-01-01 TO *]"
+  "query": "numBedroom:2 AND numBathroom:3 AND propertyType:\"Single Family Dwelling\" AND yearBuilt:>=2018 AND yearBuilt:<=2022 AND postalCode:78722 AND estimatedPrices:* AND geoLocation:[-97.7430600,30.2671500,10,mi] AND dateUpdated:[2023-01-01 TO *]"
 }
 ```
 
@@ -112,7 +111,7 @@ If we want to go a little further and only match properties that are within a ce
 
 ```json
 {
- "query": "numBedroom:2 AND numBathroom:3 AND propertyType:\"Single Family Dwelling\" AND yearBuilt:>=2018 AND yearBuilt:<=2022 AND postalCode:78722 AND estimatedPrices:* AND geoLocation:[-97.7430600,30.2671500,10,mi] AND dateUpdated:[2023-01-01 TO *] AND prices.amountMin:>=300000 AND prices.amountMin:<=500000"
+  "query": "numBedroom:2 AND numBathroom:3 AND propertyType:\"Single Family Dwelling\" AND yearBuilt:>=2018 AND yearBuilt:<=2022 AND postalCode:78722 AND estimatedPrices:* AND geoLocation:[-97.7430600,30.2671500,10,mi] AND dateUpdated:[2023-01-01 TO *] AND prices.amountMin:>=300000 AND prices.amountMin:<=500000"
 }
 ```
 
@@ -122,9 +121,9 @@ Finally, if we want to download the entire data set, we do this:
 
 ```json
 {
- "query": "numBedroom:2 AND numBathroom:3 AND propertyType:\"Single Family Dwelling\" AND yearBuilt:>=2018 AND yearBuilt:<=2022 AND postalCode:78722 AND estimatedPrices:*AND mostRecentStatus:\"For Sale\" AND geoLocation:[-97.7430600,30.2671500,10,mi] AND dateUpdated:[2023-01-01 TO *]",
- "download": true,
- "format": "CSV" 
+  "query": "numBedroom:2 AND numBathroom:3 AND propertyType:\"Single Family Dwelling\" AND yearBuilt:>=2018 AND yearBuilt:<=2022 AND postalCode:78722 AND estimatedPrices:*AND mostRecentStatus:\"For Sale\" AND geoLocation:[-97.7430600,30.2671500,10,mi] AND dateUpdated:[2023-01-01 TO *]",
+  "download": true,
+  "format": "CSV"
 }
 ```
 
@@ -140,59 +139,59 @@ First off, if we don't have the features of the property in hand, we can try loo
 
 ```json
 {
- "query": "numBedroom:2 AND numBathroom:3 AND propertyType:\"Single Family Dwelling\" AND yearBuilt:>=2018 AND yearBuilt:<=2022 AND postalCode:78722 AND estimatedPrices:*"
+  "query": "numBedroom:2 AND numBathroom:3 AND propertyType:\"Single Family Dwelling\" AND yearBuilt:>=2018 AND yearBuilt:<=2022 AND postalCode:78722 AND estimatedPrices:*"
 }
 ```
 
 This will return something like:
 
 ```json
- {
- "address": "1709 Westover Rd",
- "brokers": [
- {
- "agent": "Natalie Kopp",
- "company": "Gottesman Residential R.E.",
- "dateSeen": "2019-12-03T23:18:21.474Z"
- },
- {
- "agent": "Beth Carter",
- "dateSeen": "2020-09-16T14:32:11.047Z"
- },
- {
- "agent": "Beth Carter",
- "company": "Compass RE Texas, LLC",
- "dateSeen": "2020-09-16T04:44:00.000Z",
- "phones": [
- "+1 512-799-7427",
- "+1 512-575-3644"
- ]
- },
- {
- "agent": "Natalie Kopp",
- "dateSeen": "2019-12-03T17:15:03.221Z"
- },
- {
- "agent": "Beverly Williams",
- "company": "Realty Austin",
- "dateSeen": "2023-04-14T18:19:35.771Z",
- "phones": [
- "(512) 773-6056"
- ]
- }
- ],
- "city": "Austin",
- "country": "US",
- ...
- }
+{
+  "address": "1709 Westover Rd",
+  "brokers": [
+    {
+      "agent": "Natalie Kopp",
+      "company": "Gottesman Residential R.E.",
+      "dateSeen": "2019-12-03T23:18:21.474Z"
+    },
+    {
+      "agent": "Beth Carter",
+      "dateSeen": "2020-09-16T14:32:11.047Z"
+    },
+    {
+      "agent": "Beth Carter",
+      "company": "Compass RE Texas, LLC",
+      "dateSeen": "2020-09-16T04:44:00.000Z",
+      "phones": [
+        "+1 512-799-7427",
+        "+1 512-575-3644"
+      ]
+    },
+    {
+      "agent": "Natalie Kopp",
+      "dateSeen": "2019-12-03T17:15:03.221Z"
+    },
+    {
+      "agent": "Beverly Williams",
+      "company": "Realty Austin",
+      "dateSeen": "2023-04-14T18:19:35.771Z",
+      "phones": [
+        "(512) 773-6056"
+      ]
+    }
+  ],
+  "city": "Austin",
+  "country": "US",
+  ...
+}
 ```
 
 Now we have the features of the property. We can use these features to find comparable homes. Let's say we want to find all homes in the same zip code that have the same number of bedrooms and bathrooms. We can do this:
 
 ```json
 {
- "query": "numBedroom:2 AND numBathroom:1 AND propertyType:\"Single Family Dwelling\" AND postalCode:78703 AND prices.amountMin:>=300000 AND prices.amountMin:<=500000 AND dateUpdated:[2023-01-01 TO *]",
- "num_records": 10
+  "query": "numBedroom:2 AND numBathroom:1 AND propertyType:\"Single Family Dwelling\" AND postalCode:78703 AND prices.amountMin:>=300000 AND prices.amountMin:<=500000 AND dateUpdated:[2023-01-01 TO *]",
+  "num_records": 10
 }
 ```
 
