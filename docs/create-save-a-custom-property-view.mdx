@@ -1,118 +1,151 @@
 ---
-title: "Create & Save a Custom Property View"
-description: "Save custom views for reuse across multiple Datafiniti API requests."
+title: "Create & save a property custom view"
 ---
 
-## Creating a saved view
+# Introduction
 
-Use the Views API endpoint to create a saved view:
+While the ability to using a view on the fly can be useful, we do understand there are use cases that call for a specific view as a requirement. This guide will show you how to create and use a custom view.
 
-<Request show-lines="true" tabs="cURL,Python">
-```bash
-curl -X POST 'https://api.datafiniti.co/v4/views' \
-  -H 'Authorization: Bearer AAAXXXXXXXXXXXX' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "name": "my_property_view",
-    "data_type": "property",
-    "fields": [
-      "address",
-      "city",
-      "province",
-      "postalCode",
-      "numBedroom",
-      "numBathroom",
-      "mostRecentPriceAmount",
-      "mostRecentStatus"
-    ]
-  }'
-```
+# Creating your custom view
 
-```python
-import requests
+For this example we will be creating a customer property view. The same methodology can be applied to any data type however. Please reference your data types schema for the fields your can use to create a custom view.
 
-API_TOKEN = 'AAAXXXXXXXXXXXX'
+* [Property Data Schema](https://docs.datafiniti.co/docs/property-data-schema)
 
-response = requests.post(
-    'https://api.datafiniti.co/v4/views',
-    headers={
-        'Authorization': f'Bearer {API_TOKEN}',
-        'Content-Type': 'application/json'
-    },
-    json={
-        'name': 'my_property_view',
-        'data_type': 'property',
-        'fields': [
-            'address',
-            'city',
-            'province',
-            'postalCode',
-            'numBedroom',
-            'numBathroom',
-            'mostRecentPriceAmount',
-            'mostRecentStatus'
-        ]
-    }
-)
+We will use the API endpoint to create this view. We will use the following top level property fields to create a view that only provides these fields upon an API search/enrichment/suppression request.
 
-print(response.json())
-```
-</Request>
+* address
+* city
+* province
+* postalCode
+* transaction
+ * saleDate
+ * buyerFirstName
+ * buyerLastName
 
-## Using a saved view
+You will have to build the body of the API request as a JSON and must require:
 
-Reference your saved view by name:
+* name
+ * name of the view you are creating
+* data type
+ * data type of the view you are creating
+* fields
+ * fields matching to your data type's [schema](https://docs.datafiniti.co/docs/property-data-schema)
+
+This what the JSON for the API request should look like:
 
 ```json
 {
-  "query": "country:US",
-  "num_records": 100,
-  "view": "my_property_view"
+ "name": "leads_view",
+ "data_type": "property",
+ "fields": [
+ {"name": "address"},
+ {"name": "city"},
+ {"name": "province"},
+ {"name": "postalCode"},
+ {"name": "transactions","flatten": true, "sub_fields": [
+ {"name": "saleDate"},
+ {"name": "buyerFirstName"},
+ {"name": "buyerLastName"}
+ ]
+ }
+ ]
 }
 ```
 
-## Listing your views
+<Callout kind="alert">
+**Nested fields**
 
-Get all your saved views:
-
-```bash
-curl -X GET 'https://api.datafiniti.co/v4/views' \
-  -H 'Authorization: Bearer AAAXXXXXXXXXXXX'
-```
-
-## Updating a view
-
-Update an existing view:
-
-```bash
-curl -X PUT 'https://api.datafiniti.co/v4/views/my_property_view' \
-  -H 'Authorization: Bearer AAAXXXXXXXXXXXX' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "fields": [
-      "address",
-      "city",
-      "province",
-      "numBedroom",
-      "mostRecentPriceAmount"
-    ]
-  }'
-```
-
-## Deleting a view
-
-Remove a saved view:
-
-```bash
-curl -X DELETE 'https://api.datafiniti.co/v4/views/my_property_view' \
-  -H 'Authorization: Bearer AAAXXXXXXXXXXXX'
-```
-
-## Best practices
-
-<Callout kind="tip">
-  - Use descriptive names for your views
-  - Create separate views for different use cases
-  - Include only the fields you actually need
-  - Test views with small queries before large downloads
+Please note that if you use a top level field with nested sub fields that you will have to declare if you wish to flatten the results. Otherwise flatten is set to false by default.
 </Callout>
+
+Once you send the request is sent, if successful you will receive a Json 201 response like the following
+
+```json
+{
+ "name": "leads_view",
+ "data_type": "property",
+ "fields": [
+ {
+ "flatten": false,
+ "sub_fields": [],
+ "name": "address"
+ },
+ {
+ "flatten": false,
+ "sub_fields": [],
+ "name": "city"
+ },
+ {
+ "flatten": false,
+ "sub_fields": [],
+ "name": "province"
+ },
+ {
+ "flatten": false,
+ "sub_fields": [],
+ "name": "postalCode"
+ },
+ {
+ "flatten": true,
+ "sub_fields": [
+ {
+ "name": "saleDate"
+ },
+ {
+ "name": "buyerFirstName"
+ },
+ {
+ "name": "buyerLastName"
+ }
+ ],
+ "name": "transactions"
+ }
+ ],
+ "user": 120009,
+ "date_created": "2023-09-14T14:58:12.246Z",
+ "date_updated": "2023-09-14T14:58:12.246Z",
+ "_id": 1409,
+ "isDynamic": false,
+ "id": "1409"
+```
+
+# Using your custom view
+
+Now that you have a customer view, lets use it! This can be done by declaring the view in the body of any search/pagination API call. We will use a property search API call for this example.
+
+```json
+{
+ "query":"country:US AND province:CA",
+ "num_records":10,
+ "view":"leads_view"
+}
+```
+
+Here is an example of a records using the newly created `leads_view`
+
+```json
+ "records": [
+ {
+ "address": "107 Westbluff Ct",
+ "city": "Bakersfield",
+ "province": "CA",
+ "postalCode": "93305",
+ "transactions": [
+ {
+ "saleDate": "2022-12-19T00:00:00.000Z",
+ "buyerFirstName": "Richard",
+ "buyerLastName": "Escalante"
+ }
+ ],
+ "id": "v0e6KnsB5p3ULnC08FM_"
+ }
+```
+
+<Callout kind="info">
+**custom view is tied to your account**
+
+Please note that once created that your custom view is only tied to your account. If you have question about your view please reference the view ID and name with this API endpoint.
+</Callout>
+
+You can also visit the [API reference](https://developer.datafiniti.co/reference/properties) page here to test your new view or you can download the postman suite [here](https://developer.datafiniti.co/docs/property-data-with-postman-json).

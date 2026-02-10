@@ -1,94 +1,493 @@
 ---
 title: "Available Views for Property Data"
-description: "Pre-built views available for Datafiniti Property Data API responses."
 ---
+
+The `view_name` field in your search requests determines which fields are returned by your data request and the order in which they're shown.
+
+Available views for property data:
 
 ## Default view
 
-The default view returns all available fields for each property record. Use this when you need comprehensive data.
+The default view will display all available fields in our [Property Data with Postman and CSV](https://docs.datafiniti.co/docs/property-data-with-postman-csv) Data Schema](doc:property-data-schema). This view will be used if you don't set the `view`.
 
-```json
-{
-  "query": "country:US",
-  "num_records": 10
-}
-```
+If using the `csv` format, it will split out elements in multi-valued field lists into separate rows. This means a single product will show up in multiple, contiguous rows while its `prices`, `reviews`, etc fields will have one entry per row for each element in their lists.
 
-## Property basic view
+| Field | Included Sub-Fields |
+| :--- | :--- |
+| `address` | N/A |
+| `brokers` | `agent` `company` `dateSeen` `emails` `phones` `websites` |
+| `buildingName` | N/A |
+| `city` | N/A |
+| `country` | N/A |
+| `dateAdded` | N/A |
+| `dateUpdated` | N/A |
+| `deposits` | `amount` `currency` `dateSeen` |
+| `descriptions` | `dateSeen` `value` |
+| `features` | `key` `replace` `value` |
+| `fees` | `amountMax` `amountMin` `currency` `dateSeen` `type` |
+| `floorSizeValue` | N/A |
+| `floorSizeUnit` | N/A |
+| `imageURLs` | N/A |
+| `languagesSpoken` | N/A |
+| `latitude` | N/A |
+| `leasingTerms` | `dateSeen` `value` |
+| `listingName` | N/A |
+| `longitude` | N/A |
+| `lotSizeValue` | N/A |
+| `lotSizeUnit` | N/A |
+| `managedBy` | `dateSeen` `value` |
+| `mlsNumber` | N/A |
+| `mostRecentSaleListPriceAmount` | N/A |
+| `mostRecentSaleListPriceDate` | N/A |
+| `mostRecentSoldPriceAmount` | N/A |
+| `mostRecentSoldPriceDate` | N/A |
+| `mostRecentStatus` | N/A |
+| `mostRecentStatusDate` | N/A |
+| `neighborhoods` | N/A |
+| `numBathroom` | N/A |
+| `numBedroom` | N/A |
+| `numFloor` | N/A |
+| `numPeople` | N/A |
+| `numRoom` | N/A |
+| `numUnit` | N/A |
+| `parking` | N/A |
+| `paymentTypes` | N/A |
+| `people` | `dateSeen` `email` `name` `phone` `title` |
+| `petPolicy` | N/A |
+| `phones` | N/A |
+| `postalCode` | N/A |
+| `prices` | `amountMin` `amountMax` `availability` `comment` `currency` `date` `dateSeen` `dateValidStart` `dateValidEnd` `isSale` `minStay` `period` `pricePerSquareFoot` |
+| `propertyTaxes` | `amount` `currency` `dateSeen` |
+| `propertyType` | N/A |
+| `province` | N/A |
+| `reviews` | `date` `dateSeen` `doRecommend` `rating` `text` `title` `userCity` `username` `userProvince` |
+| `rules` | N/A |
+| `statuses` | `date` `dateSeen` `isUnderContract` `type` |
+| `taxID` | N/A |
+| `yearBuilt` | N/A |
 
-Returns core property information:
+## property\_flat\_prices
 
-```json
-{
-  "query": "country:US",
-  "num_records": 10,
-  "view": "property_basic"
-}
-```
+The `property_flat_prices` view will display all available fields in our [Property Data Schema](https://docs.datafiniti.co/docs/property-data-schema).
 
-**Included fields:**
-- `id`, `address`, `city`, `province`, `postalCode`, `country`
-- `propertyType`, `numBedroom`, `numBathroom`
-- `floorSizeValue`, `floorSizeUnit`
-- `yearBuilt`
+If using the CSV format, it will split each price for a property into its own row. All other fields will repeat in each row.
 
-## Property with prices view
+| Field | Included Sub-Fields |
+| :--- | :--- |
+| `address` | N/A |
+| `brokers` | `agent` `company` `dateSeen` `emails` `phones` `websites` |
+| `buildingName` | N/A |
+| `city` | N/A |
+| `country` | N/A |
+| `dateAdded` | N/A |
+| `dateUpdated` | N/A |
+| `deposits` | `amount` `currency` `dateSeen` |
+| `descriptions` | `dateSeen` `value` |
+| `features` | `key` `value` |
+| `fees` | `amountMax` `amountMin` `currency` `dateSeen` `type` |
+| `floorSizeValue` | N/A |
+| `floorSizeUnit` | N/A |
+| `imageURLs` | N/A |
+| `languagesSpoken` | N/A |
+| `latitude` | N/A |
+| `leasingTerms` | `dateSeen` `value` |
+| `listingName` | N/A |
+| `longitude` | N/A |
+| `lotSizeValue` | N/A |
+| `lotSizeUnit` | N/A |
+| `managedBy` | `dateSeen` `value` |
+| `mlsNumber` | N/A |
+| `mostRecentSaleListPriceAmount` | N/A |
+| `mostRecentSaleListPriceDate` | N/A |
+| `mostRecentSoldPriceAmount` | N/A |
+| `mostRecentSoldPriceDate` | N/A |
+| `mostRecentStatus` | N/A |
+| `mostRecentStatusDate` | N/A |
+| `neighborhoods` | N/A |
+| `numBathroom` | N/A |
+| `numBedroom` | N/A |
+| `numFloor` | N/A |
+| `numPeople` | N/A |
+| `numRoom` | N/A |
+| `numUnit` | N/A |
+| `parking` | N/A |
+| `paymentTypes` | N/A |
+| `people` | `dateSeen` `email` `name` `phone` `title` |
+| `petPolicy` | N/A |
+| `phones` | N/A |
+| `postalCode` | N/A |
+| `prices` | `amountMin` `amountMax` `availability` `comment` `currency` `date` `dateAdded` `dateSeen` `dateValidStart` `dateValidEnd` `isSale` `minStay` `period` `pricePerSquareFoot` |
+| `propertyTaxes` | `amount` `currency` `dateSeen` |
+| `propertyType` | N/A |
+| `province` | N/A |
+| `reviews` | `date` `dateAdded` `dateSeen` `doRecommend` `rating` `text` `title` `userCity` `username` `userProvince` |
+| `rules` | N/A |
+| `statuses` | `date` `dateSeen` `isUnderContract` `type` |
+| `taxID` | N/A |
 
-Includes pricing information:
+## property\_flat\_reviews
 
-```json
-{
-  "query": "country:US",
-  "num_records": 10,
-  "view": "property_prices"
-}
-```
+The `property_flat_reviews` view will display all available fields in our [Property Data Schema](https://docs.datafiniti.co/docs/property-data-schema).
 
-**Included fields:**
-- All basic fields
-- `prices`, `mostRecentPriceAmount`, `mostRecentPriceDate`
-- `mostRecentStatus`, `mostRecentStatusDate`
+If using the CSV format, it will split each review for a property into its own row. All other fields will repeat in each row.
 
-## Property with brokers view
+| Field | Included Sub-Fields |
+| :--- | :--- |
+| `address` | N/A |
+| `brokers` | `agent` `company` `dateSeen` `emails` `phones` `websites` |
+| `buildingName` | N/A |
+| `city` | N/A |
+| `country` | N/A |
+| `dateAdded` | N/A |
+| `dateUpdated` | N/A |
+| `deposits` | `amount` `currency` `dateSeen` |
+| `descriptions` | `dateSeen` `value` |
+| `features` | `key` `value` |
+| `fees` | `amountMax` `amountMin` `currency` `dateSeen` `type` |
+| `floorSizeValue` | N/A |
+| `floorSizeUnit` | N/A |
+| `imageURLs` | N/A |
+| `languagesSpoken` | N/A |
+| `latitude` | N/A |
+| `leasingTerms` | `dateSeen` `value` |
+| `listingName` | N/A |
+| `longitude` | N/A |
+| `lotSizeValue` | N/A |
+| `lotSizeUnit` | N/A |
+| `managedBy` | `dateSeen` `value` |
+| `mlsNumber` | N/A |
+| `mostRecentSaleListPriceAmount` | N/A |
+| `mostRecentSaleListPriceDate` | N/A |
+| `mostRecentSoldPriceAmount` | N/A |
+| `mostRecentSoldPriceDate` | N/A |
+| `mostRecentStatus` | N/A |
+| `mostRecentStatusDate` | N/A |
+| `neighborhoods` | N/A |
+| `numBathroom` | N/A |
+| `numBedroom` | N/A |
+| `numFloor` | N/A |
+| `numPeople` | N/A |
+| `numRoom` | N/A |
+| `numUnit` | N/A |
+| `parking` | N/A |
+| `paymentTypes` | N/A |
+| `people` | `dateSeen` `email` `name` `phone` `title` |
+| `petPolicy` | N/A |
+| `phones` | N/A |
+| `postalCode` | N/A |
+| `prices` | `amountMin` `amountMax` `availability` `comment` `currency` `date` `dateAdded` `dateSeen` `dateValidStart` `dateValidEnd` `isSale` `minStay` `period` `pricePerSquareFoot` |
+| `propertyTaxes` | `amount` `currency` `dateSeen` |
+| `propertyType` | N/A |
+| `province` | N/A |
+| `reviews` | `date` `dateAdded` `dateSeen` `doRecommend` `rating` `text` `title` `userCity` `username` `userProvince` |
+| `rules` | N/A |
+| `statuses` | `date` `dateSeen` `isUnderContract` `type` |
+| `taxID` | N/A |
 
-Includes broker/agent information:
+## Residential View
 
-```json
-{
-  "query": "country:US",
-  "num_records": 10,
-  "view": "property_brokers"
-}
-```
+The residential view will display select available fields in our [Property Data Schema](https://docs.datafiniti.co/docs/property-data-schema) that is most relevant to residential `propertyType`. These `PropertyType`s are:
 
-**Included fields:**
-- All basic fields
-- `brokers`, `mostRecentBrokerAgent`, `mostRecentBrokerCompany`
-- `mostRecentBrokerPhones`, `mostRecentBrokerEmails`
+* Condo
+* Multi Family Dwelling
+* Single Family Dwelling
+* Townhouse
 
-## Flattened views
+If using the `csv` format, it will split out elements in multi-valued field lists into separate rows. This means a single property record will show up in multiple, contiguous rows while its `prices`, `statuses`, etc fields will have one entry per row for each element in their lists.
 
-Flattened views convert nested arrays into individual columns, useful for CSV exports:
+| Field | Included Sub-Fields |
+| :--- | :--- |
+| `absenteeOwner` | `absent` `firstDateSeen` `lastDateSeen` |
+| `address` | N/A |
+| `appliances` | N/A |
+| `architecturalStyles` | N/A |
+| `assessedValues` | `improvementsAmount` `landAmount` `totalAmount` `year` |
+| `brokers` | `agent` `company` `dateSeen` `emails` `licenseNumber` `licenseType` `people_key` `phones` `websites` |
+| `buildingName` | N/A |
+| `cbsaCode` | N/A |
+| `cbsaName` | N/A |
+| `censusBlock` | N/A |
+| `censusBlockGroup` | N/A |
+| `censusTract` | N/A |
+| `city` | N/A |
+| `civilDivisionCode` | N/A |
+| `civilDivisionName` | N/A |
+| `congressionalDistrictHouse` | N/A |
+| `companies` | `dateSeen` `email` `equity` `equityPercent` `landline` `name` `phone` `title` |
+| `congressionalDistrictHouse` | N/A |
+| `country` | N/A |
+| `county` | N/A |
+| `countyFIPS` | N/A |
+| `currentOwnerType` | N/A |
+| `dateAdded` | N/A |
+| `dateUpdated` | N/A |
+| `deposits` | `amount` `currency` `dateSeen` |
+| `descriptions` | `dateSeen` `value` |
+| `estimatedPrices` | `amountMax` `amountMin` `currency` `dateSeen` `pricePerSquareFoot` |
+| `exteriorConstruction` | N/A |
+| `exteriorFeatures` | N/A |
+| `features` | `key` `replace` `value` |
+| `fees` | `amountMax` `amountMin` `currency` `dateSeen` `type` |
+| `floorPlans` | `floorSize` `name` `numBathrooms` `numBedrooms` `type` |
+| `floorSizeValue` | N/A |
+| `floorSizeUnit` | N/A |
+| `geoLocation` | N/A |
+| `hvacTypes` | N/A |
+| `imageURLs` | N/A |
+| `instrumentNumber` | N/A |
+| `involuntaryLienJudgement` | `firstDateSeen` `judgement` `lien` `lastDateSeen` |
+| `isUnit` | N/A |
+| `keys` | N/A |
+| `latitude` | N/A |
+| `listingName` | N/A |
+| `longitude` | N/A |
+| `lotDepthValue` | N/A |
+| `lotDepthUnit` | N/A |
+| `lotSizeValue` | N/A |
+| `lotSizeUnit` | N/A |
+| `managedBy` | `dateSeen` `value` |
+| `mlsName` | N/A |
+| `mlsNumber` | N/A |
+| `mostRecentAbsenteeOwner` | N/A |
+| `mostRecentAbsenteeOwnerFirstDateSeen` | N/A |
+| `mostRecentBrokerAgent` | N/A |
+| `mostRecentBrokerCompany` | N/A |
+| `mostRecentBrokerDateSeen` | N/A |
+| `mostRecentBrokerEmails` | N/A |
+| `mostRecentBrokerPhones` | N/A |
+| `mostRecentEstimatedPriceAmount` | N/A |
+| `mostRecentEstimatedPriceDate` | N/A |
+| `mostRecentEstimatedPriceDomain` | N/A |
+| `mostRecentEstimatedPriceSourceURL` | N/A |
+| `mostRecentInvoluntaryJudgement` | N/A |
+| `mostRecentInvoluntaryLien` | N/A |
+| `mostRecentInvoluntaryLienJudgementFirstDateSeen` | N/A |
+| `mostRecentPriceAmount` | N/A |
+| `mostRecentRentalListPriceAmount` | N/A |
+| `mostRecentRentalListPriceDate` | N/A |
+| `mostRecentRentalPriceDomain` | N/A |
+| `mostRecentRentalPriceFirstDateSeen` | N/A |
+| `mostRecentRentalPricePeriod` | N/A |
+| `mostRecentRentalPriceSourceURL` | N/A |
+| `mostRecentPriceCurrency` | N/A |
+| `mostRecentPriceDate` | N.A |
+| `mostRecentStatus` | N/A |
+| `mostRecentStatusDate` | N/A |
+| `mostRecentStatusFirstDateSeen` | N/A |
+| `mostRecentPriceDomain` | N/A |
+| `mostRecentVacancy` | N/A |
+| `mostRecentVacancyFirstDateSeen` | N/A |
+| `msaCode` | N/A |
+| `msaName` | N/A |
+| `municipality` | N/A |
+| `neighborhoods` | N/A |
+| `numBathroom` | N/A |
+| `numBedroom` | N/A |
+| `numFloor` | N/A |
+| `numPeople` | N/A |
+| `numRoom` | N/A |
+| `numUnit` | N/A |
+| `ownerOccupiedStatus` | `firstDateSeen` `lastDateSeen` `startDate` `status` |
+| `parking` | N/A |
+| `paymentTypes` | N/A |
+| `people` | `dateSeen` `email` `equity` `equityPercent` `name` `people_key` `phone` `title` |
+| `permits` | N/A |
+| `petPolicy` | N/A |
+| `phones` | N/A |
+| `postalCode` | N/A |
+| `prices` | `amountMin` `amountMax` `availability` `comment` `currency` `date` `dateSeen` `dateValidStart` `dateValidEnd` `isSale` `minStay` `period` `pricePerSquareFoot` |
+| `propertyTaxes` | `amount` `currency` `dateSeen` |
+| `propertyType` | N/A |
+| `province` | N/A |
+| `roofing` | N/A |
+| `roomTypes` | N/A |
+| `rules` | N/A |
+| `sewerType` | N/A |
+| `statuses` | `date` `dateSeen` `isUnderContract` `type` |
+| `subdivision` | N/A |
+| `taxExemptions` | N/A |
+| `taxID` | N/A |
+| `title` | N/A |
+| `topographyCode` | N/A |
+| `transactions` | `buyerFirstName` `buyerMiddleName` `buyerLastName` `contactOwnerMailAddressFull` `documentNumber` `documentType` `firstDateSeen` `interestType` `lastDateSeen` `lenderName` `loanType` `loanAmount` `mortgageTerm` `ownerType` `parcelNumber` `price` `saleDate` `sellerFirstName` `sellerMiddleName` `sellerLastName` `transactionID` `type` |
+| `trustDescription` | N/A |
+| `vacancy` | N/A |
+| `websiteIDs` | N/A |
+| `yearBuilt` | N/A |
+| `zoning` | N/A |
 
-```json
-{
-  "query": "country:US",
-  "num_records": 10,
-  "format": "CSV",
-  "view": "property_flat"
-}
-```
+## Commercial View
 
-<Callout kind="info">
-  Flattened views are particularly useful when exporting to CSV format for analysis in spreadsheet applications.
-</Callout>
+The commercial view will display select available fields in our [Property Data Schema](https://docs.datafiniti.co/docs/property-data-schema) that is most relevant to residential `propertyType`. These `PropertyType`s are:
 
-## Comparing views
+* commercial
+* industrial
+* office
+* retail
 
-| View | Fields | Best for |
-|------|--------|----------|
-| Default | All | Comprehensive analysis |
-| Basic | Core property info | Quick lookups |
-| Prices | Property + pricing | Market analysis |
-| Brokers | Property + agents | Lead generation |
-| Flat | Flattened arrays | CSV exports |
+| Field | Included Sub-Fields |
+| :--- | :--- |
+| `absenteeOwner` | `absent` `firstDateSeen` `lastDateSeen` |
+| `address` | N/A |
+| `architecturalStyles` | N/A |
+| `assessedValues` | `improvementsAmount` `landAmount` `totalAmount` year |
+| `brokers` | `agent` `company` `dateSeen` `emails` `licenseNumber` `licenseType` `people_key` `phones` `websites` |
+| `buildingName` | N/A |
+| `capRate` | N/A |
+| `categories` | N/A |
+| `cbsaCode` | N/A |
+| `cbsaName` | N/A |
+| `censusBlock` | N/A |
+| `censusBlockGroup` | N/A |
+| `censusTract` | N/A |
+| `city` | N/A |
+| `civilDivisionCode` | N/A |
+| `civilDivisionName` | N/A |
+| `companies` | `dateSeen` `email` `equity` `equityPercent` `landline` `name` `phone` `title` |
+| `congressionalDistrictHouse` | N/A |
+| `country` | N/A |
+| `county` | N/A |
+| `countyFIPS` | N/A |
+| `currentOwnerType` | N/A |
+| `dateAdded` | N/A |
+| `dateUpdated` | N/A |
+| `deposits` | `amount` `currency` `dateSeen` |
+| `descriptions` | `dateSeen` `value` |
+| `estimatedPrices` | `amountMax` `amountMin` `currency` `dateSeen` `pricePerSquareFoot` |
+| `exteriorConstruction` | N/A |
+| `exteriorFeatures` | N/A |
+| `features` | `key` `replace` `value` |
+| `fees` | `amountMax` `amountMin` `currency` `dateSeen` `type` |
+| `floorPlans` | `floorSize` `name` `numBathrooms` `numBedrooms` `type` |
+| `floorSizeValue` | N/A |
+| `floorSizeUnit` | N/A |
+| `geoLocation` | N/A |
+| `hvacTypes` | N/A |
+| `imageURLs` | N/A |
+| `instrumentNumber` | N/A |
+| `investmentType` | N/A |
+| `involuntaryLienJudgement` | `firstDateSeen` `judgement` `lien` `lastDateSeen` |
+| `isUnit` | N/A |
+| `keys` | N/A |
+| `latitude` | N/A |
+| `leasingTerms` | `dateSeen` `value` |
+| `legalDescription` | N/A |
+| `legalRange` | N/A |
+| `listingName` | N/A |
+| `longitude` | N/A |
+| `lotDepthValue` | N/A |
+| `lotDepthUnit` | N/A |
+| `lotSizeValue` | N/A |
+| `lotSizeUnit` | N/A |
+| `managedBy` | `dateSeen` `value` |
+| `mlsName` | N/A |
+| `mlsNumber` | N/A |
+| `mostRecentAbsenteeOwner` | N/A |
+| `mostRecentAbsenteeOwnerFirstDateSeen` | N/A |
+| `mostRecentBrokerAgent` | N/A |
+| `mostRecentBrokerCompany` | N/A |
+| `mostRecentBrokerDateSeen` | N/A |
+| `mostRecentBrokerEmails` | N/A |
+| `mostRecentBrokerPhones` | N/A |
+| `mostRecentEstimatedPriceAmount` | N/A |
+| `mostRecentEstimatedPriceDate` | N/A |
+| `mostRecentEstimatedPriceDomain` | N/A |
+| `mostRecentEstimatedPriceSourceURL` | N/A |
+| `mostRecentInvoluntaryJudgement` | N/A |
+| `mostRecentInvoluntaryLien` | N/A |
+| `mostRecentInvoluntaryLienJudgementFirstDateSeen` | N/A |
+| `mostRecentSaleListPriceAmount` | N/A |
+| `mostRecentRentalListPriceAmount` | N/A |
+| `mostRecentRentalListPriceDate` | N/A |
+| `mostRecentRentalPriceDomain` | N/A |
+| `mostRecentRentalPriceFirstDateSeen` | N/A |
+| `mostRecentRentalPricePeriod` | N/A |
+| `mostRecentRentalPriceSourceURL` | N/A |
+| `mostRecentRentalListPriceAmount` | N/A |
+| `mostRecentRentalListPriceDate` | N/A |
+| `mostRecentPriceCurrency` | N/A |
+| `mostRecentPriceDomain` | N/A |
+| `mostRecentPriceDate` | N/A |
+| `mostRecentStatus` | N/A |
+| `mostRecentStatusDate` | N/A |
+| `mostRecentSaleListPriceAmount` | N/A |
+| `mostRecentSaleListPriceDate` | N/A |
+| `mostRecentVacancy` | N/A |
+| `mostRecentVacancyFirstDateSeen` | N/A |
+| `msaCode` | N/A |
+| `msaName` | N/A |
+| `municipality` | N/A |
+| `neighborhoods` | N/A |
+| `netOperatingIncome` | N/A |
+| `numFloor` | N/A |
+| `numParkingSpaces` | N/A |
+| `numPeople` | N/A |
+| `numRoom` | N/A |
+| `numUnit` | N/A |
+| `ownerOccupied` | N/A |
+| `ownerOccupiedStatus` | `firstDateSeen` `lastDateSeen` `startDate` `status` |
+| `parking` | N/A |
+| `parkingTypes` | N/A |
+| `parcelNumbers` | N/A |
+| `paymentTypes` | N/A |
+| `people` | `dateSeen` `email` `equity` `equityPercent` `name` `people_key` `phone` `title` |
+| `permits` | N/A |
+| `phones` | N/A |
+| `postalCode` | N/A |
+| `prices` | `amountMin` `amountMax` `availability` `comment` `currency` `date` `dateSeen` `dateValidStart` `dateValidEnd` `isSale` `minStay` `period` `pricePerSquareFoot` |
+| `propertyTaxes` | `amount` `currency` `dateSeen` |
+| `propertyType` | N/A |
+| `province` | N/A |
+| `roofing` | N/A |
+| `roomTypes` | N/A |
+| `rules` | N/A |
+| `sewerType` | N/A |
+| `statuses` | date dateSeen isUnderContract type |
+| `subdivision` | N/A |
+| `taxExemptions` | N/A |
+| `taxID` | N/A |
+| `title` | N/A |
+| `topographyCode` | N/A |
+| `transactions` | `buyerFirstName` `buyerMiddleName` `buyerLastName` `contactOwnerMailAddressFull` `documentNumber` `documentType` `firstDateSeen` `interestType` `lastDateSeen` `lenderName` `loanType` `loanAmount` `mortgageTerm` `ownerType` `parcelNumber` `price` `saleDate` `sellerFirstName` `sellerMiddleName` `sellerLastName` `transactionID` `type` |
+| `trustDescription` | N/A |
+| `vacancy` | N/A |
+| `websiteIDs` | N/A |
+| `yearBuilt` | N/A |
+| `zoning` | N/A |
+
+## Transactions View
+
+The transactions view will display all available fields in our [Property Data Schema](https://docs.datafiniti.co/docs/property-data-schema).
+
+If using the `csv` format, it will split out the `transactions` sub-fields in multi-valued field lists into separate rows. This means a single property record will show up in multiple, contiguous rows while its `price`, `saleDate`, etc fields will have one entry per row for each element in their lists.
+
+| Field | Included Sub-Fields |
+| :--- | :--- |
+| `address` | N/A |
+| `city` | N/A |
+| `country` | N/A |
+| `county` | N/A |
+| `dateAdded` | N/A |
+| `dateUpdated` | N/A |
+| `geoLocation` | N/A |
+| `keys` | N/A |
+| `latitude` | N/A |
+| `leasingTerms` | N/A |
+| `legalDescription` | N/A |
+| `longitude` | N/A |
+| `mlsName` | N/A |
+| `mlsNumber` | N/A |
+| `mostRecentSoldPriceAmount` | N/A |
+| `mostRecentRentalPricePeriod` | N/A |
+| `mostRecentRentalListPriceAmount` | N/A |
+| `mostRecentRentalListPriceDate` | N/A |
+| `mostRecentPriceDate` | N.A |
+| `mostRecentStatus` | N/A |
+| `mostRecentStatusDate` | N/A |
+| `postalCode` | N/A |
+| `prices` | `amountMin` `amountMax` `availability` `comment` `currency` `date` `dateSeen` `dateValidStart` `dateValidEnd` `isSale` `minStay` `period` `pricePerSquareFoot` |
+| `propertyType` | N/A |
+| `province` | N/A |
+| `taxID` | N/A |
+| `transactions` | `buyerFirstName` `buyerMiddleName` `buyerLastName` `contactOwnerMailAddressFull` `documentNumber` `documentType` `firstDateSeen` `interestType` `lastDateSeen` `lenderName` `loanType` `loanAmount` `mortgageTerm` `ownerType` `parcelNumber` `price` `saleDate` `sellerFirstName` `sellerMiddleName` `sellerLastName` `transactionID` `type` |
+| `yearBuilt` | N/A |

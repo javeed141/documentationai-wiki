@@ -1,74 +1,86 @@
 ---
-title: "Using a Custom Property View On-the-Fly"
-description: "Create temporary custom views directly in your Datafiniti API requests."
+title: "Using a custom property view on the fly"
 ---
 
-## Basic syntax
+## Introduction
 
-Specify fields as a comma-separated list in the `view` parameter:
+Many Datafiniti customers are interested in using our property data with only specific fields in the record results of a query. In this guide, we will show you a couple of ways to set up a custom view.
 
-```json
-{
-  "query": "country:US",
-  "num_records": 10,
-  "view": "address,city,province,numBedroom,numBathroom"
-}
-```
+## Setting a view in your Property Search API
 
-## Including nested fields
-
-Access nested field data using dot notation:
+Whenever you set up your property search API body you can create a view by declaring the fields in the JSON of the body. Let's use the following query as a base for a property search:
 
 ```json
 {
-  "query": "country:US",
-  "num_records": 10,
-  "view": "address,city,prices.amountMin,prices.dateSeen,brokers.agent"
+ "query":"country:US AND province:TX AND city:\"el paso\" AND address:* AND transactions:*",
+ "num_records":20
 }
 ```
 
-## Example: Real estate analysis view
+Now let's add the view to the body that allows only the following fields:
+
+* address
+* city
+* province
+* postalCode
+* transaction
+ * buyerFirstName
+ * buyerLastName
 
 ```json
 {
-  "query": "province:TX AND propertyType:\"Single Family Dwelling\"",
-  "num_records": 100,
-  "format": "JSON",
-  "view": "address,city,postalCode,numBedroom,numBathroom,floorSizeValue,yearBuilt,mostRecentPriceAmount,mostRecentStatus"
+ "query": "country:US AND province:TX AND city:\"el paso\" AND address:* AND transactions:*",
+ "view": [
+ {"name": "address"},
+ {"name": "city"},
+ {"name": "province"},
+ {"name": "postalCode"},
+ {"name": "transactions","flatten": true, "sub_fields": [
+ {"name": "saleDate"},
+ {"name": "buyerFirstName"},
+ {"name": "buyerLastName"}
+ ]
+ }
+ ],
+ "num_records":20
 }
 ```
 
-## Example: Broker contact view
+Here is an example of the download of this view:
+
+* [Custom View body CSV](https://drive.google.com/file/d/1Tp4C1aTvTkgzziBRV_h-HqQpCUk3uagi/view?usp=sharing)
+
+## Creating a custom view via create view API endpoint
+
+This method will create a permanent view that you can declare by name in the view of your search body. Using the API endpoint you can create a view. We will use the previous fields as our view body. We will name this view `custom_transaction_view`.
 
 ```json
 {
-  "query": "city:Austin AND mostRecentStatus:\"For Sale\"",
-  "num_records": 50,
-  "format": "CSV",
-  "view": "address,city,mostRecentBrokerAgent,mostRecentBrokerCompany,mostRecentBrokerPhones,mostRecentBrokerEmails"
+ "name": "custom_transaction_view",
+ "data_type": "property",
+ "fields": [
+ {"name": "address"},
+ {"name": "city"},
+ {"name": "province"},
+ {"name": "postalCode"},
+ {"name": "transactions","flatten": true, "sub_fields": [
+ {"name": "saleDate"},
+ {"name": "buyerFirstName"},
+ {"name": "buyerLastName"}
+ ]
+ }
+ ]
 }
 ```
 
-## Example: Transaction history view
+<Callout kind="info">
+**Name**
 
-```json
-{
-  "query": "postalCode:78701",
-  "num_records": 25,
-  "view": "address,transactions.saleDate,transactions.price,transactions.buyerLastName,transactions.sellerLastName"
-}
-```
-
-## Tips for custom views
-
-<Callout kind="tip">
-  - Start with fewer fields and add more as needed
-  - Use `mostRecent*` fields for current values instead of full arrays
-  - Test with `num_records: 1` before downloading large datasets
+Please note you can name the view any string value not currently used. To check your current view you can use:
 </Callout>
 
-## Limitations
+<Callout kind="alert">
+**dataType**
 
-- Field names must match the schema exactly
-- Invalid field names are ignored
-- Some nested fields may require the parent field to be included
+Be sure that you declare the correct dataType to the dataType you wish to search. As we need to match the API to the dataType's schema. Learn more about [Property Data Schema](https://docs.datafiniti.co/docs/property-data-schema).
+</Callout>

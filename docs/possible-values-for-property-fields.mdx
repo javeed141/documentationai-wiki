@@ -1,79 +1,183 @@
 ---
 title: "Possible Values for Property Fields"
-description: "Reference of possible values for key property data fields including property types, statuses, and more."
 ---
 
-## Property types
+## statusHistory.type, mostRecentStatus
 
-The `propertyType` field can contain the following values:
+Auction\
+Coming Soon\
+For Sale\
+For Sale By Owner\
+Foreclosed\
+Off Market - More specialized Off Market statuses found below\
+Pending\
+Pre-Foreclosure\
+Sold
 
-| Value | Description |
-|-------|-------------|
-| `Single Family Dwelling` | Standalone residential home |
-| `Condo` | Condominium unit |
-| `Townhouse` | Multi-story attached home |
-| `Multi-Family Dwelling` | Property with multiple units |
-| `Apartment` | Rental apartment unit |
-| `Mobile Home` | Manufactured/mobile home |
-| `Land` | Vacant land/lot |
-| `Commercial` | Commercial property |
-| `Industrial` | Industrial property |
-| `Farm` | Agricultural property |
+## prices.type
 
-## Status types
+Sale List\
+Sold\
+Rental List
 
-The `statusHistory.type` and `mostRecentStatus` fields can contain:
+### Off-market Statuses
 
-| Value | Description |
-|-------|-------------|
-| `For Sale` | Property is listed for sale |
-| `Sold` | Property has been sold |
-| `Pending` | Sale is pending/under contract |
-| `Off Market` | Property is not currently listed |
-| `For Rent` | Property is available for rent |
-| `Rental` | Property is a rental listing |
-| `Short Term Rental` | Property is listed as short-term rental (e.g., Airbnb) |
+Delisted (Withdrawn)\
+Delisted (Withdrawn - Terminated)\
+Delisted (Withdrawn (Conditional))\
+Delisted (Withdrawn - Right to Re-List)\
+Delisted (Temporarily No Showings)\
+Delisted (Temporarily Off-Market)\
+Delisted (Expired)\
+Delisted (Cancelled)
 
-## Price types
+### RentalStatuses
 
-The `prices.type` field can contain:
+For Rent By Owner\
+Rent To Own\
+Rental\
+Short Term Rental
 
-| Value | Description |
-|-------|-------------|
-| `Sale List` | Listed sale price |
-| `Sold` | Final sold price |
-| `Rental List` | Listed rental price |
+## propertyType
 
-## Owner types
+Apartment\
+Barn\
+Bed Breakfast\
+Boat\
+Boat Slip\
+Building\
+Bungalow\
+Cabin\
+Camper/RV\
+Campground\
+Car Wash\
+Castle\
+Cave\
+Chalet\
+Co-op\
+Commercial\
+Condo\
+Cottage\
+Development Site\
+Dorm\
+Duplex\
+Earth House\
+Entire Floor\
+Estate\
+Farm\
+Flat\
+Guesthouse\
+Homestay\
+Hospitality\
+Hostal\
+Hotel\
+Igloo\
+Industrial\
+Inn\
+Island\
+Land\
+Lodge\
+Loft\
+Manufactured Home\
+Marina\
+Mas\
+Masía\
+Mobile Home\
+Motel\
+Multi-Family Dwelling\
+Nature lodge\
+Other\
+Parking\
+Posada\
+Quadruplex\
+Religious Facility\
+Rental Unit\
+Resort\
+Retail\
+Riad\
+Room\
+School\
+Self-Storage\
+Semi-Detached\
+Shopping Center\
+Single Family Dwelling\
+Sports & Entertainment\
+Studio\
+Tent\
+Tipi\
+Townhouse\
+Train\
+Treehouse\
+Triplex\
+Unit\
+Vacation Rental\
+Villa\
+Yurt
 
-The `transactions.ownerType` field can contain:
+## floorSizeUnit & lotSizeUnit
 
-| Value | Description |
-|-------|-------------|
-| `Individual` | Individual person |
-| `Company` | Business entity |
-| `Trust` | Trust ownership |
+Listed here are the abbreviated string value for our property floorSizeUnit and lotSizeUnit fields in our schema.
 
-## Loan types
+| Unit | Abbreviate Unit Value |
+| :----------- | :-------------------- |
+| Acre | ac |
+| Acres | acs |
+| Cubic Yard | cu yd |
+| Square foot | sq ft |
+| Square Meter | sq m |
+| Square Yard | sqyd |
 
-The `transactions.loanType` field can contain:
+## currentOwnerType
 
-| Value | Description |
-|-------|-------------|
-| `Conventional` | Conventional mortgage |
-| `FHA` | FHA-backed loan |
-| `VA` | VA-backed loan |
-| `Cash` | Cash purchase |
+Listed here are the possible current owner types for property records.
 
-## Example queries using these values
+Company\
+Individual
 
-```
-propertyType:"Single Family Dwelling"
-statusHistory.type:"For Sale"
-prices.type:"Sold"
-transactions.loanType:"Conventional"
-```
+## transactions.type
 
-<Callout kind="tip">
-  Use quotation marks around values with spaces for exact matching.
-</Callout>
+Listed here are the possible transaction types in our property records. Please note the terms to be searched are abbreviated and the long string is to define the abbreviated values.
+
+NHO - "new home owner"
+
+REFI - "Refinance of a property"
+
+## transactions.documentType
+
+Listed here are the possible transaction documentType in our property records.
+
+* Administrative
+* Affidavit
+* Affidavit Of Death
+* Affidavit Of Death Of Joint Tenant
+* Certificate Of Transfer
+* Declaration
+* Deed
+* Deed of Trust
+* Dtal
+* Dtdv
+* Dual Purpose Document
+* Exchange
+* Fee Simple
+* FORECLOSURE
+* Intrafamily Transfer And Dissolution
+* ONE OF CONSERVATOR, EXECUTOR, GUARDIAN, GRANT, TACOLLECTOR, OR TRUSTEE DEEDS
+* ONE OF COMMITTEE, STRICT FORECLOSURE, SHERIFF, OREDEMPTION DEEDS
+* Land Contract
+* Lease
+* Loan Modification
+* Other
+* Public action
+* Quit Claim
+* Sale
+* Venders Lien
+* W - (warranty undefined)
+* Warranty
+* Warranty Deed
+
+## Occupancy
+
+* Occupied
+* Owner
+* Tenant
+* Vacant

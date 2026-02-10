@@ -1,104 +1,199 @@
 ---
-title: "Determine Home Values"
-description: "Use Datafiniti's Property Data API to analyze property values and price trends."
+title: "Determine home values"
 ---
 
-## Get current listing prices
+## Introduction
 
-Find properties currently for sale with their asking prices:
+Many Datafiniti customers are interested in using our data to determine the value of a single home or the expected value of homes within a given area. There are a couple ways to do this.
 
-```json
-{
-  "query": "city:Austin AND province:TX AND mostRecentStatus:\"For Sale\"",
-  "num_records": 100,
-  "view": "address,city,numBedroom,numBathroom,floorSizeValue,mostRecentPriceAmount,mostRecentPriceDate"
-}
-```
+## Option #1 Using estimatedPrices to determine a home's value
 
-## Find recently sold properties
+This method leverages the `estimatedPrices` field from Datafiniti's property data to retrieve a home's estimated value and compare it to recent sale prices of similar homes nearby from the previous example.
 
-Analyze sold prices in a specific area:
+We will use this query for finding the Home's Estimated Value:
 
 ```json
 {
-  "query": "city:Austin AND province:TX AND statusHistory.type:Sold AND statusHistory.date:[2024-01-01 TO *]",
-  "num_records": 100,
-  "view": "address,numBedroom,numBathroom,floorSizeValue,prices"
+ "query": "numBedroom:2 AND numBathroom:3 AND propertyType:\"Single Family Dwelling\" AND yearBuilt:>=2018 AND yearBuilt:<=2022 AND postalCode:78722 AND estimatedPrices:*",
+ "num_records": 10
 }
 ```
 
-## Calculate price per square foot
-
-Get data to calculate price per square foot:
+Response Example:
 
 ```json
 {
-  "query": "postalCode:78701 AND floorSizeValue:[1000 TO *]",
-  "num_records": 50,
-  "view": "address,floorSizeValue,floorSizeUnit,mostRecentPriceAmount,prices.pricePerSquareFoot"
-}
+ "address": "6845 Avenue N Dr",
+ "city": "Houston",
+ "estimatedPrices": [
+ {
+ "pricePerSquareFoot": 235.36,
+ "dateSeen": [
+ "2024-03-16T09:13:42.446Z"
+ ],
+ "sourceURLs": [
+ "https://www.movoto.com/houston-tx/6845-avenue-n-houston-tx-77011-403_60001740/"
+ ],
+ "domain": "www.movoto.com",
+ "firstDateSeen": "2024-03-16T09:13:42.446Z",
+ "lastDateSeen": "2024-03-16T09:13:42.446Z",
+ "currency": "USD",
+ "amountMin": 287136,
+ "amountMax": 287136
+ },
+ {
+ "pricePerSquareFoot": 251.08,
+ "dateSeen": [
+ "2024-01-04T10:20:32.539Z"
+ ],
+ "sourceURLs": [
+ "https://www.movoto.com/houston-tx/6845-avenue-n-houston-tx-77011-403_60001740/"
+ ],
+ "domain": "www.movoto.com",
+ "firstDateSeen": "2024-01-04T10:20:32.539Z",
+ "lastDateSeen": "2024-01-04T10:20:32.539Z",
+ "currency": "USD",
+ "amountMin": 306316,
+ "amountMax": 306316
+ }
+ ],
+ "mostRecentStatus": "For Sale",
+ "mostRecentSaleListPriceAmount": 319000,
+ "province": "TX",
+ "postalCode": "77011",
+ "propertyType": "Single Family Dwelling",
+ "sourceURLs": [
+ ],
+ "id": "SD2GrooB5p3ULnC0Gr8O"
+ }
 ```
 
-## Compare by property characteristics
+Now you can use the most recent estimated price for comparison of the estimated value to recent sales person. This will allow you to calculate the following:
 
-Find comparable properties (comps):
+* The average sale price of comparable homes.
+* The target home's estimated price (estimatedPrices) to the recent sales.
+* Interpretation off the estimated price of the average sale price and if the listing price is over/undervalued.
+
+In this case we can see for `"address": "6845 Avenue N Dr"` we can see the listed price as `319000`. However you can see the most recent estimated value from movoto is 306316. Meaning that you can see that the listing value is slightly overvalued, giving you the insight to bargain on this "for sale" property.
+
+## Option 2: Download data for all homes in an area
+
+You can also download data for all the homes in a given area. Let's start with something simple:
 
 ```json
 {
-  "query": "city:Austin AND numBedroom:3 AND numBathroom:[2 TO 3] AND floorSizeValue:[1500 TO 2000] AND yearBuilt:[2000 TO *]",
-  "num_records": 25,
-  "view": "address,numBedroom,numBathroom,floorSizeValue,yearBuilt,mostRecentPriceAmount,mostRecentStatus"
+ "query": "numBedroom:2 AND numBathroom:3 AND propertyType:\"Single Family Dwelling\" AND yearBuilt:>=2018 AND yearBuilt:<=2022 AND postalCode:78722 AND estimatedPrices:*",
+ ,
+ "num_records": 10,
+ "format": "JSON",
+ "download": true
 }
 ```
 
-## Track price history
+This query will match every single family home in the 78722 zip code that has been listed as for sale since January 1, 2023. We can adjust the `dateUpdated` value to reflect any date range we want.
 
-Get full price history for analysis:
+<Callout kind="info">
+**Using credits**
 
-```json
-{
-  "query": "address:\"123 Main St\" AND city:Austin",
-  "num_records": 1,
-  "view": "address,prices"
-}
-```
-
-Example response showing price history:
-
-```json
-{
-  "prices": [
-    {
-      "amountMin": 450000,
-      "dateSeen": ["2024-06-01"],
-      "type": "Sale List"
-    },
-    {
-      "amountMin": 425000,
-      "dateSeen": ["2024-03-15"],
-      "type": "Sale List"
-    },
-    {
-      "amountMin": 380000,
-      "dateSeen": ["2022-08-10"],
-      "type": "Sold"
-    }
-  ]
-}
-```
-
-## Analyze assessed values
-
-Compare market prices to tax assessments:
-
-```json
-{
-  "query": "city:Austin AND assessedValues.year:2024",
-  "num_records": 100,
-  "view": "address,mostRecentPriceAmount,assessedValues"
-}
-```
-
-<Callout kind="tip">
-  Combine multiple criteria to find the most relevant comparable properties for accurate valuations.
+Your "num\_records" sets your limit on how many credit to use. If your query is under the limit, Datafiniti will only charge property for the lower value. For more info on how to spend credits, you can read [How Credits Work](https://docs.datafiniti.co/docs/how-credits-work-api)
 </Callout>
+
+Let's say we don't want to do a zip code-based search. We want to do a search around a lat/long point:
+
+```json
+{
+ "query": "numBedroom:2 AND numBathroom:3 AND propertyType:\"Single Family Dwelling\" AND yearBuilt:>=2018 AND yearBuilt:<=2022 AND postalCode:78722 AND estimatedPrices:* AND geoLocation:[-97.7430600,30.2671500,10,mi] AND dateUpdated:[2023-01-01 TO *]"
+}
+```
+
+This is similar to the previous query, but now it matches every property in a 10 mile radius around a single geo coordinate. Longitude goes first, latitude goes second.
+
+If we want to go a little further and only match properties that are within a certain price range, we do this:
+
+```json
+{
+ "query": "numBedroom:2 AND numBathroom:3 AND propertyType:\"Single Family Dwelling\" AND yearBuilt:>=2018 AND yearBuilt:<=2022 AND postalCode:78722 AND estimatedPrices:* AND geoLocation:[-97.7430600,30.2671500,10,mi] AND dateUpdated:[2023-01-01 TO *] AND prices.amountMin:>=300000 AND prices.amountMin:<=500000"
+}
+```
+
+This filters down the matching data further by restricting it to homes that have been listed between $300,000 - $500,000.
+
+Finally, if we want to download the entire data set, we do this:
+
+```json
+{
+ "query": "numBedroom:2 AND numBathroom:3 AND propertyType:\"Single Family Dwelling\" AND yearBuilt:>=2018 AND yearBuilt:<=2022 AND postalCode:78722 AND estimatedPrices:*AND mostRecentStatus:\"For Sale\" AND geoLocation:[-97.7430600,30.2671500,10,mi] AND dateUpdated:[2023-01-01 TO *]",
+ "download": true,
+ "format": "CSV" 
+}
+```
+
+We can adjust the parameters here to set format to `JSON`. We can also restrict the number of records to download by passing in additional `num_records` field.
+
+&nbsp;
+
+## Option 3: Find comparable homes to a single property
+
+Let's say you have a property in mind and you want to use similar properties to determine the value of the home.
+
+First off, if we don't have the features of the property in hand, we can try looking them up in Datafiniti.
+
+```json
+{
+ "query": "numBedroom:2 AND numBathroom:3 AND propertyType:\"Single Family Dwelling\" AND yearBuilt:>=2018 AND yearBuilt:<=2022 AND postalCode:78722 AND estimatedPrices:*"
+}
+```
+
+This will return something like:
+
+```json
+ {
+ "address": "1709 Westover Rd",
+ "brokers": [
+ {
+ "agent": "Natalie Kopp",
+ "company": "Gottesman Residential R.E.",
+ "dateSeen": "2019-12-03T23:18:21.474Z"
+ },
+ {
+ "agent": "Beth Carter",
+ "dateSeen": "2020-09-16T14:32:11.047Z"
+ },
+ {
+ "agent": "Beth Carter",
+ "company": "Compass RE Texas, LLC",
+ "dateSeen": "2020-09-16T04:44:00.000Z",
+ "phones": [
+ "+1 512-799-7427",
+ "+1 512-575-3644"
+ ]
+ },
+ {
+ "agent": "Natalie Kopp",
+ "dateSeen": "2019-12-03T17:15:03.221Z"
+ },
+ {
+ "agent": "Beverly Williams",
+ "company": "Realty Austin",
+ "dateSeen": "2023-04-14T18:19:35.771Z",
+ "phones": [
+ "(512) 773-6056"
+ ]
+ }
+ ],
+ "city": "Austin",
+ "country": "US",
+ ...
+ }
+```
+
+Now we have the features of the property. We can use these features to find comparable homes. Let's say we want to find all homes in the same zip code that have the same number of bedrooms and bathrooms. We can do this:
+
+```json
+{
+ "query": "numBedroom:2 AND numBathroom:1 AND propertyType:\"Single Family Dwelling\" AND postalCode:78703 AND prices.amountMin:>=300000 AND prices.amountMin:<=500000 AND dateUpdated:[2023-01-01 TO *]",
+ "num_records": 10
+}
+```
+
+This will return all homes in the 78703 zip code that have 2 bedrooms, 1 bathroom, and have been listed between $300,000 - $500,000 since January 1, 2023. We can then use this data to determine the value of our target home.

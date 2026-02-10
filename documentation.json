@@ -25,47 +25,47 @@
         "group": "Property Data",
         "pages": [
           {
-            "title": "Overview",
+            "title": "Property Data",
             "path": "docs/api-property-data",
             "icon": "info"
           },
           {
-            "group": "Getting Started",
+            "group": "Getting started with Property Data",
             "icon": "rocket",
             "expandable": true,
             "pages": [
               {
-                "title": "Getting Started",
+                "title": "Getting started with Property Data",
                 "path": "docs/getting-started-with-property-data",
                 "icon": "play"
               },
               {
-                "title": "Postman",
+                "title": "Property Data with Postman",
                 "path": "docs/property-data-with-postman",
                 "icon": "send"
               },
               {
-                "title": "cURL",
+                "title": "Property Data with cURL",
                 "path": "docs/property-data-with-curl",
                 "icon": "terminal"
               },
               {
-                "title": "Node.js",
+                "title": "Property Data with Node.js",
                 "path": "docs/property-data-with-nodejs",
                 "icon": "hexagon"
               },
               {
-                "title": "PHP",
+                "title": "Property Data with PHP",
                 "path": "docs/property-data-with-php",
                 "icon": "code"
               },
               {
-                "title": "Python",
+                "title": "Property Data with Python",
                 "path": "docs/property-data-with-python",
                 "icon": "code"
               },
               {
-                "title": "WPGetAPI",
+                "title": "Property Data with WPGetAPI",
                 "path": "docs/property-data-with-wpgetapi",
                 "icon": "globe"
               }
@@ -77,27 +77,27 @@
             "expandable": true,
             "pages": [
               {
-                "title": "Schema Overview",
+                "title": "Property Data Schema",
                 "path": "docs/property-data-schema",
                 "icon": "file-text"
               },
               {
-                "title": "Field Type Breakdown",
+                "title": "Property Field Type Breakdown",
                 "path": "docs/property-field-type-breakdown",
                 "icon": "list"
               },
               {
-                "title": "Possible Values",
+                "title": "Possible Values for Property Fields",
                 "path": "docs/possible-values-for-property-fields",
                 "icon": "check-square"
               },
               {
-                "title": "Normalized Addresses",
+                "title": "Normalized Property Addresses",
                 "path": "docs/normalized-address-data",
                 "icon": "map-pin"
               },
               {
-                "title": "How Records Are Merged",
+                "title": "How Property Records Are Merged",
                 "path": "docs/how-property-records-are-merged",
                 "icon": "git-merge"
               }
@@ -109,66 +109,66 @@
             "expandable": true,
             "pages": [
               {
-                "title": "Views Overview",
+                "title": "Views",
                 "path": "docs/property-data-views",
                 "icon": "layout"
               },
               {
-                "title": "Available Views",
+                "title": "Available Views for Property Data",
                 "path": "docs/available-views-for-property-data",
                 "icon": "list"
               },
               {
-                "title": "Custom View On-the-Fly",
+                "title": "Using a custom property view on the fly",
                 "path": "docs/using-a-custom-property-view",
                 "icon": "zap"
               },
               {
-                "title": "Create & Save Views",
+                "title": "Create & save a property custom view",
                 "path": "docs/create-save-a-custom-property-view",
                 "icon": "save"
               }
             ]
           },
           {
-            "group": "Use Cases",
+            "group": "Use Cases for Property Data",
             "icon": "lightbulb",
             "expandable": true,
             "pages": [
               {
-                "title": "Use Cases Overview",
+                "title": "Use Cases for Property Data",
                 "path": "docs/use-cases-for-property-data",
                 "icon": "book-open"
               },
               {
-                "title": "Search MLS Data",
+                "title": "Search for MLS Numbers or Download MLS Markets",
                 "path": "docs/search-mls-numbers-or-download-mls-markets",
                 "icon": "search"
               },
               {
-                "title": "Determine Home Values",
+                "title": "Determine home values",
                 "path": "docs/determine-home-values",
                 "icon": "dollar-sign"
               },
               {
-                "title": "Search by Address",
+                "title": "Search via street address",
                 "path": "docs/search-by-street-address",
                 "icon": "map-pin"
               }
             ]
           },
           {
-            "group": "Constructing Queries",
+            "group": "Constructing Property Queries",
             "icon": "search",
             "expandable": true,
             "pages": [
               {
-                "title": "Query Syntax",
+                "title": "Constructing Property Queries",
                 "path": "docs/constructing-property-queries",
                 "icon": "code"
               },
               {
-                "title": "Advanced Queries",
+                "title": "Advanced Queries of Property Data in Postman",
                 "path": "docs/advanced-queries-of-property-postman",
                 "icon": "terminal"
               }
@@ -180,7 +180,7 @@
             "expandable": true,
             "pages": [
               {
-                "title": "Features Overview",
+                "title": "API Features",
                 "path": "docs/property-api-features",
                 "icon": "layers"
               },
