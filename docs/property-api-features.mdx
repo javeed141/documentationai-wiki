@@ -1,10 +1,63 @@
 ---
-title: "API Features"
+title: "Property API Features"
+description: "Explore advanced features of the Datafiniti Property Data API including autotrace, count, geolocation, and pagination."
 ---
 
-Datafiniti's Property Data API provides robust tools for discovering, analyzing, and leveraging real estate information across residential, commercial, and public records. With flexible query capabilities and extensive data coverage, you can build highly specific searches tailored to your use case. Listed here are several features Datafiniti's API allows you to use for property data searches:
+<Columns cols="2">
+  <Card title="Autotrace" href="/docs/autotrace-property" icon="link" horizontal="false">
+    Track the source URLs for each data field.
+  </Card>
 
-* [Autotrace](https://docs.datafiniti.co/docs/autotrace)
-* [Count](https://docs.datafiniti.co/docs/count)
-* [Geolocation](https://docs.datafiniti.co/docs/geolocation)
-* [Pagination](https://docs.datafiniti.co/docs/pagination)
+  <Card title="Count" href="/docs/count-property" icon="hash" horizontal="false">
+    Get record counts without downloading data.
+  </Card>
+
+  <Card title="Geolocation" href="/docs/geolocation-property" icon="map-pin" horizontal="false">
+    Search properties by geographic coordinates.
+  </Card>
+
+  <Card title="Pagination" href="/docs/pagination-property" icon="layers" horizontal="false">
+    Navigate through large result sets efficiently.
+  </Card>
+</Columns>
+
+## Feature overview
+
+| Feature | Description | Use case |
+|---------|-------------|----------|
+| Autotrace | Returns source URLs for data fields | Data verification, compliance |
+| Count | Returns only the count of matching records | Estimate dataset size |
+| Geolocation | Search by lat/long coordinates | Location-based searches |
+| Pagination | Navigate large result sets | Process data in batches |
+
+## Quick examples
+
+### Get record count
+
+```json
+{
+  "query": "province:TX AND mostRecentStatus:\"For Sale\"",
+  "num_records": 0
+}
+```
+
+Response includes `num_found` with total matching records.
+
+### Search by location
+
+```json
+{
+  "query": "geoLocation:[30.2,-97.8 TO 30.4,-97.6]",
+  "num_records": 100
+}
+```
+
+### Paginate results
+
+```json
+{
+  "query": "province:TX",
+  "num_records": 100,
+  "scroll_token": "previous_scroll_token_here"
+}
+```

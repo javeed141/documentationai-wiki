@@ -1,36 +1,94 @@
 ---
 title: "Count"
+description: "Get record counts without downloading data from the Datafiniti Property Data API."
 ---
 
-By setting `num_records` to 0 when running a property search, you can find the number of matching results for a query without using any record credits. This is a zero-cost way to test the API for available data.
+## Getting a count
 
-Example input:
-
-```json
-{
-  "query": "country:US",
-  "num_records":0
-}
-```
-
-Example response:
+Set `num_records` to `0` to get only the count:
 
 ```json
 {
-  "num_found": 228865703
+  "query": "province:TX AND mostRecentStatus:\"For Sale\"",
+  "num_records": 0
 }
 ```
 
-From this result we can tell that we have a total of 228,865,703 records matching the search parameters. This knowledge is great for testing your query syntax, seeing expected results before pulling real data, or sanity checking results from previous searches.
+## Response
 
-<Callout kind="info">
-**Count Feature**
-Please note that this is feature is only for paid accounts. So please check your account plan or contact
-</Callout>
+```json
+{
+  "num_found": 125432,
+  "total_cost": 0,
+  "records": []
+}
+```
+
+| Field | Description |
+|-------|-------------|
+| `num_found` | Total records matching your query |
+| `total_cost` | Credits used (0 for count-only requests) |
+| `records` | Empty array |
 
 ## Use cases
 
-Check out some of our use cases that use the Count feature:
+### Estimate dataset size
 
-* [Accessing owners, brokers, & other people data](https://docs.datafiniti.co/docs/accessing-owners-brokers-and-other-people)
-* [Find property with a lien](https://docs.datafiniti.co/docs/find-property-with-liens)
+Before downloading, check how many records you'll receive:
+
+```json
+{
+  "query": "province:CA AND propertyType:\"Single Family Dwelling\" AND mostRecentStatus:\"For Sale\"",
+  "num_records": 0
+}
+```
+
+### Validate query syntax
+
+Test that your query returns expected results:
+
+```json
+{
+  "query": "city:Austin AND numBedroom:[3 TO 5] AND prices.amountMin:[200000 TO 500000]",
+  "num_records": 0
+}
+```
+
+### Compare market sizes
+
+Compare property counts across different markets:
+
+<Tabs>
+  <Tab title="Texas" icon="map-pin">
+    ```json
+    {
+      "query": "province:TX AND mostRecentStatus:\"For Sale\"",
+      "num_records": 0
+    }
+    ```
+  </Tab>
+  <Tab title="California" icon="map-pin">
+    ```json
+    {
+      "query": "province:CA AND mostRecentStatus:\"For Sale\"",
+      "num_records": 0
+    }
+    ```
+  </Tab>
+  <Tab title="Florida" icon="map-pin">
+    ```json
+    {
+      "query": "province:FL AND mostRecentStatus:\"For Sale\"",
+      "num_records": 0
+    }
+    ```
+  </Tab>
+</Tabs>
+
+### Monitor inventory changes
+
+Track how inventory changes over time by running count queries periodically.
+
+<Callout kind="tip">
+  Count requests don't consume any credits, making them ideal for testing queries and monitoring data availability.
+</Callout>
