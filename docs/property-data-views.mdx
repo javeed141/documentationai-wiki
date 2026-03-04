@@ -1,61 +1,9 @@
 ---
-title: "Property Data Views"
-description: "Customize which fields are returned in your Datafiniti Property Data API responses using views."
+title: Views
 ---
 
-## What are views?
+Datafiniti allows using several default property views and API tools to create your own customer views to suit your needs.
 
-Views are predefined or custom field selections that control:
-
-- Which fields are included in the response
-- How nested fields are flattened
-- The structure of the output data
-
-## Benefits of using views
-
-- **Reduced data transfer** - Only receive the fields you need
-- **Faster processing** - Smaller responses are quicker to parse
-- **Cleaner data** - Focus on relevant information
-- **Cost efficiency** - Optimized for your specific use case
-
-## Available view options
-
-<Columns cols="2">
-  <Card title="Available Views" href="/docs/available-views-for-property-data" icon="list" horizontal="false">
-    Explore the pre-built views available for property data.
-  </Card>
-
-  <Card title="Custom Views On-the-Fly" href="/docs/using-a-custom-property-view" icon="zap" horizontal="false">
-    Create temporary custom views in your API requests.
-  </Card>
-
-  <Card title="Create & Save Views" href="/docs/create-save-a-custom-property-view" icon="save" horizontal="false">
-    Save custom views for reuse across multiple requests.
-  </Card>
-</Columns>
-
-## Using views in API requests
-
-Add the `view` parameter to your request:
-
-```json
-{
-  "query": "country:US",
-  "num_records": 10,
-  "view": "property_basic"
-}
-```
-
-Or specify fields directly:
-
-```json
-{
-  "query": "country:US",
-  "num_records": 10,
-  "view": "address,city,province,numBedroom,numBathroom,prices"
-}
-```
-
-<Callout kind="tip">
-  Start with a built-in view and customize from there based on your needs.
-</Callout>
+* [Available views for property data](/docs/available-views-for-property-data)
+* [Using a custom view](/docs/using-a-custom-property-view)
+* [Create & save a property custom view](/docs/create-save-a-custom-property-view)

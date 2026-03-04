@@ -1,154 +1,57 @@
 ---
-title: "Advanced Queries of Property Data in Postman"
-description: "Build complex property data queries using Postman with advanced techniques."
+title: Advanced Queries of Property Data in Postman
 ---
 
-## Setting up Postman
+This will walk you through querying the Property Database using Postman!
 
-1. Import the Datafiniti API collection
-2. Set your API token in the Authorization header
-3. Navigate to **Search Property Data** endpoint
+## 1. Select the Property Database
 
-## Complex boolean queries
+<Image src="https://files.readme.io/3d5a5f8-1.jpg" width="1920" height="1080" alt="Select the Property Database in Postman" noCaption />
 
-### Combining multiple conditions
+## 2. Setting the Stage
 
-```json
-{
-  "query": "province:TX AND city:(Austin OR Dallas OR Houston) AND propertyType:\"Single Family Dwelling\" AND numBedroom:[3 TO 5] AND mostRecentStatus:\"For Sale\"",
-  "num_records": 50
-}
-```
+<Image src="https://files.readme.io/1ffc2eb-2.jpg" width="1920" height="1080" alt="Setting up the query in Postman" noCaption />
 
-### Using NOT to exclude
+## 3. Running a Query
 
-```json
-{
-  "query": "province:CA AND propertyType:\"Single Family Dwelling\" AND NOT city:(Los Angeles OR San Francisco) AND prices.amountMin:[500000 TO 1000000]",
-  "num_records": 50
-}
-```
+<Image src="https://files.readme.io/cf2aaa5-3.jpg" width="1920" height="1080" alt="Running a query in Postman" noCaption />
 
-## Nested field queries
+<Callout kind="info">
+  **The "Wild Card"**
 
-### Query broker information
-
-```json
-{
-  "query": "brokers.company:\"Keller Williams\" AND province:TX",
-  "num_records": 25
-}
-```
-
-### Query price history
-
-```json
-{
-  "query": "prices.type:Sold AND prices.dateSeen:[2024-01-01 TO *] AND city:Austin",
-  "num_records": 100
-}
-```
-
-### Query status history
-
-```json
-{
-  "query": "statusHistory.type:\"For Sale\" AND statusHistory.date:[2024-06-01 TO *] AND province:FL",
-  "num_records": 50
-}
-```
-
-## Date-based queries
-
-### Properties added recently
-
-```json
-{
-  "query": "dateAdded:[2024-01-01 TO *] AND province:TX",
-  "num_records": 100
-}
-```
-
-### Properties updated in last 30 days
-
-```json
-{
-  "query": "dateUpdated:[now-30d TO *] AND city:Austin",
-  "num_records": 50
-}
-```
-
-## Geolocation queries
-
-### Search within a bounding box
-
-```json
-{
-  "query": "latitude:[30.2 TO 30.4] AND longitude:[-97.8 TO -97.6]",
-  "num_records": 100
-}
-```
-
-## Combining with views
-
-### Optimized query with custom view
-
-```json
-{
-  "query": "province:TX AND propertyType:\"Single Family Dwelling\" AND mostRecentStatus:\"For Sale\" AND numBedroom:[3 TO *]",
-  "num_records": 100,
-  "view": "address,city,postalCode,numBedroom,numBathroom,floorSizeValue,mostRecentPriceAmount,mostRecentBrokerAgent,mostRecentBrokerPhones",
-  "format": "CSV"
-}
-```
-
-## Pagination for large results
-
-### First page
-
-```json
-{
-  "query": "province:TX AND mostRecentStatus:\"For Sale\"",
-  "num_records": 100
-}
-```
-
-### Subsequent pages
-
-Use the scroll token from the response:
-
-```json
-{
-  "query": "province:TX AND mostRecentStatus:\"For Sale\"",
-  "num_records": 100,
-  "scroll_token": "DnF1ZXJ5VGhlbkZldGNo..."
-}
-```
-
-## Download large datasets
-
-```json
-{
-  "query": "province:TX AND propertyType:\"Single Family Dwelling\"",
-  "format": "CSV",
-  "download": true,
-  "num_records": 10000
-}
-```
-
-<Callout kind="alert">
-  Large downloads may take several minutes. Monitor the download status using the Get Download endpoint.
+Using ***** in your query will search for any possible value that could fill that spot. In the above case, it is essentially saying "Find all records that have a key value set to anything"
 </Callout>
 
-## Debugging queries
+You can query the database using most of the fields in the [Property Data Schema](/docs/property-data-schema).
 
-### Check record count first
+## 4. Narrowing The Search
 
-```json
-{
-  "query": "your complex query here",
-  "num_records": 0
-}
-```
+<Image src="https://files.readme.io/58eaeeb-4.jpg" width="1920" height="1080" alt="Narrowing the search in Postman" noCaption />
 
-This returns `num_found` without downloading any records, helping you estimate the dataset size.
+## 5. Using "" Inside the Query String
+
+<Image src="https://files.readme.io/52de5e9-5.jpg" width="1920" height="1080" alt="Using quotes inside the query string" noCaption />
+
+## 6. Additional Specifications
+
+<Image src="https://files.readme.io/da92c3f-6.jpg" width="1920" height="1080" alt="Additional query specifications" noCaption />
+
+<Callout kind="info">
+  **View**
+
+Setting your `"view"` not only changes the layout of your result file, but also changes how you see the records in Postman.
+</Callout>
+
+## 7. Custom Views on the Fly
+
+<Image src="https://files.readme.io/496ee3c-7.jpg" width="1920" height="1080" alt="Custom views on the fly" noCaption />
+
+<Callout kind="info">
+  **Custom View Formatting**
+
+When creating the `"view"` object, put the entire thing inside of `[ ]`, with each field being called inside of `{ }`. If you are listing multiple fields, put a comma after each one except for the last one. See the screenshot above for an example.
+</Callout>
+
+## 8. Getting Your Download ID
+
+<Image src="https://files.readme.io/dd71f9c-8.jpg" width="1920" height="1080" alt="Getting your download ID" noCaption />
