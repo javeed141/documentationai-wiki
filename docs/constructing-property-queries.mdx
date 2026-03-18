@@ -1,0 +1,705 @@
+---
+title: Constructing Property Queries
+---
+
+The Datafiniti API lets you build out a wide variety of search queries so you can get the exact data you want.
+
+## Querying a single field
+
+The simplest query you can do is querying a single field.  Here's an example:
+
+```json
+{
+	"query": "city:Austin"
+}
+```
+
+This tells the API to search the property database for any business that has the value `Austin` in its `city` field.
+
+You can do similar queries on any of the fields in the [property schema](/docs/property-data-schema).  Here's an example that queries the `country` field:
+
+```json
+{
+	"query": "country:US"
+}
+```
+
+You are search for a  single address
+
+## Querying multiple fields
+
+You can run more complicated queries by combining fields with various boolean operators (e.g., `AND` `OR`).  For example:
+
+```json
+{
+	"query": "city:Austin AND numBathroom:2"
+}
+```
+
+This returns any properties in Austin that have 2 bathrooms.
+
+You can use the `OR` operator to run broader queries.  For example:
+
+```json
+{
+	"query": "city:Austin OR city:Houston"
+}
+```
+
+That's not all though.  We can group fields and operators with parentheses to do some really fancy stuff:
+
+```json
+{
+	"query": "(categories:Austin OR city:Houston) AND numBathroom:2"
+}
+```
+
+## Querying multiple values
+
+If you want to query multiple values within the same field, there is a simple way to do this.  For example:
+
+```json
+{
+	"query": "city:(Austin OR Houston OR Dallas)"
+}
+```
+
+This returns any properties in any of the above cities.  This is much simpler than:
+
+```json
+{
+	"query": "city:Austin OR city:Houston OR city:Dallas"
+}
+```
+
+## Exact matches
+
+You can use " quotes to match the exact string you are searching for
+
+```json
+{
+ "query":"dateUpdated:[2022-01-01 TO *] AND mostRecentStatus:(Rental OR \"For Sale\")"
+}
+```
+
+You can use an exact search to search for specific addresses
+
+```json
+{
+  "query":"address:\"3900 Eventide Ave\" AND city:(\"Sacramento\") AND postalCode:95835 AND province:(\"CA\") AND country:\"US\"" }
+```
+
+<Request tabs="Java,Python">
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+public class AddressAbbreviator {
+
+    private static final Map<String, String> abbreviations = new HashMap<>();
+
+    static {
+        abbreviations.put("ALLEY", "ALY");
+        abbreviations.put("ANNEX", "ANX");
+        abbreviations.put("ARCADE", "ARC");
+        abbreviations.put("AVENUE", "AVE");
+        abbreviations.put("BAYOO", "BYU");
+        abbreviations.put("BEACH", "BCH");
+        abbreviations.put("BEND", "BND");
+        abbreviations.put("BLUFF", "BLF");
+        abbreviations.put("BLUFFS", "LFS");
+        abbreviations.put("BOTTOM", "BTM");
+        abbreviations.put("BOULEVARD", "BLVD");
+        abbreviations.put("BRANCH", "BR");
+        abbreviations.put("BRIDGE", "BRG");
+        abbreviations.put("BROOK", "BRK");
+        abbreviations.put("BROOKS", "BRKS");
+        abbreviations.put("BURG", "BG");
+        abbreviations.put("BURGS", "BGS");
+        abbreviations.put("BYPASS", "BYP");
+        abbreviations.put("CAMP", "CP");
+        abbreviations.put("CANYON", "CYN");
+        abbreviations.put("CAPE", "CPE");
+        abbreviations.put("CAUSEWAY", "CSWY");
+        abbreviations.put("CENTER", "CTR");
+        abbreviations.put("CENTERS", "CTRS");
+        abbreviations.put("CIRCLE", "CIR");
+        abbreviations.put("CIRCLES", "CIRS");
+        abbreviations.put("CLIFF", "CLF");
+        abbreviations.put("CLIFFS", "CLFS");
+        abbreviations.put("CLUB", "CLB");
+        abbreviations.put("COMMON", "CMN");
+        abbreviations.put("CORNER", "COR");
+        abbreviations.put("CORNERS", "CORS");
+        abbreviations.put("COURSE", "CRSE");
+        abbreviations.put("COURT", "CT");
+        abbreviations.put("COURTS", "CTS");
+        abbreviations.put("COVE", "CV");
+        abbreviations.put("COVES", "CVS");
+        abbreviations.put("CREEK", "CRK");
+        abbreviations.put("CRESCENT", "CRES");
+        abbreviations.put("CREST", "CRST");
+        abbreviations.put("CROSSING", "XING");
+        abbreviations.put("CROSSROAD", "XRD");
+        abbreviations.put("CURVE", "CURV");
+        abbreviations.put("DALE", "DL");
+        abbreviations.put("DAM", "DM");
+        abbreviations.put("DIVIDE", "DV");
+        abbreviations.put("DRIVE", "DR");
+        abbreviations.put("DRIVES", "DRS");
+        abbreviations.put("ESTATE", "EST");
+        abbreviations.put("ESTATES", "ESTS");
+        abbreviations.put("EXPRESSWAY", "EXPY");
+        abbreviations.put("EXTENSION", "EXT");
+        abbreviations.put("EXTENSIONS", "EXTS");
+        abbreviations.put("FALL", "FALL");
+        abbreviations.put("FALLS", "FLS");
+        abbreviations.put("FERRY", "FRY");
+        abbreviations.put("FIELD", "FLD");
+        abbreviations.put("FIELDS", "FLDS");
+        abbreviations.put("FLAT", "FLT");
+        abbreviations.put("FLATS", "FLTS");
+        abbreviations.put("FORD", "FRD");
+        abbreviations.put("FORDS", "FRDS");
+        abbreviations.put("FOREST", "FRST");
+        abbreviations.put("FORGE", "FRG");
+        abbreviations.put("FORGES", "FRGS");
+        abbreviations.put("FORK", "FRK");
+        abbreviations.put("FORKS", "FRKS");
+        abbreviations.put("FORT", "FT");
+        abbreviations.put("FREEWAY", "FWY");
+        abbreviations.put("GARDEN", "GDN");
+        abbreviations.put("GARDENS", "GDNS");
+        abbreviations.put("GATEWAY", "GTWY");
+        abbreviations.put("GLEN", "GLN");
+        abbreviations.put("GLENS", "GLNS");
+        abbreviations.put("GREEN", "GRN");
+        abbreviations.put("GREENS", "GRNS");
+        abbreviations.put("GROVE", "GRV");
+        abbreviations.put("GROVES", "GRVS");
+        abbreviations.put("HARBOR", "HBR");
+        abbreviations.put("HARBORS", "HBRS");
+        abbreviations.put("HAVEN", "HVN");
+        abbreviations.put("HEIGHTS", "HTS");
+        abbreviations.put("HIGHWAY", "HWY");
+        abbreviations.put("HILL", "HL");
+        abbreviations.put("HILLS", "HLS");
+        abbreviations.put("HOLLOW", "HOLW");
+        abbreviations.put("INLET", "INLT");
+        abbreviations.put("INTERSTATE", "I");
+        abbreviations.put("ISLAND", "IS");
+        abbreviations.put("ISLANDS", "ISS");
+        abbreviations.put("ISLE", "ISLE");
+        abbreviations.put("JUNCTION", "JCT");
+        abbreviations.put("JUNCTIONS", "JCTS");
+        abbreviations.put("KEY", "KY");
+        abbreviations.put("KEYS", "KYS");
+        abbreviations.put("KNOLL", "KNL");
+        abbreviations.put("KNOLLS", "KNLS");
+        abbreviations.put("LAKE", "LK");
+        abbreviations.put("LAKES", "LKS");
+        abbreviations.put("LAND", "LAND");
+        abbreviations.put("LANDING", "LNDG");
+        abbreviations.put("LANE", "LN");
+        abbreviations.put("LIGHT", "LGT");
+        abbreviations.put("LIGHTS", "LGTS");
+        abbreviations.put("LOAF", "LF");
+        abbreviations.put("LOCK", "LCK");
+        abbreviations.put("LOCKS", "LCKS");
+        abbreviations.put("LODGE", "LDG");
+        abbreviations.put("LOOP", "LOOP");
+        abbreviations.put("MALL", "MALL");
+        abbreviations.put("MANOR", "MNR");
+        abbreviations.put("MANORS", "MNRS");
+        abbreviations.put("MEADOW", "MDW");
+        abbreviations.put("MEADOWS", "MDWS");
+        abbreviations.put("MEWS", "MEWS");
+        abbreviations.put("MILL", "ML");
+        abbreviations.put("MILLS", "MLS");
+        abbreviations.put("MISSION", "MSN");
+        abbreviations.put("MOORHEAD", "MHD");
+        abbreviations.put("MOTORWAY", "MTWY");
+        abbreviations.put("MOUNT", "MT");
+        abbreviations.put("MOUNTAIN", "MTN");
+        abbreviations.put("MOUNTAINS", "MTNS");
+        abbreviations.put("NECK", "NCK");
+        abbreviations.put("ORCHARD", "ORCH");
+        abbreviations.put("OVAL", "OVAL");
+        abbreviations.put("OVERPASS", "OPAS");
+        abbreviations.put("PARK", "PARK");
+        abbreviations.put("PARKS", "PARK");
+        abbreviations.put("PARKWAY", "PKWY");
+        abbreviations.put("PARKWAYS", "PKWY");
+        abbreviations.put("PASS", "PASS");
+        abbreviations.put("PASSAGE", "PSGE");
+        abbreviations.put("PATH", "PATH");
+        abbreviations.put("PIKE", "PIKE");
+        abbreviations.put("PINE", "PNE");
+        abbreviations.put("PINES", "PNES");
+        abbreviations.put("PLACE", "PL");
+        abbreviations.put("PLAIN", "PLN");
+        abbreviations.put("PLAINS", "PLNS");
+        abbreviations.put("PLAZA", "PLZ");
+        abbreviations.put("POINT", "PT");
+        abbreviations.put("POINTS", "PTS");
+        abbreviations.put("PORT", "PRT");
+        abbreviations.put("PORTS", "PRTS");
+        abbreviations.put("PRAIRIE", "PR");
+        abbreviations.put("RADIAL", "RADL");
+        abbreviations.put("RAMP", "RAMP");
+        abbreviations.put("RANCH", "RNCH");
+        abbreviations.put("RAPID", "RPD");
+        abbreviations.put("RAPIDS", "RPDS");
+        abbreviations.put("REST", "RST");
+        abbreviations.put("RIDGE", "RDG");
+        abbreviations.put("RIDGES", "RDGS");
+        abbreviations.put("RIVER", "RIV");
+        abbreviations.put("ROAD", "RD");
+        abbreviations.put("ROADS", "RDS");
+        abbreviations.put("ROUTE", "RTE");
+        abbreviations.put("ROW", "ROW");
+        abbreviations.put("RUE", "RUE");
+        abbreviations.put("RUN", "RUN");
+        abbreviations.put("SHOAL", "SHL");
+        abbreviations.put("SHOALS", "SHLS");
+        abbreviations.put("SHORE", "SHR");
+        abbreviations.put("SHORES", "SHRS");
+        abbreviations.put("SKYWAY", "SKWY");
+        abbreviations.put("SPRING", "SPG");
+        abbreviations.put("SPRINGS", "SPGS");
+        abbreviations.put("SPUR", "SPUR");
+        abbreviations.put("SPURS", "SPUR");
+        abbreviations.put("SQUARE", "SQ");
+        abbreviations.put("SQUARES", "SQS");
+        abbreviations.put("STATION", "STA");
+        abbreviations.put("STREAM", "STRM");
+        abbreviations.put("STREET", "ST");
+        abbreviations.put("STREETS", "STS");
+        abbreviations.put("SUMMIT", "SMT");
+        abbreviations.put("THROUGHWAY", "TRWY");
+        abbreviations.put("TRACE", "TRCE");
+        abbreviations.put("TRACK", "TRAK");
+        abbreviations.put("TRAIL", "TRL");
+        abbreviations.put("TUNNEL", "TUNL");
+        abbreviations.put("TURNPIKE", "TPKE");
+        abbreviations.put("UNDERPASS", "UPAS");
+        abbreviations.put("UNION", "UN");
+        abbreviations.put("UNIONS", "UNS");
+        abbreviations.put("VALLEY", "VLY");
+        abbreviations.put("VALLEYS", "VLYS");
+        abbreviations.put("VIADUCT", "VIA");
+        abbreviations.put("VIEW", "VW");
+        abbreviations.put("VIEWS", "VWS");
+        abbreviations.put("VILLAGE", "VLG");
+        abbreviations.put("VILLAGES", "VLGS");
+        abbreviations.put("VILLE", "VL");
+        abbreviations.put("VISTA", "VIS");
+        abbreviations.put("WALK", "WALK");
+        abbreviations.put("WALKS", "WALK");
+        abbreviations.put("WALL", "WALL");
+        abbreviations.put("WAY", "WAY");
+        abbreviations.put("WAYS", "WAYS");
+        abbreviations.put("WELL", "WL");
+        abbreviations.put("WELLS", "WLS");
+        abbreviations.put("APARTMENT", "APT");
+        abbreviations.put("BASEMENT", "BSMT");
+        abbreviations.put("BUILDING", "BLDG");
+        abbreviations.put("DEPARTMENT", "DEPT");
+        abbreviations.put("FLOOR", "FL");
+        abbreviations.put("FRONT", "FRNT");
+        abbreviations.put("HANGAR", "HNGR");
+        abbreviations.put("LOBBY", "LBBY");
+        abbreviations.put("LOT", "LOT");
+        abbreviations.put("LOWER", "LOWR");
+        abbreviations.put("OFFICE", "OFC");
+        abbreviations.put("PENTHOUSE", "PH");
+        abbreviations.put("PIER", "PIER");
+        abbreviations.put("REAR", "REAR");
+        abbreviations.put("ROOM", "RM");
+        abbreviations.put("SIDE", "SIDE");
+        abbreviations.put("SLIP", "SLIP");
+        abbreviations.put("SPACE", "SPC");
+        abbreviations.put("STOP", "STOP");
+        abbreviations.put("SUITE", "STE");
+        abbreviations.put("TRAILER", "TRLR");
+        abbreviations.put("UNIT", "UNIT");
+        abbreviations.put("UPPER", "UPPR");
+        abbreviations.put("NORTH", "N");
+        abbreviations.put("SOUTH", "S");
+        abbreviations.put("EAST", "E");
+        abbreviations.put("WEST", "W");
+        abbreviations.put("NORTHWEST", "NW");
+        abbreviations.put("NORTHEAST", "NE");
+        abbreviations.put("SOUTHEAST", "SE");
+        abbreviations.put("SOUTHWEST", "SW");
+        abbreviations.put("ALBERTA", "AB");
+        abbreviations.put("BRITISH COLUMBIA", "BC");
+        abbreviations.put("MANITOBA", "MB");
+        abbreviations.put("NEW BRUNSWICK", "NB");
+        abbreviations.put("NEWFOUNDLAND AND LABRADOR", "NL");
+        abbreviations.put("NORTHWEST TERRITORIES", "NT");
+        abbreviations.put("NOVA SCOTIA", "NS");
+        abbreviations.put("NUNAVUT", "NU");
+        abbreviations.put("ONTARIO", "ON");
+        abbreviations.put("PRINCE EDWARD ISLAND", "PE");
+        abbreviations.put("QUEBEC", "QC");
+        abbreviations.put("SASKATCHEWAN", "SK");
+        abbreviations.put("YUKON", "YT");
+        abbreviations.put("ALABAMA", "AL");
+        abbreviations.put("ALASKA", "AK");
+        abbreviations.put("ARIZONA", "AZ");
+        abbreviations.put("ARKANSAS", "AR");
+        abbreviations.put("CALIFORNIA", "CA");
+        abbreviations.put("COLORADO", "CO");
+        abbreviations.put("CONNECTICUT", "CT");
+        abbreviations.put("DELAWARE", "DE");
+        abbreviations.put("FLORIDA", "FL");
+        abbreviations.put("GEORGIA", "GA");
+        abbreviations.put("HAWAII", "HI");
+        abbreviations.put("IDAHO", "ID");
+        abbreviations.put("ILLINOIS", "IL");
+        abbreviations.put("INDIANA", "IN");
+        abbreviations.put("IOWA", "IA");
+        abbreviations.put("KANSAS", "KS");
+        abbreviations.put("KENTUCKY", "KY");
+        abbreviations.put("LOUISIANA", "LA");
+        abbreviations.put("MAINE", "ME");
+        abbreviations.put("MARYLAND", "MD");
+        abbreviations.put("MASSACHUSETTS", "MA");
+        abbreviations.put("MICHIGAN", "MI");
+        abbreviations.put("MINNESOTA", "MN");
+        abbreviations.put("MISSISSIPPI", "MS");
+        abbreviations.put("MISSOURI", "MO");
+        abbreviations.put("MONTANA", "MT");
+        abbreviations.put("NEBRASKA", "NE");
+        abbreviations.put("NEVADA", "NV");
+        abbreviations.put("NEW HAMPSHIRE", "NH");
+        abbreviations.put("NEW JERSEY", "NJ");
+        abbreviations.put("NEW MEXICO", "NM");
+        abbreviations.put("NEW YORK", "NY");
+        abbreviations.put("NORTH CAROLINA", "NC");
+        abbreviations.put("NORTH DAKOTA", "ND");
+        abbreviations.put("OHIO", "OH");
+        abbreviations.put("OKLAHOMA", "OK");
+        abbreviations.put("OREGON", "OR");
+        abbreviations.put("PENNSYLVANIA", "PA");
+        abbreviations.put("RHODE ISLAND", "RI");
+        abbreviations.put("SOUTH CAROLINA", "SC");
+        abbreviations.put("SOUTH DAKOTA", "SD");
+        abbreviations.put("TENNESSEE", "TN");
+        abbreviations.put("TEXAS", "TX");
+        abbreviations.put("UTAH", "UT");
+        abbreviations.put("VERMONT", "VT");
+        abbreviations.put("VIRGINIA", "VA");
+        abbreviations.put("WASHINGTON", "WA");
+        abbreviations.put("WEST VIRGINIA", "WV");
+        abbreviations.put("WISCONSIN", "WI");
+        abbreviations.put("WYOMING", "WY");
+    }
+
+    public static String abbreviateAddress(String address) {
+        StringBuilder result = new StringBuilder();
+        String[] parts = address.split("(?=[,])|\\s+");
+        for (String part : parts) {
+            if (part.trim().isEmpty()) continue;
+            String sanitized = part.replaceAll("[^a-zA-Z0-9]", "").toUpperCase();
+            String abbreviated = abbreviations.getOrDefault(sanitized, part);
+            result.append(abbreviated);
+            if (part.endsWith(",")) result.append(",");
+            result.append(" ");
+        }
+        return result.toString().trim();
+    }
+
+    public static void main(String[] args) {
+        String userAddress = "123, Main Street, Alberta, Northwest";
+        System.out.println("Original Address: " + userAddress);
+        System.out.println("Abbreviated Address: " + abbreviateAddress(userAddress));
+    }
+}
+```
+```python
+import re
+
+abbreviations = {
+    "ALLEY": "Aly", "ANNEX": "Anx", "ARCADE": "Arc", "AVENUE": "Ave",
+    "BAYOO": "Byu", "BEACH": "Bch", "BEND": "Bnd", "BLUFF": "Blf",
+    "BLUFFS": "Blfs", "BOTTOM": "Btm", "BOULEVARD": "Blvd", "BRANCH": "Br",
+    "BRIDGE": "Brg", "BROOK": "Brk", "BROOKS": "Brks", "BURG": "Bg",
+    "BURGS": "Bgs", "BYPASS": "Byp", "CAMP": "Cp", "CANYON": "Cyn",
+    "CAPE": "Cpe", "CAUSEWAY": "Cswy", "CENTER": "Ctr", "CENTERS": "Ctrs",
+    "CIRCLE": "Cir", "CIRCLES": "Cirs", "CLIFF": "Clf", "CLIFFS": "Clfs",
+    "CLUB": "Clb", "COMMON": "Cmn", "CORNER": "Cor", "CORNERS": "Cors",
+    "COURSE": "Crse", "COURT": "Ct", "COURTS": "Cts", "COVE": "Cv",
+    "COVES": "Cvs", "CREEK": "Crk", "CRESCENT": "Cres", "CREST": "Crst",
+    "CROSSING": "Xing", "CROSSROAD": "Xrd", "CURVE": "Curv", "DALE": "Dl",
+    "DAM": "Dm", "DIVIDE": "Dv", "DRIVE": "Dr", "DRIVES": "Drs",
+    "ESTATE": "Est", "ESTATES": "Ests", "EXPRESSWAY": "Expy", "EXTENSION": "Ext",
+    "EXTENSIONS": "Exts", "FALL": "Fall", "FALLS": "Fls", "FERRY": "Fry",
+    "FIELD": "Fld", "FIELDS": "Flds", "FLAT": "Flt", "FLATS": "Flts",
+    "FORD": "Frd", "FORDS": "Frds", "FOREST": "Frst", "FORGE": "Frg",
+    "FORGES": "Frgs", "FORK": "Frk", "FORKS": "Frks", "FORT": "Ft",
+    "FREEWAY": "Fwy", "GARDEN": "Gdn", "GARDENS": "Gdns", "GATEWAY": "Gtwy",
+    "GLEN": "Gln", "GLENS": "Glns", "GREEN": "Grn", "GREENS": "Grns",
+    "GROVE": "Grv", "GROVES": "Grvs", "HARBOR": "Hbr", "HARBORS": "Hbrs",
+    "HAVEN": "Hvn", "HEIGHTS": "Hts", "HIGHWAY": "Hwy", "HILL": "Hl",
+    "HILLS": "Hls", "HOLLOW": "Holw", "INLET": "Inlt", "INTERSTATE": "I",
+    "ISLAND": "Is", "ISLANDS": "Iss", "ISLE": "Isle", "JUNCTION": "Jct",
+    "JUNCTIONS": "Jcts", "KEY": "Ky", "KEYS": "Kys", "KNOLL": "Knl",
+    "KNOLLS": "Knls", "LAKE": "Lk", "LAKES": "Lks", "LAND": "Land",
+    "LANDING": "Lndg", "LANE": "Ln", "LIGHT": "Lgt", "LIGHTS": "Lgts",
+    "LOAF": "Lf", "LOCK": "Lck", "LOCKS": "Lcks", "LODGE": "Ldg",
+    "LOOP": "Loop", "MALL": "Mall", "MANOR": "Mnr", "MANORS": "Mnrs",
+    "MEADOW": "Mdw", "MEADOWS": "Mdws", "MEWS": "Mews", "MILL": "Ml",
+    "MILLS": "Mls", "MISSION": "Msn", "MOTORWAY": "Mtwy", "MOUNT": "Mt",
+    "MOUNTAIN": "Mtn", "MOUNTAINS": "Mtns", "NECK": "Nck", "ORCHARD": "Orch",
+    "OVAL": "Oval", "OVERPASS": "Opas", "PARK": "Park", "PARKS": "Park",
+    "PARKWAY": "Pkwy", "PARKWAYS": "Pkwy", "PASS": "Pass", "PASSAGE": "Psge",
+    "PATH": "Path", "PIKE": "Pike", "PINE": "Pne", "PINES": "Pnes",
+    "PLACE": "Pl", "PLAIN": "Pln", "PLAINS": "Plns", "PLAZA": "Plz",
+    "POINT": "Pt", "POINTS": "Pts", "PORT": "Prt", "PORTS": "Prts",
+    "PRAIRIE": "Pr", "RADIAL": "Radl", "RAMP": "Ramp", "RANCH": "Rnch",
+    "RAPID": "Rpd", "RAPIDS": "Rpds", "REST": "Rst", "RIDGE": "Rdg",
+    "RIDGES": "Rdgs", "RIVER": "Riv", "ROAD": "Rd", "ROADS": "Rds",
+    "ROUTE": "Rte", "ROW": "Row", "RUE": "Rue", "RUN": "Run",
+    "SHOAL": "Shl", "SHOALS": "Shls", "SHORE": "Shr", "SHORES": "Shrs",
+    "SKYWAY": "Skywy", "SPRING": "Spg", "SPRINGS": "Spgs", "SPUR": "Spur",
+    "SPURS": "Spur", "SQUARE": "Sq", "SQUARES": "Sqs", "STATION": "Sta",
+    "STREAM": "Strm", "STREET": "St", "STREETS": "Sts", "SUMMIT": "Smt",
+    "TRACE": "Trce", "TRACK": "Trak", "TRAIL": "Trl", "TUNNEL": "Tunl",
+    "TURNPIKE": "Tpke", "UNDERPASS": "Upas", "UNION": "Un", "UNIONS": "Uns",
+    "VALLEY": "Vly", "VALLEYS": "Vlys", "VIADUCT": "Via", "VIEW": "Vw",
+    "VIEWS": "Vws", "VILLAGE": "Vlg", "VILLAGES": "Vlgs", "VILLE": "Vl",
+    "VISTA": "Vis", "WALK": "Walk", "WALKS": "Walk", "WALL": "Wall",
+    "WAY": "Way", "WAYS": "Ways", "WELL": "Wl", "WELLS": "Wls"
+}
+
+directions = {
+    "NORTH": "N", "SOUTH": "S", "EAST": "E", "WEST": "W",
+    "NORTHWEST": "NW", "NORTHEAST": "NE",
+    "SOUTHEAST": "SE", "SOUTHWEST": "SW"
+}
+
+def normalize_address(address: str) -> str:
+    address = re.sub(r"\s+", " ", address.strip())
+    words = address.split()
+    unit_indices = [i for i, w in enumerate(words) if w.upper() == "UNIT"]
+    street_positions = [i for i, w in enumerate(words) if w.upper() in abbreviations]
+    target_index = None
+    if street_positions:
+        if unit_indices:
+            for idx in reversed(street_positions):
+                if idx < unit_indices[0]:
+                    target_index = idx
+                    break
+        else:
+            target_index = street_positions[-1]
+    for i, word in enumerate(words):
+        uw = word.upper()
+        if uw == "UNIT":
+            words[i] = "UNIT"
+            continue
+        if uw in directions:
+            words[i] = directions[uw]
+            continue
+        if target_index is not None and i == target_index:
+            words[i] = abbreviations[uw]
+            continue
+        words[i] = word.capitalize()
+    return " ".join(words)
+
+if __name__ == "__main__":
+    user_input = input("Enter an address to normalize: ")
+    print("Normalized:", normalize_address(user_input))
+```
+</Request>
+
+<Response tabs="200">
+```json
+{"success": true}
+```
+</Response>
+
+
+<br />
+
+## Wildcards
+
+You can use `*` to query a field for any value, like this:
+
+```json
+{
+	"query": "prices:*"
+}
+```
+
+This will return any properties that have price information.  This is helpful if we want to make sure any properties we get back are guaranteed to have certain fields filed out.
+
+Wildcards can do more though.  You can also append `*` to the value we're searching on to broaden its potential matches.  For example:
+
+```json
+{
+	"query": "buildingName:Tower*"
+}
+```
+
+This will return properties with any of the following in their `buildingName` field: `Tower`, `Towers`, and so on.
+
+## Querying sub-fields
+
+Several fields in our schema have sub-fields.  For example, `reviews` has sub-fields like `date`, `rating`, and others.  Everything you can do to query fields, you can also do to query sub-fields.  For example:
+
+```json
+{
+	"query": "reviews.rating:3"
+}
+```
+
+will return all properties that have a review with a 3-star rating.
+
+It's important to note here that querying on sub-fields will not only return sub-objects that match your query.  The entire field will be returned.
+
+For instance, if a property look likes this:
+
+```json
+{
+  "address": "123 Anywhere Ln",
+  "reviews:": [
+    {
+      "rating": 3
+    },
+    {
+      "rating": 4
+    }
+  ]
+}
+```
+
+then you'll see both `rating` values in your data, even if you do `"query": "reviews.rating:3"`.
+
+## Compound Queries on sub-fields
+
+Along with querying individual sub-fields, you can also query for sub-objects that have multiple fields that meet specific requirements. For example, you can find all properties that have a broker with a listed email and phone number.
+
+```json
+{
+   "query":"{ brokers.emails:* AND brokers.phones:* }",
+    "num_records":10
+}
+```
+
+The key thing to note for these queries is that any sub-field requirements that you want to match within a single sub-object must be contained within curly brackets **"{ }"**
+
+## Range queries
+
+Any fields that are dates, integers, or doubles will let you search them based on a range.
+
+```json
+{
+	"query": "dateAdded:[2017-01-01 TO 2017-02-01]"
+}
+```
+
+will return all properties that have been added to the database between Jan 1, 2017 and Feb 2, 2017.
+
+You can do unbounded range queries as well, like:
+
+```json
+{
+	"query": "dateAdded:[2017-01-01 TO *]"
+}
+```
+
+This will return all properties have been added since Jan 1, 2017 until the current date.
+
+You can also use comparison operators like `>`, `>=`, `<=`, and `<`.  These are helpful when you want to search for products that are cheaper or more expensive than certain limits.  E.g.:
+
+```json
+{
+	"query": "reviews.rating:>3"
+}
+```
+
+returns all properties that have reviews greater than 3.
+
+## Excluding values
+
+For some searches, you'll want to exclude certain values from returning.  For example, let's say you wanted to find all listings, except for those in the US.  You would use the `-` operator to negate `US` values:
+
+```json
+{
+	"query": "-country:US"
+}
+```
+
+## Searching by Address
+
+You can use the API to search via the `address` field. For example, if you would like to find `2815 Manor Rd` you could use the following query.
+
+```json
+{
+    "query":"address:\"2815 Manor Rd\" AND postalCode:78722"
+}
+```
+
+However there are many different ways to approach searching via an address. You can learn more here about [Search address in property or business data](/docs/searching-by-address-in-property) For more information on our postal code abbreviations, you can visit here: [postal code abbreviations](https://www.pb.com/docs/US/pdf/SIS/Mail-Services/USPS-Suffix-Abbreviations.pdf)
+
+## Geo Queries
+
+You can also use the API to do queries based around latitude and longitude values. For example, if you would like to find all properties within 10 miles of a specific point in Austin, Texas you could use the following query.
+
+```json
+{
+    "query":"geoLocation:[-97.7430600,30.2671500,10,mi]"
+}
+```
+
+The format for the parameter values is: [ Longitude, Latitude, Distance, Distance Unit ]
+
+You can also use the following units for measuring distance:
+
+**m** - meters\
+**mi** - miles\
+**ft** - feet\
+**in** - yards\
+**mm** - millimeters\
+**km** - kilometers\
+**NM** - nautical miles\
+**cm** - centimeters
+
+## Count Feature
+
+As an alternative or used for testing purposes you can set your num_records to 0 in your property search query. This is will only return the num_found of the query and will cost 0 credits to search.
+
+<Card title="Try it in the API Playground" href="/reference/properties" icon="play" horizontal={false}>
+  Test your property search queries directly in the API reference.
+</Card>
+
+```json
+{
+  "query": "country:US",
+  "num_records":0
+}
+```
+
+<Callout kind="info">
+  **Count Feature**
+
+Please note that this is feature is only for paid accounts. So please check your account plan or contact `<support@datafinti.co.>`
+</Callout>
+
+## Paging Over Results
+
+As an alternative to running a download, you can also use the API to page through the data. This approach allows you to consume one chunk at a time.
+
+```text
+POST https://api.datafiniti.co/v4/properties/paginate?page=1&limit=500
+{
+  "query": "keys:*"
+}
+```
+
+The pagination endpoint uses the following parameters:
+
+* **page** - You specify which chunk of data you would like to access. You can iterate the page to work your way through all of the results. You cannot paginate further than the 10,000th record.
+* **limit** - This specifies the number of results you want returned within the page. The maximum number of results that can be returned per page is 500.
