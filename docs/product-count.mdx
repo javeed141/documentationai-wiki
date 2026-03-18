@@ -7,7 +7,6 @@ Our count feature is an alternative way for testing API search request. You can 
 <Card title="Try it in the API Playground" href="/reference/products" icon="play" horizontal={false}>
   Test your product search queries directly in the API reference.
 </Card>
-
 ```json
 {
   "query": "brand:dell AND categories:laptop AND -categories:accessories",
@@ -16,7 +15,6 @@ Our count feature is an alternative way for testing API search request. You can 
 ```
 
 Expected response:
-
 ```json
 {
     "num_found": 6473
@@ -27,7 +25,6 @@ From this result we can tell that we have a total of 6473 with the search parame
 
 <Callout kind="info">
   **Count Feature**
-
 Please note that this is feature is only for paid accounts. So please check your account plan or contact `<support@datafinti.co.>`
 </Callout>
 
@@ -35,5 +32,12 @@ Please note that this is feature is only for paid accounts. So please check your
 
 Check out some of our use cases that use the Count feature:
 
-* [Accessing owners, brokers, & other people data](/docs/accessing-owners-brokers-and-other-people)
-* [Find property with a lien](/docs/find-property-with-liens)
+<Columns cols="2">
+  <Card title="Accessing owners, brokers, & other people data" href="/docs/accessing-owners-brokers-and-other-people" icon="users" horizontal="false">
+    Learn how to access owner, broker, and other people data linked to property records.
+  </Card>
+
+  <Card title="Find property with a lien" href="/docs/find-property-with-liens" icon="alert-triangle" horizontal="false">
+    Identify properties that have active liens attached to them.
+  </Card>
+</Columns>

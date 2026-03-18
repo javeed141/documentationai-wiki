@@ -7,7 +7,6 @@ Pagination is a way that you can page through more results in Realtime than the 
 ## Paging Over Results
 
 An alternative to running a product data search, you can also use the API to page through the data. This approach allows you to consume one chunk at a time. Then continue from where the end of the previous page left off. To do the we will need to modify the [Product Data](/reference/products) endpoint like so:
-
 ```curl
 POST <https://api.datafiniti.co/v4/product/paginate?page=1&limit=500>
 ```
@@ -19,12 +18,10 @@ The pagination endpoint uses the following parameters:
 
 <Callout kind="alert">
   **Credit limit with pagination**
-
 Please note that with pagination you can query more records at once. So be sure your logic, when using Datafiniti's API, accounts for your product data plan credit limit.
 </Callout>
 
 Note that the query syntax remains the same, so you can copy / use the same product data search queries as normal.
-
 ```json
 {
   "query": "brand:apple"
@@ -33,10 +30,16 @@ Note that the query syntax remains the same, so you can copy / use the same prod
 
 Your response should look like:
 
-
 ## Use cases
 
 Check out some of our use cases that use pagination:
 
-* [Pricing analytics for pet food](/docs/pricing-analytics-for-pet-food)
-* [Search for smart phones](/docs/search-for-smart-phones)
+<Columns cols="2">
+  <Card title="Pricing analytics for pet food" href="/docs/pricing-analytics-for-pet-food" icon="dollar-sign" horizontal="false">
+    Analyze pricing trends and comparisons across pet food products using paginated results.
+  </Card>
+
+  <Card title="Search for smart phones" href="/docs/search-for-smart-phones" icon="smartphone" horizontal="false">
+    Query and compile smartphone product records across large datasets.
+  </Card>
+</Columns>
