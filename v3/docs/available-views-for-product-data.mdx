@@ -8,9 +8,28 @@ Note that each `view` is available in either `json` or `csv` format.  The `forma
 
 Available views for product data:
 
-* [products_all](/v3/docs/products_all)
-* [products_basicFields](/v3/docs/products_basicfields)
-* [products_keysSourceURLs](/v3/docs/products_keyssourceurls)
-* [products_all_nested](/v3/docs/products_all_nested)
-* [products_pricesFlat](/v3/docs/products_pricesflat)
-* [products_reviewsFlat](/v3/docs/products_reviewsflat)
+<Columns cols="3">
+  <Card title="products_all" href="/v3/docs/products_all" icon="layout-list" horizontal="false">
+    Returns all available product data fields in a flat structure.
+  </Card>
+
+  <Card title="products_basicFields" href="/v3/docs/products_basicfields" icon="file-text" horizontal="false">
+    Returns a simplified set of core product data fields.
+  </Card>
+
+  <Card title="products_keysSourceURLs" href="/v3/docs/products_keyssourceurls" icon="link" horizontal="false">
+    Returns product keys and their associated source URLs.
+  </Card>
+
+  <Card title="products_all_nested" href="/v3/docs/products_all_nested" icon="folder-tree" horizontal="false">
+    Returns all product fields with multi-valued data in nested format.
+  </Card>
+
+  <Card title="products_pricesFlat" href="/v3/docs/products_pricesflat" icon="dollar-sign" horizontal="false">
+    Returns all product fields with pricing data flattened into individual entries.
+  </Card>
+
+  <Card title="products_reviewsFlat" href="/v3/docs/products_reviewsflat" icon="message-square" horizontal="false">
+    Returns all product fields with review data flattened into individual entries.
+  </Card>
+</Columns>
