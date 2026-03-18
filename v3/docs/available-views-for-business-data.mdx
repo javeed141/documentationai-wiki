@@ -8,9 +8,28 @@ Note that each `view` is available in either `json` or `csv` format.  The `forma
 
 Available views for business data:
 
-* [businesses_all](/v3/docs/businesses_all)
-* [businesses_all_menusFlat](/v3/docs/businesses_all_menusflat)
-* [businesses_all_nested](/v3/docs/businesses_all_nested)
-* [businesses_all_nested_no_reviews](/v3/docs/businesses_all_nested_no_reviews)
-* [businesses_all_reviewsFlat](/v3/docs/businesses_all_reviewsflat)
-* [businesses_basic](/v3/docs/businesses_basic)
+<Columns cols="3">
+  <Card title="businesses_all" href="/v3/docs/businesses_all" icon="layout-list" horizontal="false">
+    Returns all available business data fields in a flat structure.
+  </Card>
+
+  <Card title="businesses_all_menusFlat" href="/v3/docs/businesses_all_menusflat" icon="menu" horizontal="false">
+    Returns all business fields with menu data flattened into individual entries.
+  </Card>
+
+  <Card title="businesses_all_nested" href="/v3/docs/businesses_all_nested" icon="folder-tree" horizontal="false">
+    Returns all business fields with multi-valued data in nested format.
+  </Card>
+
+  <Card title="businesses_all_nested_no_reviews" href="/v3/docs/businesses_all_nested_no_reviews" icon="folder-minus" horizontal="false">
+    Returns all nested business fields excluding review data.
+  </Card>
+
+  <Card title="businesses_all_reviewsFlat" href="/v3/docs/businesses_all_reviewsflat" icon="message-square" horizontal="false">
+    Returns all business fields with review data flattened into individual entries.
+  </Card>
+
+  <Card title="businesses_basic" href="/v3/docs/businesses_basic" icon="file-text" horizontal="false">
+    Returns a simplified set of core business data fields.
+  </Card>
+</Columns>
