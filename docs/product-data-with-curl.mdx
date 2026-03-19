@@ -94,20 +94,31 @@ You should get a response similar to this (although it may not look as pretty in
 ```
 
 Let's break down what the API call is all about:
-
-| API Call Component            | Description                                                                                                                                                                                                 |
-| :---------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"query": "categories:shoes"` | `query` tells the API what query you want to use.  In this case, you're telling the API you want to search by `categories`.  Any product that has `shoe` listed in its `categories` field will be returned. |
-| `"num_records": 1`            | `num_records` tells the API how many records to return in its response.  In this case, you just want to see 1 matching record.                                                                              |
-| `"format":"xxxx"`             | `format` tells the API what format to output the data in the response. Can be either `CSV` or `JSON`                                                                                                        |
+<ParamField body="query" param-type="string">
+  `query` tells the API what query you want to use.  In this case, you're telling the API you want to search by `categories`.  Any product that has `shoe` listed in its `categories` field will be returned.
+Example: "query": "categories:shoes"
+</ParamField>
+<ParamField body="num_records" param-type="integer">
+  `num_records` tells the API how many records to return in its response.  In this case, you just want to see 1 matching record.
+Example: "num_records": 1
+</ParamField>
+<ParamField body="format" param-type="string">
+  `format` tells the API what format to output the data in the response. Can be either `CSV` or `JSON`
+Example: "format":"xxxx"
+</ParamField>
 
 Now let's dive through the response the API returned:
 
-| Response Field | Description |
-| --- | --- |
-| `"num_found"` | The total number of available records in the database that match your query.  If you end up downloading the entire data set, this is how many records you'll use. |
-| `"total_cost"` | The number of credits this request has cost you.  Product records only cost 1 credit per record. |
-| `"records"` | The first available matches to your query. If there are no matches, this field will be empty.   <br />    <br /> Within each record returned, you'll see multiple fields shown.  This is the data for each record. |
+<ResponseField name="num_found" field-type="string">
+  The total number of available records in the database that match your query.  If you end up downloading the entire data set, this is how many records you'll use.
+</ResponseField>
+<ResponseField name="total_cost" field-type="string">
+  The number of credits this request has cost you.  Product records only cost 1 credit per record.
+</ResponseField>
+<ResponseField name="records" field-type="string">
+  The first available matches to your query. If there are no matches, this field will be empty.
+Within each record returned, you'll see multiple fields shown.  This is the data for each record.
+</ResponseField>
 
 Within the `records` field, you'll see a single product returned with multiple fields and the values associated with that product.  The JSON response will show all fields that have a value.  It won't show any fields that don't have a value.
 
@@ -212,20 +223,42 @@ You'll want to replace `XXXX` with the `id` value for your request.  If you keep
 
 Here's what these fields mean:
 
-|                  |                                                                                                                                                                                                      |
-| :--------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`             | This is a unique identifier for the request.                                                                                                                                                         |
-| `results`        | This is a list of links for all the result files generated for this data set.  When you first issue the download request, it will be an empty list, but it will populate as the download progresses. |
-| `user_id`        | This is an internal id for your user account.                                                                                                                                                        |
-| `status`         | This indicates the status of your download.  It will be set to `completed` once the download has finished.                                                                                           |
-| `date_started`   | The date and time the download started.                                                                                                                                                              |
-| `date_updated`   | The last time the download information was updated.                                                                                                                                                  |
-| `num_downloaded` | The number of records that have been downloaded so far.                                                                                                                                              |
-| `data_type`      | The data type you queried.                                                                                                                                                                           |
-| `query`          | The query you ran.                                                                                                                                                                                   |
-| `format`         | The data format you requested.                                                                                                                                                                       |
-| `num_records`    | The total number of records that will be downloaded.                                                                                                                                                 |
-| `total_cost`     | The number of credits this request has cost you.  Product records only cost 1 credit per record.                                                                                                     |
+<ResponseField name="id" field-type="string">
+  This is a unique identifier for the request.
+</ResponseField>
+<ResponseField name="results" field-type="string">
+  This is a list of links for all the result files generated for this data set.  When you first issue the download request, it will be an empty list, but it will populate as the download progresses.
+</ResponseField>
+<ResponseField name="user_id" field-type="string">
+  This is an internal id for your user account.
+</ResponseField>
+<ResponseField name="status" field-type="string">
+  This indicates the status of your download.  It will be set to `completed` once the download has finished.
+</ResponseField>
+<ResponseField name="date_started" field-type="string">
+  The date and time the download started.
+</ResponseField>
+<ResponseField name="date_updated" field-type="string">
+  The last time the download information was updated.
+</ResponseField>
+<ResponseField name="num_downloaded" field-type="string">
+  The number of records that have been downloaded so far.
+</ResponseField>
+<ResponseField name="data_type" field-type="string">
+  The data type you queried.
+</ResponseField>
+<ResponseField name="query" field-type="string">
+  The query you ran.
+</ResponseField>
+<ResponseField name="format" field-type="string">
+  The data format you requested.
+</ResponseField>
+<ResponseField name="num_records" field-type="string">
+  The total number of records that will be downloaded.
+</ResponseField>
+<ResponseField name="total_cost" field-type="string">
+  The number of credits this request has cost you.  Product records only cost 1 credit per record.
+</ResponseField>
 
 ### 7. Download the result file(s)
 
