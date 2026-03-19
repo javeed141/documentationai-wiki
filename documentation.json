@@ -44,6 +44,10 @@
                 "group": "Datafiniti API",
                 "pages": [
                   {
+                    "title": "hello",
+                    "path": "hello"
+                  },
+                  {
                     "group": "Introduction",
                     "pages": [
                       {
