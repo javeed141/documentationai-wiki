@@ -200,21 +200,60 @@ Let's break down what the API call is all about:
 | `https://` | This is the communication protocol used by the API.  It's the same one used when you visit a secure website. |
 | `AAAXXXXXXXXXXXX:@` | Your API token.  You're telling the API who you are so it can respond to your request. |
 | `api.datafiniti.co` | The location of the API. |
-| `/v3` | You're telling the API which version to use.  `v3` is our most recent and current API version. |
-| `/data` | You're telling the API you're interested in querying data. |
-| `/properties` | Specifically, you're interested in business data. |
-| `view=properties_all` | The `view` tells the API in which fields you want your response.  `properties_all` will show all available fields in a record. |
-| `format=JSON` | The `format` tells the API which data format you want to see.  You can set it to `JSON` or `CSV`. |
-| `q=country:US` | The `q` tells the API what query you want to use.  In this case, you're telling the API you want to search by `country`.  Any property that is in the US will be returned. |
-| `records=1` | The `records` tells the API how many records to return in the its response.  In this case, you just want to see 1 matching record. |
-| `download=false` | The `download` tells the API if you want to initiate a download request or not. Setting it to `false` means you don't, so it will show the matching records immediately in the response. |
+
+<ParamField path="/v3" param-type="string">
+  You're telling the API which version to use.  `v3` is our most recent and current API version.
+</ParamField>
+
+<ParamField path="/data" param-type="string">
+  You're telling the API you're interested in querying data.
+</ParamField>
+
+<ParamField path="/properties" param-type="string">
+  Specifically, you're interested in business data.
+</ParamField>
+
+<ParamField query="view" param-type="string">
+  The `view` tells the API in which fields you want your response.  `properties_all` will show all available fields in a record.
+
+  **Example:** `view=properties_all`
+</ParamField>
+
+<ParamField query="format" param-type="string">
+  The `format` tells the API which data format you want to see.  You can set it to `JSON` or `CSV`.
+
+  **Example:** `format=JSON`
+</ParamField>
+
+<ParamField query="q" param-type="string">
+  The `q` tells the API what query you want to use.  In this case, you're telling the API you want to search by `country`.  Any property that is in the US will be returned.
+
+  **Example:** `q=country:US`
+</ParamField>
+
+<ParamField query="records" param-type="integer">
+  The `records` tells the API how many records to return in the its response.  In this case, you just want to see 1 matching record.
+
+  **Example:** `records=1`
+</ParamField>
+
+<ParamField query="download" param-type="boolean">
+  The `download` tells the API if you want to initiate a download request or not. Setting it to `false` means you don't, so it will show the matching records immediately in the response.
+
+  **Example:** `download=false`
+</ParamField>
 
 Now let's dive through the response the API returned:
 
-| Response Field | Description |
-| --- | --- |
-| `"estimated_total"` | The total number of available records in the database that match your query.  If you end up downloading the entire data set, this is how many records you'll use. |
-| `"records"` | The first available matches to your query.  For most queries, you'll see 1 to 10 example records.  If there are no matches, this field will be empty. <br/>  <br/> Within each record returned, you'll see multiple fields shown.  This is the data for each record. |
+<ResponseField name="estimated_total" field-type="string">
+  The total number of available records in the database that match your query.  If you end up downloading the entire data set, this is how many records you'll use.
+</ResponseField>
+
+<ResponseField name="records" field-type="string">
+  The first available matches to your query.  For most queries, you'll see 1 to 10 example records.  If there are no matches, this field will be empty.
+
+  Within each record returned, you'll see multiple fields shown.  This is the data for each record.
+</ResponseField>
 
 Within the `records` field, you'll see a single property returned with multiple fields and their values associated with that business.  The JSON response will show all fields that have a value.  It won't show any fields that don't have a value.
 
