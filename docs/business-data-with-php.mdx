@@ -238,19 +238,26 @@ You should get a response similar to this:
 
 Let's break down each of the parameters we sent in our request:
 
-| API Call Component             | Description                                                                                                                                                                                                 |
-| :----------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"query": "categories:hotels"` | `query` tells the API what you want to search.  In this case, you're telling the API you want to search by `categories`.  Any business that has `hotels` listed in its `categories` field will be returned. |
-| `"num_records": 1`             | `num_records` tells the API how many records to return in its response.  In this case, you just want to see 1 matching record.                                                                              |
-| `"format":"xxxx"`              | `"format"` tells the API what format to output the data in the response. Can be either `CSV` or `JSON`                                                                                                      |
+<ParamField body="query" param-type="string">
+  `query` tells the API what you want to search.  In this case, you're telling the API you want to search by `categories`.  Any business that has `hotels` listed in its `categories` field will be returned.Example: "query": "categories:hotels"
+</ParamField><ParamField body="num_records" param-type="integer">
+  `num_records` tells the API how many records to return in its response.  In this case, you just want to see 1 matching record.Example: "num_records": 1
+</ParamField><ParamField body="format" param-type="string">
+  `"format"` tells the API what format to output the data in the response. Can be either `CSV` or `JSON`Example: "format":"xxxx"
+</ParamField>
 
 Now let's dive through the response the API returned:
 
-| Response Field | Description |
-| --- | --- |
-| `"num_found"` | The total number of available records in the database that match your query.  If you end up downloading the entire data set, this is how many records you'll use. |
-| `"total_cost"` | The number of credits this request has cost you.  Business records only cost 1 credit per record. |
-| `"records"` | The first available matches to your query. If there are no matches, this field will be empty.   <br />    <br /> Within each record returned, you'll see multiple fields shown.  This is the data for each record. |
+<ResponseField name="num_found" field-type="string">
+  The total number of available records in the database that match your query.  If you end up downloading the entire data set, this is how many records you'll use.
+</ResponseField>
+<ResponseField name="total_cost" field-type="string">
+  The number of credits this request has cost you.  Business records only cost 1 credit per record.
+</ResponseField>
+<ResponseField name="records" field-type="string">
+  The first available matches to your query. If there are no matches, this field will be empty.
+Within each record returned, you'll see multiple fields shown.  This is the data for each record.
+</ResponseField>
 
 Within the `records` field, you'll see a single business returned with multiple fields and the values associated with that business.  The JSON response will show all fields that have a value.  It won't show any fields that don't have a value.
 
