@@ -102,15 +102,17 @@ Let's break down what the API call is all about:
 
 <ParamField body="query" param-type="string">
   `query` tells the API what query you want to use.  In this case, you're telling the API you want to search by `jobTitle`.  Any person that has `CEO` listed in its `jobTitle` field will be returned.
-Example: "query": "jobTitle:CEO"
+  
+**Example**: "query": "jobTitle:CEO"
 </ParamField>
 <ParamField body="num_records" param-type="integer">
   `num_records` tells the API how many records to return in its response.  In this case, you just want to see 1 matching record.
- Example: "num_records": 1
+  
+**Example**: "num_records": 1
 </ParamField>
 <ParamField body="format" param-type="string">
   `format` tells the API what format to output the data in the response. Can be either `CSV` or `JSON`
-Example:  "format":"xxxx"
+**Example**:  "format":"xxxx"
 </ParamField>
 
 Now let's dive through the response the API returned:
