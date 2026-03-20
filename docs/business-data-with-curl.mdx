@@ -1,16 +1,18 @@
 ---
 title: Business Data with cURL
 ---
-
 For this guide, we're going to assume you're interested in using Datafiniti's business data to do some marketing analysis on hotels.  Let's say you're a data scientist that's been tasked with the following:
 
 1. Collecting data on hotels in the US.
+
 2. Sort the business data by state.
+
 3. Find which states have the most hotels.
 
 **Your environment and data needs:**
 
 1. You're working with cURL.
+
 2. You want to work with CSV or JSON data.
 
 Here are the steps we'll take:
@@ -25,21 +27,21 @@ The next thing you'll need is your API token.  The API token lets you authentica
 
 To get your API token, go the [Datafiniti Web Portal (https://portal.datafiniti.co)](https://portal.datafiniti.co/settings), login, and click your settings in the left navigation bar.  From there, you'll see a page showing your token.  Your API token will be a long string of letters and numbers.  Copy the API token or store it somewhere you can easily reference.
 
-<Callout kind="info">
+<Callout kind="info" collapsed="false">
   **API Key**
 
-For the rest of this document, we'll use `AAAXXXXXXXXXXXX` as a substitute example for your actual API token when showing example API calls.
+  For the rest of this document, we'll use `AAAXXXXXXXXXXXX` as a substitute example for your actual API token when showing example API calls.
 </Callout>
 
-<Callout kind="alert">
+<Callout kind="alert" collapsed="false">
   **API Key Regen**
 
-For security reasons, your API token will be automatically changed whenever you change your password.
+  For security reasons, your API token will be automatically changed whenever you change your password.
 </Callout>
 
 ### 3. Run your first search
 
-The first thing we'll do is do a test search that will give us a sense for what sort of data might be available.  Eventually we'll refine our search so that we get back the most relevant data.
+The first thing we'll do is do a test search that will give us a  sense for what sort of data might be available.  Eventually we'll refine our search so that we get back the most relevant data.
 
 Since we want hotels, let's try a simple search that will just give us online listings for hotels.
 
@@ -149,19 +151,19 @@ You should get a response similar to this (although it may not look as pretty in
 
 Let's break down each of the parameters we sent in our request:
 
-<ParamField body="query" param-type="string">
+<ParamField body="query" param-type="string" required="false" deprecated="false">
   `query` tells the API what you want to search.  In this case, you're telling the API you want to search by `categories`.  Any business that has `hotels` listed in its `categories` field will be returned.
 
   **Example:** `"query": "categories:hotels"`
 </ParamField>
 
-<ParamField body="num_records" param-type="integer">
+<ParamField body="num_records" param-type="integer" required="false" deprecated="false">
   `num_records` tells the API how many records to return in its response.  In this case, you just want to see 1 matching record.
 
   **Example:** `"num_records": 1`
 </ParamField>
 
-<ParamField body="format" param-type="string">
+<ParamField body="format" param-type="string" required="false" deprecated="false">
   `format` tells the API what format to output the data in the response. Can be either `CSV` or `JSON`
 
   **Example:** `"format":"xxxx"`
@@ -169,15 +171,15 @@ Let's break down each of the parameters we sent in our request:
 
 Now let's dive through the response the API returned:
 
-<ResponseField name="num_found" field-type="string">
+<ResponseField name="num_found" field-type="string" required="false" deprecated="false">
   The total number of available records in the database that match your query.  If you end up downloading the entire data set, this is how many records you'll use.
 </ResponseField>
 
-<ResponseField name="total_cost" field-type="string">
+<ResponseField name="total_cost" field-type="string" required="false" deprecated="false">
   The number of credits this request has cost you.  Business records only cost 1 credit per record.
 </ResponseField>
 
-<ResponseField name="records" field-type="string">
+<ResponseField name="records" field-type="string" required="false" deprecated="false">
   The first available matches to your query. If there are no matches, this field will be empty.
 
   Within each record returned, you'll see multiple fields shown.  This is the data for each record.
@@ -198,7 +200,9 @@ curl --request POST --url https://api.datafiniti.co/v4/businesses/search --heade
 This API call is different in a couple ways:
 
 1. It adds ` AND country:US` to narrow down results to just US hotels.
+
 2. It sets `num_records` to 10 so we can look at more sample matches.
+
 3. It changes `format` from `JSON` to `CSV`.
 
 Datafiniti lets you construct very refined boolean queries.  If you wanted to do more complicated searches, you could use OR operations, negation, and more.
@@ -214,13 +218,15 @@ curl --request POST --url https://api.datafiniti.co/v4/businesses/search --heade
 Here's what we changed:
 
 1. We change `"num_records": 10` to `"num_records": 50`.  This will download the first 50 matching records.  If we wanted to download all matching records, we would remove `num_records`.
+
 2. We added `"view": "business_basic"`.  If you don't specify `view`, it will show all available fields.  Using `business_basic` will nest fields like categories and features into a single cell (instead splitting them across multiple rows and columns).
+
 3. We added `"download": true`.  This tells the API to issue a download request instead of a search request.
 
-<Callout kind="alert">
-  **Num_records**
+<Callout kind="alert" collapsed="false">
+  **Num\_records**
 
-If num_records is not specified, ALL of the records matching the query will be downloaded.
+  If num\_records is not specified, ALL of the records matching the query will be downloaded.
 </Callout>
 
 When you make this API call, you'll see a response similar to:
@@ -274,51 +280,51 @@ You'll want to replace `XXXX` with the `id` value for your request.  If you keep
 
 Here's what these fields mean:
 
-<ResponseField name="id" field-type="string">
+<ResponseField name="id" field-type="string" required="false" deprecated="false">
   This is a unique identifier for the request.
 </ResponseField>
 
-<ResponseField name="results" field-type="string">
+<ResponseField name="results" field-type="string" required="false" deprecated="false">
   This is a list of links for all the result files generated for this data set.  When you first issue the download request, it will be an empty list, but it will populate as the download progresses.
 </ResponseField>
 
-<ResponseField name="user_id" field-type="string">
+<ResponseField name="user_id" field-type="string" required="false" deprecated="false">
   This is an internal id for your user account.
 </ResponseField>
 
-<ResponseField name="status" field-type="string">
+<ResponseField name="status" field-type="string" required="false" deprecated="false">
   This indicates the status of your download.  It will be set to `completed` once the download has finished.
 </ResponseField>
 
-<ResponseField name="date_started" field-type="string">
+<ResponseField name="date_started" field-type="string" required="false" deprecated="false">
   The date and time the download started.
 </ResponseField>
 
-<ResponseField name="date_updated" field-type="string">
+<ResponseField name="date_updated" field-type="string" required="false" deprecated="false">
   The last time the download information was updated.
 </ResponseField>
 
-<ResponseField name="num_downloaded" field-type="string">
+<ResponseField name="num_downloaded" field-type="string" required="false" deprecated="false">
   The number of records that have been downloaded so far.
 </ResponseField>
 
-<ResponseField name="data_type" field-type="string">
+<ResponseField name="data_type" field-type="string" required="false" deprecated="false">
   The data type you queried.
 </ResponseField>
 
-<ResponseField name="query" field-type="string">
+<ResponseField name="query" field-type="string" required="false" deprecated="false">
   The query you ran.
 </ResponseField>
 
-<ResponseField name="format" field-type="string">
+<ResponseField name="format" field-type="string" required="false" deprecated="false">
   The data format you requested.
 </ResponseField>
 
-<ResponseField name="num_records" field-type="string">
+<ResponseField name="num_records" field-type="string" required="false" deprecated="false">
   The total number of records that will be downloaded.
 </ResponseField>
 
-<ResponseField name="total_cost" field-type="string">
+<ResponseField name="total_cost" field-type="string" required="false" deprecated="false">
   The total number of credits used by this download.  Business records only cost 1 credit per record.
 </ResponseField>
 
@@ -342,7 +348,7 @@ You'll probably want to rename `output.txt` to something specific to this reques
 
 For files formatted as CSV, you will receive you files as `downloadID_#.csv`. You can navigate to the file you downloaded and open it.  Since it's a CSV file, it should open in Excel automatically.  It will look something like:
 
-<Image src="https://files.readme.io/e200451-people.png" width="1920" height="1080" alt="Sample people data output" noCaption />
+<Image src="https://files.readme.io/e200451-people.png" width="1920" height="1080" alt="Sample people data output" />
 
 #### Parse JSON data
 
@@ -375,10 +381,10 @@ You can edit the code in the `while` loop above to do whatever you'd like with t
 
 Navigate to the file you downloaded and open it.
 
-<Callout kind="info">
+<Callout kind="info" collapsed="false">
   **JSON Format**
 
-The JSON data will actually be a text file, instead of a single JSON object. Each line in the text file is a JSON object. We format the data this way because most programming languages won't handle parsing the entire data set as a JSON object with their standard system calls very well.
+  The JSON data will actually be a text file, instead of a single JSON object. Each line in the text file is a JSON object. We format the data this way because most programming languages won't handle parsing the entire data set as a JSON object with their standard system calls very well.
 </Callout>
 
 From here, you'll most likely want to process the data using the programming language of your choice. Our other [JSON guides](/docs/getting-started-with-product-data) provide instructions on how to process this data.
