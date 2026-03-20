@@ -1186,7 +1186,8 @@
             "pages": [
               {
                 "title": "Changelog",
-                "path": "changelog/index"
+                "path": "changelog/index",
+                "show-sidebar": false
               }
             ]
           }
