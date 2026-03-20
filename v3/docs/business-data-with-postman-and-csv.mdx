@@ -141,49 +141,50 @@ Click the blue "Send" button.  You should get a response similar to this:
 ```
 
 Let's break down what the API call is all about:
-| API Call Component | Description |
-| --- | --- |
-| `https://` | This is the communication protocol used by the API.  It's the same one used when you visit a secure website. |
-| `AAAXXXXXXXXXXXX:@` | Your API token.  You're telling the API who you are so it can respond to your request. |
-| `api.datafiniti.co` | The location of the API. |
 
-<ParamField path="/v3" param-type="string">
+| API Call Component  | Description                                                                                                  |
+| ------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `https://`          | This is the communication protocol used by the API.  It's the same one used when you visit a secure website. |
+| `AAAXXXXXXXXXXXX:@` | Your API token.  You're telling the API who you are so it can respond to your request.                       |
+| `api.datafiniti.co` | The location of the API.                                                                                     |
+
+<ParamField path="/v3" param-type="string" required="false" deprecated="false">
   You're telling the API which version to use.  `v3` is our most recent and current API version.
 </ParamField>
 
-<ParamField path="/data" param-type="string">
+<ParamField path="/data" param-type="string" required="false" deprecated="false">
   You're telling the API you're interested in querying data.
 </ParamField>
 
-<ParamField path="/businesses" param-type="string">
+<ParamField path="/businesses" param-type="string" required="false" deprecated="false">
   Specifically, you're interested in business data.
 </ParamField>
 
-<ParamField query="view" param-type="string">
+<ParamField query="view" param-type="string" required="false" deprecated="false">
   The `view` tells the API in which fields you want your response.  `businesses_all` will show all available fields in a record.
 
   **Example:** `view=businesses_all`
 </ParamField>
 
-<ParamField query="format" param-type="string">
+<ParamField query="format" param-type="string" required="false" deprecated="false">
   The `format` tells the API which data format you want to see.  You can set it to `JSON` or `CSV`.
 
   **Example:** `format=JSON`
 </ParamField>
 
-<ParamField query="q" param-type="string">
+<ParamField query="q" param-type="string" required="false" deprecated="false">
   The `q` tells the API what query you want to use.  In this case, you're telling the API you want to search by `categories`.  Any business that has `hotels` listed in its `categories` field will be returned.
 
   **Example:** `q=categories:hotels`
 </ParamField>
 
-<ParamField query="records" param-type="integer">
+<ParamField query="records" param-type="integer" required="false" deprecated="false">
   The `records` tells the API how many records to return in its response.  In this case, you just want to see 1 matching record.
 
   **Example:** `records=1`
 </ParamField>
 
-<ParamField query="download" param-type="boolean">
+<ParamField query="download" param-type="boolean" required="false" deprecated="false">
   The `download` tells the API if you want to initiate a download request or not. Setting it to `false` means you don't, so it will show the matching records immediately in the response.
 
   **Example:** `download=false`
