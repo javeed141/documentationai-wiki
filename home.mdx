@@ -25,8 +25,6 @@ description: >-
   </Card>
 </Columns>
 
-[View All](/docs/api-introduction)
-
 ### GETTING STARTED
 
 <Callout kind="success" collapsed="false">
@@ -47,21 +45,63 @@ description: >-
   Free plans are limited to 1,000 records/month. Upgrade to a paid plan for higher limits and bulk access.
 </Callout>
 
-## Guides
+### DATA APIs
 
-<Columns cols="2">
-  <Card title="First Card" horizontal="false">
-    Card description...
+<Columns cols="4">
+  <Card title="Products" icon="shopping-cart-icon" horizontal="false" target="_self">
+    500M+ listings
   </Card>
 
-  <Card title="Second Card" horizontal="false">
-    Card description...
+  <Card title="Businesses" icon="building2-icon" horizontal="false" target="_self">
+    130M+ records
+  </Card>
+
+  <Card title="Properties" icon="house" horizontal="false" target="_self">
+    120M+ properties
+  </Card>
+
+  <Card title="People" icon="lucide-users" horizontal="false" target="_self">
+    200M+ profiles
   </Card>
 </Columns>
 
-## Changelog
+### CHANGELOG
 
-/
+<ExpandableGroup>
+  <Expandable title="New Field: statusHistory" default-open="false">
+    **February 2026:**
 
-## Discussions
+    We've introduced a new field, `statusHistory`, to the Property Data schema. This field provides a clear, chronological view of a property's status over time, allowing you to track transitions such as *for-sale listings* and *off-market events* with greater precision and context.
+
+    <a href="https://datafiniti-demo.documentationai.com/changelog/index#new-field-statushistory" target="_blank" rel="noopener noreferrer">Read more</a>
+  </Expandable>
+
+  <Expandable title="Deprecation Notice: Legacy statuses Fields" default-open="false">
+    **February 2026:**
+
+    As part of this improvement, we are beginning the deprecation of legacy `statuses` fields in favor of `statusHistory`.
+
+    <a href="https://datafiniti-demo.documentationai.com/changelog/index#deprecation-notice-legacy-statuses-fields" target="_blank" rel="noopener noreferrer">Read more</a>
+  </Expandable>
+
+  <Expandable title="Our 2026 Operating Priorities" default-open="false">
+    **January 2026:**
+
+    - Reliability first.&#x20;
+
+    - Data quality you can trust.&#x20;
+
+    - Designing for direct value.&#x20;
+
+    <a href="https://datafiniti-demo.documentationai.com/changelog/index#our-2026-operating-priorities" target="_blank" rel="noopener noreferrer">Read more</a>
+  </Expandable>
+
+  <Expandable title="Property Data: New &#x22;type&#x22; field in prices" default-open="false">
+    **November 2025**:
+
+    Each price entry now includes a `type` sub-field with values: Sale List, Sold, Rental List
+
+    <a href="https://datafiniti-demo.documentationai.com/changelog/index#property-data-new-type-field-in-prices" target="_blank" rel="noopener noreferrer">Read more</a>
+  </Expandable>
+</ExpandableGroup>
 
