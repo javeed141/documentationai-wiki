@@ -3,33 +3,26 @@ title: Available Views for Product Data
 ---
 
 The `view` parameter in the API determines which fields are returned by your data request and the order in which they're shown.  It also determines if multi-valued fields will flatten or expand their individual elements into multiple entries.
-
 Note that each `view` is available in either `json` or `csv` format.  The `format` parameter you use will determine which one is used.
-
 Available views for product data:
 
 <Columns cols="2">
-  <Card title="products_all" href="/v3/docs/products_all" image="https://blob-cdn.documentation.ai/org-53a37986-2c9e-4094-b9e8-1e1ffae9e9ee/doc-b389b141-ae58-4fd5-91f9-6702fae9ac58/1764861394390-f2h9nrjuyp-pasted-image-1764861391990.png" cta="View Schema" horizontal="false" target="_self">
+  <Card title="products_all" href="/v3/docs/products_all" icon="layout-list" horizontal="false">
     Returns all available product data fields in a flat structure.
   </Card>
-
-  <Card title="products_basicFields" href="/v3/docs/products_basicfields" image="https://blob-cdn.documentation.ai/org-53a37986-2c9e-4094-b9e8-1e1ffae9e9ee/doc-b389b141-ae58-4fd5-91f9-6702fae9ac58/1764860577492-1jym9xs49h2h-pasted-image-1764860575507.png" cta="View Schema" horizontal="false" target="_self">
+  <Card title="products_basicFields" href="/v3/docs/products_basicfields" icon="list-checks" horizontal="false">
     Returns a simplified set of core product data fields.
   </Card>
-
-  <Card title="products_keysSourceURLs" href="/v3/docs/products_keyssourceurls" image="https://blob-cdn.documentation.ai/org-53a37986-2c9e-4094-b9e8-1e1ffae9e9ee/doc-b389b141-ae58-4fd5-91f9-6702fae9ac58/1764861137915-w669v7hdg2k-pasted-image-1764861136323.png" cta="View Schema" horizontal="false" target="_self">
+  <Card title="products_keysSourceURLs" href="/v3/docs/products_keyssourceurls" icon="key" horizontal="false">
     Returns product keys and their associated source URLs.
   </Card>
-
-  <Card title="products_all_nested" href="/v3/docs/products_all_nested" image="https://blob-cdn.documentation.ai/org-53a37986-2c9e-4094-b9e8-1e1ffae9e9ee/doc-b389b141-ae58-4fd5-91f9-6702fae9ac58/1764860639300-egwg8vgmz2u-pasted-image-1764860637847.png" cta="View Schema" horizontal="false" target="_self">
+  <Card title="products_all_nested" href="/v3/docs/products_all_nested" icon="folder-tree" horizontal="false">
     Returns all product fields with multi-valued data in nested format.
   </Card>
-
-  <Card title="products_pricesFlat" href="/v3/docs/products_pricesflat" image="https://blob-cdn.documentation.ai/org-53a37986-2c9e-4094-b9e8-1e1ffae9e9ee/doc-b389b141-ae58-4fd5-91f9-6702fae9ac58/1764861731387-egtu34zq5jg-pasted-image-1764861729788.png" cta="View Schema" horizontal="false" target="_self">
+  <Card title="products_pricesFlat" href="/v3/docs/products_pricesflat" icon="dollar-sign" horizontal="false">
     Returns all product fields with pricing data flattened into individual entries.
   </Card>
-
-  <Card title="products_reviewsFlat" href="/v3/docs/products_reviewsflat" image="https://blob-cdn.documentation.ai/org-53a37986-2c9e-4094-b9e8-1e1ffae9e9ee/doc-b389b141-ae58-4fd5-91f9-6702fae9ac58/1764861137915-w669v7hdg2k-pasted-image-1764861136323.png" cta="View Schema" horizontal="false" target="_self">
+  <Card title="products_reviewsFlat" href="/v3/docs/products_reviewsflat" icon="message-square-text" horizontal="false">
     Returns all product fields with review data flattened into individual entries.
   </Card>
 </Columns>
