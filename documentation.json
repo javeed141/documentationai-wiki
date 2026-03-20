@@ -1629,5 +1629,6 @@
   "seo": {
     "robots:index": true,
     "robots:follow": true
-  }
+  },
+  "initialRoute": "home"
 }
