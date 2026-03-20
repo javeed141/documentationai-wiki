@@ -38,6 +38,20 @@
         "icon": "badge",
         "tabs": [
           {
+            "tab": "Home",
+            "pages": [
+              {
+                "title": "Home",
+                "path": "home",
+                "show-sidebar": false,
+                "show-toc": false,
+                "show-parent-label": false,
+                "show-page-navigation": false,
+                "ask-feedback": false
+              }
+            ]
+          },
+          {
             "tab": "Guides",
             "groups": [
               {
@@ -1176,20 +1190,6 @@
                 "path": "changelog/index"
               }
             ]
-          },
-          {
-            "tab": "Home",
-            "pages": [
-              {
-                "title": "Home",
-                "path": "home",
-                "show-sidebar": false,
-                "show-toc": false,
-                "show-parent-label": false,
-                "show-page-navigation": false,
-                "ask-feedback": false
-              }
-            ]
           }
         ]
       },
@@ -1246,6 +1246,30 @@
                       {
                         "title": "Business Data with Web Browser and JSON",
                         "path": "v3/docs/business-data-with-web-browser-and-json"
+                      },
+                      {
+                        "title": "Business Data with Postman and JSON",
+                        "path": "v3/docs/business-data-with-postman-and-json"
+                      },
+                      {
+                        "title": "Business Data with cURL and JSON",
+                        "path": "v3/docs/business-data-with-curl-and-json"
+                      },
+                      {
+                        "title": "Business Data with PHP and JSON",
+                        "path": "v3/docs/business-data-with-php-and-json"
+                      },
+                      {
+                        "title": "Business Data with Node.js and JSON",
+                        "path": "v3/docs/business-data-with-nodejs-and-json"
+                      },
+                      {
+                        "title": "Business Data with Python and JSON",
+                        "path": "v3/docs/business-data-with-python-and-json"
+                      },
+                      {
+                        "title": "Business Data with Web Browser and CSV",
+                        "path": "v3/docs/business-data-with-web-browser-csv"
                       },
                       {
                         "title": "Business Data with Postman and JSON",
