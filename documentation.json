@@ -50,7 +50,12 @@
               },
               {
                 "title": "Home 2",
-                "path": "home-2"
+                "path": "home-2",
+                "show-sidebar": false,
+                "show-toc": false,
+                "show-parent-label": false,
+                "show-page-navigation": false,
+                "ask-feedback": false
               }
             ]
           },
