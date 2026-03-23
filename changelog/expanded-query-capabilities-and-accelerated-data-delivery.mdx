@@ -1,0 +1,80 @@
+# Expanded Query Capabilities and Accelerated Data Delivery
+
+## February 6, 2017
+
+We're excited to announce some major changes to Datafiniti. We've just completed a complete migration of our product database to a new, Elasticsearch-based backend. You can read our announcement on our main blog [here](https://blog.datafiniti.co/datafiniti-expands-query-capabilities-and-accelerates-data-delivery-performance-with-backend-d675507208e).
+
+For more technical details, we've published release notes to help customers understand the technical aspects of the changes.
+
+We've also published new guides and API docs for Product Data. You can view those at:
+
+* [Getting Started with Product Data](https://datafiniti-api.readme.io/docs/getting-started-with-product-data)
+* [API Documentation](https://datafiniti-api.readme.io/reference)
+
+Both of these links go to reference material that is a work in progress.
+
+*Note: All changes below currently only affect our Product Data. Business Data and Property Data will be migrated to an Elasticsearch backend in the coming months.*
+
+## Changes that will break existing integrations
+
+* You must now specify a `format` with your API call. `format` can be set to `JSON` or `CSV`. If you don't supply a format, the API response will default to `JSON`.
+* Some field names have changed in order to abide by a consistent naming convention. See the last note under Data Quality below. You can view the updated product schema [here](https://datafiniti-api.readme.io/docs/product-data-schema).
+* The presentation and ordering of data in API responses or downloads may be different due to removal of fields or changes in field names. Some fields have been "demoted" to our `features` field.
+
+## Expanded Query Capabilities
+
+**All fields are searchable**
+
+* Users can now query all fields. Previously, certain fields could not be queried.
+
+**Query on nested fields**
+
+* You can now query on fields within multi-valued fields. E.g., `q=reviews.rating:5` will return all products with at least one review that has a 5-star rating.
+
+**Easier querying on sourceURLs**
+
+* Previously, querying on the `sourceURLs` field required running a time-intensive wildcard search or knowing the exact http format of the sourceURL. Now, users can just do a query like `q=sourceURLs:amazon` or `q=sourceURLs:shop.lego`, and all relevant products will return.
+
+**Use comparison operators**
+
+* You can now do a query like `q=prices.amountMin:>20` to return all products with a price greater than 20. `>`, `>=`, `<`, and `<=` are supported. These should only be used on fields that only contain numeric values (e.g., `prices.amountMin`, `reviews.rating`, etc.)
+
+## Better Performance
+
+* Inserting raw web crawl data into the database now happens 50x faster than before.
+* Downloading full data sets can typically be done in minutes. For context, our entire product database can now be downloaded in less than 3 hours.
+* Overall improvement in stability and reliability of our back-end.
+
+## Data Quality
+
+**Implemented new merging algorithm to reduce duplicate data**
+
+* Our old method for merging records from two different sources would only generate a single key for the record. Successive merge attempts would only succeed if new records generated the same key. Our new method generates multiple potential keys for a record, consisting of combinations of a product's `upc`, `manufacturerNumber`, `brand`, and so on. If a new record matches any of these keys, it will merge with the existing record. This has resulted in fewer duplicate records.
+
+**More rigorous validation and normalization before database insertion**
+
+* Raw data from web crawls will now pass through a comprehensive suite of validation checks before being accepted into the database.
+* Validation checks will also normalize values where needed to produce more standardized values.
+
+**Cleanup of existing data**
+
+* While migrating data from our old database into ElasticSearch, we applied our validation checks and normalization methods to cleanup historical data. As a result, data is completely standardized throughout the database.
+* Included in this cleanup is a full standardization of date strings that appear in the data.
+
+**Record counts are consistent**
+
+* Previously, quick successive API calls could result in dramatically different `estimated_total` values, which was confusing. Our new backend shows the same `estimated_total` value each time for the same API call (barring any additions to the database).
+
+**Standardized naming convention for all fields**
+
+* All fields are now pascal-cased. E.g., `dateSeen`, `manufacturerNumber`. All multi-valued fields now use a plural word. E.g., `reviews`, `prices`, `features`.
+
+## Better Usability
+
+**New CSV format**
+
+* We've introduced a new CSV format that splits out all values for multi-valued fields into their own rows. This should make the reading of and analysis of these fields much easier when using tools like Excel, R, and Pandas. The legacy CSV format is still available.
+
+**More detailed and useful error messages**
+
+* The API now returns more useful error messages when you do something wrong or unexpected. Hopefully, these error messages act as a guidance for users when correcting their API calls.
