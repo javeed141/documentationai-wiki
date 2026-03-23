@@ -5,7 +5,7 @@ description: "New statusHistory field and deprecation of legacy statuses fields 
 
 ## New Field: `statusHistory`
 
-A new **`statusHistory`** field in the Property Data schema provides a chronological view of a property's status over time. You can track transitions such as *for-sale listings* and *off-market events* with greater precision.
+We've introduced a new field, **`statusHistory`**, to the Property Data schema. This field provides a clear, chronological view of a property's status over time, allowing you to track transitions such as *for-sale listings* and *off-market events* with greater precision and context.
 
 Each `statusHistory` entry includes:
 
@@ -14,11 +14,9 @@ Each `statusHistory` entry includes:
 - **sourceURLs** — The source URL associated with the status
 - **Type** — The type of sales listing associated with the status
 
-For the updated schema, see the [Property Data Schema](/v3/docs/property-data-schema).
-
 ## Deprecation Notice: Legacy `statuses` Fields
 
-We are deprecating legacy `statuses` fields in favor of **`statusHistory`**.
+As part of this improvement, we are beginning the deprecation of legacy `statuses` fields in favor of **`statusHistory`**.
 
 - Existing fields will continue to work for now
 - We strongly recommend updating your workflows to use `statusHistory`
@@ -26,5 +24,5 @@ We are deprecating legacy `statuses` fields in favor of **`statusHistory`**.
 
 ## Coming This Year
 
-- **Improved Autotrace Feature** — Single API call for retrieving property owner contact information
+- **Improved Autotrace Feature** — Redesigning to deliver a more intuitive experience with a single API call
 - **AI Platform Integration** — MCP integration, detailed code examples, and LLM-friendly tutorials

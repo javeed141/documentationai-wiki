@@ -1,0 +1,31 @@
+---
+title: "December 2023 — Broker & Floor Plan Fields"
+description: "New mostRecentBroker fields, parkingTypes, floor plans data, and feature fields elevated to top-level."
+---
+
+## New `mostRecentBroker` Fields
+
+Top-level fields for the most recently observed broker:
+
+- `mostRecentBrokerAgent`, `mostRecentBrokerCompany`
+- `mostRecentBrokerDateSeen`, `mostRecentBrokerEmails`, `mostRecentBrokerPhones`
+
+## New `parkingTypes` Field
+
+Parsed parking data now includes type and space count. Values include: RV Parking, Parking Lot, Street, Attached Garage, Detached Garage, Driveway, Carport.
+
+## Feature Fields Elevated to Top-Level
+
+Key data points previously in the `features` array have been moved to their own top-level fields for easier querying and filtering.
+
+## Field Value Standardization
+
+- Merged "Rental Unit" with "Rental" in statuses
+- Standardized `sqft` and `sq ft` to a single format
+- Normalized city names (e.g., "Manhattan" → "New York City")
+
+## Source Updates
+
+**Property:** Redfin, VRBO, Realestatebook, Landsearch, Remax.com, Apartments.com, ForRent.com, Loopnet, Century21, Realestate.com.au, ForSaleByOwner.ca
+
+**Product:** DicksSportingGoods.com, BHPhotovideo.com, Homepath

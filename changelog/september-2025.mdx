@@ -5,7 +5,7 @@ description: "34 new commercial top-level fields, sourceURLsPerField array, and 
 
 ## Property Data: 34 New Commercial Top Level Fields
 
-Key fields moved from the features array to top-level schema fields for easier filtering, querying, and analysis:
+We've upgraded how commercial property listings are structured by moving key fields from the features array to top-level schema fields:
 
 | New Fields |
 | :--- |
@@ -14,17 +14,6 @@ Key fields moved from the features array to top-level schema fields for easier f
 ## Source URLs Per Field
 
 New **sourceURLsPerField** array showing exactly which URLs were used to populate individual fields within a record.
-
-```json title="Example"
-{
-  "sourceURLsPerField": [
-    {
-      "field": "capRate",
-      "sourceURLs": ["crexi.com/1234", "loopnet.com/jdjkdf"]
-    }
-  ]
-}
-```
 
 ## Business Data: New State Sources
 
