@@ -12,19 +12,9 @@ We've upgraded how commercial property listings are structured by moving several
 
 New property fields include:
 
-[block:parameters]
-{
- "data": {
- "h-0": "Features keys converted to new Fields",
- "0-0": "brandTenant \nbrokerCoop \nbuildingClass \ndateOnMarket \ndaysOnMarket \neffectiveGrossIncome \ngrossRentalIncome \ngroundLease \ninvestmentSubtype \ninvestmentType \nleaseType \nmajorTenants \nnetRentable \nnetOperatingIncome \nnumBuildings \nnumProperties \nnumTenants \noccupancy \noperatingExpenses \notherIncome \nownership \nproFormaNOI \nrentableSquareFeet \nrentBumps \nsaleCondition \nsaleType \nsourceURLsPerField \nsubtype \ntenancy \ntenantCredit \ntotalExpenses \nvacancyLoss \nvirtualTour \nyearRenovated"
- },
- "cols": 1,
- "rows": 1,
- "align": [
- "left"
- ]
-}
-[/block]
+| Features keys converted to new Fields |
+| --- |
+| brandTenant, brokerCoop, buildingClass, dateOnMarket, daysOnMarket, effectiveGrossIncome, grossRentalIncome, groundLease, investmentSubtype, investmentType, leaseType, majorTenants, netRentable, netOperatingIncome, numBuildings, numProperties, numTenants, occupancy, operatingExpenses, otherIncome, ownership, proFormaNOI, rentableSquareFeet, rentBumps, saleCondition, saleType, sourceURLsPerField, subtype, tenancy, tenantCredit, totalExpenses, vacancyLoss, virtualTour, yearRenovated |
 
 ## Source URLs Per Field
 
@@ -32,29 +22,29 @@ We're introducing a new **sourceURLsPerField** array to the top-level schema.
 This addition lets you see exactly which URLs were used to populate individual fields within a record.
 This new field will have the following sub-fields:
 
-* field – the field name (e.g., capRate)
-* sourceURLs – an array of URLs where that field's data came from
+- field – the field name (e.g., capRate)
+- sourceURLs – an array of URLs where that field's data came from
 
 ### Example:
 
 ```json
 {
- "sourceURLsPerField": [
- {
- "field": "capRate",
- "sourceURLs": [
- "crexi.com/1234",
- "loopnet.com/jdjkdf"
- ]
- },
- {
- "field": "netOperatingIncome",
- "sourceURLs": [
- "crexi.com/1234",
- "loopnet.com/jdjkdf"
- ]
- }
- ]
+  "sourceURLsPerField": [
+    {
+      "field": "capRate",
+      "sourceURLs": [
+        "crexi.com/1234",
+        "loopnet.com/jdjkdf"
+      ]
+    },
+    {
+      "field": "netOperatingIncome",
+      "sourceURLs": [
+        "crexi.com/1234",
+        "loopnet.com/jdjkdf"
+      ]
+    }
+  ]
 }
 ```
 
@@ -65,5 +55,5 @@ Our process will populate sourceURLsPerField only when the record has more than 
 
 We've added a new state-level data source to improve business coverage in the following area:
 
-* Alabama - arc-sos.state.al.us
-* Arizona - ecorp.azcc.gov
+- Alabama - arc-sos.state.al.us
+- Arizona - ecorp.azcc.gov
