@@ -1,0 +1,29 @@
+---
+title: "November 2025 — Property Pricing Updates"
+description: "New type field in property prices, improved field names, and deprecation of legacy pricing fields."
+---
+
+## Property Data: New "type" Field in Prices
+
+Each price entry now includes a `type` sub-field with values:
+
+- **Sale List** — for sale list price
+- **Sold** — price at which the property was sold
+- **Rental List** — rental list price
+
+## Improved Field Names
+
+New descriptive fields for clarity:
+
+- `mostRecentSaleListPriceAmount` & `mostRecentSaleListPriceDate`
+- `mostRecentRentalListPriceAmount` & `mostRecentRentalListPriceDate`
+- `mostRecentSoldPriceAmount` & `mostRecentSoldPriceDate`
+
+## Deprecation Timeline
+
+The legacy fields `isSale`, `isSold`, and `mostRecentPriceAmount` will be fully deprecated by January 31st, 2026.
+
+## Portal Changes
+
+- **Visual Renew Date** — Now shows your exact date of plan renewal
+- **County Autocomplete** — Added autocomplete functionality to property data filter

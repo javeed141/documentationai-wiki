@@ -1591,7 +1591,6 @@
               {
                 "group": "2026",
                 "icon": "calendar",
-                "expandable": true,
                 "pages": [
                   {
                     "title": "February 2026",
@@ -1638,6 +1637,15 @@
                   {
                     "title": "February 2025",
                     "path": "v3/changelog/february-2025"
+                  }
+                ]
+              },
+              {
+                "group": "hello",
+                "pages": [
+                  {
+                    "title": "this",
+                    "path": "this"
                   }
                 ]
               }
