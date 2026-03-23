@@ -1586,32 +1586,60 @@
           },
           {
             "tab": "Changelog",
-            "pages": [
+            "icon": "clock",
+            "groups": [
               {
                 "group": "2026",
+                "icon": "calendar",
+                "expandable": true,
                 "pages": [
                   {
-                    "title": "January",
-                    "path": "january"
+                    "title": "February 2026",
+                    "path": "v3/changelog/february-2026"
                   },
                   {
-                    "title": "February",
-                    "path": "february"
-                  },
-                  {
-                    "title": "March",
-                    "path": "march"
-                  },
-                  {
-                    "title": "April",
-                    "path": "april"
+                    "title": "January 2026",
+                    "path": "v3/changelog/january-2026"
                   }
-                ],
-                "icon": "activity-square"
+                ]
               },
               {
-                "title": "Changelog",
-                "path": "v3/changelog/index"
+                "group": "2025",
+                "icon": "calendar",
+                "pages": [
+                  {
+                    "title": "November 2025",
+                    "path": "v3/changelog/november-2025"
+                  },
+                  {
+                    "title": "October 2025",
+                    "path": "v3/changelog/october-2025"
+                  },
+                  {
+                    "title": "September 2025",
+                    "path": "v3/changelog/september-2025"
+                  },
+                  {
+                    "title": "August 2025",
+                    "path": "v3/changelog/august-2025"
+                  },
+                  {
+                    "title": "July 2025",
+                    "path": "v3/changelog/july-2025"
+                  },
+                  {
+                    "title": "June 2025",
+                    "path": "v3/changelog/june-2025"
+                  },
+                  {
+                    "title": "March 2025",
+                    "path": "v3/changelog/march-2025"
+                  },
+                  {
+                    "title": "February 2025",
+                    "path": "v3/changelog/february-2025"
+                  }
+                ]
               }
             ]
           }
