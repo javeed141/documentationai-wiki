@@ -1173,15 +1173,18 @@
             ]
           },
           {
-            "tab": "Changelog-v4",
+            "tab": "Changelog",
             "icon": "clock",
-            "pages": [
-              {
-                "title": "Changelog",
-                "path": "changelog/index"
-              }
-            ],
             "groups": [
+              {
+                "group": "Changelog",
+                "pages": [
+                  {
+                    "title": "Changelog",
+                    "path": "changelog/index"
+                  }
+                ]
+              },
               {
                 "group": "2026",
                 "icon": "calendar",
