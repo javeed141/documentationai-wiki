@@ -1176,6 +1176,10 @@
             "tab": "Changelog",
             "pages": [
               {
+                "title": "2026",
+                "path": "2026"
+              },
+              {
                 "title": "Changelog",
                 "path": "changelog/index"
               }
@@ -1584,27 +1588,26 @@
             "tab": "Changelog",
             "pages": [
               {
-                "title": "January_2025",
-                "path": "january-2025",
-                "show-parent-label": false
-              },
-              {
-                "title": "2025",
-                "path": "2025",
-                "icon": "alarm-check-icon"
-              },
-              {
-                "title": "202602 Data Release Log",
-                "path": "202602-data-release-log",
-                "icon": "air-vent"
-              },
-              {
-                "title": "January",
-                "path": "january"
-              },
-              {
-                "title": "February",
-                "path": "february"
+                "group": "2026",
+                "pages": [
+                  {
+                    "title": "January",
+                    "path": "january"
+                  },
+                  {
+                    "title": "February",
+                    "path": "february"
+                  },
+                  {
+                    "title": "March",
+                    "path": "march"
+                  },
+                  {
+                    "title": "April",
+                    "path": "april"
+                  }
+                ],
+                "icon": "activity-square"
               },
               {
                 "title": "Changelog",
