@@ -1,3 +1,7 @@
-﻿# New View for Prices and Changes to CSV Formats
+# New View for Prices and Changes to CSV Formats
 
 We have a couple important changes to our view today.
+
+First off, we've added a new view called product_pricesFlat, which makes it easier to collect individual prices for products. It does this by only flattening pricing information in the product data set, and nothing else. You can see the new view here.
+
+We've also updated how CSV formats are displayed. When you download CSV-formatted data now, top level fields (e.g., name, brand, etc.) will be duplicated across all flattened rows for a record. For example, if you use the products_pricesFlat view, you'll see the name of the product repeated across each price row for the product. Again, this should make it easier to analyze data across any information in the flattened fields.
