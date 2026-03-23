@@ -1584,6 +1584,29 @@
             "tab": "Changelog",
             "pages": [
               {
+                "title": "January_2025",
+                "path": "january-2025",
+                "show-parent-label": false
+              },
+              {
+                "title": "2025",
+                "path": "2025",
+                "icon": "alarm-check-icon"
+              },
+              {
+                "title": "202602 Data Release Log",
+                "path": "202602-data-release-log",
+                "icon": "air-vent"
+              },
+              {
+                "title": "January",
+                "path": "january"
+              },
+              {
+                "title": "February",
+                "path": "february"
+              },
+              {
                 "title": "Changelog",
                 "path": "v3/changelog/index"
               }
