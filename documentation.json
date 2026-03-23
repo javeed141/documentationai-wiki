@@ -1593,8 +1593,8 @@
                 "icon": "calendar",
                 "pages": [
                   {
-                    "title": "March-2026",
-                    "path": "march-2026"
+                    "title": "March 2026",
+                    "path": "v3/changelog/march-2026"
                   },
                   {
                     "title": "February 2026",
@@ -1610,10 +1610,6 @@
                 "group": "2025",
                 "icon": "calendar",
                 "pages": [
-                  {
-                    "title": "January 2025",
-                    "path": "january-2025"
-                  },
                   {
                     "title": "November 2025",
                     "path": "v3/changelog/november-2025"
@@ -1649,17 +1645,246 @@
                 ]
               },
               {
-                "group": "hello",
+                "group": "2024",
+                "icon": "calendar",
                 "pages": [
                   {
-                    "title": "this",
-                    "path": "this"
+                    "title": "November 2024",
+                    "path": "v3/changelog/november-2024"
+                  },
+                  {
+                    "title": "September 2024",
+                    "path": "v3/changelog/september-2024"
+                  },
+                  {
+                    "title": "July 2024",
+                    "path": "v3/changelog/july-2024"
+                  },
+                  {
+                    "title": "April 2024",
+                    "path": "v3/changelog/april-2024"
+                  },
+                  {
+                    "title": "February 2024",
+                    "path": "v3/changelog/february-2024"
                   }
                 ]
               },
               {
-                "group": "2024",
-                "pages": []
+                "group": "2023",
+                "icon": "calendar",
+                "pages": [
+                  {
+                    "title": "December 2023",
+                    "path": "v3/changelog/december-2023"
+                  },
+                  {
+                    "title": "November 2023",
+                    "path": "v3/changelog/november-2023"
+                  },
+                  {
+                    "title": "October 2023",
+                    "path": "v3/changelog/october-2023"
+                  },
+                  {
+                    "title": "September 2023",
+                    "path": "v3/changelog/september-2023"
+                  },
+                  {
+                    "title": "August 2023",
+                    "path": "v3/changelog/august-2023"
+                  },
+                  {
+                    "title": "July 2023",
+                    "path": "v3/changelog/july-2023"
+                  },
+                  {
+                    "title": "June 2023",
+                    "path": "v3/changelog/june-2023"
+                  },
+                  {
+                    "title": "May 2023",
+                    "path": "v3/changelog/may-2023"
+                  },
+                  {
+                    "title": "April 2023",
+                    "path": "v3/changelog/april-2023"
+                  },
+                  {
+                    "title": "February 2023",
+                    "path": "v3/changelog/february-2023"
+                  },
+                  {
+                    "title": "January 2023",
+                    "path": "v3/changelog/january-2023"
+                  }
+                ]
+              },
+              {
+                "group": "2022",
+                "icon": "calendar",
+                "pages": [
+                  {
+                    "title": "December 2022",
+                    "path": "v3/changelog/december-2022"
+                  },
+                  {
+                    "title": "November 2022",
+                    "path": "v3/changelog/november-2022"
+                  },
+                  {
+                    "title": "September 2022",
+                    "path": "v3/changelog/september-2022"
+                  },
+                  {
+                    "title": "August 2022",
+                    "path": "v3/changelog/august-2022"
+                  },
+                  {
+                    "title": "July 2022",
+                    "path": "v3/changelog/july-2022"
+                  },
+                  {
+                    "title": "June 2022",
+                    "path": "v3/changelog/june-2022"
+                  }
+                ]
+              },
+              {
+                "group": "2021",
+                "icon": "calendar",
+                "pages": [
+                  {
+                    "title": "March 2021",
+                    "path": "v3/changelog/march-2021"
+                  },
+                  {
+                    "title": "February 2021",
+                    "path": "v3/changelog/february-2021"
+                  },
+                  {
+                    "title": "January 2021",
+                    "path": "v3/changelog/january-2021"
+                  }
+                ]
+              },
+              {
+                "group": "2020",
+                "icon": "calendar",
+                "pages": [
+                  {
+                    "title": "December 2020",
+                    "path": "v3/changelog/december-2020"
+                  },
+                  {
+                    "title": "November 2020",
+                    "path": "v3/changelog/november-2020"
+                  },
+                  {
+                    "title": "October 2020",
+                    "path": "v3/changelog/october-2020"
+                  },
+                  {
+                    "title": "September 2020",
+                    "path": "v3/changelog/september-2020"
+                  },
+                  {
+                    "title": "August 2020",
+                    "path": "v3/changelog/august-2020"
+                  },
+                  {
+                    "title": "July 2020",
+                    "path": "v3/changelog/july-2020"
+                  },
+                  {
+                    "title": "April 2020",
+                    "path": "v3/changelog/april-2020"
+                  },
+                  {
+                    "title": "March 2020",
+                    "path": "v3/changelog/march-2020"
+                  },
+                  {
+                    "title": "February 2020",
+                    "path": "v3/changelog/february-2020"
+                  },
+                  {
+                    "title": "January 2020",
+                    "path": "v3/changelog/january-2020"
+                  }
+                ]
+              },
+              {
+                "group": "2019",
+                "icon": "calendar",
+                "pages": [
+                  {
+                    "title": "December 2019",
+                    "path": "v3/changelog/december-2019"
+                  },
+                  {
+                    "title": "November 2019",
+                    "path": "v3/changelog/november-2019"
+                  },
+                  {
+                    "title": "October 2019",
+                    "path": "v3/changelog/october-2019"
+                  },
+                  {
+                    "title": "September 2019",
+                    "path": "v3/changelog/september-2019"
+                  },
+                  {
+                    "title": "August 2019",
+                    "path": "v3/changelog/august-2019"
+                  },
+                  {
+                    "title": "July 2019",
+                    "path": "v3/changelog/july-2019"
+                  }
+                ]
+              },
+              {
+                "group": "Legacy Announcements",
+                "icon": "archive",
+                "pages": [
+                  {
+                    "title": "V4 API Launch",
+                    "path": "v3/changelog/v4-launch"
+                  },
+                  {
+                    "title": "Expanded Query — Property Data",
+                    "path": "v3/changelog/expanded-query-property-data"
+                  },
+                  {
+                    "title": "Business Reviews View",
+                    "path": "v3/changelog/business-reviews-view"
+                  },
+                  {
+                    "title": "Preview Call Limit Increase",
+                    "path": "v3/changelog/preview-call-limit-increase"
+                  },
+                  {
+                    "title": "Expanded Query — Business Data",
+                    "path": "v3/changelog/expanded-query-business-data"
+                  },
+                  {
+                    "title": "New Price View & CSV Changes",
+                    "path": "v3/changelog/new-price-view-csv-changes"
+                  },
+                  {
+                    "title": "JSON Code Examples",
+                    "path": "v3/changelog/json-code-examples"
+                  },
+                  {
+                    "title": "Expanded Query & Delivery",
+                    "path": "v3/changelog/expanded-query-accelerated-delivery"
+                  },
+                  {
+                    "title": "Welcome to Datafiniti API",
+                    "path": "v3/changelog/welcome-to-datafiniti-api"
+                  }
+                ]
               }
             ]
           }
