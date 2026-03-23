@@ -12,26 +12,26 @@ These fields provide access to professional profile images associated with indiv
 
 `profileImageURLs` — Professional profile image URL(s) associated with a person
 
-`mostRecentProfileImageURL `— The most recently observed professional profile image URL
+`mostRecentProfileImageURL` — The most recently observed professional profile image URL
 
 Example
 
 ```json
 {
- "people": [
- {
- "firstName": "Jordan",
- "lastName": "Matthews",
- "jobTitle": "Director of Operations",
- "companyName": "Example Logistics Group",
- "linkedinURL": ",
- "profileImageURLs": [
- "https://cdn.example.com/images/jordan-2024.jpg",
- "https://cdn.example.com/images/jordan-2023.jpg"
- ],
- "mostRecentProfileImageURL": "
- }
- ]
+  "people": [
+    {
+      "firstName": "Jordan",
+      "lastName": "Matthews",
+      "jobTitle": "Director of Operations",
+      "companyName": "Example Logistics Group",
+      "linkedinURL": "https://linkedin.com/in/jordan-matthews",
+      "profileImageURLs": [
+        "https://cdn.example.com/images/jordan-2024.jpg",
+        "https://cdn.example.com/images/jordan-2023.jpg"
+      ],
+      "mostRecentProfileImageURL": "https://cdn.example.com/images/jordan-2024.jpg"
+    }
+  ]
 }
 ```
 
@@ -44,11 +44,14 @@ This enhancement is especially useful for customers building:
 
 You can review the updated schema documentation here:
 
+https://docs.datafiniti.co/docs/people-data-schema
+
 # New Developer Resource: Datafiniti Use-Cases Repository
 
 We've published a new Datafiniti Use-Cases repository designed to accelerate onboarding and provide runnable examples across all Datafiniti APIs.
 
 Repository:
+https://github.com/datafiniti/use-cases
 
 The repository includes example workflows for:
 
@@ -82,6 +85,8 @@ What this means for you
 * Ample notice will be provided before any breaking changes occur
 
 You can review the full release notes here:
+
+https://docs.datafiniti.co/changelog/202602-data-release-log
 
 # Coming This Year
 
