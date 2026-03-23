@@ -1850,35 +1850,35 @@
                 "pages": [
                   {
                     "title": "V4 API Launch",
-                    "path": "v3/changelog/v4-launch"
+                    "path": "v3/changelog/v4-is-here"
                   },
                   {
                     "title": "Expanded Query — Property Data",
-                    "path": "v3/changelog/expanded-query-property-data"
+                    "path": "v3/changelog/expanded-query-capabilities-and-accelerated-data-delivery-comes-to-property-data"
                   },
                   {
                     "title": "Business Reviews View",
-                    "path": "v3/changelog/business-reviews-view"
+                    "path": "v3/changelog/new-business-view-for-reviews"
                   },
                   {
                     "title": "Preview Call Limit Increase",
-                    "path": "v3/changelog/preview-call-limit-increase"
+                    "path": "v3/changelog/increasing-of-records-returned-by-preview-calls"
                   },
                   {
                     "title": "Expanded Query — Business Data",
-                    "path": "v3/changelog/expanded-query-business-data"
+                    "path": "v3/changelog/expanded-query-capabilities-and-accelerated-data-delivery-comes-to-business-data"
                   },
                   {
                     "title": "New Price View & CSV Changes",
-                    "path": "v3/changelog/new-price-view-csv-changes"
+                    "path": "v3/changelog/new-view-for-prices-and-changes-to-csv-formats"
                   },
                   {
                     "title": "JSON Code Examples",
-                    "path": "v3/changelog/json-code-examples"
+                    "path": "v3/changelog/new-json-code-examples-added"
                   },
                   {
                     "title": "Expanded Query & Delivery",
-                    "path": "v3/changelog/expanded-query-accelerated-delivery"
+                    "path": "v3/changelog/expanded-query-capabilities-and-accelerated-data-delivery"
                   },
                   {
                     "title": "Welcome to Datafiniti API",
