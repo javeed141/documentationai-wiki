@@ -1593,6 +1593,10 @@
                 "icon": "calendar",
                 "pages": [
                   {
+                    "title": "March-2026",
+                    "path": "march-2026"
+                  },
+                  {
                     "title": "February 2026",
                     "path": "v3/changelog/february-2026"
                   },
