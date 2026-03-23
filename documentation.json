@@ -1594,15 +1594,15 @@
                 "pages": [
                   {
                     "title": "March 2026",
-                    "path": "v3/changelog/march-2026"
+                    "path": "v3/changelog/202603-data-release-log"
                   },
                   {
                     "title": "February 2026",
-                    "path": "v3/changelog/february-2026"
+                    "path": "v3/changelog/202602-data-release-log"
                   },
                   {
                     "title": "January 2026",
-                    "path": "v3/changelog/january-2026"
+                    "path": "v3/changelog/202601-data-release-log"
                   }
                 ]
               },
@@ -1612,35 +1612,35 @@
                 "pages": [
                   {
                     "title": "November 2025",
-                    "path": "v3/changelog/november-2025"
+                    "path": "v3/changelog/202511-data-release-log"
                   },
                   {
                     "title": "October 2025",
-                    "path": "v3/changelog/october-2025"
+                    "path": "v3/changelog/202510-data-release-log"
                   },
                   {
                     "title": "September 2025",
-                    "path": "v3/changelog/september-2025"
+                    "path": "v3/changelog/202509-data-release-log"
                   },
                   {
                     "title": "August 2025",
-                    "path": "v3/changelog/august-2025"
+                    "path": "v3/changelog/202508-data-release-log"
                   },
                   {
                     "title": "July 2025",
-                    "path": "v3/changelog/july-2025"
+                    "path": "v3/changelog/202507-data-release-log"
                   },
                   {
                     "title": "June 2025",
-                    "path": "v3/changelog/june-2025"
+                    "path": "v3/changelog/202506-data-release-log"
                   },
                   {
                     "title": "March 2025",
-                    "path": "v3/changelog/march-2025"
+                    "path": "v3/changelog/202503-data-release-log"
                   },
                   {
                     "title": "February 2025",
-                    "path": "v3/changelog/february-2025"
+                    "path": "v3/changelog/202502-data-release-log"
                   }
                 ]
               },
@@ -1650,23 +1650,23 @@
                 "pages": [
                   {
                     "title": "November 2024",
-                    "path": "v3/changelog/november-2024"
+                    "path": "v3/changelog/202411-data-release-log"
                   },
                   {
                     "title": "September 2024",
-                    "path": "v3/changelog/september-2024"
+                    "path": "v3/changelog/202409-data-release-log"
                   },
                   {
                     "title": "July 2024",
-                    "path": "v3/changelog/july-2024"
+                    "path": "v3/changelog/202407-data-release-log"
                   },
                   {
                     "title": "April 2024",
-                    "path": "v3/changelog/april-2024"
+                    "path": "v3/changelog/202404-data-release-log"
                   },
                   {
                     "title": "February 2024",
-                    "path": "v3/changelog/february-2024"
+                    "path": "v3/changelog/202402-data-release-log"
                   }
                 ]
               },
@@ -1676,47 +1676,47 @@
                 "pages": [
                   {
                     "title": "December 2023",
-                    "path": "v3/changelog/december-2023"
+                    "path": "v3/changelog/202312-data-release-log"
                   },
                   {
                     "title": "November 2023",
-                    "path": "v3/changelog/november-2023"
+                    "path": "v3/changelog/202310-data-release-log-1"
                   },
                   {
                     "title": "October 2023",
-                    "path": "v3/changelog/october-2023"
+                    "path": "v3/changelog/202310-data-release-log"
                   },
                   {
                     "title": "September 2023",
-                    "path": "v3/changelog/september-2023"
+                    "path": "v3/changelog/202309-data-release-log"
                   },
                   {
                     "title": "August 2023",
-                    "path": "v3/changelog/august-2023"
+                    "path": "v3/changelog/202308-data-release-log"
                   },
                   {
                     "title": "July 2023",
-                    "path": "v3/changelog/july-2023"
+                    "path": "v3/changelog/202307-data-release-log"
                   },
                   {
                     "title": "June 2023",
-                    "path": "v3/changelog/june-2023"
+                    "path": "v3/changelog/202306-data-release-log"
                   },
                   {
                     "title": "May 2023",
-                    "path": "v3/changelog/may-2023"
+                    "path": "v3/changelog/202305-data-release-log"
                   },
                   {
                     "title": "April 2023",
-                    "path": "v3/changelog/april-2023"
+                    "path": "v3/changelog/202304-data-release-log"
                   },
                   {
                     "title": "February 2023",
-                    "path": "v3/changelog/february-2023"
+                    "path": "v3/changelog/202302-data-release-log"
                   },
                   {
                     "title": "January 2023",
-                    "path": "v3/changelog/january-2023"
+                    "path": "v3/changelog/202212-data-release-log-1"
                   }
                 ]
               },
@@ -1726,27 +1726,27 @@
                 "pages": [
                   {
                     "title": "December 2022",
-                    "path": "v3/changelog/december-2022"
+                    "path": "v3/changelog/202212-data-release-log"
                   },
                   {
                     "title": "November 2022",
-                    "path": "v3/changelog/november-2022"
+                    "path": "v3/changelog/202210-data-release-log"
                   },
                   {
                     "title": "September 2022",
-                    "path": "v3/changelog/september-2022"
+                    "path": "v3/changelog/20229-data-release-log"
                   },
                   {
                     "title": "August 2022",
-                    "path": "v3/changelog/august-2022"
+                    "path": "v3/changelog/20228-data-release-log"
                   },
                   {
                     "title": "July 2022",
-                    "path": "v3/changelog/july-2022"
+                    "path": "v3/changelog/20227-data-release-log"
                   },
                   {
                     "title": "June 2022",
-                    "path": "v3/changelog/june-2022"
+                    "path": "v3/changelog/20226-data-release-log"
                   }
                 ]
               },
@@ -1756,15 +1756,15 @@
                 "pages": [
                   {
                     "title": "March 2021",
-                    "path": "v3/changelog/march-2021"
+                    "path": "v3/changelog/20213-data-release-log"
                   },
                   {
                     "title": "February 2021",
-                    "path": "v3/changelog/february-2021"
+                    "path": "v3/changelog/20212-data-release-log"
                   },
                   {
                     "title": "January 2021",
-                    "path": "v3/changelog/january-2021"
+                    "path": "v3/changelog/20211-data-release-log"
                   }
                 ]
               },
@@ -1774,43 +1774,43 @@
                 "pages": [
                   {
                     "title": "December 2020",
-                    "path": "v3/changelog/december-2020"
+                    "path": "v3/changelog/202012-data-release-log"
                   },
                   {
                     "title": "November 2020",
-                    "path": "v3/changelog/november-2020"
+                    "path": "v3/changelog/202011-data-release-log"
                   },
                   {
                     "title": "October 2020",
-                    "path": "v3/changelog/october-2020"
+                    "path": "v3/changelog/202010-data-release-log"
                   },
                   {
                     "title": "September 2020",
-                    "path": "v3/changelog/september-2020"
+                    "path": "v3/changelog/20209-data-release-log"
                   },
                   {
                     "title": "August 2020",
-                    "path": "v3/changelog/august-2020"
+                    "path": "v3/changelog/20208-data-release-log"
                   },
                   {
                     "title": "July 2020",
-                    "path": "v3/changelog/july-2020"
+                    "path": "v3/changelog/20207-data-release-log"
                   },
                   {
                     "title": "April 2020",
-                    "path": "v3/changelog/april-2020"
+                    "path": "v3/changelog/20204-data-release-log"
                   },
                   {
                     "title": "March 2020",
-                    "path": "v3/changelog/march-2020"
+                    "path": "v3/changelog/20203-data-release-log"
                   },
                   {
                     "title": "February 2020",
-                    "path": "v3/changelog/february-2020"
+                    "path": "v3/changelog/20202-data-release-log"
                   },
                   {
                     "title": "January 2020",
-                    "path": "v3/changelog/january-2020"
+                    "path": "v3/changelog/20201-data-release-log"
                   }
                 ]
               },
@@ -1820,27 +1820,27 @@
                 "pages": [
                   {
                     "title": "December 2019",
-                    "path": "v3/changelog/december-2019"
+                    "path": "v3/changelog/201912-data-release-log"
                   },
                   {
                     "title": "November 2019",
-                    "path": "v3/changelog/november-2019"
+                    "path": "v3/changelog/201911-data-release-log"
                   },
                   {
                     "title": "October 2019",
-                    "path": "v3/changelog/october-2019"
+                    "path": "v3/changelog/201910-data-release-log"
                   },
                   {
                     "title": "September 2019",
-                    "path": "v3/changelog/september-2019"
+                    "path": "v3/changelog/20199-data-release-log"
                   },
                   {
                     "title": "August 2019",
-                    "path": "v3/changelog/august-2019"
+                    "path": "v3/changelog/20198-data-release-log"
                   },
                   {
                     "title": "July 2019",
-                    "path": "v3/changelog/july-2019"
+                    "path": "v3/changelog/20197-data-release-log"
                   }
                 ]
               },
