@@ -1611,6 +1611,10 @@
                 "icon": "calendar",
                 "pages": [
                   {
+                    "title": "January 2025",
+                    "path": "january-2025"
+                  },
+                  {
                     "title": "November 2025",
                     "path": "v3/changelog/november-2025"
                   },
@@ -1652,6 +1656,10 @@
                     "path": "this"
                   }
                 ]
+              },
+              {
+                "group": "2024",
+                "pages": []
               }
             ]
           }
