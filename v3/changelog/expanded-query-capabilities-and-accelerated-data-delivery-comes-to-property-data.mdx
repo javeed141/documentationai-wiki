@@ -1,3 +1,69 @@
-﻿# Expanded Query Capabilities and Accelerated Data Delivery Comes to Property Data
+# Expanded Query Capabilities and Accelerated Data Delivery Comes to Property Data
 
 Over the last year, we have been migrating our databases to a new data warehouse that delivers significant improvements in terms of performance and data quality. We are extremely excited to announce that we have finally finished the migration today with the launch of our new Property Data.
+
+You can read our full announcement here.
+
+Our documentation has been updated to provide Datafiniti users with a thorough understanding of how to work with the new Property Data. Here are some helpful links:
+
+* [Getting Started with Property Data](https://developer.datafiniti.co/docs/getting-started-with-property-data)
+* [API Documentation](https://developer.datafiniti.co/reference)
+* [Property Data Schema](https://developer.datafiniti.co/docs/property-data-schema)
+
+## Changes that will break existing integrations
+
+* You must now specify a `format` with your API call. `format` can be set to `JSON` or `CSV`. If you don't supply a format, the API response will default to `JSON`.
+* Some field names have changed in order to abide by a consistent naming convention. See the last note under Data Quality below. You can view the updated property schema [here](https://developer.datafiniti.co/docs/property-data-schema).
+* The presentation and ordering of data in API responses or downloads may be different due to removal of fields or changes in field names. Some fields have been "demoted" to our `features` field.
+
+## Expanded Query Capabilities
+
+**All fields are searchable**
+
+* Users can now query all fields. Previously, certain fields could not be queried.
+
+**Query on nested fields**
+
+* You can now query on fields within multi-valued fields, except for the `reviews.text` nested field. E.g., `q=reviews.rating:5` will return all properties with at least one review that has a 5-star rating.
+
+**Easier querying on sourceURLs**
+
+* Previously, querying on the `sourceURLs` field required running a time-intensive wildcard search or knowing the exact http format of the sourceURL. Now, users can just do a query like `q=sourceURLs:amazon` or `q=sourceURLs:shop.lego`, and all relevant properties will return.
+
+**Use comparison operators**
+
+* You can now do a query like `q=reviews.rating:>1` to return all properties with a review greater than 1. `>`, `>=`, `<`, and `<=` are supported. These should only be used on fields that only contain numeric values.
+
+## Better Performance
+
+* Inserting raw web crawl data into the database now happens 50x faster than before.
+* Downloading full data sets can typically be done in minutes. For context, our entire property database can now be downloaded in less than 3 hours.
+* Overall improvement in stability and reliability of our back-end.
+
+## Data Quality
+
+**Implemented new merging algorithm to reduce duplicate data**
+
+* We have implemented a more consistent approach to merging, that should lead to less duplicates and over merged records (e.g., one record for an entire mall).
+
+**More rigorous validation and normalization before database insertion**
+
+* Raw data from web crawls will now pass through a comprehensive suite of validation checks before being accepted into the database.
+* Validation checks will also normalize values where needed to produce more standardized values.
+
+**Cleanup of existing data**
+
+* While migrating data from our old database into ElasticSearch, we applied our validation checks and normalization methods to cleanup historical data. As a result, data is completely standardized throughout the database.
+* Included in this cleanup is a full standardization of date strings that appear in the data.
+
+**Support for foreign characters**
+
+* Foreign characters will no longer be encoded.
+
+**Record counts are consistent**
+
+* Previously, quick successive API calls could result in dramatically different `estimated_total` values, which was confusing. Our new backend shows the same `estimated_total` value each time for the same API call (barring any additions to the database).
+
+**Standardized naming convention for all fields**
+
+* All fields are now pascal-cased. E.g., `dateSeen`, `managedBy`. All multi-valued fields now use a plural word. E.g., `reviews`, `features`.
