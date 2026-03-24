@@ -9,6 +9,9 @@
       "mcp__claude_ai_documentationAI__search_documentation",
       "WebFetch(domain:docs.documentationai.com)",
       "WebFetch(domain:documentation.ai)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\g\\Music\\daffiniti-javeed-practice\\documentationai-wiki\\changelog"
     ]
   },
   "mcpServers": {
