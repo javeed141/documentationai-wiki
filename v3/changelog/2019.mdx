@@ -1,0 +1,248 @@
+---
+title: "2019 Data Release Log"
+description: "Monthly data release notes and changelog for Datafiniti in 2019"
+---
+
+<Update label="December 2019" description="Holiday Season Updates" tags={["Bug Fix"]}>
+### Record Counts
+
+The following are the updated record counts for each vertical:
+
+- Business data increased by 2 million to 91.3 million
+
+- People data stayed at 10.7 million
+
+- Product data increased by 9 million to 182.2 million
+
+- Property data increased by 14.1 million to 60.7 million
+
+### New Sources
+
+The following data types have received new sources:
+
+- 4 Business data sources
+
+### Fixes
+
+- Removed data from <a href="http://rightmove.co.uk" target="_blank" rel="noopener noreferrer">rightmove.co.uk</a>  due to issue with data gathering app
+
+- Changed all "Not For Sale" to "Off Market" and added "Pending" status for Property data
+
+- Updated 3 Business data source, 1 Property data sources, and 2 Product data sources
+</Update>
+
+<Update label="November 2019" description="Merging Logic Overhaul" tags={["Schema Update"]}>
+### Record Counts
+
+The following are the updated record counts for each vertical:
+
+- Business data decreased by 1.9 million to 89.3 million
+
+- People data stayed at 10.7 million
+
+- Product data increased by 12.3 million to 173.2 million
+
+- Property data increased by 9.8 million to 36.9 million
+
+### New Sources
+
+The following data types have received new sources:
+
+- 2 Business data sources
+
+- 1 Property data source
+
+### Schema Changes
+
+- Our merging logic has been overhauled to include weighting on fields to merge with. This change will allow certain fields to override others if they are present in the data. This will reduce unnecessary or invalid merging between sources.
+
+- Our transition from `crawlResultFiles` to `crawlIDs` is now complete
+
+- `geoLocation` has completed implementation across our data for Business and Property data
+
+- `dateSeen` to a single value for many nested JSON object fields has completed
+
+- The new UPC and EAN fields along with the container field called `gtins` has completed
+
+### Fixes
+
+- Categories and features were  being populated with bad seller ranking data, removal has completed
+
+- Records containing ASIN data have been fixed to use lowercase values for their keys
+
+- Updated 4 Property data sources, 2 Product data sources, and 1 Business data source
+</Update>
+
+<Update label="October 2019" description="Database Overhaul Begins" tags={["Schema Update"]}>
+### Record Counts
+
+The following are the updated record counts for each vertical:
+
+- Business data decreased by 1.1 million to 91.2 million
+
+- People data increased by 1.2 million to 10.7 million
+
+- Product data increased by 20 million to 160.9 million
+
+- Property data increased by 2.1 million to 36.9 million
+
+### New Sources
+
+The following data types have received new sources:
+
+- 4 Business data sources
+
+### Schema Changes
+
+- `naics` data has been added to the People data
+
+- `mostRecentStatus` processing has changed to be source dependent, in other words we'll be relying on the individual domains to provide the most recent status instead of us deriving it.
+
+- All global product identifiers, which we store in the `gtins` field, will calculate the check digit to verify they are accurate values
+
+- We're still continuing our transition from `crawlResultFiles` to `crawlIDs`, Product data is the remaining data source being transitioned.
+
+- `geoLocation` continues to be implemented across our database for Business and Property data
+
+- `dateSeen` to a single value for many nested JSON object fields continues to be transitioned for all data types.
+
+- The new UPC and EAN fields along with the container field called `gtins` continues to be implemented for all Product data.
+
+### Fixes
+
+- Categories and features  were being populated with bad seller ranking data, removal is still in-progress.
+
+- Address values have begun being normalized into USPS provided values. These values will be uploaded here in the coming days to assist with searching.
+
+- `mostRecentStatusDate` is collected from individual sources instead of derived from the timestamp the data was gathered.
+
+- Updated 6 Property data sources, 2 Product data sources, and 1 Business data source
+</Update>
+
+<Update label="September 2019" description="Property Status Date Fields" tags={["Schema Update"]}>
+### Record Counts
+
+The following are the updated record counts for each vertical:
+
+- Business data increased by 2.2 million to 92.3 million
+
+- People data remains at 9.5 million
+
+- Product data increased by 11.6 million to 140.9 million
+
+- Property data increased by 2.6 million to 34.8 million
+
+### New Sources
+
+The following data types have received new sources:
+
+- 2 Business data sources
+
+- 1 Product data source
+
+- 1 Property data source
+
+### Schema Changes
+
+- Property data receives a new field `mostRecentStatusDate` and the accompanying nested field value `statuses.date` which describes the date a status took place.
+
+- `imageURLs` will only contain the most recent set of links from a particular domain versus continuing to compile new links as they are gathered.
+
+- We're still continuing our transition from `crawlResultFiles` to `crawlIDs`, Product data is the remaining data source being transitioned.
+
+- `geoLocation` continues to be implemented across our database for Business and Property data
+
+- `dateSeen` to a single value for many nested JSON object fields continues to be transitioned for all data types.
+
+- The new UPC and EAN fields along  with the container field called `gtins` continues to be implemented for all Product data.
+
+### Fixes
+
+- Categories and features were being populated with bad seller ranking data, removal is still in-progress.
+
+- Address values have begun being normalized into USPS provided values. These values will be uploaded here in the coming days to assist with searching.
+
+- Updated 5 Business data source, 3 Property data sources, and 1 Product data sources
+</Update>
+
+<Update label="August 2019" description="Schema Revisions & New Fields" tags={["Schema Update"]}>
+### Record Counts
+
+The following are the updated record counts for each vertical:
+
+- Business data increased by 3.1 million to 90.1 million
+
+- People data increased by 0.1 million to 9.5 million
+
+- Product data increased by 5.2 million to 129.3 million
+
+- Property data increased by 7.2 million to 32.2 million
+
+### New Sources
+
+The following data types have received new sources:
+
+- 3 Business data sources
+
+- 1 Product data source
+
+### Schema Changes
+
+- We're still continuing our transition from `crawlResultFiles` to `crawlIDs`.
+
+- The Product data received several new fields relating to upc's and ean's. `upca`, `upce`, `ean13`, `ean8`, and `gtins` were all created in an effort to assist with searching for particular products. The original fields of `upc` and `ean` will continue to be supported until they can be properly deprecated.
+
+- `dateSeen` for several nested JSON object fields will be set to a single value depicting the latest date that object was seen by  our crawlers. In the future the name of this field will be changed to `dateUpdated`
+
+- Business and Property data contain a new field called `geoLocation` which combines `latitude` and `longitude` into a single value. This will be used in the future for queries involving relative distances.
+
+### Fixes
+
+- Categories and features were being populated with bad seller ranking data, removal is currently in-progress.
+
+- The name field in our Product data would occasionally include "Details about" which is not part of the product.
+
+- Updated 1 Business data source, 4 Property data sources, and 2 Product data sources
+</Update>
+
+<Update label="July 2019" description="Initial Release Log" tags={["Announcement"]}>
+This is the initial release log with the goal of  tracking changes to the data. This will include record count updates, new sources added, any changes to our schemas, and finally any issues or fixes addressed.
+
+### Record Counts
+
+The following are the updated record counts for each vertical (in millions):
+
+- Business data increased by 3.5 million to 87 million
+
+- People data increased by 1.1 million to 9.4 million
+
+- Product data increased by 1.1 million to 124.1 million
+
+- Property data increased by 1.2 million to 25 million
+
+### New Sources
+
+The following data types have received new sources:
+
+- 2 Business data sources
+
+- 1 Property data source
+
+- 2 Product data sources
+
+### Schema Changes
+
+- Our People data received a new field, `linkedinURL`, which contains a single value of a LinkedIn url for a given person. `primaryImageURLs` has been added to our Product data. This will track the single main image for a list of various domains.
+
+- We're still continuing our transition from `crawlResultFiles` to `crawlIDs`.
+
+### Fixes
+
+- Our property data was being erroneously updated during any data modifications or observations. This has been changed and going forward records will only receive an update to `dateUpdated` when new source data is received.
+
+- There were URLs containing spam adds, notably containing "doubleclick" in the URL and they have been removed.
+
+- Another URL issue involved API re-directs in which "citymediagrid" was being used as the URL in place of the actual URL where the data was held. Those re-directs have been removed and when possible replaced with the actual URL containing the data.
+
+- Updated 2 Property data sources, 2 Product data sources, and 1 Business data source
+</Update>

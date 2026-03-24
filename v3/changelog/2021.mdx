@@ -1,0 +1,71 @@
+---
+title: "2021 Data Release Log"
+description: "Monthly data release notes and changelog for Datafiniti in 2021"
+---
+
+<Update label="March 2021" description="Property Data Focus" tags={["Schema Update"]}>
+### Record Counts
+
+The following are the updated record counts for each vertical:
+
+  * Business data decreased by 0.4 million to 117.8 million
+  * People data has remained at 3 million
+  * Product data increased by 4.2 million to 269.7 million
+  * Property data increased by 0.7 million to 117.7 million
+
+### New Sources
+
+The following data types have received new sources:
+
+  * 1 Property data source
+
+### Schema Changes
+
+  * Property data now has `yearBuilt` as a top level field, with the data being extracted from `features`
+
+### Fixes
+
+  * Prices data merging of merchants as been improved
+  * Updated 2 Product data sources and 4 Property data sources
+</Update>
+
+<Update label="February 2021" description="Property Data Source Removal" tags={["Data Source"]}>
+### Record Counts
+
+The following are the updated record counts for each vertical:
+
+* Business data decreased by 1.2 million to 118.2 million
+* People data stayed the same at 3 million
+* Product data increased by 2.7 million to 265.5 million
+* Property data decreased by 49.7 million to 117 million
+
+### Fixes
+
+* Updated 2 Business data sources, 2 Product data sources, and 3 Property data sources
+</Update>
+
+<Update label="January 2021" description="Property Performance Improvements" tags={["Bug Fix"]}>
+### Record Counts
+
+The following are the updated record counts for each vertical:
+
+* Business data increased by 0.6 million to 119.4 million
+* People data increase by 0.5 to 3 million
+* Product data increased by 5.3 million to 262.8 million
+* Property data decreased by 6.7 million to 166.7 million
+
+### New Sources
+
+The following data types have received new sources:
+
+* 6 Product data sources
+
+### Schema Changes
+
+* Removed the following fields from the property data schema due to outdated data or no longer carried value for our customers: `nearbySchools`, `hours`, `availableDates`, and `unavailableDates`
+
+### Fixes
+
+* Removed data from miscellaneous features field to improve property cluster performance
+* Updated 1 Business data source, 1 Product data source, and 1 Property data source
+</Update>

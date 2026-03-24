@@ -1,0 +1,185 @@
+---
+title: "2024 Data Release Log"
+description: "Monthly data release notes and changelog for Datafiniti in 2024"
+---
+
+<Update label="November 2024" description="Autotrace Launch" tags={["New Feature"]}>
+### Autotrace — New Property & People Data Feature
+
+As mentioned in our feature release email, you can now seamlessly combine People Data and Property Data in a single API call, making your property searches more robust and efficient than ever. This feature is an enhancement to the standard property search endpoint, introducing a new auto\_trace parameter along with a specialized view for property records. You can learn more about it [here](https://docs.datafiniti.co/docs/autotrace).
+
+### Newly Added County Assessor Data
+
+We have added sources to import county assessor data into our property data records for the following counties:
+
+- Florida - Lee County
+
+- Georgia - Dekalb County
+
+- New Jersey - Hudson County
+
+- New Jersey - Bergen County
+
+- New Jeresy - Middlesex County
+
+### Improve APN / Parcel Number Data
+
+We have updated how we import APN/Parcel numbers into our property database. Users will no longer need to check for either terminology, as they can now query our parcelNumbers field with greater accuracy, including a new year subfield to filter by date.
+
+### New People Data Portal Design
+
+We have updated our people data portal design to match the format inline with our property data page. This will allow for auto search names, easy to use filters, and one click common searches. Please try it out:[https://portal.datafiniti.co/people-data](https://portal.datafiniti.co/people-data)
+
+### Record Count
+
+- Property: 277,214,579 unique records
+
+- People: 135,007,520 unique records
+
+- Products: 553,165,600 unique records
+
+- Business: 135,007,520 unique records
+</Update>
+
+<Update label="September 2024" description="Realtor License Types" tags={["New Feature"]}>
+### Newly Added Realtor License Type
+
+We have added the ability to query on and identify realtor information based on their state's realty license. This will allow you the ability to find all listings related to a license number or type. We have added the following Realtor License Types:
+
+* Delaware (DERED - Delaware Real Estate Division)
+* Illinois (IDFPR - Illinois Department of Financial & Professional Regulation)
+* Vermont (VTREC - Vermont Real Estate Commission)
+* Wyoming (WYREC - Wyoming Real Estate Commission)
+* Virginia (VADPOR - Virginia Department of Professional and Occupational Regulation)
+* New Jersey (NJDOBI - New Jersey Department of Banking and Insurance)
+* Hawaii (HDCCA - Hawaii Department of Commerce and Consumer Affairs)
+* Oregon (OREA - Oregon Real Estate Agency)
+* Maryland (MDMREC - Maryland Real Estate Commission)
+* Wisconsin (WIDSPS - Wisconsin Department of Safety and Professional Services)
+
+### Portal Improvements & Fixes
+
+We have added a new keyword search functionality to the filter list in the property data page. You can search via feature key, feature value, or descriptions. You can check it out [here](https://docs.datafiniti.co/docs/property-data-schema).
+
+We have also made updates to how your download all button works. Now downloading one file at a time in sequential order. This will no longer clutter your browsing experience while downloading your data.
+
+### Record Count
+
+* Property: 257,347,832 unique records with 14,854,774 newly added
+* Business: 134,137,718 unique records with 372,089 added
+* People: 43,524,857 unique records with 9,203,549 added
+* Products: 541,867,121 unique records with 9,055,993 newly added
+</Update>
+
+<Update label="July 2024" description="New Property Sources & Rental Price Field" tags={["New Feature", "Schema Update"]}>
+### Newly Added Our Largest Property Data Sources
+
+We are thrilled to announce multiple brand-new property data sources. Resulting in over 1 million new properties and even greater coverage. Our goal is to help you with greater coverage of daily market trends, changes, and analytical data. Check out our changelog for more detail on these sources.
+
+### Newly Added Realtor License Type
+
+We have added the ability to query on and identify realtor information based on their state's realty license. This will allow you the ability to find all listing related to a license number or type. We have added the following Realtor License Types:
+
+* Connecticut (CTREC - Connecticut Real Estate Commission)
+* Florida (FREC - Florida Real Estate Commission)
+* Kentucky (KREAB - Kentucky Real Estate Appraisers Board)
+* Louisiana (LREC - Louisiana Real Estate Commission)
+* Utah (UTRED - Utah Real Estate Division)
+* Oklahoma (OREC - Oklahoma Real Estate Commission)
+* New York (NYDOS - New York Department of State)
+* Arkansas (AREC - Arkansas Real Estate Commission)
+* Nevada (NVRED - Nevada Real Estate Division)
+* Kansas (KREC - Kansas Real Estate Commission)
+* Ohio (ODREPL - Ohio Division of Real Estate and Professional Licensing)
+* West Virginia (WVREC - West Virginia Real Estate Commission)
+* Maine (MEREC - Maine Real Estate Commission)
+
+### New Datafiniti Sign Up Page
+
+We have streamlined the sign-up process to help create a smooth experience. Further allowing you to create and select your free, monthly, or annual plan from the sign up page.
+[https://portal.datafiniti.co/sign-up](https://portal.datafiniti.co/sign-up)
+
+### New Property Data Top Level Fields - mostRecentRentalPriceAmount
+
+We have added the mostRecentRentalPriceAmount field. This will now separate out all most recent rental prices from all other status prices. This provides you an easy to access data point to identify the most recent rental price for your property data. Streamlining the process of parsing through the prices field for rental prices. You can view our schema page to learn more.
+
+#### Bug Fixes
+
+We've addressed an issue to improve the overall functionality of our platform.We added more resources to deal with a larger daily volume of rental data. This will provide more consistent and reliable data imports for rental properties going forward.
+
+### Record Count
+
+* Business: 133,765,629 unique records with 1,107,778 added
+* People: 34,321,308 unique records with 7,347,065 added
+* Products: 532,811,128 unique records with 13,839,602 newly added
+* Property: 242,493,058 unique records with 20,978,692 newly added
+</Update>
+
+<Update label="April 2024" description="New County Assessor Data" tags={["Data Source", "Bug Fix"]}>
+### Record Count
+
+Business: 133,765,629 unique records with 1,107,778 added
+People: 34,321,308 unique records with 7,347,065 added
+Products: 532,811,128 unique records with 13,839,602 newly added
+Property: 242,493,058 unique records with 20,978,692 newly added
+
+### New Property Data Counties Added:
+
+We have added the following county assessor's data to our property database. This will provide you with home owner info, tax information, and building / propertyType codes. All to improve any analytics you need for these given counties.
+
+* Clark County, Nevada
+* Cook County, Illinois
+* Savills County, California
+* Philadelphia County, Pennsylvania
+
+#### Bug Fixes:
+
+We've addressed an issue to improve the overall functionality of our platform. The following bug fix has been implemented
+
+* Residential Delisted Showing as For Sale - We have found & corrected an issue from our data source for a small edge case of delisted statuses importing as "For Sale". All records have been updated to the correct status as of March 12th.
+</Update>
+
+<Update label="February 2024" description="Data Quality Improvements" tags={["Bug Fix"]}>
+### Record Count
+
+Business: 133,229,483 unique records with 571,632 added
+People: 30,307,442 unique records with 13,333,199 added
+Products: 526,871,486 unique records with 7,899,960 newly added
+Property: 232,050,220 unique records with 10,535,854 newly added
+
+### Property Data
+
+**Data Quality Improvements:**
+We understand the importance of accurate and reliable data. To ensure a better user experience, we've implemented several data quality fixes, including:
+
+* **Address Over-merging:** We have addressed the issue of over-merging brokers and people associated with specific building/rental unit addresses, providing you with more precise and relevant data.
+* **Standardized "Street" Address Prefixes:** We have standardized "Street" address prefixes across the board, ensuring consistency and clarity in all addresses.
+* **Most Recent Brokers Email and Phones:** You can now trust that the most recent data for brokers' email addresses and phone numbers is accurately reflected in our system.
+
+**Bug Fixes:**
+We've tackled some pesky bugs to improve the overall functionality of our platform. The following bug fixes have been implemented:
+
+* **Commercial Property Merging:** We've resolved the issue of commercial properties merging with unrelated property records, ensuring that your data is organized and accurate.
+* **Normalize City Name:** Say goodbye to inconsistencies! We have normalized the city name from "Saint Louis" to "St. Louis," providing a standardized and accurate representation of city data.
+
+### Property Source Updates
+
+* Updated Redfin
+* Updated Kobo
+* Updated Crexi
+* Updated Zumper
+* Updated Jefferson County tax records
+* Updated Cityfeet
+* Updated ForRent
+* Updated Loopnet
+* Updated Weichert
+* Updated Showcase
+* Updated Rightmove.co.uk
+
+### Product Source Updates
+
+* Updated Bloomingdales
+* Updated Target.com
+* Updated Saksoff5thh
+* Updated Wayfair
+</Update>

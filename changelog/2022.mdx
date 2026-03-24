@@ -1,0 +1,180 @@
+---
+title: "2022 Data Release Log"
+description: "Monthly data release notes and changelog for Datafiniti in 2022"
+---
+
+<Update label="December 2022" description="Commercial Property Sources & Brand Normalization" tags={["New Feature", "Data Source"]}>
+### Record Counts
+
+* Business - 126,753,330
+* People - 2,996,031
+* Product - 489,640,662
+* Property - 171,205,068
+
+### Property Source Updates
+
+Added CBRE.ca and CBRE.com as sources. Focused on commercial properties. Over 20000 new records added.
+
+### Business Source Updates
+
+allmenus.com added a new business source focused on delivery and fast service restaurants.
+Added Amazon.co.uk and Amazon.ca
+
+### Product Data Updates
+
+*New top-level product field added - canonicalBrand; This field is the normalized brand names from the scraped source data.* brand - now changed to be the scraped text of the product brand name.
+
+### Datafiniti API
+
+*Improved our enrichment API across all data types search functionality. Resulting in a 4.5 times increase in speed of starting and finishing an enrichment call.* We have added new logic to help find your product brands easier. Adjusting product brand names upon importing and validation.
+
+### Fixes
+
+* Cleaned about roughly 100,000 property records that were not normalized correctly. This was cause duplicate/confusion in searches for property data.
+* Fixed logic on crawler for zoopla.co.uk. Issue found in html where we were failing to scrape data from the site.
+</Update>
+
+<Update label="November 2022" description="Realtor License Numbers & Portal Filters" tags={["New Feature", "Portal"]}>
+### Record Counts
+
+* Business - 126,081,156
+* People - 2,996,031
+* Product - 478,594,613
+* Property - 171,205,068
+
+### Property Source Updates
+
+Updated redfin.com and compass.com on crawl pattern to increase coverage of broker's data.
+
+### Product Source Updates
+
+allmenus.com added a new business source focused on delivery and fast service restaurants.
+Added Amazon.co.uk and Amazon.ca
+
+### Datafiniti Portal Updates
+Country & Province Dropdown Filters We have added a new province dropdown based on the country selected in the Datafiniti Portal Filter Builder.
+
+### Datafiniti API
+
+LicenseNumber has been added the capability to obtain a realtor/property agent's license number. (when obtainable from the source).
+
+After launching our data enrichment API endpoint, we want to hear back from all of you. This will allow you to take your ideas and consolidate to help improve your ability to enrich your data. If you'd like send you ideas, you can email our team  or reply to this email
+
+### Fixes
+
+* Fixed minor bug with views not showing for bronze users.
+* We have identified and patched an issue with property records street not being abbreviated. This was identified Oct 18th and patched Oct 21st. As part of this patch we have optimized logic use to normalize and merge based on existing records being found from our data scraper.
+</Update>
+
+<Update label="September 2022" description="Portal Views & Data Enrichment Beta" tags={["New Feature", "Portal"]}>
+### Record Counts
+
+- Business - 125,673,191
+
+- People - 2,996,031
+
+- Product - 470,801,904
+
+- Property - 168,801,686
+
+### Property Source Updates
+
+Updated Zoopla.co & Rightmove.co.uk on crawl pattern to increase coverage.
+
+### Product Source Updates
+
+Tesco.com added.
+
+
+Added (early deployment) Amazon.co.uk and Amazon.ca
+
+### Fixes
+
+- Added *mostRecentPrice* info and adjusted certain *status/propertyType* extractors for Redfin
+
+- Fixed minor bug with downloader on user portal downloads.
+</Update>
+
+<Update label="August 2022" description="Enhanced Rental Property Sources" tags={["Data Source"]}>
+### Record Counts
+
+* Business - 124,741,205
+* People - 2,996,031
+* Product - 462,906,373
+* Property - 165,429,686
+
+### Property Source Updates
+
+Existing sources were updated due to requests from Datafiniti users.
+
+* Enhanced Rental Property sources we have added over 1.3 million rental / short-term rental properties since last month with the changes made to find these properties more efficiently.
+
+### Fixes
+
+* Added Rental Detection logic to Redfin and Booking scraper.
+* Fixed Bronze account sign up bug not allowing credit card info to pass through to Datafiniti's payment system.
+</Update>
+
+<Update label="July 2022" description="UK Property Market & Bug Fixes" tags={["Data Source", "Bug Fix"]}>
+### Record Counts
+
+* Business - 124,741,205
+* People - 2,996,031
+* Product - 454,737,250
+* Property - 162,498,333
+
+### New Sources
+
+New sources were added from common requests from Datafiniti users.
+
+The following data types have received new sources:
+
+  * 2 Property data sources - focusing on the UK property market. This is to further fill out our growing demand for property data outside the US market
+  * 2 New Product sources - Focusing on books, computer, and electronics. This was added to help enrich our product data with a wider variety of price geared for comparative analysis.
+
+### Fixes
+
+* Bug fixes to Redfin and BestBuy scraper.
+* Fixed Bronze account sign up bug not allowing first time searches through the Datafiniti portal.
+* Fixed Billing information bug not being sent correcting via the API to stripe.
+</Update>
+
+<Update label="June 2022" description="mostRecent Product Fields & Broker Data" tags={["Schema Update", "New Feature"]}>
+### Record Counts
+
+  * Business - 124,570,591
+  * People - 2,996,031
+  * Product - 445,909,085
+  * Property - 160,528,783
+
+### New Sources
+
+New sources were added from common requests from Datafiniti users.
+
+The following data types have received new sources:
+
+  * 2 Property data sources - focusing on UK property market
+  * 4 New Product sources - combination of hardware and consumer goods
+
+### Schema Changes
+
+New mostRecent recent fields have been add in a request from many Datafiniti users. This was added to enhance the search API to minimize and select only the most recent data scrape via our API. In tandem with our Targeted Update, these fields can allow users to gather the most up to date data Datafiniti can provide.
+
+* Products mostRecent fields added to provide the most recent data from the latest scrape of a source.
+  * mostRecentPriceAmount
+  * mostRecentPriceAvailability
+  * mostRecentPriceByDomain
+  * mostRecentPriceColor
+  * mostRecentPriceCondition
+  * mostRecentPriceCurrency
+  * mostRecentPriceDate
+  * mostRecentPriceDomain
+  * mostRecentPriceIsSale
+  * mostRecentPriceSize
+  * mostRecentPriceSourceURL
+
+### Fixes
+
+* Updated 2 Product data sources and 4 Property data sources
+* Fixed a property bug that was importing isSale & statuses incorrectly
+</Update>

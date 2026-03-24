@@ -1,0 +1,599 @@
+---
+title: "2023 Data Release Log"
+description: "Monthly data release notes and changelog for Datafiniti in 2023"
+---
+
+<Update label="December 2023" description="DR5 Release & New Top-Level Fields" tags={["New Feature", "Schema Update"]}>
+Datafiniti project release 5 has been updated and is now live.
+
+Datafiniti unveils updates aimed at improving user interaction. New top-level property fields, such as mostRecentBroker, offer enhanced insights into recently observed brokers. The introduction of the "floorPlans" field provides a structured overview of various residential unit types, including details like bedrooms, bathrooms, floor size, and rent. We have focused on refining and structuring property data for a smoother user experience, standardizing field values for convenience. Additionally, efforts include consolidating property status values and unifying units and location terms across the database.
+
+### Record Count
+
+Business: 132,657,851 unique records with 346,894 added
+People: 16,974,243 unique records with 11,551,165 added
+Products: 518,971,526 unique records with 10,408,952 newly added
+Property: 221,514,366 unique records with 4,726,397 newly added
+
+### Property API Updates
+
+**Adding mostRecentBroker fields**
+
+Like our other most recent fields, this will be a set of top level fields for the broker that was seen most recently. These include:
+
+- mostRecentBrokerAgent
+
+- mostRecentBrokerCompany
+
+- mostRecentBrokerDateSeen
+
+- mostRecentBrokerEmails
+
+- mostRecentBrokerPhones
+
+**Added parkingTypes**
+
+We now parse the parking field and pull out the type of parking and the number of spaces. parkingTypes is an array of strings. It can contain the following values:
+
+- RV Parking
+
+- Parking Lot
+
+- Street
+
+- Attached Garage
+
+- Detached Garage
+
+- Driveway
+
+- Carport
+
+**Elevating feature fields into top-level fields**
+The following data points currently exist in the features array, but we will be moving them into their own top-level fields. The reason for these changes is that these fields have been asked for by several different leads or customers. By moving them into their own fields, we'll make it easier for customers to find and work with this data.
+
+**Pushing subdivision and other features into neighborhoods**
+The features array captures data that is the same information as neighborhoods but just uses different names. Examples include subdivision and community. There are probably others.
+
+**Adding permits and zoning data**
+Permitting data is a big deal for a lot of customers. Permits signify what can be built at a certain property. There are several variations of how this data is currently labeled in the features array, so explore it thoroughly to capture everything. Similar information is available for zoning. Note that permitting and zoning are not the same thing.
+
+**Standardizing field values**
+There are several examples of the same information being represented in multiple ways. This causes confusion and friction for customers as they try to search for or work with the data. We're going to standardize these values to make them easier to use.
+
+**Merging Rental Unit with Rental**
+Both of these values exist for statuses, even though they mean the same thing.
+
+**Merging sqft and sq ft**
+It's not clear which of these is the better option to stick with, but it's clear we don't need both!
+
+**Merging Manhattan with New York City**
+Manhattan is technically a borough within New York City. We may actually want to consider how to designate boroughs.
+
+### Property Source Updates
+
+- Updated Redfin
+
+- Updated VRBO
+
+- Updated Realestatebook
+
+- Added Landsearch
+
+- Updated Remax.com
+
+- Updated Apartments.com
+
+- Updated ForRent.com
+
+- Rebuilt 99acres
+
+- Updated Loopnet
+
+- Updated Century21
+
+- Updated Realestate.com.au
+
+- Updated Apartmentguide.com
+
+- Added ForSaleByOwner.ca
+
+### Product Source Updates
+
+- Rebuilt DicksSportingGoods.com
+
+- Updated BHPhotovideo.com
+
+- Rebuilt Homepath
+</Update>
+
+<Update label="November 2023" description="DR4 & DR5 — 31 New Property Fields" tags={["New Feature", "Schema Update"]}>
+Datafiniti project release 4 and 5 are now live.
+DR4 -
+
+* We were provided with the opportunity to receive three new data sources. These consisted of MLS data for properties, Refinancing data, and data on Commercial properties.
+* 31 new property data fields were added from this release
+
+DR5 -
+
+* Standardizing certain field values
+* Moving semi-structured data from the features field to top level structured fields of their own
+* Adding additional types to some fields
+
+### Record Counts
+
+* Business: 132,310,957 unique records with 588,581 added
+* People: 15,594,456 unique records with 10,171,378 added
+* Products: 515,039,753 unique records with 6,477,179 newly added
+* Property: 216,787,969 unique records with 8,676,545 newly added
+
+### Property Data Updates
+
+We have added 31 new property schema fields:
+
+#### More Accurate MLS Data
+
+This will include a more comprehensive MLS data feed. It contains the following new fields:
+
+* appliances: Included appliances.
+* assessedValues:
+  * improvementsAmount: Assessed value for property improvements.
+  * landAmount: Assessed value for land/lot.
+  * totalAmount: Amount the property is assessed for.
+  * year: Year of property assessment.
+* categories: List of category keywords from various sources.
+* estimatedPrices: A list of price estimates for the property.
+  * amountMax: maximum price seen
+  * amountMin: minimum price seen
+  * currency: currency used for the price
+  * dateSeen: date seen for the estimated prices.
+  * pricePerSquareFoot: The price divide by the square footage.
+* geoQuality: Quality of property's geoLocation data.
+* hvacTypes: Type/components of HVAC system.
+* price.status: The status of the property at the time of the recorded price.
+* roofing: Materials used for the property's roof.
+* subdivision: Subdivision/neighborhood information.
+
+```json
+"appliances": [
+                "Dishwasher",
+                "Refrigerator",
+                "Range - Electric",
+                "Dryer",
+                "Washer"
+              ],
+
+"assessedValues": [
+                {
+                    "year": 2023,
+                    "totalAmount": 466136,
+                    "improvementsAmount": 391136,
+                    "landAmount": 75000
+                },
+"categories": [
+                "Commercial",
+                "Neighborhood: Shopping center, Strip center"
+              ],
+"geoQuality": 5,
+"hvacTypes": [
+                "Forced Air",
+                "Central Air",
+                "Natural Gas"
+             ],
+"prices": [ "status": "Sold" ],
+"roofing": [ "Shingle", "HIP" ],
+"subdivision": "Prairie Village"
+```
+
+#### Parcel Number as a Top-Level Field
+
+You are now able to access parcel numbers as a top-level field, streamlining your property research process.
+
+* parcelNumbers: Associated parcel number.
+
+```json
+"parcelNumbers": [ {
+                    "number": "3469--2R1",
+                    "year": 2010,
+                    "account": "41437721"
+                } ]
+```
+
+#### New Commercial Data Feed:
+
+This new commercial data feed contains information on the building's construction and features. This contains information about the legal classification of the building, its use, owners, and tax information.
+
+* architecturalStyles: Property's architectural style.
+* ownerOccupied: True/false value indicating owner occupancy.
+* topographyCode: Property's topography code.
+* zoning: Property's zoning value.
+* msaCode: msaCode of the property.
+* msaName: msaName of the property.
+* cbsaCode: cbsaCode of the property.
+* cbsaName: cbsaName of the property.
+
+```json
+"architecturalStyles": [ "Ranch" ],
+"ownerOccupied": true,
+"topographyCode": 102,
+"zoning": "IM, Arlington",
+"cbsaName": "OXNARD-THOUSAND OAKS-VENTURA, CA METROPOLITAN",
+"cbsaCode": 212312,
+"msaName": "OXNARD-THOUSAND, CA METROPOLITAN",
+"cbsaCode": 256312,
+```
+
+#### Refinance data
+
+This data is about properties that have been refinanced. This contains information on the actual refinancing transaction, the buyer, the legal classification of the property, tax information, and assessed value.
+
+* taxExemptions: List of property tax exemptions.
+* title: Title text associated with the property.
+* transactions:
+ * documentNumber: Transaction document number.
+ * transactionID: Transaction ID value.
+* trustDescription: Description of trust information related to the property.
+
+```json
+"taxExemptions": [ "Homeowner" ],
+"title": "Single Family Residence, Two Story - Raeford, NC",
+"transactions": [ {
+            "saleDate": "2018-09-05T00:00:00.000Z",
+            "documentNumber": "198630",
+ "transactionID": "305434811",
+                } ],
+"trustDescription": "Not a Trust"
+```
+
+### Bug fixes
+
+* finalizer change to convert all sqft to sq ft in any unit value
+* Changing all emails to lower case
+* Removing agent names with "non" from brokers
+* Max limit to prices to allow price range functionality
+* Status cleanup - check that firstDateSeen and lastDateSeen are filled out on the statuses and check that the top level most recent value is reflective of the most recent value in the array
+* Prices cleanup - check that firstDateSeen and lastDateSeen are filled out on the prices and check that the top level most recent value is reflective of the most recent value in the array
+* Transactions create a new status object. Check that the status array has entries for each transaction.
+* Converting statuses type "Rental Unit" to "Rental"
+
+### Data Importer Updates
+
+* Updated Remax.ca
+* Added Foreclosure.com
+* Updated Movoto
+* Updated Estately (added foreclosure statuses)
+* Updated Homes.com
+* Updated Realestatebook
+* Updated Har.com
+* Rebuilt Apartmentguide.com
+* Updated Target.com
+* Updated Loopnet
+* Updated Century21
+* Updated Apartments.com
+* Changed our BrightMLS crawler to the site's new domain → Nestfully.com
+* Added Land.com
+* Updated Redfin
+* Updated Homefinder
+* Added California DRE people source (www2.dre.ca.gov)
+* Updated Realtytrac
+* Updated Realestate.com.au
+* Updated Idealista
+* Added LA County tax records (portal.assessor.lacounty.gov)
+* Updated Best Buy
+* Added Renthop.com
+</Update>
+
+<Update label="October 2023" description="Foreclosure Statuses & New Property Fields" tags={["New Feature", "Schema Update"]}>
+### Record Counts
+
+* Business: 131,722,376 unique records with 248,896 added
+* People: 5,423,078 unique records with 1,016,358 added
+* Products: 508,562,574 unique records with 3,191,188 newly added
+* Property: 208,111,424 unique records with 2,807,656 newly added
+
+### Property Data Updates
+
+We understand the importance of staying up-to-date with the ever-evolving real estate market. That's why we are pleased to announce the addition of new statuses for property listings:
+
+**Auction**: Explore comprehensive data on properties scheduled for auction. Whether you're an investor or a market observer, this information will help you navigate the auction landscape effectively.
+` "mostRecentStatus": "Auction"`
+
+**Pre-Foreclosed:** Gain an edge by accessing data on properties in pre-foreclosure status. This feature enables you to identify opportunities before they hit the market, providing a competitive advantage.
+` "mostRecentStatus": "Pre-Foreclosed"`
+
+**Foreclosed**: We've expanded our data coverage to include foreclosed properties. Now, you can access essential data on distressed assets, opening up new investment possibilities.
+` "mostRecentStatus": "Foreclosed"`
+
+We have introduced four new top-level property schema fields. These additions offer enhanced property insights and facilitate more precise searches:
+
+**congressionalDistrictHouse**: Congressional district of the property. Field type: string <br />
+**legalRange**: Legal range of the property.Field type: string
+**currentOwnerType**: Current owner type of the property. Field type:string
+**instrumentNumber**: Instrument # of the property. Field type: string
+
+```json
+{
+ "congressionalDistrictHouse": 4,
+ "legalRange":"08E",
+ "currentOwnerType": "Company",
+ "instrumentNumber": "3312-0576"
+}
+```
+
+Added new statuses to all our crawler apps and added weekly home buyer data to our daily property feed.
+
+* Updated Weichert
+* Updated Realtytrac
+* Updated Movoto
+* Updated Realtor.com
+* Updated Coldwellbanker
+* Updated Remax.ca
+* Updated GetRentToOwn
+* Updated CityRealty
+* Updated Century21
+* Updated VRBO
+* Added Foreclosure statuses to Homefinder and Realtytrac
+* Updated Cityfeet
+* Updated BHGRE
+* Added MLSListings.com
+* Updated Kijiji.ca
+* Updated Homes.com
+</Update>
+
+<Update label="September 2023" description="Property Owner Cross-Reference" tags={["New Feature", "Data Source"]}>
+### Record Counts
+
+* Business: 131,473,480 unique records with 310,388 added
+* People: 4,406,720 unique records with 1,092,775 added
+* Products: 505,371,386 unique records with 3,539,719 newly added
+* Property: 205,303,768 unique records with 7,712,570 newly added
+
+### Property Data Updates
+
+Added new property sources for brightmlshomes.com and CO county websites. As well as maintenance to several property sources to maintain our quality of data.
+
+Fixed a property data transactions field duplication bug.
+
+* Added BrightMLShomes.com
+* Added County Tax Record sites for: Denver county, Hartford county, Boulder county,
+* Updated Showcase.com
+* Updated Homefinder.com
+* Updated Loopnet.com
+* Updated Apartments.com
+* Updated Airbnb
+* Updated Homes.com
+
+### Business Data Updates
+
+Maintenance to our business sources to maintain our quality of data.
+
+* Updated Tripadvisor.com (business)
+* Updated Opentable (business)
+
+### People Data Updates
+
+New people data source, as we now cross refence people found in our transactions field and add them to our people database. This will allow you to search for people in property and vice versa.
+</Update>
+
+<Update label="August 2023" description="Broker License Types & Portal Plans" tags={["New Feature", "Schema Update"]}>
+### Record Counts
+
+* Business: 131,163,092 unique records with 251,058 newly added
+* People: 3,313,945 unique records
+* Products: 501,831,667 unique records with 2,773,301 newly added
+* Property: 197,591,198 unique records with 13,551,868 newly added
+
+### Property Data Updates
+
+* New property data sub field in brokers [Property Data Schema](https://docs.datafiniti.co/docs/property-data-schema)
+ * LicenseType - this now allows a direct link to people data through this and licenseNumber
+* Repaired Redfin status+mostRecentStatus issues, implemented new redfin targeted templates for KDS areas
+* Added license extractors to TREC crawl
+* Increased Apartments.com refresh rate
+
+
+### People Data Update
+
+* Large clean of the people database to remove duplicate and fake data records. Totaling 23412 records.
+* New people data schema fields [People Data Schema](https://docs.datafiniti.co/docs/people-data-schema)
+  * Industries
+  * Licenses
+    * type
+    * value
+
+### Other Datafiniti releases
+
+* We have updated both the design and pricing plans of the Datafiniti.co website.
+ * This will allow users to sign up with multiple data plans on the fly. making the process seamless and less involved for quick development and data retrieval.
+* Data plans now display on the Datafiniti setting page as separate cheaper tiers.
+</Update>
+
+<Update label="July 2023" description="County & CountyFIPS Fields" tags={["Schema Update", "Portal"]}>
+### Record Counts
+
+- Business: 131,163,092 unique records with 251,058 newly added
+
+- People: 3,313,945 unique records
+
+- Products: 501,831,667 unique records with 2,773,301 newly added
+
+- Property: 197,591,198 unique records with 13,551,868 newly added
+
+### Property Data Updates
+
+- 2 new property top-level fields - County & CountyFIPS
+
+- Normalized mostRecentStatusDate fields across all property apps
+
+- Updated Redfin MostRecentPriceAmount fields and split "Latest Updates" sitemap into 51 separate templates
+
+- Updated Loopnet
+
+- Updated Realestate.com.au
+
+- Updated BHGRE
+
+- Updated Showcase.com
+
+### People Data Update
+
+- Updated Tripadvisor addresses
+
+### Other Datafiniti releases
+
+- We have updated both the design and pricing plans of the Datafiniti.co website.
+
+  - This will allow users to sign up with multiple data plans on the fly. making the process seamless and less involved for quick development and data retrieval.
+</Update>
+
+<Update label="June 2023" description="TREC Broker Source & Address Normalization" tags={["Data Source", "Bug Fix"]}>
+### Record Counts
+
+- Business: 130,355,471 unique records with 1,746,081 records newly added
+
+- People: 3,450,745 unique records with 316,902 records newly added
+
+- Products: 495,840,570 unique records with 15,051,146 records newly added
+
+- Property: 181,430,779 unique records with 7,385,642 records newly added
+
+### Property Source Updates
+
+- Added TREC.com - our first People crawl
+
+- Updated Redfin.com, focused on new page types and status improvements, as well as increasing coverage speed
+
+- Updated "Unit" handling for Addresses across multiple sites:
+
+  - Remax
+
+  - Showmetherent
+
+  - Compass
+
+  - Apartments
+
+  - Redfin
+
+### Other Datafiniti releases
+
+- We have updated both the design and pricing plans of the Datafiniti.co website.
+
+- Now splitting business, people, products, and property into separate data plans.
+
+  - This is currently in development to allow users to select these options from the user portal.
+</Update>
+
+<Update label="May 2023" description="Transaction Data & New Website" tags={["New Feature", "Data Source"]}>
+### Record Counts
+
+* Business: 128,609,390 unique records with 353,270 records newly added
+* People: 3,133,843 unique records with 86,142 records newly added
+* Products: 480,789,424 unique records with 3,115,128 records newly added
+* Property: 174,045,137 unique records with 1,804,200 records newly added
+
+### Property Source Updates
+
+* Added Williamson County tax records crawl
+* Updated Redfin.com yet again
+* Updated Apartments.com
+* Updated Compass.com - delisted statuses added
+* Added Waller County tax records crawl
+* Updated Estately.com - delisted statuses added
+
+### Other Datafiniti releases
+
+* We have updated both the design and pricing plans of the Datafiniti.co website.
+* Now splitting business, people, products, and property into separate data plans.
+</Update>
+
+<Update label="April 2023" description="Commercial Real Estate & Delisted Statuses" tags={["New Feature", "Schema Update"]}>
+### Record Counts
+
+- Business: 128,609,390 unique records with 353,270 records newly added
+
+- People: 3,133,843 unique records with 86,142 records newly added
+
+- Products: 480,789,424 unique records with 3,115,128 records newly added
+
+- Property: 174,045,137 unique records with 1,804,200 records newly added
+
+### Property Source Updates
+* Updated Redfin (again……)
+* Added Crexi.com
+* Updated Loopnet.com
+* Updated Remax.ca
+* Updated Showcase.com
+* New property status types:
+  * Delisted (Withdrawn)
+  * Delisted (Withdrawn - Terminated)
+  * Delisted (Withdrawn (Conditional))
+  * Delisted (Withdrawn - Right to Re-List)
+  * Delisted (Temporarily No Showings)
+  * Delisted (Temporarily Off-Market)
+  * Delisted (Expired)
+  * Delisted (Cancelled)
+
+### New people data
+
+- New people data focused on the Commercial Real estate job markets.
+</Update>
+
+<Update label="February 2023" description="County Property Data & Enrichment Bug" tags={["New Feature", "Bug Fix"]}>
+### Record Counts
+
+* Business: 128,609,390 unique records with 353,270 records newly added
+* People: 3,133,843 unique records with 86,142 records newly added
+* Products: 480,789,424 unique records with 3,115,128 records newly added
+* Property: 174,045,137 unique records with 1,804,200 records newly added
+
+### Product Source Updates
+
+Updated BackCountry.com
+
+### Property Source Updates
+
+Harris County Property tax - New source added
+Updated Homefinder.com
+Improved refresh rates for property data on redfin. 30% faster crawl rate, ensuring you have access to the most up-to-date information available.
+
+### New people data
+
+* New people data focused on the Commercial Real estate job markets.
+
+### Fixes
+
+* Bug with property & business enrichment: We found a bug with our enrichment API that affects address input. Our team is working on a solution and we will update you once a fix is live.
+</Update>
+
+<Update label="January 2023" description="First County Crawler & People Data" tags={["New Feature", "Data Source"]}>
+### Record Counts
+
+* Business - 128,256,120
+* People - 3,047,701
+* Products - 477,674,296
+* Property - 172,240,937
+
+### Product Source Updates
+
+Repaired Chloe.com, BestBuy.com, Gap.com, Tesco.com on issues obtaining UPC / gtin
+
+### Property Source Updates
+
+Updated Compass.com to account for new broker's data
+Updated Realestate.com to account for new broker's data
+Repaired Loopnet.com - complete rebuild to obtain data that represent our property data schema
+
+### New people data
+
+* New people data focused on the US / Candian Real estate job markets.
+
+### First county property crawler
+
+* We've added Harris County property data to our property database.
+* This data will give you more insight into tax assessments, tax records, and owner information.
+
+### Fixes
+
+* We identified and patched an issue affecting property records from importing from our data crawler. This bug was identified on Dec 18th and fixed on Dec 20th.
+</Update>
