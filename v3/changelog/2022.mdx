@@ -4,6 +4,7 @@ description: "Monthly data release notes and changelog for Datafiniti in 2022"
 ---
 
 <Update label="December 2022" description="Commercial Property Sources & Brand Normalization" tags={["New Feature", "Data Source"]}>
+
 ### Record Counts
 
 * Business - 126,753,330
@@ -32,9 +33,11 @@ Added Amazon.co.uk and Amazon.ca
 
 * Cleaned about roughly 100,000 property records that were not normalized correctly. This was cause duplicate/confusion in searches for property data.
 * Fixed logic on crawler for zoopla.co.uk. Issue found in html where we were failing to scrape data from the site.
+
 </Update>
 
 <Update label="November 2022" description="Realtor License Numbers & Portal Filters" tags={["New Feature", "Portal"]}>
+
 ### Record Counts
 
 * Business - 126,081,156
@@ -64,9 +67,11 @@ After launching our data enrichment API endpoint, we want to hear back from all 
 
 * Fixed minor bug with views not showing for bronze users.
 * We have identified and patched an issue with property records street not being abbreviated. This was identified Oct 18th and patched Oct 21st. As part of this patch we have optimized logic use to normalize and merge based on existing records being found from our data scraper.
+
 </Update>
 
 <Update label="September 2022" description="Portal Views & Data Enrichment Beta" tags={["New Feature", "Portal"]}>
+
 ### Record Counts
 
 - Business - 125,673,191
@@ -93,9 +98,11 @@ Added (early deployment) Amazon.co.uk and Amazon.ca
 - Added *mostRecentPrice* info and adjusted certain *status/propertyType* extractors for Redfin
 
 - Fixed minor bug with downloader on user portal downloads.
+
 </Update>
 
 <Update label="August 2022" description="Enhanced Rental Property Sources" tags={["Data Source"]}>
+
 ### Record Counts
 
 * Business - 124,741,205
@@ -113,9 +120,11 @@ Existing sources were updated due to requests from Datafiniti users.
 
 * Added Rental Detection logic to Redfin and Booking scraper.
 * Fixed Bronze account sign up bug not allowing credit card info to pass through to Datafiniti's payment system.
+
 </Update>
 
 <Update label="July 2022" description="UK Property Market & Bug Fixes" tags={["Data Source", "Bug Fix"]}>
+
 ### Record Counts
 
 * Business - 124,741,205
@@ -137,9 +146,11 @@ The following data types have received new sources:
 * Bug fixes to Redfin and BestBuy scraper.
 * Fixed Bronze account sign up bug not allowing first time searches through the Datafiniti portal.
 * Fixed Billing information bug not being sent correcting via the API to stripe.
+
 </Update>
 
 <Update label="June 2022" description="mostRecent Product Fields & Broker Data" tags={["Schema Update", "New Feature"]}>
+
 ### Record Counts
 
   * Business - 124,570,591
@@ -177,4 +188,5 @@ New mostRecent recent fields have been add in a request from many Datafiniti use
 
 * Updated 2 Product data sources and 4 Property data sources
 * Fixed a property bug that was importing isSale & statuses incorrectly
+
 </Update>
