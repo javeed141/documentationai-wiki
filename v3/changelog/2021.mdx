@@ -1,77 +1,40 @@
----
-title: "2021 Data Release Log"
-description: "Monthly data release notes and changelog for Datafiniti in 2021"
----
+# 2021 Data Release Log
 
-<Update label="March 2021" description="Property Data Focus" tags={["Schema Update"]}>
+<Update label="2021-01" description="Property Performance Improvements" tags={["schema changes", "new sources", "fixes"]}>
+  Property database under intense scrutiny for performance issues — this month focused on tweaking and improving that performance.
 
-### Record Counts
+  **Record Counts:** Business 119.4M (+0.6M) · People 3M (+0.5M) · Product 262.8M (+5.3M) · Property 166.7M (−6.7M)
 
-The following are the updated record counts for each vertical:
+  **New Sources:** 6 Product
 
-  * Business data decreased by 0.4 million to 117.8 million
-  * People data has remained at 3 million
-  * Product data increased by 4.2 million to 269.7 million
-  * Property data increased by 0.7 million to 117.7 million
+  **Schema Changes:**
+  - Removed Property fields `nearbySchools`, `hours`, `availableDates`, and `unavailableDates` due to outdated data or no longer carrying value for customers
 
-### New Sources
-
-The following data types have received new sources:
-
-  * 1 Property data source
-
-### Schema Changes
-
-  * Property data now has `yearBuilt` as a top level field, with the data being extracted from `features`
-
-### Fixes
-
-  * Prices data merging of merchants as been improved
-  * Updated 2 Product data sources and 4 Property data sources
-
+  **Fixes:**
+  - Removed miscellaneous features data to improve property cluster performance
+  - Updated 1 Business, 1 Product, 1 Property sources
 </Update>
 
-<Update label="February 2021" description="Property Data Source Removal" tags={["Data Source"]}>
+<Update label="2021-02" description="Major Property Data Removal" tags={["fixes"]}>
+  Dramatic impact on the property database — a significant portion was removed due to specific sources making changes. Looking at additional sources to supplement the loss going forward.
 
-### Record Counts
+  **Record Counts:** Business 118.2M (−1.2M) · People 3M (unchanged) · Product 265.5M (+2.7M) · Property 117M (−49.7M)
 
-The following are the updated record counts for each vertical:
-
-* Business data decreased by 1.2 million to 118.2 million
-* People data stayed the same at 3 million
-* Product data increased by 2.7 million to 265.5 million
-* Property data decreased by 49.7 million to 117 million
-
-### Fixes
-
-* Updated 2 Business data sources, 2 Product data sources, and 3 Property data sources
-
+  **Fixes:**
+  - Updated 2 Business, 2 Product, 3 Property sources
 </Update>
 
-<Update label="January 2021" description="Property Performance Improvements" tags={["Bug Fix"]}>
+<Update label="2021-03" description="Property Focus & Minor Updates" tags={["schema changes", "new sources", "fixes"]}>
+  Minor changes and updates with most focus on property data.
 
-### Record Counts
+  **Record Counts:** Business 117.8M (−0.4M) · People 3M (unchanged) · Product 269.7M (+4.2M) · Property 117.7M (+0.7M)
 
-The following are the updated record counts for each vertical:
+  **New Sources:** 1 Property
 
-* Business data increased by 0.6 million to 119.4 million
-* People data increase by 0.5 to 3 million
-* Product data increased by 5.3 million to 262.8 million
-* Property data decreased by 6.7 million to 166.7 million
+  **Schema Changes:**
+  - `yearBuilt` added as a top-level field in Property data, extracted from `features`
 
-### New Sources
-
-The following data types have received new sources:
-
-* 6 Product data sources
-
-### Schema Changes
-
-* Removed the following fields from the property data schema due to outdated data or no longer carried value for our customers: `nearbySchools`, `hours`, `availableDates`, and `unavailableDates`
-
-### Fixes
-
-* Removed data from miscellaneous features field to improve property cluster performance
-* Updated 1 Business data source, 1 Product data source, and 1 Property data source
-
+  **Fixes:**
+  - Improved prices data merging of merchants
+  - Updated 2 Product, 4 Property sources
 </Update>
