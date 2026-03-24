@@ -134,26 +134,6 @@ This new field will have the following sub-fields:
 
 ##### Example:
 
-```json
-{
-  "sourceURLsPerField": [
-    {
-      "field": "capRate",
-      "sourceURLs": [
-        "crexi.com/1234",
-        "loopnet.com/jdjkdf"
-      ]
-    },
-    {
-      "field": "netOperatingIncome",
-      "sourceURLs": [
-        "crexi.com/1234",
-        "loopnet.com/jdjkdf"
-      ]
-    }
-  ]
-}
-```
 
 How this works:
 Our process will populate sourceURLsPerField only when the record has more than a single sourceURL for the entire record, ensuring reliable attribution.
