@@ -12,7 +12,9 @@
       "Bash(ls changelog/*.mdx)",
       "Bash(xargs -I{} basename {} done)",
       "Bash(mkdir -p \"c:/Users/g/Music/javeed-changelog\")",
-      "Bash(cp -r \"c:/Users/g/Music/daffiniti-javeed-practice/documentationai-wiki/changelog/\"* \"c:/Users/g/Music/javeed-changelog/\")"
+      "Bash(cp -r \"c:/Users/g/Music/daffiniti-javeed-practice/documentationai-wiki/changelog/\"* \"c:/Users/g/Music/javeed-changelog/\")",
+      "Read(//c/Users/g/Music/daffiniti-javeed-practice/**)",
+      "Read(//c/Users/g/Music/javeed-changelog/**)"
     ],
     "additionalDirectories": [
       "c:\\Users\\g\\Music\\daffiniti-javeed-practice\\documentationai-wiki\\changelog",

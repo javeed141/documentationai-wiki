@@ -1,63 +1,83 @@
 # 2025 Data Release Log
 
-<Update label="2025-02" description="FSBO/FRBO Statuses & Company Fields" tags={["schema changes", "new sources", "feature"]}>
-  New property statuses, company-related schema fields, and portal improvements.
-
-  **New Property Statuses:**
-  - `For Rent By Owner` and `For Sale By Owner` — identify properties sold/rented directly by owners without a broker
-
-  **New Property Schema Fields (companies sub-fields):**
-  - `companies.dateSeen`, `companies.email`, `companies.equity`, `companies.equityPercent`, `companies.landline`, `companies.name`, `companies.phone`, `companies.title`
-
-  **New People Schema Field:**
-  - `people.landline` — Boolean indicating landline phone
-
-  **Source Updates:**
-  - Improved property and product data crawls for better coverage and daily updates
-  - County data: Lee County (FL), Dekalb County (GA), Hudson/Bergen/Middlesex counties (NJ)
-  - Updated Yellowpages, Homes.com, Zillow.com
-  - Added AJMadison.com
-
-  **Portal Improvements:**
-  - Keyword search for property data (feature keys, values, descriptions)
-  - "Download All" now downloads files sequentially to reduce browser clutter
-</Update>
-
-<Update label="2025-03" description="Parking Fields & People-Property Linking" tags={["schema changes", "feature"]}>
-  New parking data fields, people-property cross-reference key, and record-breaking data imports.
-
-  **Record Counts:** Property 284.2M (+27.4M new) · Business 135.3M (+1.1M new) · People 135.4M (+35.8M new) · Product 565.3M (+20.6M new)
-
-  **New Property Schema Fields:**
-  - `numGarageSpace` — garage-specific parking spaces (complements existing `numParkingSpaces`)
-
-  **New People Schema Field:**
-  - `propertyKeys` — generated key for cross-referencing with property search API
-
-  **Coming Soon:**
-  - Redesigned Datafiniti.co landing page
-  - Improved Autotrace — combine people and property data in a single API call with homeowner contact info
-</Update>
-
-<Update label="2025-06" description="People Keys & State Business Buildouts" tags={["schema changes", "new sources"]}>
-  New people_key sub-fields linking people/brokers to property records. Nationwide business data expansion from state government databases.
+<Update label="2025-11" description="Price Type Restructure & Legacy Deprecation" tags={["schema changes", "feature"]}>
+  Major restructure of property price fields with new `type` sub-field. Legacy field deprecation announced for January 2026.
 
   **Record Counts:** Property 284.2M (+27.4M) · Business 135.3M (+1.1M) · People 135.4M (+35.8M) · Product 565.3M (+20.6M)
 
-  **New Property Schema Fields:**
-  - `people.people_key` — link to homeowner contact info in people database
-  - `brokers.people_key` — link to broker license numbers, contacts, and listing history
-  - `brokers.firstName`, `brokers.lastName` — improved broker name search reliability
+  **New Price Structure:**
+  - New `type` sub-field in prices: `Sale List`, `Sold`, or `Rental List`
+  - Replaces `isSale` and `isSold` — **deprecated January 31, 2026**
 
-  **New People Schema Fields:**
-  - `propertyKeys`, `propertiesOwned`, `propertiesRepresented` — filter homeowners and brokers by associated properties
+  **New Descriptive Price Fields:**
+  - `mostRecentSaleListPriceAmount` & `mostRecentSaleListPriceDate`
+  - `mostRecentRentalListPriceAmount` & `mostRecentRentalListPriceDate`
+  - `mostRecentSoldPriceAmount` & `mostRecentSoldPriceDate`
 
-  **New Business Data Sources (state government):**
-  - New York (data.ny.gov), Connecticut (data.ct.gov)
+  **Migration Notes:**
+  - Existing records being updated to new `price.type` structure over next month
+  - Backward compatibility available via custom views — contact Customer Success Manager
+  - Legacy fields `isSale`, `isSold`, `mostRecentPriceAmount` fully deprecated by Jan 31, 2026
+
+  **Portal Changes:**
+  - "Renew date" added to billing subscription page showing exact plan renewal date
+  - County autocomplete added to property data filters
 
   **Coming Soon:**
-  - New business identifier fields (`business_id`, `entity_id`, etc.)
-  - Improved download speed and reliability
+  - Business-Property autotrace for cross-referencing business and property data
+  - Product pricing field for first price seen
+</Update>
+
+<Update label="2025-10" description="County Expansion & Portal Autocomplete" tags={["new sources", "feature"]}>
+  New county sources across 5 states. Portal autocomplete for county searches.
+
+  **New County Sources:**
+  - California: Fresno County, Sonoma County
+  - Indiana: Lake County
+  - Iowa: Polk County
+  - Nevada: Washoe County
+  - New Jersey: Camden County
+
+  **Portal Updates:**
+  - County autocomplete added to every county text box for faster, error-free data entry
+
+  **Coming Soon:**
+  - Business-Property autotrace — cross-reference business data fields to equivalent property records (similar to People-Property autotrace)
+  - Product data: new pricing field for first price seen, enabling price change tracking and market analysis
+</Update>
+
+<Update label="2025-09" description="34 Commercial Fields & Source Attribution" tags={["schema changes", "new sources"]}>
+  34 new commercial property top-level fields promoted from features. New source URL attribution per field.
+
+  **34 New Commercial Property Fields:**
+  - `brandTenant`, `brokerCoop`, `buildingClass`, `dateOnMarket`, `daysOnMarket`, `effectiveGrossIncome`, `grossRentalIncome`, `groundLease`, `investmentSubtype`, `investmentType`, `leaseType`, `majorTenants`, `netRentable`, `netOperatingIncome`, `numBuildings`, `numProperties`, `numTenants`, `occupancy`, `operatingExpenses`, `otherIncome`, `ownership`, `proFormaNOI`, `rentableSquareFeet`, `rentBumps`, `saleCondition`, `saleType`, `sourceURLsPerField`, `subtype`, `tenancy`, `tenantCredit`, `totalExpenses`, `vacancyLoss`, `virtualTour`, `yearRenovated`
+
+  **New Source Attribution Field:**
+  - `sourceURLsPerField` — array showing exactly which URLs populated each field (sub-fields: `field`, `sourceURLs`). Populated only when a record has multiple source URLs.
+
+  **New Business Data Sources (state government):**
+  - Alabama (arc-sos.state.al.us), Arizona (ecorp.azcc.gov)
+</Update>
+
+<Update label="2025-08" description="Rental Status Separation & Listing Price Fields" tags={["schema changes", "new sources"]}>
+  Major rental status tracking improvement. New listing price fields for People. New state business source.
+
+  **Property Data — Rental Status Separation:**
+  - New top-level `rentalStatuses` field
+  - New fields: `mostRecentRentalStatus`, `mostRecentRentalStatusDate`, `mostRecentRentalStatusFirstDateSeen`
+  - Separates rental indicators from broader listing data for clearer analysis
+
+  **New County Coverage:**
+  - Dane County, Wisconsin
+
+  **New People Schema Fields:**
+  - `minListingPrice`, `maxListingPrice` — understand an individual's property price range for lead scoring and targeting
+
+  **New Business Data Source:**
+  - Rhode Island — business.sos.ri.gov (official Secretary of State registry)
+
+  **Coming Soon:**
+  - Commercial property top-level fields: Net Operating Income, Tenant Mix, Occupancy Rates, Building Class, Investment Highlights, Virtual Tours, and more
 </Update>
 
 <Update label="2025-07" description="Broker Performance & Investment Fields" tags={["schema changes", "new sources"]}>
@@ -86,82 +106,62 @@
   - `investmentType`, `municipality`, `netOperatingIncome` for property data
 </Update>
 
-<Update label="2025-08" description="Rental Status Separation & Listing Price Fields" tags={["schema changes", "new sources"]}>
-  Major rental status tracking improvement. New listing price fields for People. New state business source.
-
-  **Property Data — Rental Status Separation:**
-  - New top-level `rentalStatuses` field
-  - New fields: `mostRecentRentalStatus`, `mostRecentRentalStatusDate`, `mostRecentRentalStatusFirstDateSeen`
-  - Separates rental indicators from broader listing data for clearer analysis
-
-  **New County Coverage:**
-  - Dane County, Wisconsin
-
-  **New People Schema Fields:**
-  - `minListingPrice`, `maxListingPrice` — understand an individual's property price range for lead scoring and targeting
-
-  **New Business Data Source:**
-  - Rhode Island — business.sos.ri.gov (official Secretary of State registry)
-
-  **Coming Soon:**
-  - Commercial property top-level fields: Net Operating Income, Tenant Mix, Occupancy Rates, Building Class, Investment Highlights, Virtual Tours, and more
-</Update>
-
-<Update label="2025-09" description="34 Commercial Fields & Source Attribution" tags={["schema changes", "new sources"]}>
-  34 new commercial property top-level fields promoted from features. New source URL attribution per field.
-
-  **34 New Commercial Property Fields:**
-  - `brandTenant`, `brokerCoop`, `buildingClass`, `dateOnMarket`, `daysOnMarket`, `effectiveGrossIncome`, `grossRentalIncome`, `groundLease`, `investmentSubtype`, `investmentType`, `leaseType`, `majorTenants`, `netRentable`, `netOperatingIncome`, `numBuildings`, `numProperties`, `numTenants`, `occupancy`, `operatingExpenses`, `otherIncome`, `ownership`, `proFormaNOI`, `rentableSquareFeet`, `rentBumps`, `saleCondition`, `saleType`, `sourceURLsPerField`, `subtype`, `tenancy`, `tenantCredit`, `totalExpenses`, `vacancyLoss`, `virtualTour`, `yearRenovated`
-
-  **New Source Attribution Field:**
-  - `sourceURLsPerField` — array showing exactly which URLs populated each field (sub-fields: `field`, `sourceURLs`). Populated only when a record has multiple source URLs.
-
-  **New Business Data Sources (state government):**
-  - Alabama (arc-sos.state.al.us), Arizona (ecorp.azcc.gov)
-</Update>
-
-<Update label="2025-10" description="County Expansion & Portal Autocomplete" tags={["new sources", "feature"]}>
-  New county sources across 5 states. Portal autocomplete for county searches.
-
-  **New County Sources:**
-  - California: Fresno County, Sonoma County
-  - Indiana: Lake County
-  - Iowa: Polk County
-  - Nevada: Washoe County
-  - New Jersey: Camden County
-
-  **Portal Updates:**
-  - County autocomplete added to every county text box for faster, error-free data entry
-
-  **Coming Soon:**
-  - Business-Property autotrace — cross-reference business data fields to equivalent property records (similar to People-Property autotrace)
-  - Product data: new pricing field for first price seen, enabling price change tracking and market analysis
-</Update>
-
-<Update label="2025-11" description="Price Type Restructure & Legacy Deprecation" tags={["schema changes", "feature"]}>
-  Major restructure of property price fields with new `type` sub-field. Legacy field deprecation announced for January 2026.
+<Update label="2025-06" description="People Keys & State Business Buildouts" tags={["schema changes", "new sources"]}>
+  New people_key sub-fields linking people/brokers to property records. Nationwide business data expansion from state government databases.
 
   **Record Counts:** Property 284.2M (+27.4M) · Business 135.3M (+1.1M) · People 135.4M (+35.8M) · Product 565.3M (+20.6M)
 
-  **New Price Structure:**
-  - New `type` sub-field in prices: `Sale List`, `Sold`, or `Rental List`
-  - Replaces `isSale` and `isSold` — **deprecated January 31, 2026**
+  **New Property Schema Fields:**
+  - `people.people_key` — link to homeowner contact info in people database
+  - `brokers.people_key` — link to broker license numbers, contacts, and listing history
+  - `brokers.firstName`, `brokers.lastName` — improved broker name search reliability
 
-  **New Descriptive Price Fields:**
-  - `mostRecentSaleListPriceAmount` & `mostRecentSaleListPriceDate`
-  - `mostRecentRentalListPriceAmount` & `mostRecentRentalListPriceDate`
-  - `mostRecentSoldPriceAmount` & `mostRecentSoldPriceDate`
+  **New People Schema Fields:**
+  - `propertyKeys`, `propertiesOwned`, `propertiesRepresented` — filter homeowners and brokers by associated properties
 
-  **Migration Notes:**
-  - Existing records being updated to new `price.type` structure over next month
-  - Backward compatibility available via custom views — contact Customer Success Manager
-  - Legacy fields `isSale`, `isSold`, `mostRecentPriceAmount` fully deprecated by Jan 31, 2026
-
-  **Portal Changes:**
-  - "Renew date" added to billing subscription page showing exact plan renewal date
-  - County autocomplete added to property data filters
+  **New Business Data Sources (state government):**
+  - New York (data.ny.gov), Connecticut (data.ct.gov)
 
   **Coming Soon:**
-  - Business-Property autotrace for cross-referencing business and property data
-  - Product pricing field for first price seen
+  - New business identifier fields (`business_id`, `entity_id`, etc.)
+  - Improved download speed and reliability
+</Update>
+
+<Update label="2025-03" description="Parking Fields & People-Property Linking" tags={["schema changes", "feature"]}>
+  New parking data fields, people-property cross-reference key, and record-breaking data imports.
+
+  **Record Counts:** Property 284.2M (+27.4M new) · Business 135.3M (+1.1M new) · People 135.4M (+35.8M new) · Product 565.3M (+20.6M new)
+
+  **New Property Schema Fields:**
+  - `numGarageSpace` — garage-specific parking spaces (complements existing `numParkingSpaces`)
+
+  **New People Schema Field:**
+  - `propertyKeys` — generated key for cross-referencing with property search API
+
+  **Coming Soon:**
+  - Redesigned Datafiniti.co landing page
+  - Improved Autotrace — combine people and property data in a single API call with homeowner contact info
+</Update>
+
+<Update label="2025-02" description="FSBO/FRBO Statuses & Company Fields" tags={["schema changes", "new sources", "feature"]}>
+  New property statuses, company-related schema fields, and portal improvements.
+
+  **New Property Statuses:**
+  - `For Rent By Owner` and `For Sale By Owner` — identify properties sold/rented directly by owners without a broker
+
+  **New Property Schema Fields (companies sub-fields):**
+  - `companies.dateSeen`, `companies.email`, `companies.equity`, `companies.equityPercent`, `companies.landline`, `companies.name`, `companies.phone`, `companies.title`
+
+  **New People Schema Field:**
+  - `people.landline` — Boolean indicating landline phone
+
+  **Source Updates:**
+  - Improved property and product data crawls for better coverage and daily updates
+  - County data: Lee County (FL), Dekalb County (GA), Hudson/Bergen/Middlesex counties (NJ)
+  - Updated Yellowpages, Homes.com, Zillow.com
+  - Added AJMadison.com
+
+  **Portal Improvements:**
+  - Keyword search for property data (feature keys, values, descriptions)
+  - "Download All" now downloads files sequentially to reduce browser clutter
 </Update>
