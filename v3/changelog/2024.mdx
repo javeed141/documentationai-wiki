@@ -1,93 +1,95 @@
 # 2024 Data Release Log
 
-<Update label="2024-02" description="DR8 — Data Quality & Address Fixes" tags={["fixes", "new sources"]}>
-  Datafiniti project release 8 is live, focused on data quality improvements and bug fixes.
+<Update label="November 2024" description="Autotrace Launch & County Expansion" tags={["New Feature"]}>
+### Autotrace — New Property & People Data Feature
 
-  **Record Counts:** Business 133.2M (+572K new) · People 30.3M (+13.3M new) · Product 526.9M (+7.9M new) · Property 232.1M (+10.5M new)
+Seamlessly combine People Data and Property Data in a single API call using the `auto_trace` parameter with a specialized property record view. [Learn more](https://docs.datafiniti.co/docs/autotrace).
 
-  **Property Data Quality Improvements:**
-  - Fixed address over-merging of brokers and people at specific building/rental unit addresses
-  - Standardized "Street" address prefixes across all data
-  - Most recent broker emails and phone numbers now accurately reflected
+### Newly Added County Assessor Data
 
-  **Property Bug Fixes:**
-  - Resolved commercial properties merging with unrelated property records
-  - Normalized city name "Saint Louis" to "St. Louis"
+- **Florida** — Lee County
+- **Georgia** — Dekalb County
+- **New Jersey** — Hudson County, Bergen County, Middlesex County
 
-  **Property Source Updates:**
-  - Updated Redfin, Kobo, Crexi, Zumper, Jefferson County tax records, Cityfeet, ForRent, Loopnet, Weichert, Showcase, Rightmove.co.uk
+### Improved APN / Parcel Number Data
 
-  **Product Source Updates:**
-  - Updated Bloomingdales, Target.com, Saksoff5th, Wayfair
+Updated how APN/Parcel numbers are imported. Users can now query the `parcelNumbers` field directly with greater accuracy, including a new `year` subfield for date filtering.
+
+### New People Data Portal Design
+
+Updated people data portal design matching the property data page format — auto search names, easy-to-use filters, and one-click common searches.
 </Update>
 
-<Update label="2024-04" description="County Assessor Expansion & Status Fix" tags={["new sources", "fixes"]}>
-  Significant data expansion across all categories. New county assessor data added. Critical delisted status bug fixed.
+<Update label="September 2024" description="Realtor License Types & Portal Search" tags={["New Feature"]}>
+### Newly Added Realtor License Types
 
-  **Record Counts:** Business 133.8M (+1.1M new) · People 34.3M (+7.3M new) · Product 532.8M (+13.8M new) · Property 242.5M (+21M new)
+Query and identify realtor information based on state realty licenses:
 
-  **New County Assessor Data:**
-  - Clark County, Nevada · Cook County, Illinois · Savills County, California · Philadelphia County, Pennsylvania
-  - Provides homeowner info, tax information, and building/property type codes for analytics
+- Delaware (DERED), Illinois (IDFPR), Vermont (VTREC), Wyoming (WYREC), Virginia (VADPOR)
+- New Jersey (NJDOBI), Hawaii (HDCCA), Oregon (OREA), Maryland (MDMREC), Wisconsin (WIDSPS)
 
-  **Bug Fixes:**
-  - Fixed residential delisted properties incorrectly showing as "For Sale" — small edge case from data source, all records corrected as of March 12th
+### Portal Improvements
+
+- **Keyword Search** — New keyword search functionality added to property data filter list. Search via feature key, feature value, or descriptions.
+- **Sequential Downloads** — "Download All" button now downloads one file at a time to reduce browser clutter.
 </Update>
 
-<Update label="2024-07" description="1M+ New Properties, License Types & Rental Field" tags={["schema changes", "new sources", "fixes", "feature"]}>
-  Over 1 million new properties from brand-new sources. Realtor license querying for 13 states. Streamlined sign-up. New rental price field.
+<Update label="July 2024" description="1M+ New Properties & Rental Price Field" tags={["New Feature", "Schema Change"]}>
+### Newly Added: Our Largest Property Data Sources
 
-  **Record Counts:** Business 133.8M (+1.1M new) · People 34.3M (+7.3M new) · Product 532.8M (+13.8M new) · Property 242.5M (+21M new)
+Multiple brand-new property data sources added, resulting in over 1 million new properties for greater coverage of daily market trends, changes, and analytical data.
 
-  **New Property Sources:**
-  - Multiple brand-new sources adding 1M+ properties for greater market trend and analytics coverage
+### Newly Added Realtor License Types
 
-  **New Realtor License Types (13 states):**
-  - Connecticut (CTREC), Florida (FREC), Kentucky (KREAB), Louisiana (LREC), Utah (UTRED), Oklahoma (OREC), New York (NYDOS), Arkansas (AREC), Nevada (NVRED), Kansas (KREC), Ohio (ODREPL), West Virginia (WVREC), Maine (MEREC)
+- Connecticut (CTREC), Florida (FREC), Kentucky (KREAB), Louisiana (LREC), Utah (UTRED)
+- Oklahoma (OREC), New York (NYDOS), Arkansas (AREC), Nevada (NVRED), Kansas (KREC)
+- Ohio (ODREPL), West Virginia (WVREC), Maine (MEREC)
 
-  **Schema Changes:**
-  - Added `mostRecentRentalPriceAmount` — separates rental prices from other status prices for easy access
+### New Property Data Field: `mostRecentRentalPriceAmount`
 
-  **Portal Updates:**
-  - Streamlined sign-up page with free, monthly, or annual plan selection
+Separates all most recent rental prices from other status prices. Streamlines the process of parsing through the prices field for rental prices.
 
-  **Bug Fixes:**
-  - Added more resources to handle larger daily volume of rental data for more consistent and reliable imports
+### New Datafiniti Sign Up Page
 
-  **Coming Soon:**
-  - Autotrace property searches — combine People and Property data in one API call
+Streamlined sign-up process allowing selection of free, monthly, or annual plans.
+
+### Bug Fixes
+
+Added more resources to handle larger daily volume of rental data for more consistent and reliable imports.
 </Update>
 
-<Update label="2024-09" description="10 More License Types & Portal Search" tags={["new sources", "feature"]}>
-  Realtor license querying expanded to 10 more states. Portal gets keyword search and improved downloads.
+<Update label="April 2024" description="County Assessor Expansion" tags={["New Feature", "Bug Fix"]}>
+### New Property Data Counties Added
 
-  **Record Counts:** Property 257.3M (+14.9M new) · Business 134.1M (+372K new) · People 43.5M (+9.2M new) · Product 541.9M (+9.1M new)
+Added county assessor data providing homeowner info, tax information, and building/property type codes:
 
-  **New Realtor License Types (10 states):**
-  - Delaware (DERED), Illinois (IDFPR), Vermont (VTREC), Wyoming (WYREC), Virginia (VADPOR), New Jersey (NJDOBI), Hawaii (HDCCA), Oregon (OREA), Maryland (MDMREC), Wisconsin (WIDSPS)
+- Clark County, Nevada
+- Cook County, Illinois
+- Savills County, California
+- Philadelphia County, Pennsylvania
 
-  **Portal Improvements:**
-  - Keyword search added to property data filter list — search by feature key, value, or description
-  - "Download All" button now downloads files sequentially to reduce browser clutter
+### Bug Fix: Residential Delisted Status
 
-  **Coming Soon:**
-  - Autotrace — combine People and Property data via API and portal detailed view
+Corrected an issue where a small edge case of delisted statuses were importing as "For Sale". All records updated to the correct status as of March 12th.
 </Update>
 
-<Update label="2024-11" description="Autotrace Launch & County Expansion" tags={["schema changes", "new sources", "feature"]}>
-  Autotrace feature launched — combined People and Property data in one API call. New county assessor data. Improved parcel number querying. Redesigned People portal.
+<Update label="February 2024" description="DR8 — Data Quality Improvements" tags={["Bug Fix", "Data Quality"]}>
+### Property Data Quality Improvements
 
-  **Record Counts:** Property 277.2M · People 135M · Product 553.2M · Business 135M
+- **Address Over-merging** — Resolved over-merging of brokers and people at specific building/rental unit addresses
+- **Standardized Address Prefixes** — Standardized "Street" address prefixes across the board
+- **Most Recent Broker Data** — Brokers' email addresses and phone numbers now accurately reflected
 
-  **Autotrace — New Feature:**
-  - Seamlessly combine People and Property data in a single API call using the `auto_trace` parameter with a specialized property record view
+### Property Bug Fixes
 
-  **New County Assessor Data:**
-  - Florida: Lee County · Georgia: Dekalb County · New Jersey: Hudson, Bergen, Middlesex counties
+- **Commercial Property Merging** — Resolved commercial properties merging with unrelated property records
+- **City Name Normalization** — Normalized "Saint Louis" to "St. Louis"
 
-  **APN / Parcel Number Improvements:**
-  - Unified APN and parcel number import — users can query `parcelNumbers` field directly with greater accuracy, including a new `year` subfield for date filtering
+### Property Source Updates
 
-  **People Portal Redesign:**
-  - Updated design matching property data page format — auto search names, easy-to-use filters, and one-click common searches
+Updated Redfin, Kobo, Crexi, Zumper, Jefferson County tax records, Cityfeet, ForRent, Loopnet, Weichert, Showcase, Rightmove.co.uk
+
+### Product Source Updates
+
+Updated Bloomingdales, Target.com, Saksoff5th, Wayfair
 </Update>
