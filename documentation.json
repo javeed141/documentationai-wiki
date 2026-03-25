@@ -1211,6 +1211,10 @@
               {
                 "title": "2019",
                 "path": "changelog/2019"
+              },
+              {
+                "title": "2017",
+                "path": "changelog/2019"
               }
             ]
           }
@@ -1656,42 +1660,6 @@
               {
                 "title": "2019",
                 "path": "v3/changelog/2019"
-              },
-              {
-                "title": "V4 API Launch",
-                "path": "v3/changelog/v4-is-here"
-              },
-              {
-                "title": "Expanded Query — Property Data",
-                "path": "v3/changelog/expanded-query-capabilities-and-accelerated-data-delivery-comes-to-property-data"
-              },
-              {
-                "title": "Business Reviews View",
-                "path": "v3/changelog/new-business-view-for-reviews"
-              },
-              {
-                "title": "Preview Call Limit Increase",
-                "path": "v3/changelog/increasing-of-records-returned-by-preview-calls"
-              },
-              {
-                "title": "Expanded Query — Business Data",
-                "path": "v3/changelog/expanded-query-capabilities-and-accelerated-data-delivery-comes-to-business-data"
-              },
-              {
-                "title": "New Price View & CSV Changes",
-                "path": "v3/changelog/new-view-for-prices-and-changes-to-csv-formats"
-              },
-              {
-                "title": "JSON Code Examples",
-                "path": "v3/changelog/new-json-code-examples-added"
-              },
-              {
-                "title": "Expanded Query & Delivery",
-                "path": "v3/changelog/expanded-query-capabilities-and-accelerated-data-delivery"
-              },
-              {
-                "title": "Welcome to Datafiniti API",
-                "path": "v3/changelog/welcome-to-datafiniti-api"
               }
             ]
           }
