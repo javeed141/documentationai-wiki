@@ -1,140 +1,183 @@
 # 2020 Data Release Log
 
-<Update label="2020-12" description="Holiday Maintenance" tags={["new sources", "fixes"]}>
-  Holiday season — minor updates with main focus on Product data.
+<Update label="December 2020" description="Holiday Maintenance" tags={["Data Update"]}>
+### Product Focus
 
-  **Record Counts:** Business 118.8M (−0.4M) · People 2.5M (unchanged) · Product 257.5M (+4.1M) · Property 160M (+1.1M)
+Holiday season — minor updates with main focus on Product data.
 
-  **New Sources:** 5 Product
+### New Sources
 
-  **Fixes:**
-  - Updated 4 Product sources
+- 5 Product data sources
+
+### Source Updates
+
+Updated 4 Product sources.
 </Update>
 
-<Update label="2020-11" description="New People Fields & Product Sources" tags={["schema changes", "new sources", "fixes"]}>
-  New People data fields available and many new Product sources added.
+<Update label="November 2020" description="New People Fields & Product Sources" tags={["New Feature", "Schema Change"]}>
+### New People Schema Fields
 
-  **Record Counts:** Business 119.2M (unchanged) · People 2.5M (unchanged) · Product 253.4M (+8.1M) · Property 158.9M (−0.2M)
+Added new fields to coincide with new data being stored:
+- `gender`, `birthDate`, `birthYear`, `personalEmails`, `primaryEmail`, `professionalEmails`, `interests`, `jobSkills`
 
-  **New Sources:** 8 Product
+### New Feature: `features.replace`
 
-  **Schema Changes:**
-  - Added People fields: `gender`, `birthDate`, `birthYear`, `personalEmails`, `primaryEmail`, `professionalEmails`, `interests`, and `jobSkills`
-  - Added `features.replace` flag to indicate a value will be replaced on update instead of appended
+New flag to indicate a particular value will be replaced when updated instead of appended with the newest data.
 
-  **Fixes:**
-  - Updated 2 Product, 2 Property sources
+### New Sources
+
+- 8 Product data sources
+
+### Source Updates
+
+Updated 2 Product, 2 Property sources.
 </Update>
 
-<Update label="2020-10" description="Product Classification Complete & New People Provider" tags={["new sources", "fixes", "completed"]}>
-  Product database has been classified entirely. New provider added for People data. Cleaned up lingering data issues to improve Business merging.
+<Update label="October 2020" description="Product Classification Complete" tags={["New Feature", "Data Update"]}>
+### Product Database Fully Classified
 
-  **Record Counts:** Business 119.2M (−6.5M) · People 2.5M (−11.3M) · Product 245.3M (+12.5M) · Property 159.1M (+8.4M)
+The entire Product database has been classified with our custom taxonomy.
 
-  **New Sources:** 1 People · 3 Product
+### New People Data Provider
 
-  **Fixes:**
-  - Cleaned business keys and improved merging logic
-  - Cleaned Product brands field to remove generic phrases
-  - Updated 4 Product, 4 Property sources
+New provider added for People data. Cleaned up lingering data issues to improve Business merging.
+
+### New Sources
+
+- 1 People data source
+- 3 Product data sources
+
+### Fixes
+
+- Cleaned business keys and improved merging logic
+- Cleaned Product brands field to remove generic phrases
+- Updated 4 Product, 4 Property sources
 </Update>
 
-<Update label="2020-09" description="Product Taxonomy Classification Underway" tags={["new sources", "fixes"]}>
-  Product database classification with custom taxonomy underway to help customers query exact records.
+<Update label="September 2020" description="Product Taxonomy Classification Underway" tags={["Data Update"]}>
+### Product Classification
 
-  **Record Counts:** Business 125.7M (+17.4M) · People 13.8M (unchanged) · Product 232.8M (+14.5M) · Property 150.7M (+4.2M)
+Product database classification with custom taxonomy underway to help customers query exact records.
 
-  **New Sources:** 2 Property
+### New Sources
 
-  **Fixes:**
-  - Updated 1 Business, 2 Product, 2 Property sources
+- 2 Property data sources
+
+### Source Updates
+
+Updated 1 Business, 2 Product, 2 Property sources.
 </Update>
 
-<Update label="2020-08" description="Minor Updates" tags={["new sources", "fixes"]}>
-  Only minor updates and improvements this month.
+<Update label="August 2020" description="Minor Updates" tags={["Data Update"]}>
+### New Sources
 
-  **Record Counts:** Business 108.3M (−2.8M) · People 13.8M (unchanged) · Product 218.3M (+4.8M) · Property 146.5M (+4.1M)
+- 1 Business data source
+- 2 Product data sources
+- 1 Property data source
 
-  **New Sources:** 1 Business · 2 Product · 1 Property
+### Source Updates
 
-  **Fixes:**
-  - Updated 1 Product, 2 Property sources
+Updated 1 Product, 2 Property sources.
 </Update>
 
-<Update label="2020-07" description="New Pipelines & Classification Live" tags={["schema changes", "new sources", "fixes"]}>
-  Major infrastructure changes after a short release log absence. New pipelines established for consistent data improvements. Classification now operating. Address and URL normalization running consistently.
+<Update label="July 2020" description="New Pipelines & Classification Live" tags={["New Feature", "Schema Change"]}>
+### New Pipelines
 
-  **Record Counts:** Business 105.5M (−1.6M) · People 13.8M (+1.1M) · Product 213.5M (+28.3M) · Property 142.4M (+34.3M)
+Major infrastructure changes. New pipelines established for consistent data improvements. Classification now operating. Address and URL normalization running consistently.
 
-  **New Sources:** 1 Product · 3 Property
+### New Schema Fields
 
-  **Schema Changes:**
-  - `taxonomy` field is now live
-  - Taxonomy level fields added for more granular queries
-  - `domains` field now usable in lieu of `sourceURLs` for generic source queries
+- `taxonomy` field is now live
+- Taxonomy level fields added for more granular queries
+- `domains` field now usable in lieu of `sourceURLs` for generic source queries
 
-  **Fixes:**
-  - Removed improperly gathered CarGurus data
-  - Removed poorly collected VRBO data
-  - Fixed invalid address values in People data
-  - Updated 8 Business, 3 Product, 3 Property sources
+### New Sources
+
+- 1 Product data source
+- 3 Property data sources
+
+### Fixes
+
+- Removed improperly gathered CarGurus data
+- Removed poorly collected VRBO data
+- Fixed invalid address values in People data
+- Updated 8 Business, 3 Product, 3 Property sources
 </Update>
 
-<Update label="2020-04" description="Source Search Transition Begins" tags={["new sources", "fixes"]}>
-  Beginning transition to a new field for searching specific sources. Large increase across all data types.
+<Update label="April 2020" description="Source Search Transition" tags={["New Feature", "Bug Fix"]}>
+### Source Search Transition
 
-  **Record Counts:** Business 107.1M (+7.7M) · People 12.7M (+1M) · Product 185.2M (+16.4M) · Property 108.1M (+11.2M)
+Beginning transition to a new field for searching specific sources. Large increase across all data types.
 
-  **New Sources:** 1 Business · 4 Product
+### New Sources
 
-  **Fixes:**
-  - Removed large portion of Home Depot data due to merging issues — new data will replace problematic records
-  - Property type values consolidated
-  - People categories updated to reflect actual values instead of SIC codes
-  - Improved measurement unit normalization
-  - Updated 2 Product sources
+- 1 Business data source
+- 4 Product data sources
+
+### Fixes
+
+- Removed large portion of Home Depot data due to merging issues — new data will replace problematic records
+- Property type values consolidated
+- People categories updated to reflect actual values instead of SIC codes
+- Improved measurement unit normalization
+- Updated 2 Product sources
 </Update>
 
-<Update label="2020-03" description="Steady Growth" tags={["new sources"]}>
-  No fixes or major updates this month.
+<Update label="March 2020" description="Steady Growth" tags={["Data Update"]}>
+### Steady Growth Month
 
-  **Record Counts:** Business 99.4M (+1.7M) · People 11.7M (unchanged) · Product 168.8M (+12.5M) · Property 96.9M (+10.5M)
+No fixes or major updates. Continued data growth across all verticals.
 
-  **New Sources:** 3 Business · 4 Product · 2 Property
+### New Sources
 
-  **Fixes:**
-  - Updated 3 Product, 1 Property sources
+- 3 Business data sources
+- 4 Product data sources
+- 2 Property data sources
+
+### Source Updates
+
+Updated 3 Product, 1 Property sources.
 </Update>
 
-<Update label="2020-02" description="Erroneous Data Cleanup" tags={["schema changes", "new sources", "fixes"]}>
-  Large quantity of erroneous web-crawled data removed, mostly from one particular source.
+<Update label="February 2020" description="Erroneous Data Cleanup" tags={["Schema Change", "Bug Fix"]}>
+### Major Data Cleanup
 
-  **Record Counts:** Business 97.7M (+4.2M) · People 11.7M (unchanged) · Product 156.3M (−29.3M) · Property 86.4M (+15.6M)
+Removed large quantity of erroneous web-crawled data, mostly from one particular source. ~40 million Product (and some Business) records removed.
 
-  **New Sources:** 2 Business · 2 Product · 1 Property
+### Schema Changes
 
-  **Schema Changes:**
-  - `asins` field is now a single value
-  - Legacy fields `crawlResultFiles` and `automatedCollection` finally removed
-  - Additional `paymentTypes` and acceptable `hours` values added
+- `asins` field is now a single value
+- Legacy fields `crawlResultFiles` and `automatedCollection` finally removed
+- Additional `paymentTypes` and acceptable `hours` values added
 
-  **Fixes:**
-  - ~40 million Product (and some Business) records removed due to erroneous crawl data
-  - Postal code collection accuracy improved
-  - Updated 1 Business, 3 Product sources
+### New Sources
+
+- 2 Business data sources
+- 2 Product data sources
+- 1 Property data source
+
+### Fixes
+
+- Postal code collection accuracy improved
+- Updated 1 Business, 3 Product sources
 </Update>
 
-<Update label="2020-01" description="New Year Kickoff" tags={["new sources", "schema changes", "fixes"]}>
-  Few schema changes or major fixes. Hierarchical product data is being prepared with major changes coming soon.
+<Update label="January 2020" description="New Year Kickoff" tags={["New Feature", "Schema Change"]}>
+### New Hierarchical Product Data
 
-  **Record Counts:** Business 93.5M (+2.2M) · People 11.7M (+1M) · Product 185.6M (+3.4M) · Property 70.8M (+10.1M)
+Hierarchical product data in the process of being added with major changes coming soon.
 
-  **New Sources:** 3 Business · 2 Property
+### Schema Changes
 
-  **Schema Changes:**
-  - Added `secondaryCategories` field — new pipelines in-progress to populate it
+- Added `secondaryCategories` field — new pipelines in-progress to populate it
 
-  **Fixes:**
-  - Removed various SDS (safety data sheet) data from the `features` field
-  - Updated 3 Property, 1 Product sources
+### New Sources
+
+- 3 Business data sources
+- 2 Property data sources
+
+### Fixes
+
+- Removed various SDS (safety data sheet) data from the `features` field
+- Updated 3 Property, 1 Product sources
 </Update>

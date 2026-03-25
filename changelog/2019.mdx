@@ -1,109 +1,135 @@
 # 2019 Data Release Log
 
-<Update label="2019-12" description="Holiday Maintenance Release" tags={["new sources", "fixes"]}>
-  Light release month due to holiday season and ongoing projects.
+<Update label="December 2019" description="Holiday Maintenance Release" tags={["Data Update"]}>
+### Light Release Month
 
-  **Record Counts:** Business 91.3M (+2M) · People 10.7M (unchanged) · Product 182.2M (+9M) · Property 60.7M (+14.1M)
+Holiday season and ongoing projects — few changes this month.
 
-  **New Sources:** 4 Business
+### New Sources
 
-  **Fixes:**
-  - Removed rightmove.co.uk data due to data gathering app issue
-  - Changed all "Not For Sale" to "Off Market" and added "Pending" status for Property data
-  - Updated 3 Business, 1 Property, 2 Product sources
+- 4 Business data sources
+
+### Fixes
+
+- Removed rightmove.co.uk data due to data gathering app issue
+- Changed all "Not For Sale" to "Off Market" and added "Pending" status for Property data
+- Updated 3 Business, 1 Property, 2 Product sources
 </Update>
 
-<Update label="2019-11" description="Merging Logic Overhaul & Multi-Month Completions" tags={["schema changes", "new sources", "fixes", "completed"]}>
-  Completed many multi-month schema updates. Biggest change: overhauled key generation and merging logic across data sources.
+<Update label="November 2019" description="Merging Logic Overhaul" tags={["Schema Change", "Completed"]}>
+### Merging Logic Overhauled
 
-  **Record Counts:** Business 89.3M (−1.9M) · People 10.7M (unchanged) · Product 173.2M (+12.3M) · Property 36.9M (+9.8M)
+Merging logic now includes field weighting — certain fields override others if present, reducing unnecessary or invalid merging between sources.
 
-  **New Sources:** 2 Business · 1 Property
+### Multi-Month Schema Updates Completed
 
-  **Schema Changes:**
-  - Merging logic overhauled with field weighting — certain fields override others to reduce invalid merges
-  - **Completed:** `crawlResultFiles` → `crawlIDs` transition
-  - **Completed:** `geoLocation` for Business and Property data
-  - **Completed:** `dateSeen` single-value transition
-  - **Completed:** UPC/EAN/`gtins` field rollout
+- **Completed:** `crawlResultFiles` → `crawlIDs` transition
+- **Completed:** `geoLocation` for Business and Property data
+- **Completed:** `dateSeen` single-value transition
+- **Completed:** UPC/EAN/`gtins` field rollout
+- **Completed:** Bad seller ranking data removal from categories and features
 
-  **Fixes:**
-  - **Completed:** Bad seller ranking data removal from categories and features
-  - Fixed ASIN records to use lowercase key values
-  - Updated 4 Property, 2 Product, 1 Business sources
+### New Sources
+
+- 2 Business data sources
+- 1 Property data source
+
+### Fixes
+
+- Fixed ASIN records to use lowercase key values
+- Updated 4 Property, 2 Product, 1 Business sources
 </Update>
 
-<Update label="2019-10" description="Database Tooling Overhaul Begins" tags={["schema changes", "new sources", "fixes"]}>
-  Database change tooling overhaul began — future schema changes and fixes will roll out faster.
+<Update label="October 2019" description="Database Tooling Overhaul Begins" tags={["Schema Change", "New Feature"]}>
+### Database Tooling Overhaul
 
-  **Record Counts:** Business 91.2M (−1.1M) · People 10.7M (+1.2M) · Product 160.9M (+20M) · Property 36.9M (+2.1M)
+Database change tooling overhaul began — future schema changes and fixes will roll out faster.
 
-  **New Sources:** 4 Business
+### Schema Changes
 
-  **Schema Changes:**
-  - Added `naics` data to People data
-  - `mostRecentStatus` now source-dependent — individual domains provide status instead of us deriving it
-  - `gtins` check digit verification added to validate global product identifiers
-  - In-progress: `crawlResultFiles` → `crawlIDs`, `geoLocation`, `dateSeen`, UPC/EAN/`gtins` continue
+- Added `naics` data to People data
+- `mostRecentStatus` now source-dependent — individual domains provide status instead of deriving it
+- `gtins` check digit verification added to validate global product identifiers
+- In-progress: `crawlResultFiles` → `crawlIDs`, `geoLocation`, `dateSeen`, UPC/EAN/`gtins`
 
-  **Fixes:**
-  - Bad seller ranking data removal still in-progress
-  - Address normalization to USPS values ongoing
-  - `mostRecentStatusDate` now collected from sources instead of derived from crawl timestamps
-  - Updated 6 Property, 2 Product, 1 Business sources
+### New Sources
+
+- 4 Business data sources
+
+### Fixes
+
+- `mostRecentStatusDate` now collected from sources instead of derived from crawl timestamps
+- Address normalization to USPS values ongoing
+- Updated 6 Property, 2 Product, 1 Business sources
 </Update>
 
-<Update label="2019-09" description="Property Schema Updates" tags={["schema changes", "new sources", "fixes"]}>
-  Property schema updated to help customers know when the current status occurred.
+<Update label="September 2019" description="Property Schema Updates" tags={["Schema Change", "New Feature"]}>
+### New Property Fields
 
-  **Record Counts:** Business 92.3M (+2.2M) · People 9.5M (unchanged) · Product 140.9M (+11.6M) · Property 34.8M (+2.6M)
+- `mostRecentStatusDate` — Date a status took place
+- `statuses.date` — Nested field describing the date a status occurred
 
-  **New Sources:** 2 Business · 1 Product · 1 Property
+### Schema Updates
 
-  **Schema Changes:**
-  - Added `mostRecentStatusDate` and `statuses.date` to Property data for status date tracking
-  - `imageURLs` now retains only the most recent links per domain instead of compiling over time
-  - In-progress: `crawlResultFiles` → `crawlIDs` (Product remaining), `geoLocation`, `dateSeen`, UPC/EAN/`gtins` rollout
+- `imageURLs` now retains only the most recent links per domain instead of compiling over time
+- In-progress: `crawlResultFiles` → `crawlIDs` (Product remaining), `geoLocation`, `dateSeen`, UPC/EAN/`gtins`
 
-  **Fixes:**
-  - Bad seller ranking data removal still in-progress
-  - Began normalizing addresses to USPS standard values for better searching
-  - Updated 5 Business, 3 Property, 1 Product sources
+### New Sources
+
+- 2 Business data sources
+- 1 Product data source
+- 1 Property data source
+
+### Fixes
+
+- Began normalizing addresses to USPS standard values for better searching
+- Updated 5 Business, 3 Property, 1 Product sources
 </Update>
 
-<Update label="2019-08" description="Schema Revisions" tags={["schema changes", "new sources", "fixes"]}>
-  Focused on schema revisions and ensuring conversions ran smoothly.
+<Update label="August 2019" description="Schema Revisions" tags={["Schema Change", "New Feature"]}>
+### New Product Fields
 
-  **Record Counts:** Business 90.1M (+3.1M) · People 9.5M (+0.1M) · Product 129.3M (+5.2M) · Property 32.2M (+7.2M)
+Added `upca`, `upce`, `ean13`, `ean8`, and `gtins` for better product search. Original `upc` and `ean` fields supported until deprecated.
 
-  **New Sources:** 3 Business · 1 Product
+### Schema Updates
 
-  **Schema Changes:**
-  - Added Product fields `upca`, `upce`, `ean13`, `ean8`, and `gtins` for better product search. Original `upc` and `ean` fields supported until deprecated.
-  - `dateSeen` in nested JSON objects now set to single latest-date value (will be renamed to `dateUpdated`)
-  - Added `geoLocation` field to Business and Property data combining lat/long for future distance queries
+- `dateSeen` in nested JSON objects now set to single latest-date value (future rename to `dateUpdated`)
+- Added `geoLocation` field to Business and Property data combining latitude and longitude for future distance queries
+- Continuing transition from `crawlResultFiles` to `crawlIDs`
 
-  **Fixes:**
-  - Bad seller ranking data polluting categories and features — removal in-progress
-  - Removed "Details about" prefix appearing in Product name field
-  - Updated 1 Business, 4 Property, 2 Product sources
+### New Sources
+
+- 3 Business data sources
+- 1 Product data source
+
+### Fixes
+
+- Bad seller ranking data polluting categories and features — removal in-progress
+- Removed "Details about" prefix appearing in Product name field
+- Updated 1 Business, 4 Property, 2 Product sources
 </Update>
 
-<Update label="2019-07" description="Initial Release Log" tags={["new sources", "schema changes", "fixes"]}>
-  First release log to track record count updates, new sources, schema changes, and fixes.
+<Update label="July 2019" description="Initial Release Log" tags={["Announcement"]}>
+### First Data Release Log
 
-  **Record Counts:** Business 87M (+3.5M) · People 9.4M (+1.1M) · Product 124.1M (+1.1M) · Property 25M (+1.2M)
+Initial release log with the goal of tracking changes to the data — record count updates, new sources, schema changes, and fixes.
 
-  **New Sources:** 2 Business · 1 Property · 2 Product
+### Schema Changes
 
-  **Schema Changes:**
-  - Added `linkedinURL` to People data for LinkedIn profile URLs
-  - Added `primaryImageURLs` to Product data to track the main image per domain
-  - Began transition from `crawlResultFiles` to `crawlIDs`
+- Added `linkedinURL` to People data for LinkedIn profile URLs
+- Added `primaryImageURLs` to Product data to track the main image per domain
+- Began transition from `crawlResultFiles` to `crawlIDs`
 
-  **Fixes:**
-  - Property `dateUpdated` now only changes when new source data is received, not on any modification
-  - Removed spam URLs containing "doubleclick"
-  - Removed "citymediagrid" API redirects and replaced with actual data URLs where possible
-  - Updated 2 Property, 2 Product, 1 Business sources
+### New Sources
+
+- 2 Business data sources
+- 1 Property data source
+- 2 Product data sources
+
+### Fixes
+
+- Property `dateUpdated` now only changes when new source data is received, not on any modification
+- Removed spam URLs containing "doubleclick"
+- Removed "citymediagrid" API redirects and replaced with actual data URLs where possible
+- Updated 2 Property, 2 Product, 1 Business sources
 </Update>

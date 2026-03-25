@@ -1,40 +1,42 @@
 # 2021 Data Release Log
 
-<Update label="2021-03" description="Property Focus & Minor Updates" tags={["schema changes", "new sources", "fixes"]}>
-  Minor changes and updates with most focus on property data.
+<Update label="March 2021" description="Property Focus & Minor Updates" tags={["New Feature", "Schema Change"]}>
+### New Property Schema Field: `yearBuilt`
 
-  **Record Counts:** Business 117.8M (−0.4M) · People 3M (unchanged) · Product 269.7M (+4.2M) · Property 117.7M (+0.7M)
+`yearBuilt` added as a top-level field in Property data, extracted from `features`.
 
-  **New Sources:** 1 Property
+### New Sources
 
-  **Schema Changes:**
-  - `yearBuilt` added as a top-level field in Property data, extracted from `features`
+- 1 Property data source
 
-  **Fixes:**
-  - Improved prices data merging of merchants
-  - Updated 2 Product, 4 Property sources
+### Fixes
+
+- Improved prices data merging of merchants
+- Updated 2 Product, 4 Property sources
 </Update>
 
-<Update label="2021-02" description="Major Property Data Removal" tags={["fixes"]}>
-  Dramatic impact on the property database — a significant portion was removed due to specific sources making changes. Looking at additional sources to supplement the loss going forward.
+<Update label="February 2021" description="Major Property Data Removal" tags={["Data Update"]}>
+### Property Data Impact
 
-  **Record Counts:** Business 118.2M (−1.2M) · People 3M (unchanged) · Product 265.5M (+2.7M) · Property 117M (−49.7M)
+Dramatic impact on the property database — a significant portion (49.7 million records) was removed due to specific sources making changes. Looking at additional sources to supplement the loss going forward.
 
-  **Fixes:**
-  - Updated 2 Business, 2 Product, 3 Property sources
+### Source Updates
+
+Updated 2 Business, 2 Product, 3 Property sources.
 </Update>
 
-<Update label="2021-01" description="Property Performance Improvements" tags={["schema changes", "new sources", "fixes"]}>
-  Property database under intense scrutiny for performance issues — this month focused on tweaking and improving that performance.
+<Update label="January 2021" description="Property Performance Improvements" tags={["Schema Change", "Bug Fix"]}>
+### Property Schema Cleanup
 
-  **Record Counts:** Business 119.4M (+0.6M) · People 3M (+0.5M) · Product 262.8M (+5.3M) · Property 166.7M (−6.7M)
+Removed Property fields due to outdated data or no longer carrying value for customers:
+- `nearbySchools`, `hours`, `availableDates`, `unavailableDates`
 
-  **New Sources:** 6 Product
+### New Sources
 
-  **Schema Changes:**
-  - Removed Property fields `nearbySchools`, `hours`, `availableDates`, and `unavailableDates` due to outdated data or no longer carrying value for customers
+- 6 Product data sources
 
-  **Fixes:**
-  - Removed miscellaneous features data to improve property cluster performance
-  - Updated 1 Business, 1 Product, 1 Property sources
+### Fixes
+
+- Removed miscellaneous features data to improve property cluster performance
+- Updated 1 Business, 1 Product, 1 Property sources
 </Update>
