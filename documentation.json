@@ -1211,42 +1211,6 @@
               {
                 "title": "2019",
                 "path": "changelog/2019"
-              },
-              {
-                "title": "V4 API Launch",
-                "path": "changelog/v4-is-here"
-              },
-              {
-                "title": "Expanded Query — Property Data",
-                "path": "changelog/expanded-query-capabilities-and-accelerated-data-delivery-comes-to-property-data"
-              },
-              {
-                "title": "Business Reviews View",
-                "path": "changelog/new-business-view-for-reviews"
-              },
-              {
-                "title": "Preview Call Limit Increase",
-                "path": "changelog/increasing-of-records-returned-by-preview-calls"
-              },
-              {
-                "title": "Expanded Query — Business Data",
-                "path": "changelog/expanded-query-capabilities-and-accelerated-data-delivery-comes-to-business-data"
-              },
-              {
-                "title": "New Price View & CSV Changes",
-                "path": "changelog/new-view-for-prices-and-changes-to-csv-formats"
-              },
-              {
-                "title": "JSON Code Examples",
-                "path": "changelog/new-json-code-examples-added"
-              },
-              {
-                "title": "Expanded Query & Delivery",
-                "path": "changelog/expanded-query-capabilities-and-accelerated-data-delivery"
-              },
-              {
-                "title": "Welcome to Datafiniti API",
-                "path": "changelog/welcome-to-datafiniti-api"
               }
             ]
           }
@@ -1653,6 +1617,14 @@
             "tab": "Changelog",
             "icon": "clock",
             "pages": [
+              {
+                "title": "2018",
+                "path": "2018"
+              },
+              {
+                "title": "2017",
+                "path": "2017"
+              },
               {
                 "title": "2026",
                 "path": "v3/changelog/2026"
