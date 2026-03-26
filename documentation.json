@@ -1,6 +1,5 @@
 {
-  "name": "Datafiniti",
-  "initialRoute": "docs/api-introduction",
+  "name": "Datafiniti ",
   "logo-dark": "https://blob-cdn.documentation.ai/org-106f0b53-a64c-4d13-8896-0b7b7179be7b/doc-6c019e86-a563-4c8b-8133-7830bbe57f54/1770367405092-9ve0etdva3-datafiniti-logo-dark-4x.png?q=85&fm=auto&auto=compress%2Cformat",
   "logo-light": "https://blob-cdn.documentation.ai/org-106f0b53-a64c-4d13-8896-0b7b7179be7b/doc-6c019e86-a563-4c8b-8133-7830bbe57f54/1770367331794-khrnzcetmjo-datafiniti-logo-light-4x.png?q=85&fm=auto&auto=compress%2Cformat",
   "favicon": "https://blob-cdn.documentation.ai/org-106f0b53-a64c-4d13-8896-0b7b7179be7b/doc-6c019e86-a563-4c8b-8133-7830bbe57f54/1770366769050-hb3qlirc1e6-datafiniti-favicon.png?q=85&fm=auto&auto=compress%2Cformat",
@@ -38,15 +37,34 @@
         "icon": "badge",
         "tabs": [
           {
+            "tab": "Home",
+            "pages": [
+              {
+                "title": "Home",
+                "path": "home",
+                "show-sidebar": false,
+                "show-toc": false,
+                "show-parent-label": false,
+                "show-page-navigation": false,
+                "ask-feedback": false
+              },
+              {
+                "title": "Home 2",
+                "path": "home-2",
+                "show-sidebar": false,
+                "show-toc": false,
+                "show-parent-label": false,
+                "show-page-navigation": false,
+                "ask-feedback": false
+              }
+            ]
+          },
+          {
             "tab": "Guides",
             "groups": [
               {
                 "group": "Datafiniti API",
                 "pages": [
-                  {
-                    "title": "hello",
-                    "path": "hello"
-                  },
                   {
                     "group": "Introduction",
                     "pages": [
@@ -1174,51 +1192,11 @@
           },
           {
             "tab": "Changelog",
-            "icon": "clock",
             "pages": [
               {
                 "title": "Changelog",
-                "path": "changelog/index"
-              },
-              {
-                "title": "2026",
-                "path": "changelog/2026"
-              },
-              {
-                "title": "2025",
-                "path": "changelog/2025"
-              },
-              {
-                "title": "2024",
-                "path": "changelog/2024"
-              },
-              {
-                "title": "2023",
-                "path": "changelog/2023"
-              },
-              {
-                "title": "2022",
-                "path": "changelog/2022"
-              },
-              {
-                "title": "2021",
-                "path": "changelog/2021"
-              },
-              {
-                "title": "2020",
-                "path": "changelog/2020"
-              },
-              {
-                "title": "2019",
-                "path": "changelog/2019"
-              },
-              {
-                "title": "2018",
-                "path": "changelog/2018"
-              },
-              {
-                "title": "2017",
-                "path": "changelog/2017"
+                "path": "changelog/index",
+                "show-sidebar": false
               }
             ]
           }
@@ -1277,6 +1255,30 @@
                       {
                         "title": "Business Data with Web Browser and JSON",
                         "path": "v3/docs/business-data-with-web-browser-and-json"
+                      },
+                      {
+                        "title": "Business Data with Postman and JSON",
+                        "path": "v3/docs/business-data-with-postman-and-json"
+                      },
+                      {
+                        "title": "Business Data with cURL and JSON",
+                        "path": "v3/docs/business-data-with-curl-and-json"
+                      },
+                      {
+                        "title": "Business Data with PHP and JSON",
+                        "path": "v3/docs/business-data-with-php-and-json"
+                      },
+                      {
+                        "title": "Business Data with Node.js and JSON",
+                        "path": "v3/docs/business-data-with-nodejs-and-json"
+                      },
+                      {
+                        "title": "Business Data with Python and JSON",
+                        "path": "v3/docs/business-data-with-python-and-json"
+                      },
+                      {
+                        "title": "Business Data with Web Browser and CSV",
+                        "path": "v3/docs/business-data-with-web-browser-csv"
                       },
                       {
                         "title": "Business Data with Postman and JSON",
@@ -1623,51 +1625,10 @@
           },
           {
             "tab": "Changelog",
-            "icon": "clock",
             "pages": [
               {
                 "title": "Changelog",
-                "path": "changelog/index"
-              },
-              {
-                "title": "2026",
-                "path": "changelog/2026"
-              },
-              {
-                "title": "2025",
-                "path": "changelog/2025"
-              },
-              {
-                "title": "2024",
-                "path": "changelog/2024"
-              },
-              {
-                "title": "2023",
-                "path": "changelog/2023"
-              },
-              {
-                "title": "2022",
-                "path": "changelog/2022"
-              },
-              {
-                "title": "2021",
-                "path": "changelog/2021"
-              },
-              {
-                "title": "2020",
-                "path": "changelog/2020"
-              },
-              {
-                "title": "2019",
-                "path": "changelog/2019"
-              },
-              {
-                "title": "2018",
-                "path": "changelog/2018"
-              },
-              {
-                "title": "2017",
-                "path": "changelog/2017"
+                "path": "v3/changelog/index"
               }
             ]
           }
@@ -1678,5 +1639,6 @@
   "seo": {
     "robots:index": true,
     "robots:follow": true
-  }
+  },
+  "initialRoute": "home"
 }
