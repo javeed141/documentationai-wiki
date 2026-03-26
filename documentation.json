@@ -1663,56 +1663,52 @@
               }
             ]
           },
-          {
-            "tab": "Changelog",
-            "icon": "clock",
-            "pages": [
-              {
-                "title": "Changelog",
-                "path": "changelog/index"
-              },
-              {
-                "title": "2026",
-                "path": "changelog/2026"
-              },
-              {
-                "title": "2025",
-                "path": "changelog/2025"
-              },
-              {
-                "title": "2024",
-                "path": "changelog/2024"
-              },
-              {
-                "title": "2023",
-                "path": "changelog/2023"
-              },
-              {
-                "title": "2022",
-                "path": "changelog/2022"
-              },
-              {
-                "title": "2021",
-                "path": "changelog/2021"
-              },
-              {
-                "title": "2020",
-                "path": "changelog/2020"
-              },
-              {
-                "title": "2019",
-                "path": "changelog/2019"
-              },
-              {
-                "title": "2018",
-                "path": "changelog/2018"
-              },
-              {
-                "title": "2017",
-                "path": "changelog/2017"
-              }
-            ]
-          }
+         {
+  "tab": "Changelog",
+  "groups": [
+    {
+      "group": "Changelog",
+      "pages": [
+        {
+          "title": "Changelog",
+          "path": "v3/changelog/index"
+        },
+        {
+          "title": "2026",
+          "path": "v3/changelog/2026"
+        },
+        {
+          "title": "2025",
+          "path": "v3/changelog/2025"
+        },
+        {
+          "title": "2024",
+          "path": "v3/changelog/2024"
+        },
+        {
+          "title": "2023",
+          "path": "v3/changelog/2023"
+        },
+        {
+          "title": "2022",
+          "path": "v3/changelog/2022"
+        },
+        {
+          "title": "2021",
+          "path": "v3/changelog/2021"
+        },
+        {
+          "title": "2020",
+          "path": "v3/changelog/2020"
+        },
+        {
+          "title": "2019",
+          "path": "v3/changelog/2019"
+        }
+      ]
+    }
+  ]
+}
         ]
       }
     ]
